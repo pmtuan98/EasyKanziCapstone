@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/baseline_home_white_18dp" />
+    <item
+        android:id="@+id/search"
+        android:title="Search"
+        android:icon="@drawable/baseline_search_white_18dp" />
+    <item
+        android:id="@+id/ranking"
+        android:title="Ranking"
+        android:icon="@drawable/ranking_icon_home_page" />
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/baseline_perm_identity_white_18dp" />
+
+</menu>

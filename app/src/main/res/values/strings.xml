@@ -1,3 +1,25 @@
 <resources>
-    <string name="app_name">EasyKanzi</string>
+    <string name="app_name">iCapstone_kotlin</string>
+    <string name="logo_name">Easy Kanji</string>
+    <string name="slogan_name">We will help you to learn Kanji easier</string>
+    <string name="powered_by">Powered by Easy Kanji Team</string>
+
+
+    <!-- String for on Boarding Screen -->
+    <!-- Tittle -->
+    <string name="intro_slide_title"></string>
+    <string name="first_slide_title"></string>
+    <string name="second_slide_title"></string>
+    <string name="third_slide_title"></string>
+
+    <!-- Description -->
+    <string name="intro_slide_desc"></string>
+    <string name="first_slide_desc">You can learn in three different ways choose what works for you</string>
+    <string name="second_slide_desc">Quicky search Kanji by Hiragana and Sino-Vietnamese Reading</string>
+    <string name="third_slide_desc">Join the test to reach the first place</string>
+
+    <!-- Button -->
+    <string name="skip_btn">Skip</string>
+    <string name="next_btn">Next</string>
+    <string name="let_get_started">Get Started</string>
 </resources>
