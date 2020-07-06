@@ -1,5 +1,6 @@
 package com.illidant.easykanzicapstone
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -54,5 +55,9 @@ class HomeActivity : AppCompatActivity() {
         titleList.add("JPD131")
         titleList.add("JPD141")
         recycler_home!!.adapter = HomePageAdapter(imageList, titleList)
+    }
+
+    companion object {
+        fun getIntent(context: Context) = Intent(context, HomeActivity::class.java)
     }
 }
