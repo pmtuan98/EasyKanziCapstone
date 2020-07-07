@@ -1,19 +1,18 @@
-package com.illidant.easykanzicapstone.ui.screen.login
+package com.illidant.easykanzicapstone.ui.screen.signin
 
-import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.domain.model.User
-import com.illidant.easykanzicapstone.domain.request.LoginRequest
+import com.illidant.easykanzicapstone.domain.request.SigninRequest
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class LoginPresenter(
-    private val view: LoginContract.View,
+class SigninPresenter(
+    private val view: SigninContract.View,
     private val repository: UserRepositoryType
-) : LoginContract.Presenter {
+) : SigninContract.Presenter {
 
-    override fun login(request: LoginRequest) {
+    override fun login(request: SigninRequest) {
         repository.login(request).enqueue(object : Callback<User> {
 
             override fun onResponse(call: Call<User>, response: Response<User>) {

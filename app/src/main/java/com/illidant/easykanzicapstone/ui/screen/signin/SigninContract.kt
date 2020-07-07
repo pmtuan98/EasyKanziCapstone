@@ -1,9 +1,9 @@
-package com.illidant.easykanzicapstone.ui.screen.login
+package com.illidant.easykanzicapstone.ui.screen.signin
 
 import com.illidant.easykanzicapstone.domain.model.User
-import com.illidant.easykanzicapstone.domain.request.LoginRequest
+import com.illidant.easykanzicapstone.domain.request.SigninRequest
 
-interface LoginContract {
+interface SigninContract {
     interface View {
         fun onLoginSucceeded(user: User)
 
@@ -11,6 +11,6 @@ interface LoginContract {
     }
 
     interface Presenter {
-        fun login(request: LoginRequest)
+        fun login(request: SigninRequest)
     }
 }

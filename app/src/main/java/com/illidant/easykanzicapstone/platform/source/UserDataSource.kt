@@ -1,9 +1,9 @@
 package com.illidant.easykanzicapstone.platform.source
 
-import com.illidant.easykanzicapstone.domain.model.RegisterResponse
+import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.domain.model.User
-import com.illidant.easykanzicapstone.domain.request.LoginRequest
-import com.illidant.easykanzicapstone.domain.request.RegisterRequest
+import com.illidant.easykanzicapstone.domain.request.SigninRequest
+import com.illidant.easykanzicapstone.domain.request.SignupRequest
 import retrofit2.Call
 
 interface UserDataSource {
@@ -12,7 +12,7 @@ interface UserDataSource {
     }
 
     interface Remote {
-        fun login(request: LoginRequest): Call<User>
-        fun register(request: RegisterRequest) : Call<RegisterResponse>
+        fun login(request: SigninRequest): Call<User>
+        fun register(request: SignupRequest) : Call<SignupResponse>
     }
 }

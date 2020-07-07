@@ -8,7 +8,7 @@ import android.view.WindowManager
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.viewpager.widget.ViewPager
-import com.illidant.easykanzicapstone.ui.screen.signin.SignInActivity
+import com.illidant.easykanzicapstone.ui.screen.entry.EntryActivity
 import kotlinx.android.synthetic.main.activity_on_boarding.*
 
 class OnBoardingActivity : AppCompatActivity() {
@@ -56,7 +56,7 @@ class OnBoardingActivity : AppCompatActivity() {
 
         //Button get started
         get_started_btn.setOnClickListener {
-            val intent = SignInActivity.getIntent(this).apply {
+            val intent = EntryActivity.getIntent(this).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or
                     Intent.FLAG_ACTIVITY_CLEAR_TOP or
                     Intent.FLAG_ACTIVITY_CLEAR_TASK

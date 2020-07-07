@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">iCapstone_kotlin</string>
+    <string name="app_name">Easy Kanji</string>
     <string name="logo_name">Easy Kanji</string>
     <string name="slogan_name">We will help you to learn Kanji easier</string>
     <string name="powered_by">Powered by Easy Kanji Team</string>
@@ -19,19 +19,18 @@
     <string name="third_slide_desc">Join the test to reach the first place</string>
 
     <!-- Button -->
-    <string name="skip_btn">Skip</string>
-    <string name="next_btn">Next</string>
+    <string name="btn_skip">Skip</string>
+    <string name="btn_next">Next</string>
     <string name="let_get_started">Get Started</string>
-    <string name="btn_login_with_google">Login with google</string>
-    <string name="button_login">Login</string>
-    <string name="button_sign_in">Sign in</string>
-    <string name="button_sign_up">Sign up</string>
+    <string name="btn_signin_with_google">Sign in with google</string>
+    <string name="btnSignin">Sign in</string>
+    <string name="btnSignup">Sign up</string>
     <string name="text_email">Email</string>
     <string name="text_password">Password</string>
-    <string name="text_cf_password">Confrim password</string>
+    <string name="text_cf_password">Confirm password</string>
     <string name="text_divider">OR</string>
     <string name="text_forgot_password">Forgot password?</string>
     <string name="text_dont_have_an_account">Don\' have an account?</string>
-    <string name="text_register">Register</string>
-    <string name="button_login_with_facebook">Login with Facebook</string>
+    <string name="text_signup">Sign up</string>
+    <string name="btn_signin_with_facebook">Sign in with Facebook</string>
 </resources>

@@ -21,19 +21,29 @@ class RankingActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.home -> {
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
+                    finish()
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
+
                 }
                 R.id.search -> {
                     startActivity(Intent(applicationContext, SearchActivity::class.java))
+                    finish()
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
+
                 }
-                R.id.ranking -> return@OnNavigationItemSelectedListener true
+                R.id.ranking ->
+                {
+                    return@OnNavigationItemSelectedListener true
+                    finish()
+                }
                 R.id.profile -> {
                     startActivity(Intent(applicationContext, ProfileActivity::class.java))
+                    finish()
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
+
                 }
             }
             false

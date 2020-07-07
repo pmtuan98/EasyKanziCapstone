@@ -22,21 +22,31 @@ class HomeActivity : AppCompatActivity() {
         //Perform ItemSelectedListener
         bottom_navigation.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home -> return@OnNavigationItemSelectedListener true
+                R.id.home ->
+                {
+                    return@OnNavigationItemSelectedListener true
+                    finish()
+                }
                 R.id.search -> {
                     startActivity(Intent(applicationContext, SearchActivity::class.java))
+                    finish()
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
+
                 }
                 R.id.ranking -> {
                     startActivity(Intent(applicationContext, RankingActivity::class.java))
+                    finish()
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
+
                 }
                 R.id.profile -> {
                     startActivity(Intent(applicationContext, ProfileActivity::class.java))
+                    finish()
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
+
                 }
             }
             false

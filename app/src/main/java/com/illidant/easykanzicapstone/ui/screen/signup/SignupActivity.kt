@@ -1,38 +1,36 @@
-package com.illidant.easykanzicapstone.ui.screen.register
+package com.illidant.easykanzicapstone.ui.screen.signup
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.domain.request.RegisterRequest
+import com.illidant.easykanzicapstone.domain.request.SignupRequest
 import com.illidant.easykanzicapstone.extension.isNotEmptyAndBlank
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.UserRepository
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.login.LoginActivity
-import kotlinx.android.synthetic.main.activity_login.buttonBack
-import kotlinx.android.synthetic.main.activity_login.editEmail
-import kotlinx.android.synthetic.main.activity_login.editPassword
-import kotlinx.android.synthetic.main.activity_register.*
+import com.illidant.easykanzicapstone.ui.screen.signin.SigninActivity
+import kotlinx.android.synthetic.main.activity_signin.buttonBack
+import kotlinx.android.synthetic.main.activity_signin.editEmail
+import kotlinx.android.synthetic.main.activity_signin.editPassword
+import kotlinx.android.synthetic.main.activity_signup.*
 
-class RegisterActivity: AppCompatActivity(), RegisterContract.View {
+class SignupActivity: AppCompatActivity(), SignupContract.View {
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val local = UserLocalDataSource.getInstance(SharedPrefs(this))
         val remote = UserRemoteDataSource(retrofit)
         val repository = UserRepository(local, remote)
-        RegisterPresenter(this, repository)
+        SignupPresenter(this, repository)
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.activity_signup)
         configViews()
     }
 
@@ -63,7 +61,7 @@ class RegisterActivity: AppCompatActivity(), RegisterContract.View {
                 editConfirmPassword.setError("Not match password. Please re-enter")
                 editConfirmPassword.requestFocus()
             } else {
-                val request = RegisterRequest(username,password)
+                val request = SignupRequest(username,password)
                 presenter.register(request)
             }
         }
@@ -71,7 +69,7 @@ class RegisterActivity: AppCompatActivity(), RegisterContract.View {
 
 
     companion object {
-        fun getIntent(context: Context) = Intent(context, RegisterActivity::class.java)
+        fun getIntent(context: Context) = Intent(context, SignupActivity::class.java)
     }
 
     override fun onRegisterSucceeded(message: String) {
@@ -81,7 +79,7 @@ class RegisterActivity: AppCompatActivity(), RegisterContract.View {
         dialog.setCancelable(false)
         dialog.show()
         dialog.setConfirmClickListener {
-            val intoSignin = Intent(this, LoginActivity::class.java)
+            val intoSignin = Intent(this, SigninActivity::class.java)
             startActivity(intoSignin)
             finish()
         }

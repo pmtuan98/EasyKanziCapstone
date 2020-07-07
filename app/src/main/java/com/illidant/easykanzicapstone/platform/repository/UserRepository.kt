@@ -1,9 +1,9 @@
 package com.illidant.easykanzicapstone.platform.repository
 
-import com.illidant.easykanzicapstone.domain.model.RegisterResponse
+import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.domain.model.User
-import com.illidant.easykanzicapstone.domain.request.LoginRequest
-import com.illidant.easykanzicapstone.domain.request.RegisterRequest
+import com.illidant.easykanzicapstone.domain.request.SigninRequest
+import com.illidant.easykanzicapstone.domain.request.SignupRequest
 import com.illidant.easykanzicapstone.platform.source.UserDataSource
 import retrofit2.Call
 
@@ -16,6 +16,6 @@ class UserRepository(
 
     override fun saveToken(token: String) = local.saveToken(token)
 
-    override fun login(request: LoginRequest): Call<User> = remote.login(request)
-    override fun register(request: RegisterRequest): Call<RegisterResponse> = remote.register(request)
+    override fun login(request: SigninRequest): Call<User> = remote.login(request)
+    override fun register(request: SignupRequest): Call<SignupResponse> = remote.register(request)
 }

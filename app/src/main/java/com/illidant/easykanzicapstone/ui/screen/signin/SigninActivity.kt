@@ -1,38 +1,36 @@
-package com.illidant.easykanzicapstone.ui.screen.login
+package com.illidant.easykanzicapstone.ui.screen.signin
 
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.HomeActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.User
-import com.illidant.easykanzicapstone.domain.request.LoginRequest
+import com.illidant.easykanzicapstone.domain.request.SigninRequest
 import com.illidant.easykanzicapstone.extension.isNotEmptyAndBlank
-import com.illidant.easykanzicapstone.extension.toast
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.UserRepository
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSource
-import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_signin.*
 
-class LoginActivity : AppCompatActivity(), LoginContract.View {
+class SigninActivity : AppCompatActivity(), SigninContract.View {
 
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val local = UserLocalDataSource.getInstance(SharedPrefs(this))
         val remote = UserRemoteDataSource(retrofit)
         val repository = UserRepository(local, remote)
-        LoginPresenter(this, repository)
+        SigninPresenter(this, repository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_signin)
         configViews()
     }
 
@@ -55,7 +53,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
                 editPassword.setError("Password should be at least 6 character or more")
                 editPassword.requestFocus()
             } else {
-                val request = LoginRequest(username, password)
+                val request = SigninRequest(username, password)
                 presenter.login(request)
             }
 
@@ -85,6 +83,6 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     companion object {
-        fun getIntent(context: Context) = Intent(context, LoginActivity::class.java)
+        fun getIntent(context: Context) = Intent(context, SigninActivity::class.java)
     }
 }

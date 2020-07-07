@@ -1,4 +1,4 @@
-package com.illidant.easykanzicapstone.ui.screen.signin
+package com.illidant.easykanzicapstone.ui.screen.entry
 
 import android.content.Context
 import android.content.Intent
@@ -7,15 +7,15 @@ import android.os.Bundle
 import com.illidant.easykanzicapstone.HomeActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
-import com.illidant.easykanzicapstone.ui.screen.login.LoginActivity
-import com.illidant.easykanzicapstone.ui.screen.register.RegisterActivity
-import kotlinx.android.synthetic.main.activity_signin.*
+import com.illidant.easykanzicapstone.ui.screen.signin.SigninActivity
+import com.illidant.easykanzicapstone.ui.screen.signup.SignupActivity
+import kotlinx.android.synthetic.main.activity_entry.*
 
-class SignInActivity : AppCompatActivity() {
+class EntryActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_signin)
+        setContentView(R.layout.activity_entry)
 
         val prefs = SharedPrefs(this)
         if (!prefs.token.isNullOrBlank()) {
@@ -23,11 +23,11 @@ class SignInActivity : AppCompatActivity() {
         }
 
         buttonSignIn.setOnClickListener {
-            startActivity(LoginActivity.getIntent(this))
+            startActivity(SigninActivity.getIntent(this))
         }
 
         textRegister.setOnClickListener {
-            startActivity(RegisterActivity.getIntent(this))
+            startActivity(SignupActivity.getIntent(this))
         }
     }
 
@@ -42,6 +42,6 @@ class SignInActivity : AppCompatActivity() {
     }
 
     companion object {
-        fun getIntent(context: Context) = Intent(context, SignInActivity::class.java)
+        fun getIntent(context: Context) = Intent(context, EntryActivity::class.java)
     }
 }
