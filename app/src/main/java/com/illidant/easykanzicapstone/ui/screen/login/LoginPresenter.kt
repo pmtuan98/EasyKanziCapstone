@@ -21,6 +21,9 @@ class LoginPresenter(
                     repository.saveToken(it.getToken())
                     view.onLoginSucceeded(it)
                 }
+                response.errorBody()?.let {
+                    view.onLoginFailed(Throwable(it.toString()))
+                }
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {

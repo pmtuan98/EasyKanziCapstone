@@ -11,7 +11,7 @@
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="72dp"
+        android:layout_marginEnd="80dp"
         android:background="@drawable/ic_arrow_back"
         android:backgroundTint="@android:color/white"
         android:contentDescription="@null"
@@ -38,19 +38,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/horizontalGuildLine"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="219dp" />
+<!--    <androidx.constraintlayout.widget.Guideline-->
+<!--        android:id="@+id/horizontalGuildLine"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintGuide_percent="0.35430917" />-->
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutInputEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_8"
-        app:layout_constraintBottom_toTopOf="@id/horizontalGuildLine"
+        android:layout_margin="@dimen/dp_40"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCreateAccount">
@@ -68,10 +67,10 @@
         android:id="@+id/layoutInputPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_8"
+        android:layout_margin="@dimen/dp_40"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/horizontalGuildLine"
+        app:layout_constraintTop_toBottomOf="@+id/layoutInputEmail"
         app:layout_constraintVertical_chainStyle="packed">
 
         <EditText
@@ -87,13 +86,13 @@
         android:id="@+id/layoutConfirmInputPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_8"
+        android:layout_margin="@dimen/dp_40"
         android:layout_marginTop="60dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutInputPassword"
-        app:layout_constraintVertical_bias="0.087"
+        app:layout_constraintVertical_bias="0.0"
         app:layout_constraintVertical_chainStyle="packed">
 
         <EditText
@@ -109,7 +108,7 @@
         android:id="@+id/buttonSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_8"
+        android:layout_margin="@dimen/dp_40"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="500dp"
@@ -119,7 +118,9 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutConfirmInputPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/layoutConfirmInputPassword"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

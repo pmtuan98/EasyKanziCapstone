@@ -7,8 +7,8 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.domain.request.LoginRequest
 import com.illidant.easykanzicapstone.domain.request.RegisterRequest
 import com.illidant.easykanzicapstone.extension.isNotEmptyAndBlank
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -16,8 +16,7 @@ import com.illidant.easykanzicapstone.platform.repository.UserRepository
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.login.LoginPresenter
-import kotlinx.android.synthetic.main.activity_login.*
+import com.illidant.easykanzicapstone.ui.screen.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_login.buttonBack
 import kotlinx.android.synthetic.main.activity_login.editEmail
 import kotlinx.android.synthetic.main.activity_login.editPassword
@@ -36,13 +35,34 @@ class RegisterActivity: AppCompatActivity(), RegisterContract.View {
         setContentView(R.layout.activity_register)
         configViews()
     }
+
+
     private fun configViews() {
         buttonBack.setOnClickListener { finish() }
 
         buttonSignup.setOnClickListener {
             val username = editEmail.text.toString()
             val password = editPassword.text.toString()
-            if (username.isNotEmptyAndBlank() && password.isNotEmptyAndBlank()) {
+            val cf_password = editConfirmPassword.text.toString()
+            if (!username.isNotEmptyAndBlank()) {
+                editEmail.setError("Email is required")
+                editEmail.requestFocus()
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+                editEmail.setError("Enter a valid email")
+                editEmail.requestFocus()
+            } else if (!password.isNotEmptyAndBlank()) {
+                editPassword.setError("Password is required")
+                editPassword.requestFocus()
+            } else if(password.length < 6) {
+                editPassword.setError("Password should be at least 6 character or more")
+                editPassword.requestFocus()
+            }else if (!cf_password.isNotEmptyAndBlank()) {
+                editConfirmPassword.setError("Confirm password is required")
+                editConfirmPassword.requestFocus()
+            } else if (!cf_password.equals(password)) {
+                editConfirmPassword.setError("Not match password. Please re-enter")
+                editConfirmPassword.requestFocus()
+            } else {
                 val request = RegisterRequest(username,password)
                 presenter.register(request)
             }
@@ -55,11 +75,22 @@ class RegisterActivity: AppCompatActivity(), RegisterContract.View {
     }
 
     override fun onRegisterSucceeded(message: String) {
-        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
-        Log.e("onRegisterSucceeded", message)
+        //Display successfully dialog
+        val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+        dialog.titleText = "Sign up successfully !"
+        dialog.setCancelable(false)
+        dialog.show()
+        dialog.setConfirmClickListener {
+            val intoSignin = Intent(this, LoginActivity::class.java)
+            startActivity(intoSignin)
+            finish()
+        }
     }
 
     override fun onRegisterFailed(exception: Throwable) {
-        Log.e("onRegisterFailed", exception.toString())
+        //Display error dialog
+        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+        errDialog.contentText = "Email already exist, please try again !"
+        errDialog.show()
     }
 }

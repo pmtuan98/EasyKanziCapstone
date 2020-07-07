@@ -15,13 +15,17 @@ class RegisterPresenter (
 
     override fun register(request: RegisterRequest) {
         repository.register(request).enqueue(object : Callback<RegisterResponse>{
+
             override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
                 view.onRegisterFailed(t)
             }
 
             override fun onResponse(call: Call<RegisterResponse>, response: Response<RegisterResponse>) {
                 response.body()?.let {
-                    view.onRegisterSucceeded(it.message.toString())
+                    view.onRegisterSucceeded(it.message)
+                }
+                response.errorBody()?.let {
+                    view.onRegisterFailed(Throwable(it.toString()))
                 }
             }
 
