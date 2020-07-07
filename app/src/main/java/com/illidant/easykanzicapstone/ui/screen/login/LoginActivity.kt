@@ -3,6 +3,7 @@ package com.illidant.easykanzicapstone.ui.screen.login
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
@@ -41,10 +42,7 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
         buttonLogin.setOnClickListener {
             val username = editEmail.text.toString()
             val password = editPassword.text.toString()
-            if (username.isNotEmptyAndBlank() && password.isNotEmptyAndBlank()) {
-                val request = LoginRequest(username, password)
-                presenter.login(request)
-            } else if (!username.isNotEmptyAndBlank()) {
+           if (!username.isNotEmptyAndBlank()) {
                 editEmail.setError("Email is required")
                 editEmail.requestFocus()
             } else if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
@@ -56,6 +54,9 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
             } else if(password.length < 6) {
                 editPassword.setError("Password should be at least 6 character or more")
                 editPassword.requestFocus()
+            } else {
+                val request = LoginRequest(username, password)
+                presenter.login(request)
             }
 
         }
@@ -76,7 +77,11 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
     }
 
     override fun onLoginFailed(exception: Throwable) {
-        exception.localizedMessage?.let { toast(it) }
+        //Display error dialog
+        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+        errDialog.contentText = "Email or password is not correct !"
+        errDialog.show()
+        //exception.localizedMessage?.let { toast(it) }
     }
 
     companion object {
