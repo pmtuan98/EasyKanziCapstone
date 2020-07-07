@@ -3,7 +3,9 @@ package com.illidant.easykanzicapstone.ui.screen.login
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.HomeActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.User
@@ -43,10 +45,19 @@ class LoginActivity : AppCompatActivity(), LoginContract.View {
                 val request = LoginRequest(username, password)
                 presenter.login(request)
             } else if (!username.isNotEmptyAndBlank()) {
-                toast("Email is empty")
+                editEmail.setError("Email is required")
+                editEmail.requestFocus()
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+                editEmail.setError("Enter a valid email")
+                editEmail.requestFocus()
             } else if (!password.isNotEmptyAndBlank()) {
-                toast("Password is empty")
+                editPassword.setError("Password is required")
+                editPassword.requestFocus()
+            } else if(password.length < 6) {
+                editPassword.setError("Password should be at least 6 character or more")
+                editPassword.requestFocus()
             }
+
         }
     }
 

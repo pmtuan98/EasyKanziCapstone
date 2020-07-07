@@ -3,6 +3,7 @@ package com.illidant.easykanzicapstone.platform.api
 object ApiConstant {
     const val BASE_URL = "http://104.155.187.140:8081/api/"
     const val URL_LOGIN = "auth/signin"
+    const val URL_REGISTER = "auth/signup"
 
     const val HEADER_USERNAME = "username"
     const val HEADER_PASSWORD = "password"

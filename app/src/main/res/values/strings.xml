@@ -25,8 +25,10 @@
     <string name="btn_login_with_google">Login with google</string>
     <string name="button_login">Login</string>
     <string name="button_sign_in">Sign in</string>
+    <string name="button_sign_up">Sign up</string>
     <string name="text_email">Email</string>
     <string name="text_password">Password</string>
+    <string name="text_cf_password">Confrim password</string>
     <string name="text_divider">OR</string>
     <string name="text_forgot_password">Forgot password?</string>
     <string name="text_dont_have_an_account">Don\' have an account?</string>
