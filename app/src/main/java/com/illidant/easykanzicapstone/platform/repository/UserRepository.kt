@@ -16,6 +16,6 @@ class UserRepository(
 
     override fun saveToken(token: String) = local.saveToken(token)
 
-    override fun login(request: SigninRequest): Call<User> = remote.login(request)
-    override fun register(request: SignupRequest): Call<SignupResponse> = remote.register(request)
+    override fun signin(request: SigninRequest): Call<User> = remote.signin(request)
+    override fun signup(request: SignupRequest): Call<SignupResponse> = remote.signup(request)
 }

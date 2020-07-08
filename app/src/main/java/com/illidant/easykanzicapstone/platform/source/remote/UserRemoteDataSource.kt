@@ -12,6 +12,6 @@ class UserRemoteDataSource(
     private val apiService: ApiService
 ) : UserDataSource.Remote {
 
-    override fun login(request: SigninRequest): Call<User> = apiService.login(request)
-    override fun register(request: SignupRequest): Call<SignupResponse> = apiService.register(request)
+    override fun signin(request: SigninRequest): Call<User> = apiService.signin(request)
+    override fun signup(request: SignupRequest): Call<SignupResponse> = apiService.signup(request)
 }

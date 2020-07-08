@@ -9,7 +9,7 @@ import retrofit2.http.*
 
 interface ApiService {
     @POST(ApiConstant.URL_LOGIN)
-    fun login(@Body body: SigninRequest): Call<User>
+    fun signin(@Body body: SigninRequest): Call<User>
     @POST(ApiConstant.URL_REGISTER)
-    fun register(@Body body: SignupRequest): Call<SignupResponse>
+    fun signup(@Body body: SignupRequest): Call<SignupResponse>
 }

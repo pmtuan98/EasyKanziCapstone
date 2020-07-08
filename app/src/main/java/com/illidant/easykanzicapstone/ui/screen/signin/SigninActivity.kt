@@ -37,7 +37,7 @@ class SigninActivity : AppCompatActivity(), SigninContract.View {
     private fun configViews() {
         buttonBack.setOnClickListener { finish() }
 
-        buttonLogin.setOnClickListener {
+        buttonSignin.setOnClickListener {
             val username = editEmail.text.toString()
             val password = editPassword.text.toString()
            if (!username.isNotEmptyAndBlank()) {
@@ -54,7 +54,7 @@ class SigninActivity : AppCompatActivity(), SigninContract.View {
                 editPassword.requestFocus()
             } else {
                 val request = SigninRequest(username, password)
-                presenter.login(request)
+                presenter.signin(request)
             }
 
         }
@@ -70,11 +70,11 @@ class SigninActivity : AppCompatActivity(), SigninContract.View {
         finish()
     }
 
-    override fun onLoginSucceeded(user: User) {
+    override fun onSigninSucceeded(user: User) {
         navigateToHome()
     }
 
-    override fun onLoginFailed(exception: Throwable) {
+    override fun onSigninFailed(exception: Throwable) {
         //Display error dialog
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
         errDialog.contentText = "Email or password is not correct !"

@@ -13,19 +13,19 @@ class SignupPresenter (
 ) : SignupContract.Presenter {
 
 
-    override fun register(request: SignupRequest) {
-        repository.register(request).enqueue(object : Callback<SignupResponse>{
+    override fun signup(request: SignupRequest) {
+        repository.signup(request).enqueue(object : Callback<SignupResponse>{
 
             override fun onFailure(call: Call<SignupResponse>, t: Throwable) {
-                view.onRegisterFailed(t)
+                view.onSignupFailed(t)
             }
 
             override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
                 response.body()?.let {
-                    view.onRegisterSucceeded(it.message)
+                    view.onSignupSucceeded(it.message)
                 }
                 response.errorBody()?.let {
-                    view.onRegisterFailed(Throwable(it.toString()))
+                    view.onSignupFailed(Throwable(it.toString()))
                 }
             }
 

@@ -12,21 +12,21 @@ class SigninPresenter(
     private val repository: UserRepositoryType
 ) : SigninContract.Presenter {
 
-    override fun login(request: SigninRequest) {
-        repository.login(request).enqueue(object : Callback<User> {
+    override fun signin(request: SigninRequest) {
+        repository.signin(request).enqueue(object : Callback<User> {
 
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 response.body()?.let {
                     repository.saveToken(it.getToken())
-                    view.onLoginSucceeded(it)
+                    view.onSigninSucceeded(it)
                 }
                 response.errorBody()?.let {
-                    view.onLoginFailed(Throwable(it.toString()))
+                    view.onSigninFailed(Throwable(it.toString()))
                 }
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-                view.onLoginFailed(t)
+                view.onSigninFailed(t)
             }
         })
     }

@@ -24,7 +24,7 @@
         tools:src="@drawable/ic_arrow_back" />
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonSignin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
@@ -90,7 +90,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonGoogleSignIn"
         app:layout_constraintEnd_toStartOf="@id/dividerRight"
         app:layout_constraintStart_toEndOf="@id/dividerLeft"
-        app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignin" />
 
     <View
         android:id="@+id/dividerRight"
@@ -104,7 +104,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonGoogleSignIn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/dividerText"
-        app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignin" />
 
     <View
         android:id="@+id/dividerLeft"
@@ -117,7 +117,7 @@
         app:layout_constraintBottom_toTopOf="@id/buttonGoogleSignIn"
         app:layout_constraintEnd_toStartOf="@id/dividerText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonSignin" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontalGuildLine"

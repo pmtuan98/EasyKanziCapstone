@@ -5,12 +5,12 @@ import com.illidant.easykanzicapstone.domain.request.SigninRequest
 
 interface SigninContract {
     interface View {
-        fun onLoginSucceeded(user: User)
+        fun onSigninSucceeded(user: User)
 
-        fun onLoginFailed(exception: Throwable)
+        fun onSigninFailed(exception: Throwable)
     }
 
     interface Presenter {
-        fun login(request: SigninRequest)
+        fun signin(request: SigninRequest)
     }
 }

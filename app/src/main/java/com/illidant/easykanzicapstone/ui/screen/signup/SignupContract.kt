@@ -4,12 +4,12 @@ import com.illidant.easykanzicapstone.domain.request.SignupRequest
 
 interface SignupContract {
     interface View {
-        fun onRegisterSucceeded(message: String)
+        fun onSignupSucceeded(message: String)
 
-        fun onRegisterFailed(exception: Throwable)
+        fun onSignupFailed(exception: Throwable)
     }
 
     interface Presenter {
-        fun register(request: SignupRequest)
+        fun signup(request: SignupRequest)
     }
 }

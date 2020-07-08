@@ -62,7 +62,7 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
                 editConfirmPassword.requestFocus()
             } else {
                 val request = SignupRequest(username,password)
-                presenter.register(request)
+                presenter.signup(request)
             }
         }
     }
@@ -72,7 +72,7 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
         fun getIntent(context: Context) = Intent(context, SignupActivity::class.java)
     }
 
-    override fun onRegisterSucceeded(message: String) {
+    override fun onSignupSucceeded(message: String) {
         //Display successfully dialog
         val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
         dialog.titleText = "Sign up successfully !"
@@ -85,7 +85,7 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
         }
     }
 
-    override fun onRegisterFailed(exception: Throwable) {
+    override fun onSignupFailed(exception: Throwable) {
         //Display error dialog
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
         errDialog.contentText = "Email already exist, please try again !"

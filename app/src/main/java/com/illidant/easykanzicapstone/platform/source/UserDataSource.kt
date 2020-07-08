@@ -12,7 +12,7 @@ interface UserDataSource {
     }
 
     interface Remote {
-        fun login(request: SigninRequest): Call<User>
-        fun register(request: SignupRequest) : Call<SignupResponse>
+        fun signin(request: SigninRequest): Call<User>
+        fun signup(request: SignupRequest) : Call<SignupResponse>
     }
 }
