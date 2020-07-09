@@ -1,5 +1,6 @@
 package com.illidant.easykanzicapstone.ui.screen.signin
 
+import android.util.Log
 import com.illidant.easykanzicapstone.domain.model.User
 import com.illidant.easykanzicapstone.domain.request.SigninRequest
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType
@@ -17,6 +18,7 @@ class SigninPresenter(
 
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 response.body()?.let {
+                    Log.d("SigninPresenter",it.toString())
                     repository.saveToken(it.getToken())
                     view.onSigninSucceeded(it)
                 }

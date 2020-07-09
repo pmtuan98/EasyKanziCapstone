@@ -4,6 +4,7 @@ object ApiConstant {
     const val BASE_URL = "http://104.155.187.140:8081/api/"
     const val URL_LOGIN = "auth/signin"
     const val URL_REGISTER = "auth/signup"
+    const val URL_LEVELS = "v1/levels"
 
     const val HEADER_USERNAME = "username"
     const val HEADER_PASSWORD = "password"

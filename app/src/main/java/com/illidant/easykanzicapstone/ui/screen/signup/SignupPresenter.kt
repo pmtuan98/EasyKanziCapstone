@@ -1,5 +1,6 @@
 package com.illidant.easykanzicapstone.ui.screen.signup
 
+import android.util.Log
 import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.domain.request.SignupRequest
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType
@@ -22,9 +23,11 @@ class SignupPresenter (
 
             override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
                 response.body()?.let {
+                    Log.d("SignupPresenter",it.message)
                     view.onSignupSucceeded(it.message)
                 }
                 response.errorBody()?.let {
+                    Log.d("SignupPresenter",it.toString())
                     view.onSignupFailed(Throwable(it.toString()))
                 }
             }
