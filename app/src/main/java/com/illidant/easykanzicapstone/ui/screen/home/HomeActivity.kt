@@ -1,4 +1,4 @@
-package com.illidant.easykanzicapstone
+package com.illidant.easykanzicapstone.ui.screen.home
 
 import android.content.Context
 import android.content.Intent
@@ -6,18 +6,33 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.illidant.easykanzicapstone.*
+import com.illidant.easykanzicapstone.domain.request.LevelRequest
+import com.illidant.easykanzicapstone.platform.api.RetrofitService
+import com.illidant.easykanzicapstone.platform.repository.LevelRepository
+import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
+import com.illidant.easykanzicapstone.platform.source.remote.LevelRemoteDataSource
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity() {
     var imageList: ArrayList<Int> = ArrayList()
     var titleList: ArrayList<String> = ArrayList()
+
+    private val presenter by lazy {
+        val retrofit = RetrofitService.getInstance(application).getService()
+        val remote = LevelRemoteDataSource(retrofit)
+        val repository = LevelRepository(remote)
+        //HomePresenter(this, repository)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
         initialize()
 
         //set home selected
-        bottom_navigation.selectedItemId = R.id.home
+        bottom_navigation.selectedItemId =
+            R.id.home
 
         //Perform ItemSelectedListener
         bottom_navigation.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -64,8 +79,13 @@ class HomeActivity : AppCompatActivity() {
         titleList.add("JPD121")
         titleList.add("JPD131")
         titleList.add("JPD141")
-        recycler_home!!.adapter = HomePageAdapter(imageList, titleList)
+        recycler_home!!.adapter =
+            HomePageAdapter(
+                imageList,
+                titleList
+            )
     }
+
 
     companion object {
         fun getIntent(context: Context) = Intent(context, HomeActivity::class.java)

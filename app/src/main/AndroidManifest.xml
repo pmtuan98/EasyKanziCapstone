@@ -17,7 +17,7 @@
         <activity android:name=".RankingActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".OnBoardingActivity" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".ui.screen.home.HomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

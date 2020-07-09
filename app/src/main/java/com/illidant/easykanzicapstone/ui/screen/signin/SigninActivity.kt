@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
-import com.illidant.easykanzicapstone.HomeActivity
+import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.User
 import com.illidant.easykanzicapstone.domain.request.SigninRequest

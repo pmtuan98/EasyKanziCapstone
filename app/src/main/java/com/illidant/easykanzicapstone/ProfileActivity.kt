@@ -6,6 +6,7 @@ import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.ui.screen.entry.EntryActivity
+import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity() {
