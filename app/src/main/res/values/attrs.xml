@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StrokeOrderAnimatedView">
+        <attr name="autoRun" format="boolean"/>
+        <attr name="animate" format="boolean"/>
+
+        <attr name="strokeColor" format="color"/>
+        <attr name="fingerColor" format="color"/>
+        <attr name="strokeLightColor" format="color"/>
+        <attr name="strokeHighlightColor" format="color"/>
+
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="fingerRadius" format="dimension"/>
+    </declare-styleable>
+</resources>
