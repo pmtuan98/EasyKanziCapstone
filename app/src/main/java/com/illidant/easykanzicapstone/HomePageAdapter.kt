@@ -1,6 +1,5 @@
 package com.illidant.easykanzicapstone
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +8,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.domain.model.Level
-import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
-import com.illidant.easykanzicapstone.ui.screen.kanji.LevelScreenActivity
-import java.util.*
 
 
 class HomePageAdapter : RecyclerView.Adapter<HomePageAdapter.HomePageView>{
