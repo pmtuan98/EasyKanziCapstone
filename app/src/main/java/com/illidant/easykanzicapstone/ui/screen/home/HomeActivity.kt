@@ -97,6 +97,6 @@ class HomeActivity : AppCompatActivity(),HomeContract.View {
     override fun onDataComplete(levels: List<Level>) {
         Log.d("HomeActivity",levels.size.toString())
         recycler_home!!.adapter =
-            HomePageAdapter(levels)
+            HomePageAdapter(this,levels)
     }
 }
