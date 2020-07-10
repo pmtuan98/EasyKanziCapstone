@@ -25,6 +25,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.screen.kanji.LevelScreenActivity">
+
+        </activity>
+        <activity android:name=".ui.screen.kanji.KanjiDetailActivity" />
         <activity android:name=".ui.screen.entry.EntryActivity" />
         <activity android:name=".ui.screen.signin.SigninActivity" />
         <activity android:name=".ui.screen.signup.SignupActivity"/>
