@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardview_id"
+    android:clickable="true"
+    android:layout_width="110dp"
+    android:layout_height="150dp"
+    android:layout_margin="2dp"
+    app:cardCornerRadius="5dp"
+    tools:context=".ui.screen.kanji.LevelScreenActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/chu_han_text"
+            android:layout_width="85dp"
+            android:layout_height="100dp"
+            android:text="本"
+            android:textSize="85sp"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:id="@+id/am_han_title_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Am han Viet"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="#2d2d2d" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
