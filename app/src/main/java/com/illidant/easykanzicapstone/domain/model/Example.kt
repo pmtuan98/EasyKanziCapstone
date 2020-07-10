@@ -1,7 +1,12 @@
-package com.sun.basic_japanese.data.model
+package com.illidant.easykanzicapstone.domain.model
+
+import com.google.gson.annotations.SerializedName
 
 data class Example(
+    @SerializedName("kanji")
     val kanji: String,
-    val kana: String,
+    @SerializedName("hira")
+    val hira: String,
+    @SerializedName("vn")
     val vn: String
 )

@@ -1,4 +1,4 @@
-package com.sun.basic_japanese.util
+package com.illidant.easykanzicapstone.util
 
 object Constants {
     const val SCHEME_HTTP = "http"

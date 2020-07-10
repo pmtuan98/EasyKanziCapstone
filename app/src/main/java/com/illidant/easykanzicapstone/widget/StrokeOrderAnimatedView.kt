@@ -1,4 +1,4 @@
-package com.sun.basic_japanese.widget
+package com.illidant.easykanzicapstone.widget
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
@@ -8,8 +8,8 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
-import com.sun.basic_japanese.R
-import com.sun.basic_japanese.util.SVGFileHelper
+import com.illidant.easykanzicapstone.R
+import com.illidant.easykanzicapstone.util.SVGFileHelper
 import java.io.File
 import java.io.InputStream
 import java.util.*

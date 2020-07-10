@@ -1,4 +1,4 @@
-package com.sun.basic_japanese.base
+package com.illidant.easykanzicapstone.base
 
 interface FragmentInteractionListener {
     fun setToolbarTitle(title: String)

@@ -33,4 +33,13 @@
     <string name="text_dont_have_an_account">Don\' have an account?</string>
     <string name="text_signup">Sign up</string>
     <string name="btn_signin_with_facebook">Sign in with Facebook</string>
+
+<!--    Kanji Detail-->
+    <string name="title_kanji_detail_remember">Ghi nhớ</string>
+    <string name="title_kanji_detail_china_mean">Âm hán</string>
+    <string name="title_kanji_detail_viet_mean">Nghĩa</string>
+    <string name="title_kanji_detail_onjomi">Onyomi</string>
+    <string name="title_kanji_detail_kunjomi">Kunyoomi</string>
+    <string name="title_kanji_detail_example">Ví dụ</string>
+    <string name="title_kanji_basic">Kanji cơ bản</string>
 </resources>

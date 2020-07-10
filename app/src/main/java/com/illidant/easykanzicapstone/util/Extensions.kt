@@ -1,4 +1,4 @@
-package com.sun.basic_japanese.util
+package com.illidant.easykanzicapstone.util
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -8,9 +8,8 @@ import android.util.Base64
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import com.sun.basic_japanese.R
-import com.sun.basic_japanese.data.model.DataRequest
-import com.sun.basic_japanese.data.model.Example
+import com.illidant.easykanzicapstone.R
+import com.illidant.easykanzicapstone.domain.model.Example
 import java.io.*
 import java.net.HttpURLConnection
 import java.net.URL
@@ -39,20 +38,20 @@ object Extensions {
         }.toString()
     }
 
-    fun String.parseImage(): String = this.let {
-        try {
-            val imageUrl = DataRequest(
-                Constants.SCHEME_HTTP,
-                Constants.AUTHORITY_MINNA_MAZIL,
-                listOf(Constants.PATH_IMAGE, Constants.PATH_IKANJI, "$it.jpg")
-            ).toUrl()
-            val connection = URL(imageUrl).openConnection()
-            val inputStream = connection.getInputStream()
-            Base64.encodeToString(inputStream.readBytes(), Base64.DEFAULT)
-        } catch (e: IOException) {
-            Constants.EMPTY_STRING
-        }
-    }
+//    fun String.parseImage(): String = this.let {
+//        try {
+//            val imageUrl = DataRequest(
+//                Constants.SCHEME_HTTP,
+//                Constants.AUTHORITY_MINNA_MAZIL,
+//                listOf(Constants.PATH_IMAGE, Constants.PATH_IKANJI, "$it.jpg")
+//            ).toUrl()
+//            val connection = URL(imageUrl).openConnection()
+//            val inputStream = connection.getInputStream()
+//            Base64.encodeToString(inputStream.readBytes(), Base64.DEFAULT)
+//        } catch (e: IOException) {
+//            Constants.EMPTY_STRING
+//        }
+//    }
 
     fun MutableList<Example>.parseExamples(input: String) = this.apply {
         val examplesString = input.split(Constants.CHARACTER_SPLIT_1)

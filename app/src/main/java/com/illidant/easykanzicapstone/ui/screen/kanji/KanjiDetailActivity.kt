@@ -1,4 +1,4 @@
-package com.illidant.easykanzicapstone.ui.screen
+package com.illidant.easykanzicapstone.ui.screen.kanji
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

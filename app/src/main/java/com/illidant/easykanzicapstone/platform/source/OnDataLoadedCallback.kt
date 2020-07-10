@@ -1,4 +1,4 @@
-package com.sun.basic_japanese.data.source
+package com.illidant.easykanzicapstone.platform.source
 
 interface OnDataLoadedCallback<T> {
     fun onSuccess(data: T)

@@ -1,4 +1,4 @@
-package com.sun.basic_japanese.util
+package com.illidant.easykanzicapstone.util
 
 import android.graphics.Path
 import java.util.regex.Pattern

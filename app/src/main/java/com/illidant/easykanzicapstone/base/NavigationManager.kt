@@ -1,9 +1,10 @@
-package com.sun.basic_japanese.base
+package com.illidant.easykanzicapstone.base
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentTransaction
-import com.sun.basic_japanese.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
+import com.illidant.easykanzicapstone.R
+
 
 class NavigationManager(
     private val fragmentManager: FragmentManager,

@@ -11,6 +11,6 @@ interface HomeContract {
     }
 
     interface Presenter {
-        fun getLevelDate()
+        fun getLevelData()
     }
 }

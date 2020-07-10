@@ -1,7 +1,8 @@
-package com.sun.basic_japanese.base
+package com.illidant.easykanzicapstone.base
 
-import android.support.v7.widget.RecyclerView
+
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
 open class BaseViewHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private var itemData: T? = null
