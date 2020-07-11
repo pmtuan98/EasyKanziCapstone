@@ -8,8 +8,7 @@ import retrofit2.Call
 interface LevelRepositoryType : LevelDataSource.Local,LevelDataSource.Remote
 
 class LevelRepository(
-    private val remote: LevelDataSource.Remote
-): LevelRepositoryType
+    private val remote: LevelDataSource.Remote): LevelRepositoryType
 {
     override fun getLevelData(): Call<List<Level>> = remote.getLevelData()
 }

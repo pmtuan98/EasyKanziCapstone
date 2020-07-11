@@ -11,19 +11,14 @@ import com.illidant.easykanzicapstone.*
 import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.LevelRepository
-import com.illidant.easykanzicapstone.platform.repository.UserRepository
-import com.illidant.easykanzicapstone.platform.source.LevelDataSource
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.LevelRemoteDataSource
-import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.signin.SigninPresenter
 
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(),HomeContract.View {
-    var imageList: ArrayList<Int> = ArrayList()
-    var titleList: ArrayList<String> = ArrayList()
+
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val local = UserLocalDataSource.getInstance(SharedPrefs(this))
@@ -37,14 +32,12 @@ class HomeActivity : AppCompatActivity(),HomeContract.View {
         initialize()
 
         //set home selected
-        bottom_navigation.selectedItemId =
-            R.id.home
+        bottom_navigation.selectedItemId = R.id.home
 
         //Perform ItemSelectedListener
         bottom_navigation.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.home ->
-                {
+                R.id.home -> {
                     return@OnNavigationItemSelectedListener true
                     finish()
                 }
@@ -62,12 +55,12 @@ class HomeActivity : AppCompatActivity(),HomeContract.View {
                     return@OnNavigationItemSelectedListener true
 
                 }
+
                 R.id.profile -> {
                     startActivity(Intent(applicationContext, ProfileActivity::class.java))
                     finish()
                     overridePendingTransition(0, 0)
                     return@OnNavigationItemSelectedListener true
-
                 }
             }
             false
@@ -75,19 +68,8 @@ class HomeActivity : AppCompatActivity(),HomeContract.View {
     }
 
     private fun initialize() {
-        val gridLayoutManager = GridLayoutManager(this, 2)
-        recycler_home!!.layoutManager = gridLayoutManager
-        presenter.getLevelDate()
-//        imageList.add(R.drawable.jpd111)
-//        imageList.add(R.drawable.jpd121)
-//        imageList.add(R.drawable.jpd131)
-//        imageList.add(R.drawable.jpd141)
-//        titleList.add("JPD111")
-//        titleList.add("JPD121")
-//        titleList.add("JPD131")
-//        titleList.add("JPD141")
-//        recycler_home!!.adapter =
-//            HomePageAdapter(imageList, titleList)
+        recycler_home!!.layoutManager = GridLayoutManager(this, 2)
+        presenter.getLevelData()
     }
 
     companion object {
@@ -95,8 +77,6 @@ class HomeActivity : AppCompatActivity(),HomeContract.View {
     }
 
     override fun onDataComplete(levels: List<Level>) {
-        Log.d("HomeActivity",levels.size.toString())
-        recycler_home!!.adapter =
-            HomePageAdapter(this,levels)
+        recycler_home!!.adapter = HomeAdapter(this, levels)
     }
 }

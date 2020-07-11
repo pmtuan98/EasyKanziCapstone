@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screen.kanji.KanjiList">
+    tools:context=".ui.screen.kanji.KanjiLevelActivity">
 
     <TextView
         android:id="@+id/textView_1"
@@ -20,37 +20,29 @@
         android:id="@+id/btn_learn"
         android:layout_width="90dp"
         android:layout_height="40dp"
-        android:text="LEARN"
-        android:textSize="20dp"
-        android:background="@drawable/ripple_effect_button"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/textView_1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"/>
+        android:background="@drawable/ripple_effect_button"
+        android:text="LEARN"
+        android:textSize="20dp" />
 
     <Button
         android:id="@+id/btn_test"
         android:layout_width="90dp"
         android:layout_height="40dp"
-        android:text="TEST"
-        android:textSize="20dp"
-        android:background="@drawable/ripple_effect_button"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/btn_learn"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="10dp" />
-    <TextView
-        android:id="@+id/textView_2"
-        android:layout_width="130dp"
-        android:layout_height="27dp"
-        android:text="Kanji List"
-        android:textSize="20dp"
-        android:layout_below="@+id/textView_1"
-        android:layout_marginLeft="10dp"/>
+        android:background="@drawable/ripple_effect_button"
+        android:text="TEST"
+        android:textSize="20dp" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview_id"
+        android:id="@+id/recycler_level"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/textView_2"
+        android:layout_below="@+id/textView_1"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="50dp"/>
     <include

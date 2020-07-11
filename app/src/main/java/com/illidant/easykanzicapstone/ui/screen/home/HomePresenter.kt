@@ -12,15 +12,13 @@ import retrofit2.Response
 
 class HomePresenter(
     private val view: HomeContract.View,
-    private val repository: LevelRepository
-): HomeContract.Presenter
+    private val repository: LevelRepository): HomeContract.Presenter
 {
-    override fun getLevelDate(){
+    override fun getLevelData(){
         repository.getLevelData().enqueue(object : Callback<List<Level>> {
             override fun onResponse(call: Call<List<Level>>, response: Response<List<Level>>) {
                 response.body()?.let { view.onDataComplete(it) }
             }
-
             override fun onFailure(call: Call<List<Level>>, t: Throwable) {
                 TODO("Not yet implemented")
             }

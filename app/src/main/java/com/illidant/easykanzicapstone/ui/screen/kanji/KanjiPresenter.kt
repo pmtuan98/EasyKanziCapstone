@@ -9,14 +9,13 @@ import retrofit2.Response
 
 class KanjiPresenter(
     private val view: KanjiContract.View,
-    private val repository: KanjiRepository
-): KanjiContract.Presenter {
+    private val repository: KanjiRepository): KanjiContract.Presenter {
     override fun kanjiRequest(id: Int) {
         repository.kanjiLessonRequest(id).enqueue(object : Callback<List<Kanji>>{
             override fun onResponse(call: Call<List<Kanji>>, response: Response<List<Kanji>>) {
-//                response.body()?.let { view.fillKanji(it) }
+               response.body()?.let { view.fillKanji(it) }
                 for (list in response.body()!!) {
-                    Log.d("Kanji","Data: ${list.onyomi}")
+                    Log.d("Kanji","Data: ${list}")
                 }
             }
 

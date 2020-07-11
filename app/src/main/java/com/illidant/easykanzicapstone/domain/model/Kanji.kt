@@ -6,9 +6,9 @@ data class Kanji(
     @SerializedName("id")
     val id: Int,
     @SerializedName("kanji")
-    val name: String,
+    val kanji: String,
     @SerializedName("sino_vietnamese")
-    val image: String,
+    val sino_vietnamese: String,
     @SerializedName("meaning")
     val meaning: String,
     @SerializedName("onyomi")
