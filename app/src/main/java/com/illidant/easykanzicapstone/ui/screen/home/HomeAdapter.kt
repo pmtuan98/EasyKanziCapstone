@@ -1,22 +1,27 @@
-package com.illidant.easykanzicapstone
+package com.illidant.easykanzicapstone.ui.screen.home
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
+import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Level
+import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiLevelActivity
+import kotlinx.android.synthetic.main.row_homepage.view.*
 
 
-class HomePageAdapter : RecyclerView.Adapter<HomePageAdapter.HomePageView>{
+class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
     var levelList: List<Level>? = null
+    var context: Context
 
-    constructor(leveList: List<Level>){
+    constructor(context: Context,leveList: List<Level>){
         this.levelList = leveList
+        this.context = context
     }
-    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): HomePageAdapter.HomePageView {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): HomePageView {
         val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.row_homepage, viewGroup, false)
         return HomePageView(view)
     }
@@ -25,7 +30,7 @@ class HomePageAdapter : RecyclerView.Adapter<HomePageAdapter.HomePageView>{
         homePageView.imageHomePage.setImageResource(R.drawable.jpd121)
         homePageView.textTitle.text = levelList?.get(position)?.name
         homePageView.imageHomePage.setOnClickListener {
-            Toast.makeText(it.context,"Click on ${homePageView.textTitle.text }",Toast.LENGTH_LONG).show()
+            context.startActivity(KanjiLevelActivity.getIntent(context))
         }
     }
 
@@ -33,14 +38,13 @@ class HomePageAdapter : RecyclerView.Adapter<HomePageAdapter.HomePageView>{
         return levelList!!.size
     }
 
-    class HomePageView(itemView: View) :
-        RecyclerView.ViewHolder(itemView) {
+    class HomePageView(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imageHomePage: ImageView
         var textTitle: TextView
 
         init {
-            imageHomePage = itemView.findViewById<View>(R.id.image_homepage) as ImageView
-            textTitle = itemView.findViewById<View>(R.id.text_title) as TextView
+            imageHomePage = itemView.image_homepage as ImageView
+            textTitle = itemView.text_title as TextView
         }
     }
 }

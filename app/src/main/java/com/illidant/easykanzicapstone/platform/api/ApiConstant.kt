@@ -5,6 +5,7 @@ object ApiConstant {
     const val URL_LOGIN = "auth/signin"
     const val URL_REGISTER = "auth/signup"
     const val URL_LEVELS = "v1/levels"
+    const val URL_KANJI = "v1/lessons/{id}/kanjis"
 
     const val HEADER_USERNAME = "username"
     const val HEADER_PASSWORD = "password"
