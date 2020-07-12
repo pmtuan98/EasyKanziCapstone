@@ -1,11 +1,14 @@
 package com.illidant.easykanzicapstone.ui.screen.home
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Level
@@ -29,8 +32,13 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
     override fun onBindViewHolder(homePageView: HomePageView, position: Int) {
         homePageView.imageHomePage.setImageResource(R.drawable.jpd121)
         homePageView.textTitle.text = levelList?.get(position)?.name
+        val level_name = levelList?.get(position)?.name
         homePageView.imageHomePage.setOnClickListener {
-            context.startActivity(KanjiLevelActivity.getIntent(context))
+            //Send level id to kanji level activity
+            val intent = Intent(it.context, KanjiLevelActivity::class.java)
+            intent.putExtra("LEVEL_NAME", level_name)
+            context.startActivity(intent)
+
         }
     }
 

@@ -35,8 +35,10 @@ class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View {
     }
 
     private fun initialize() {
+        val level_name = intent.getStringExtra("LEVEL_NAME")
+        text_level_name.text = level_name
         recycler_level.layoutManager = GridLayoutManager(this, 3)
-        presenter.kanjiRequest(1)
+        presenter.kanjiRequest(2)
     }
 
     override fun fillKanji(listKanjiLesson: List<Kanji>) {

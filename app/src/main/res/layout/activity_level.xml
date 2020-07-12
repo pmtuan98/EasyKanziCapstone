@@ -7,7 +7,7 @@
     tools:context=".ui.screen.kanji.KanjiLevelActivity">
 
     <TextView
-        android:id="@+id/textView_1"
+        android:id="@+id/text_level_name"
         android:layout_width="130dp"
         android:layout_height="50dp"
         android:text="JPD111"
@@ -22,7 +22,7 @@
         android:layout_height="40dp"
         android:layout_marginLeft="37dp"
         android:layout_marginTop="10dp"
-        android:layout_toRightOf="@+id/textView_1"
+        android:layout_toRightOf="@+id/text_level_name"
         android:background="@drawable/ripple_effect_button"
         android:text="LEARN"
         android:textSize="20dp" />
@@ -42,7 +42,7 @@
         android:id="@+id/recycler_level"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textView_1"
+        android:layout_below="@+id/text_level_name"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="50dp"/>
     <include

@@ -14,6 +14,7 @@ import com.illidant.easykanzicapstone.platform.repository.LevelRepository
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.LevelRemoteDataSource
+import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiContract
 
 import kotlinx.android.synthetic.main.activity_home.*
 
