@@ -34,7 +34,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
         val level_name = levelList?.get(position)?.name
         val level_id = levelList?.get(position)?.id // lấy level_id để get leson by level_id
 
-        homePageView.imageHomePage.setOnClickListener {
+        homePageView.imageHomePage .setOnClickListener {
             val intent = Intent(it.context, KanjiLevelActivity::class.java)
             //Gửi level_name để hiện thị tên tương ứng với level
             intent.putExtra("LEVEL_NAME", level_name)

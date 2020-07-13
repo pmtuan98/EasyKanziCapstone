@@ -14,9 +14,6 @@ class LessonPresenter (
         repository.getLessonByLevelID(id).enqueue(object : Callback<List<Lesson>>{
             override fun onResponse(call: Call<List<Lesson>>, response: Response<List<Lesson>>) {
                 response.body()?.let { view.fillLesson(it) }
-                for (list in response.body()!!) {
-                    Log.d("Lesson","Data: ${list}")
-                }
             }
 
             override fun onFailure(call: Call<List<Lesson>>, t: Throwable) {

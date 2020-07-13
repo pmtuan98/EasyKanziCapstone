@@ -14,9 +14,6 @@ class KanjiPresenter(
         repository.kanjiLessonRequest(id).enqueue(object : Callback<List<Kanji>>{
             override fun onResponse(call: Call<List<Kanji>>, response: Response<List<Kanji>>) {
                response.body()?.let { view.fillKanji(it) }
-                for (list in response.body()!!) {
-                    Log.d("Kanji","Data: ${list}")
-                }
             }
 
             override fun onFailure(call: Call<List<Kanji>>, t: Throwable) {
