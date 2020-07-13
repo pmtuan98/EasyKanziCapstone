@@ -1,5 +1,6 @@
 package com.illidant.easykanzicapstone.platform.api
 import com.illidant.easykanzicapstone.domain.model.Kanji
+import com.illidant.easykanzicapstone.domain.model.Lesson
 import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.domain.model.User
@@ -17,5 +18,7 @@ interface ApiService {
     fun getLevelData(): Call<List<Level>>
     @GET(ApiConstant.URL_KANJI)
     fun kanjiLessonRequest(@Path("id")id: Int): Call<List<Kanji>>
+    @GET(ApiConstant.URL_LESSON_BY_LEVEL)
+    fun getLessonByLevelID(@Path("id")id: Int): Call<List<Lesson>>
 
 }

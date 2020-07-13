@@ -18,7 +18,6 @@ class SigninPresenter(
 
             override fun onResponse(call: Call<User>, response: Response<User>) {
                 response.body()?.let {
-                    Log.d("SigninPresenter",it.toString())
                     repository.saveToken(it.getToken())
                     view.onSigninSucceeded(it)
                 }
