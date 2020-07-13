@@ -22,7 +22,6 @@ class HomeActivity : AppCompatActivity(),HomeContract.View {
 
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
-        val local = UserLocalDataSource.getInstance(SharedPrefs(this))
         val remote = LevelRemoteDataSource(retrofit)
         val repository = LevelRepository(remote)
         HomePresenter(this, repository)

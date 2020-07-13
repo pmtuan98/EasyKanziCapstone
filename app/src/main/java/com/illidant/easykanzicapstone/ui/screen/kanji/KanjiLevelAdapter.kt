@@ -34,7 +34,7 @@ class KanjiLevelAdapter : RecyclerView.Adapter<KanjiLevelAdapter.LevelViewHolder
     override fun onBindViewHolder(holder: LevelViewHolder, position: Int) {
         holder.text_kanji.text =listKanji?.get(position)?.kanji
         holder.text_sio_vietnamese.text = listKanji?.get(position)?.sino_vietnamese
-
+        holder.cardView.id = listKanji?.get(position)?.id!!
         //set click listener
         holder.cardView.setOnClickListener {
             // Move to detail kanji
@@ -55,4 +55,7 @@ class KanjiLevelAdapter : RecyclerView.Adapter<KanjiLevelAdapter.LevelViewHolder
         }
     }
 
+    interface OnKanjiItemClickListener {
+        fun showKanjiDetail(currentPosition: Int)
+    }
 }
