@@ -2,6 +2,7 @@ package com.illidant.easykanzicapstone.ui.screen.kanji
 
 import android.util.Log
 import com.illidant.easykanzicapstone.domain.model.Kanji
+import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import retrofit2.Call
 import retrofit2.Callback
@@ -32,6 +33,16 @@ class KanjiPresenter(
                 TODO("Not yet implemented")
             }
 
+
+        })
+
+        repository.getVocabByKanjiID(id).enqueue(object : Callback<List<Vocabulary>>{
+            override fun onResponse(call: Call<List<Vocabulary>>, response: Response<List<Vocabulary>>) {
+                response.body()?.let { view.getVocabByKanjiID(it) }
+            }
+            override fun onFailure(call: Call<List<Vocabulary>>, t: Throwable) {
+                TODO("Not yet implemented")
+            }
 
         })
     }

@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Lesson
+import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import com.illidant.easykanzicapstone.platform.repository.LessonRepository
@@ -63,6 +64,10 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
 
     override fun getKanjiByID(listKanjiElement: Kanji) {
       //Not use
+    }
+
+    override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
+       //Not use
     }
 
     override fun getLesson(listLesson: List<Lesson>) {

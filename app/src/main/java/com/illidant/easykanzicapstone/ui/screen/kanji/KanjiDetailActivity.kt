@@ -3,8 +3,10 @@ package com.illidant.easykanzicapstone.ui.screen.kanji
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Kanji
+import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import com.illidant.easykanzicapstone.platform.source.remote.KanjiRemoteDataSource
@@ -26,7 +28,7 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
 
     private fun initialize() {
         var kanji_id = intent.getIntExtra("KANJI_ID",0)
-        Log.d("Receive_KANJI_ID", kanji_id.toString())
+        recyclerVocabulary.layoutManager = GridLayoutManager(this, 1)
         presenter.kanjiByIDRequest(kanji_id)
 
     }
@@ -42,5 +44,9 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         textKanjiKunyomi.text = kanjiAttribute.kunyomi
         textOnFurigana.text = kanjiAttribute.on_furigana
         textKunFurigana.text = kanjiAttribute.kun_furigana
+    }
+
+    override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
+        recyclerVocabulary.adapter = KanjiDetailAdapter(listVocab, this)
     }
 }
