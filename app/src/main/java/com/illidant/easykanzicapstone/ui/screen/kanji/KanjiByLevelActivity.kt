@@ -6,20 +6,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Lesson
-import com.illidant.easykanzicapstone.extension.toast
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import com.illidant.easykanzicapstone.platform.repository.LessonRepository
-import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
-import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.KanjiRemoteDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.LessonRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.lesson.LessonContract
@@ -27,7 +22,7 @@ import com.illidant.easykanzicapstone.ui.screen.lesson.LessonPresenter
 import kotlinx.android.synthetic.main.activity_level.*
 import kotlinx.android.synthetic.main.bottom_navigation_bar.*
 
-class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContract.View {
+class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContract.View {
 
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
@@ -50,7 +45,7 @@ class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContra
 
 
     companion object {
-        fun getIntent(context: Context) = Intent(context, KanjiLevelActivity::class.java)
+        fun getIntent(context: Context) = Intent(context, KanjiByLevelActivity::class.java)
     }
 
     private fun initialize() {
@@ -65,11 +60,11 @@ class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContra
     }
 
     // Fill kanji into cardview
-    override fun fillKanji(listKanjiLesson: List<Kanji>) {
-        recycler_level.adapter = KanjiLevelAdapter(this, listKanjiLesson)
+    override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {
+        recycler_level.adapter = KanjiByLevelAdapter(this, listKanjiLesson)
     }
 
-    override fun fillLesson(listLesson: List<Lesson>) {
+    override fun getLesson(listLesson: List<Lesson>) {
         var lesson_names = mutableListOf<String>()
         var lesson_ids = mutableListOf<Int>()
         for(lesson in listLesson) {
@@ -94,7 +89,7 @@ class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContra
                 lesson_position = lesson_position -1
                 lesson_spinner.setSelection(lesson_position)
             }else {
-                Toast.makeText(this,"Can't not back",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Can not back",Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -104,7 +99,7 @@ class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContra
                 lesson_position = lesson_position + 1
                 lesson_spinner.setSelection(lesson_position)
             }else {
-                Toast.makeText(this,"Can't not next",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Can not next",Toast.LENGTH_SHORT).show()
             }
         }
 
