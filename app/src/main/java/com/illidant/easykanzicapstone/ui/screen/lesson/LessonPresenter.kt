@@ -13,7 +13,7 @@ class LessonPresenter (
     override fun lessonRequest(id: Int) {
         repository.getLessonByLevelID(id).enqueue(object : Callback<List<Lesson>>{
             override fun onResponse(call: Call<List<Lesson>>, response: Response<List<Lesson>>) {
-                response.body()?.let { view.fillLesson(it) }
+                response.body()?.let { view.getLesson(it) }
             }
 
             override fun onFailure(call: Call<List<Lesson>>, t: Throwable) {

@@ -58,11 +58,11 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
     }
 
     // Fill kanji into cardview
-    override fun fillKanji(listKanjiLesson: List<Kanji>) {
+    override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {
         recycler_level.adapter = KanjiByLevelAdapter(this, listKanjiLesson)
     }
 
-    override fun fillLesson(listLesson: List<Lesson>) {
+    override fun getLesson(listLesson: List<Lesson>) {
         val lesson_names = mutableListOf<String>()
         val lesson_ids = mutableListOf<Int>()
         for(lesson in listLesson) {

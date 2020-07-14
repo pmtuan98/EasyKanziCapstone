@@ -21,5 +21,5 @@ interface ApiService {
     @GET(ApiConstant.URL_GET_LESSON_BY_LEVEL_ID)
     fun getLessonByLevelID(@Path("id")id: Int): Call<List<Lesson>>
     @GET(ApiConstant.URL_GET_KANJI_BY_ID)
-    fun getKanjiByID(@Path("id")id: Int): Call<List<Lesson>>
+    fun getKanjiByID(@Path("id")id: Int): Call<List<Kanji>>
 }

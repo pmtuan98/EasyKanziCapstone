@@ -21,7 +21,7 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         KanjiPresenter(this, repository)
     }
 
-    override fun fillKanji(listKanjiLesson: List<Kanji>) {
+    override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {
        
     }
 }

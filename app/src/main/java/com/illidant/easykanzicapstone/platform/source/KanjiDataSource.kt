@@ -10,5 +10,6 @@ interface KanjiDataSource {
 
     interface Remote {
         fun getKanjiByLessonID(id: Int): Call<List<Kanji>>
+        fun getKanjiByID(id: Int): Call<List<Kanji>>
     }
 }

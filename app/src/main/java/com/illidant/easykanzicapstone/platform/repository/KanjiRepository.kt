@@ -10,4 +10,5 @@ class KanjiRepository (
     private val remote: KanjiDataSource.Remote
 ): KanjiRepositoryType{
     override fun getKanjiByLessonID(id: Int): Call<List<Kanji>> = remote.getKanjiByLessonID(id)
+    override fun getKanjiByID(id: Int): Call<List<Kanji>> = remote.getKanjiByID(id)
 }

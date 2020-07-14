@@ -54,8 +54,4 @@ class KanjiByLevelAdapter : RecyclerView.Adapter<KanjiByLevelAdapter.LevelViewHo
             cardView = itemView.cardview_id as CardView
         }
     }
-
-    interface OnKanjiItemClickListener {
-        fun showKanjiDetail(currentPosition: Int)
-    }
 }
