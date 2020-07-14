@@ -4,7 +4,7 @@ import com.illidant.easykanzicapstone.domain.model.Lesson
 
 interface LessonContract {
     interface View{
-        fun fillLesson(listLesson: List<Lesson>)
+        fun getLesson(listLesson: List<Lesson>)
     }
 
     interface Presenter{

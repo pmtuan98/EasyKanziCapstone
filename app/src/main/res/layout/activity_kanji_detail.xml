@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="#f4f4f4"
     tools:context=".ui.screen.kanji.KanjiDetailActivity">
 
 
@@ -62,7 +62,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Âm hán"
+        android:text="China mean"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Nghĩa"
+        android:text="Meaning"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline"
@@ -97,7 +97,7 @@
         android:paddingBottom="4dp"
         android:text="BỔN, BẢN"
         android:textColor="@color/color_text_primary"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleChinaMean" />
@@ -117,7 +117,7 @@
         android:paddingBottom="4dp"
         android:text="GỐC"
         android:textColor="@color/color_text_primary"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@id/titleChinaMean" />
@@ -137,7 +137,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Onjomi"
+        android:text="Onyomi"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
@@ -151,7 +151,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Kunjomi"
+        android:text="Kunyomi"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline"
@@ -172,7 +172,7 @@
         android:paddingBottom="4dp"
         android:text="ホン"
         android:textColor="@color/color_text_primary"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleOnjomi" />
@@ -192,7 +192,7 @@
         android:paddingBottom="4dp"
         android:text="もと"
         android:textColor="@android:color/holo_red_light"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@id/titleKunjomi" />
@@ -218,7 +218,7 @@
         android:paddingEnd="12dp"
         android:paddingBottom="4dp"
         android:text="hon"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/barrier3" />
@@ -237,7 +237,7 @@
         android:paddingEnd="12dp"
         android:paddingBottom="4dp"
         android:text="moto"
-        android:textSize="18dp"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/barrier3" />
@@ -257,7 +257,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
-        android:text="Ví dụ"
+        android:text="Example"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -276,14 +276,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleExample" />
-
-    <include
-        android:id="@+id/bottomNavigation"
-        layout="@layout/bottom_navigation_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

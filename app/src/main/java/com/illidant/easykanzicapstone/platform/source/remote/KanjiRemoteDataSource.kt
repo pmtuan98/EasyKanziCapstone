@@ -8,5 +8,6 @@ import retrofit2.Call
 class KanjiRemoteDataSource(
     private val  apiService: ApiService
 ): KanjiDataSource.Remote {
-    override fun kanjiLessonRequest(id: Int): Call<List<Kanji>> = apiService.kanjiLessonRequest(id)
+    override fun getKanjiByLessonID(id: Int): Call<List<Kanji>> = apiService.getKanjiByLessonID(id)
+    override fun getKanjiByID(id: Int): Call<List<Kanji>> = apiService.getKanjiByID(id)
 }

@@ -16,10 +16,10 @@
 
         <ImageView
             android:id="@+id/image_homepage"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="108dp"
-            android:layout_gravity="center_horizontal"
-            android:src="@drawable/jpd111" />
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"/>
 
         <TextView
             android:id="@+id/text_title"
@@ -29,8 +29,7 @@
             android:text="JPD111"
             android:textColor="#000000"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
-            android:textSize="17dp" />
+            android:textSize="17sp" />
 
     </LinearLayout>
 

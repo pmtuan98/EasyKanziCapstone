@@ -14,11 +14,12 @@ interface ApiService {
     fun signin(@Body body: SigninRequest): Call<User>
     @POST(ApiConstant.URL_REGISTER)
     fun signup(@Body body: SignupRequest): Call<SignupResponse>
-    @GET(ApiConstant.URL_LEVELS)
+    @GET(ApiConstant.URL_GET_ALL_LEVELS)
     fun getLevelData(): Call<List<Level>>
-    @GET(ApiConstant.URL_KANJI)
-    fun kanjiLessonRequest(@Path("id")id: Int): Call<List<Kanji>>
-    @GET(ApiConstant.URL_LESSON_BY_LEVEL)
+    @GET(ApiConstant.URL_GET_KANJI_BY_LESSON_ID)
+    fun getKanjiByLessonID(@Path("id")id: Int): Call<List<Kanji>>
+    @GET(ApiConstant.URL_GET_LESSON_BY_LEVEL_ID)
     fun getLessonByLevelID(@Path("id")id: Int): Call<List<Lesson>>
-
+    @GET(ApiConstant.URL_GET_KANJI_BY_ID)
+    fun getKanjiByID(@Path("id")id: Int): Call<List<Kanji>>
 }

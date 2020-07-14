@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName
 data class Kanji(
     @SerializedName("id")
     val id: Int,
+    @SerializedName("image")
+    val image: String,
     @SerializedName("kanji")
     val kanji: String,
     @SerializedName("sino_vietnamese")

@@ -70,8 +70,8 @@ class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContra
     }
 
     override fun fillLesson(listLesson: List<Lesson>) {
-        val lesson_names = mutableListOf<String>()
-        val lesson_ids = mutableListOf<Int>()
+        var lesson_names = mutableListOf<String>()
+        var lesson_ids = mutableListOf<Int>()
         for(lesson in listLesson) {
             lesson_names.add(lesson.name)
             lesson_ids.add(lesson.id)
@@ -83,7 +83,7 @@ class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContra
                 Toast.makeText(applicationContext,"Please choose a lesson", Toast.LENGTH_SHORT).show()
             }
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    val lesson_id = lesson_ids.get(p2)
+                    var lesson_id = lesson_ids.get(p2)
                     presenter.kanjiRequest(lesson_id)
             }
 
@@ -94,7 +94,7 @@ class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContra
                 lesson_position = lesson_position -1
                 lesson_spinner.setSelection(lesson_position)
             }else {
-                Toast.makeText(this,"Can not back",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Can't not back",Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -104,7 +104,7 @@ class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContra
                 lesson_position = lesson_position + 1
                 lesson_spinner.setSelection(lesson_position)
             }else {
-                Toast.makeText(this,"Can not next",Toast.LENGTH_SHORT).show()
+                Toast.makeText(this,"Can't not next",Toast.LENGTH_SHORT).show()
             }
         }
 

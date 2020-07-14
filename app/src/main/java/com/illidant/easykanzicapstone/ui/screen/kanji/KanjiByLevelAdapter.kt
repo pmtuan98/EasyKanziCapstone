@@ -12,7 +12,7 @@ import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Kanji
 import kotlinx.android.synthetic.main.cardview_kanji.view.*
 
-class KanjiLevelAdapter : RecyclerView.Adapter<KanjiLevelAdapter.LevelViewHolder> {
+class KanjiByLevelAdapter : RecyclerView.Adapter<KanjiByLevelAdapter.LevelViewHolder> {
 
      var context: Context
      var listKanji: List<Kanji>? = null
@@ -53,9 +53,5 @@ class KanjiLevelAdapter : RecyclerView.Adapter<KanjiLevelAdapter.LevelViewHolder
             text_sio_vietnamese = itemView.text_sio_vietnamese as TextView
             cardView = itemView.cardview_id as CardView
         }
-    }
-
-    interface OnKanjiItemClickListener {
-        fun showKanjiDetail(currentPosition: Int)
     }
 }

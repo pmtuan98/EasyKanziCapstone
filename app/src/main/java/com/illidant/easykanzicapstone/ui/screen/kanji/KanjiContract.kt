@@ -4,7 +4,7 @@ import com.illidant.easykanzicapstone.domain.model.Kanji
 
 interface KanjiContract{
     interface View{
-        fun fillKanji(listKanjiLesson: List<Kanji>)
+        fun getKanjiByLesson(listKanjiLesson: List<Kanji>)
     }
 
     interface Presenter{

@@ -11,9 +11,9 @@ class KanjiPresenter(
     private val view: KanjiContract.View,
     private val repository: KanjiRepository): KanjiContract.Presenter {
     override fun kanjiRequest(id: Int) {
-        repository.kanjiLessonRequest(id).enqueue(object : Callback<List<Kanji>>{
+        repository.getKanjiByLessonID(id).enqueue(object : Callback<List<Kanji>>{
             override fun onResponse(call: Call<List<Kanji>>, response: Response<List<Kanji>>) {
-               response.body()?.let { view.fillKanji(it) }
+               response.body()?.let { view.getKanjiByLesson(it) }
             }
 
             override fun onFailure(call: Call<List<Kanji>>, t: Throwable) {

@@ -2,7 +2,6 @@ package com.illidant.easykanzicapstone.ui.screen.home
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -29,7 +28,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
     }
 
     override fun onBindViewHolder(homePageView: HomePageView, position: Int) {
-        homePageView.imageHomePage.setImageResource(R.drawable.jpd121)
+        homePageView.imageHomePage.setImageResource(R.drawable.jpd111)
         homePageView.textTitle.text = levelList?.get(position)?.name
         val level_name = levelList?.get(position)?.name
         val level_id = levelList?.get(position)?.id // lấy level_id để get leson by level_id

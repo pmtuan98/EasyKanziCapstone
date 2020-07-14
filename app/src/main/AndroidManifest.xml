@@ -12,8 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.screen.kanji.KanjiLevelActivity"></activity>
-        <activity android:name=".ui.screen.kanji.KanjiList" />
+        <activity android:name=".ui.screen.kanji.KanjiDetailActivity"/>
+        <activity android:name=".ui.screen.kanji.KanjiLevelActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".RankingActivity" />
         <activity android:name=".ProfileActivity" />
