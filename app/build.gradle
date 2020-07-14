@@ -68,4 +68,5 @@ dependencies {
 
     // Flip card library
     implementation 'com.wajahatkarim3.EasyFlipView:EasyFlipView:3.0.0'
+    implementation 'com.github.badoualy:kanji-strokeview:1.0.1'
 }
