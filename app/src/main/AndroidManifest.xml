@@ -12,7 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.screen.kanji.KanjiDetailActivity"/>
+        <activity android:name=".ui.screen.learn.LearnActivity">
+
+        </activity>
+        <activity android:name=".ui.screen.kanji.KanjiDetailActivity" />
         <activity android:name=".ui.screen.kanji.KanjiByLevelActivity" />
         <activity android:name=".SearchActivity" />
         <activity android:name=".RankingActivity" />

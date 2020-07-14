@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiByLevelActivity
-import kotlinx.android.synthetic.main.row_homepage.view.*
+import kotlinx.android.synthetic.main.item_home.view.*
 
 
 class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
@@ -23,21 +23,18 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
         this.context = context
     }
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): HomePageView {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.row_homepage, viewGroup, false)
+        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_home, viewGroup, false)
         return HomePageView(view)
     }
 
     override fun onBindViewHolder(homePageView: HomePageView, position: Int) {
         homePageView.imageHomePage.setImageResource(R.drawable.jpd111)
         homePageView.textTitle.text = levelList?.get(position)?.name
-        val level_name = levelList?.get(position)?.name
-        val level_id = levelList?.get(position)?.id // lấy level_id để get leson by level_id
-
         homePageView.imageHomePage .setOnClickListener {
+            val level_name = levelList?.get(position)?.name
+            val level_id = levelList?.get(position)?.id
             val intent = Intent(it.context, KanjiByLevelActivity::class.java)
-            //Gửi level_name để hiện thị tên tương ứng với level
             intent.putExtra("LEVEL_NAME", level_name)
-            //Gửi level_id để lấy danh sách các lesson tương ứng
             intent.putExtra("LEVEL_ID", level_id)
             context.startActivity(intent)
 

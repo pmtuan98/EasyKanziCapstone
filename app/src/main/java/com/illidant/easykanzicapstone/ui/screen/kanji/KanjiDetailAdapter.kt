@@ -45,9 +45,9 @@ class KanjiDetailAdapter : RecyclerView.Adapter<KanjiDetailAdapter.KanjiDetailVi
         var textVocabVn: TextView
 
         init {
-            textVocabKanji = itemView.textVocabKanji as TextView
-            textVocabHira = itemView.textVocabHira as TextView
-            textVocabVn = itemView.textVocabVn as TextView
+            textVocabKanji = itemView.textVocabKanji
+            textVocabHira = itemView.textVocabHira
+            textVocabVn = itemView.textVocabVn
         }
     }
 }
