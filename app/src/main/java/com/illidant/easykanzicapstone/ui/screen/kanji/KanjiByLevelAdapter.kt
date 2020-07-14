@@ -1,6 +1,8 @@
 package com.illidant.easykanzicapstone.ui.screen.kanji
 
 import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,10 +36,12 @@ class KanjiByLevelAdapter : RecyclerView.Adapter<KanjiByLevelAdapter.LevelViewHo
     override fun onBindViewHolder(holder: LevelViewHolder, position: Int) {
         holder.text_kanji.text =listKanji?.get(position)?.kanji
         holder.text_sio_vietnamese.text = listKanji?.get(position)?.sino_vietnamese
-        holder.cardView.id = listKanji?.get(position)?.id!!
-        //set click listener
+        var kanji_id = listKanji?.get(position)?.id!!
         holder.cardView.setOnClickListener {
             // Move to detail kanji
+            val intent = Intent(it.context, KanjiDetailActivity::class.java)
+            intent.putExtra("KANJI_ID", kanji_id)
+            context.startActivity(intent)
         }
 
     }
