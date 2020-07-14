@@ -11,8 +11,8 @@ data class Kanji(
     val kanji: String,
     @SerializedName("sino_vietnamese")
     val sino_vietnamese: String,
-    @SerializedName("meaning")
-    val meaning: String,
+    @SerializedName("kanji_meaning")
+    val kanji_meaning: String,
     @SerializedName("onyomi")
     val onyomi: String,
     @SerializedName("on_furigana")

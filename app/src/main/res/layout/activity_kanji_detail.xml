@@ -18,41 +18,31 @@
     <TextView
         android:id="@+id/imageKanjiRemember"
         android:layout_width="wrap_content"
-        android:layout_marginTop="30dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:text="DETAIL KANJI"
         android:textSize="23sp"
-        android:textStyle="bold"  
+        android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textKanjiRemember"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="320dp"
-        android:background="@drawable/bg_detail_kanji"
-        android:paddingStart="12dp"
-        android:paddingTop="4dp"
-        android:paddingEnd="12dp"
-        android:paddingBottom="4dp"
-        android:text="Nghĩa chữ hán 本"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/kanjiStroke"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:src="@drawable/jpd131"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageKanjiRemember"/>
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="imageKanjiRemember,textKanjiRemember" />
+        app:constraint_referenced_ids="imageKanjiRemember,kanjiStroke" />
 
     <TextView
         android:id="@+id/titleChinaMean"
@@ -62,7 +52,7 @@
         android:layout_marginTop="4dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
-        android:text="China mean"
+        android:text="Chinese mean"
         android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,27 +148,26 @@
         app:layout_constraintTop_toBottomOf="@+id/barrier2" />
 
     <TextView
-        android:id="@+id/textKanjiOnkomi"
+        android:id="@+id/textKanjiOnyomi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="4dp"
         android:background="@drawable/bg_detail_kanji"
         android:paddingStart="12dp"
         android:paddingTop="4dp"
         android:paddingEnd="12dp"
         android:paddingBottom="4dp"
         android:text="ホン"
-        android:textColor="@color/color_text_primary"
+        android:textColor="@color/color_kanji_onjomi"
         android:textSize="18sp"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleOnjomi" />
 
     <TextView
-        android:id="@+id/textKanjiKunjomi"
+        android:id="@+id/textKanjiKunyomi"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -202,10 +191,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="textKanjiOnkomi,textKanjiKunjomi" />
+        app:constraint_referenced_ids="textKanjiOnyomi,textKanjiKunyomi" />
 
     <TextView
-        android:id="@+id/textKanjiRonjomi"
+        android:id="@+id/textOnFurigana"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -224,7 +213,7 @@
         app:layout_constraintTop_toBottomOf="@id/barrier3" />
 
     <TextView
-        android:id="@+id/textKanjiRkunjomi"
+        android:id="@+id/textKunFurigana"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -247,7 +236,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="textKanjiRonjomi, textKanjiRkunjomi" />
+        app:constraint_referenced_ids="textOnFurigana, textKunFurigana" />
 
     <TextView
         android:id="@+id/titleExample"
@@ -264,7 +253,7 @@
         app:layout_constraintTop_toBottomOf="@id/barrier4" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerKanjiexample"
+        android:id="@+id/recyclerVocabulary"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -276,5 +265,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleExample" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

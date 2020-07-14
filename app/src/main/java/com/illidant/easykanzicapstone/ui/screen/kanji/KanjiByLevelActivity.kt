@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Lesson
+import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import com.illidant.easykanzicapstone.platform.repository.LessonRepository
@@ -53,15 +54,20 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
         val level_id = intent.getIntExtra("LEVEL_ID", 0)
         text_level_name.text = level_name
         recycler_level.layoutManager = GridLayoutManager(this, 3)
-
-
         lesson_presenter.lessonRequest(level_id)
-
     }
 
     // Fill kanji into cardview
     override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {
         recycler_level.adapter = KanjiByLevelAdapter(this, listKanjiLesson)
+    }
+
+    override fun getKanjiByID(listKanjiElement: Kanji) {
+      //Not use
+    }
+
+    override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
+       //Not use
     }
 
     override fun getLesson(listLesson: List<Lesson>) {
@@ -79,7 +85,7 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
             }
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                     var lesson_id = lesson_ids.get(p2)
-                    presenter.kanjiRequest(lesson_id)
+                    presenter.kanjiByLessonRequest(lesson_id)
             }
 
         }
@@ -102,8 +108,6 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
                 Toast.makeText(this,"Can not next",Toast.LENGTH_SHORT).show()
             }
         }
-
-
     }
 
 
