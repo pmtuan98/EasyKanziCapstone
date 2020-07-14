@@ -20,9 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/background_image2"
-        android:layout_marginLeft="33dp"
+        android:layout_marginStart="33dp"
         android:text="Welcome, choose your level!"
-        android:textSize="20dp" />
+        android:textSize="20sp" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -38,6 +38,6 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
         android:layout_width="match_parent"
-        android:layout_height="478dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/text_welcome" />
 </RelativeLayout>
