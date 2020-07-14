@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_id"
+    android:clickable="true"
+    android:layout_width="110dp"
+    android:layout_height="150dp"
+    android:layout_margin="2dp"
+    app:cardCornerRadius="5dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <ImageView
+            android:id="@+id/image_flashcard_learn"
+            android:layout_width="85dp"
+            android:layout_height="100dp"
+            android:background="@drawable/icon_flashcard_learn"
+            android:layout_gravity="center" />
+        <TextView
+            android:id="@+id/am_han_title_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="FlashCard"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="#2d2d2d" />
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
