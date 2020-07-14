@@ -22,7 +22,7 @@ import com.illidant.easykanzicapstone.ui.screen.lesson.LessonPresenter
 import kotlinx.android.synthetic.main.activity_level.*
 import kotlinx.android.synthetic.main.bottom_navigation_bar.*
 
-class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContract.View {
+class KanjiLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContract.View {
 
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
@@ -45,7 +45,7 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
 
 
     companion object {
-        fun getIntent(context: Context) = Intent(context, KanjiByLevelActivity::class.java)
+        fun getIntent(context: Context) = Intent(context, KanjiLevelActivity::class.java)
     }
 
     private fun initialize() {

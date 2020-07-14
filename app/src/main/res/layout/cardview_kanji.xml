@@ -9,7 +9,7 @@
     android:layout_height="150dp"
     android:layout_margin="10dp"
     app:cardCornerRadius="5dp"
-    tools:context=".ui.screen.kanji.KanjiByLevelActivity">
+    tools:context=".ui.screen.kanji.KanjiLevelActivity">
 
     <LinearLayout
         android:orientation="vertical"
