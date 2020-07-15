@@ -27,4 +27,7 @@ interface ApiService {
 
     @GET(ApiConstant.URL_GET_VOCAB_BY_KANJI_ID)
     fun getVocabByKanjiID(@Path("id")id: Int): Call<List<Vocabulary>>
+
+    @GET(ApiConstant.URL_GET_VOCAB_BY_LESSON_ID)
+    fun getVocabByLessonID(@Path("id")id: Int): Call<List<Vocabulary>>
 }

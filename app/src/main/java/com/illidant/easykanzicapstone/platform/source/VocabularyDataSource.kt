@@ -1,0 +1,17 @@
+package com.illidant.easykanzicapstone.platform.source
+
+import com.illidant.easykanzicapstone.domain.model.Kanji
+import com.illidant.easykanzicapstone.domain.model.Vocabulary
+import retrofit2.Call
+
+interface VocabularyDataSource {
+    interface Local {
+
+    }
+
+    interface Remote {
+        fun getVocabByKanjiID(id: Int): Call<List<Vocabulary>>
+
+        fun getVocabByLessonID(id: Int): Call<List<Vocabulary>>
+    }
+}

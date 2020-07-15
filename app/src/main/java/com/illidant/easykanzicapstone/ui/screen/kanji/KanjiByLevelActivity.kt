@@ -52,15 +52,10 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
     }
 
     private fun initialize() {
-        val level_name = intent.getStringExtra("LEVEL_NAME")
+        text_level_name.text = intent.getStringExtra("LEVEL_NAME")
         val level_id = intent.getIntExtra("LEVEL_ID", 0)
-        text_level_name.text = level_name
         recycler_level.layoutManager = GridLayoutManager(this, 3)
         lesson_presenter.lessonRequest(level_id)
-        btn_learn.setOnClickListener{
-            val intent = Intent(it.context, LearnActivity::class.java)
-            startActivity(intent)
-        }
     }
     // Fill kanji into cardview
     override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {
@@ -91,6 +86,15 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                     var lesson_id = lesson_ids.get(p2)
                     presenter.kanjiByLessonRequest(lesson_id)
+
+                    btn_learn.setOnClickListener{
+                        val intent = Intent(it.context, LearnActivity::class.java)
+                        var lesson_position = lesson_spinner.selectedItemPosition
+                        intent.putExtra("LESSON_ID", lesson_id)
+                        intent.putExtra("LESSON_NAME", lesson_names[lesson_position])
+                        intent.putExtra("LEVEL_NAME", text_level_name.text)
+                        startActivity(intent)
+                    }
             }
 
         }

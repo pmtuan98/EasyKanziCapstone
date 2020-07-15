@@ -38,7 +38,6 @@ class KanjiByLevelAdapter : RecyclerView.Adapter<KanjiByLevelAdapter.LevelViewHo
         holder.text_sio_vietnamese.text = listKanji?.get(position)?.sino_vietnamese
         var kanji_id = listKanji?.get(position)?.id!!
         holder.cardView.setOnClickListener {
-            // Move to detail kanji
             val intent = Intent(it.context, KanjiDetailActivity::class.java)
             intent.putExtra("KANJI_ID", kanji_id)
             context.startActivity(intent)

@@ -14,7 +14,7 @@ import com.illidant.easykanzicapstone.platform.source.remote.KanjiRemoteDataSour
 import kotlinx.android.synthetic.main.activity_kanji_detail.*
 
 class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
-    var listStroke = mutableListOf<String>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kanji_detail)
@@ -33,7 +33,6 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
 
     private fun initialize() {
         var kanji_id = intent.getIntExtra("KANJI_ID",0)
-        recyclerVocabulary.layoutManager = GridLayoutManager(this, 1)
         presenter.kanjiByIDRequest(kanji_id)
 
     }
@@ -51,10 +50,11 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         textOnFurigana.text = kanjiAttribute.on_furigana
         textKunFurigana.text = kanjiAttribute.kun_furigana
         stringStroke = kanjiAttribute.image
-        handleListImage(stringStroke)
+        handleKanjiStroke(stringStroke)
     }
 
-    fun handleListImage(input: String) {
+    fun handleKanjiStroke(input: String) {
+        var listStroke = mutableListOf<String>()
         val delimiter ="|"
         val parts = input.split(delimiter)
         for (i in 0 .. parts.size.minus(1)) {
@@ -65,6 +65,7 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
     }
 
     override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
+        recyclerVocabulary.layoutManager = GridLayoutManager(this, 1)
         recyclerVocabulary.adapter = KanjiDetailAdapter(listVocab, this)
     }
 
