@@ -1,10 +1,10 @@
 package com.illidant.easykanzicapstone.ui.screen.kanji
 
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
-import com.github.badoualy.kanjistroke.KanjiStrokeView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
@@ -18,9 +18,6 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kanji_detail)
-        kanjiStroke.setOnClickListener{
-            kanjiStroke.startDrawAnimation()
-        }
         initialize()
     }
 
@@ -62,6 +59,7 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
             Log.d("KanjiDetailActiivty","list ${parts[i]}")
         }
         kanjiStroke.loadPathData(listStroke)
+        kanjiStroke.autoRun = true
     }
 
     override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
