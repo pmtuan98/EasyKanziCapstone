@@ -86,7 +86,6 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                     var lesson_id = lesson_ids.get(p2)
                     presenter.kanjiByLessonRequest(lesson_id)
-
                     btn_learn.setOnClickListener{
                         val intent = Intent(it.context, LearnActivity::class.java)
                         var lesson_position = lesson_spinner.selectedItemPosition

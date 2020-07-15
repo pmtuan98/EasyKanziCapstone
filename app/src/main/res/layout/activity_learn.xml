@@ -2,13 +2,15 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:background="#f4f4f4"
     android:layout_height="match_parent">
     <LinearLayout
         android:id="@+id/text_learn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true">
         <TextView
-            android:id="@+id/text_learn_level"
+            android:id="@+id/txt_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="JPD111"
@@ -16,7 +18,7 @@
             android:textSize="30sp"
             android:textStyle="bold" />
         <TextView
-            android:id="@+id/text_learn_lesson"
+            android:id="@+id/txt_lesson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lesson 1"
@@ -24,24 +26,104 @@
             android:textSize="30sp"
             android:textStyle="bold" />
     </LinearLayout>
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_learn"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/learn_method"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_learn"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal">
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/flashcard_method"
+            android:layout_width="120dp"
+            android:layout_height="140dp"
+            android:layout_margin="7dp"
+            app:cardCornerRadius="10dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:src="@drawable/icon_flashcard_learn"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Flashcard"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#2d2d2d" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/writing_method"
+            android:layout_width="120dp"
+            android:layout_height="140dp"
+            android:layout_margin="7dp"
+            app:cardCornerRadius="10dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/icon_writing_learn"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Writing"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#2d2d2d" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/multiple_method"
+            android:layout_width="120dp"
+            android:layout_height="140dp"
+            android:layout_margin="7dp"
+            app:cardCornerRadius="10dp">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:src="@drawable/icon_multiple_choice_learn"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Multiple choice"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#2d2d2d" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/recycler_learn"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/learn_method"
         android:layout_marginStart="20dp"
-        android:text="Word list" />
+        android:layout_marginTop="20dp"
+        android:text="Vocabulary list"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_vocab"

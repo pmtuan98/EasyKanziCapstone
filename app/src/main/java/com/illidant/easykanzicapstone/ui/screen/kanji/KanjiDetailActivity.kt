@@ -56,10 +56,12 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         val parts = input.split(delimiter)
         for (i in 0 .. parts.size.minus(1)) {
             listStroke.add(parts[i])
-            Log.d("KanjiDetailActiivty","list ${parts[i]}")
         }
         kanjiStroke.loadPathData(listStroke)
         kanjiStroke.autoRun = true
+        kanjiStroke.setOnClickListener({
+            kanjiStroke.startDrawAnimation()
+        })
     }
 
     override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {

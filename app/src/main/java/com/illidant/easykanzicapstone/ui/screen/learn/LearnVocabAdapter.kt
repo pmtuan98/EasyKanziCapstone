@@ -4,13 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
-import kotlinx.android.synthetic.main.cardview_learn.view.*
 import kotlinx.android.synthetic.main.item_learn_word.view.*
 
 class LearnVocabAdapter : RecyclerView.Adapter<LearnVocabAdapter.VocabView> {

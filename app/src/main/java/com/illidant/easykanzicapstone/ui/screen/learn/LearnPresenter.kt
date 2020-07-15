@@ -16,11 +16,9 @@ class LearnPresenter(
 
            override fun onResponse(call: Call<List<Vocabulary>>, response: Response<List<Vocabulary>>) {
                response.body()?.let { view.getVocabByLessonID(it) }
-               Log.d("Vocab",  response.body().toString())
            }
 
            override fun onFailure(call: Call<List<Vocabulary>>, t: Throwable) {
-               TODO("Not yet implemented")
            }
        })
     }
