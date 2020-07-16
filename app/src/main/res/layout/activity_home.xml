@@ -9,10 +9,10 @@
 
     <ImageView
         android:id="@+id/background_image2"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="@dimen/dp_150"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/dp_20"
         android:src="@drawable/background_image2" />
 
     <TextView
@@ -20,9 +20,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/background_image2"
-        android:layout_marginStart="33dp"
+        android:layout_marginStart="@dimen/dp_32"
         android:text="Welcome, choose your level!"
-        android:textSize="20sp" />
+        android:textSize="@dimen/sp_20" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

@@ -14,16 +14,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="JPD111"
-            android:layout_margin="20dp"
-            android:textSize="30sp"
+            android:layout_margin="@dimen/dp_20"
+            android:textSize="@dimen/sp_30"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/txt_lesson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Lesson 1"
-            android:layout_margin="20dp"
-            android:textSize="30sp"
+            android:layout_margin="@dimen/dp_20"
+            android:textSize="@dimen/sp_30"
             android:textStyle="bold" />
     </LinearLayout>
     <LinearLayout
@@ -31,48 +31,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="@dimen/dp_70"
         android:orientation="horizontal">
         <androidx.cardview.widget.CardView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/flashcard_method"
-            android:layout_width="120dp"
-            android:layout_height="140dp"
-            android:layout_margin="7dp"
-            app:cardCornerRadius="10dp">
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_140"
+            android:layout_margin="@dimen/dp_7"
+            app:cardCornerRadius="@dimen/dp_10">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageView
                     android:src="@drawable/ic_learn_flashcard"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="@dimen/dp_80"
                     android:layout_gravity="center" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Flashcard"
                     android:layout_gravity="center"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/sp_18"
                     android:textColor="#2d2d2d" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/writing_method"
-            android:layout_width="120dp"
-            android:layout_height="140dp"
-            android:layout_margin="7dp"
-            app:cardCornerRadius="10dp">
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_140"
+            android:layout_margin="@dimen/dp_7"
+            app:cardCornerRadius="@dimen/dp_10">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="@dimen/dp_80"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_learn_writting"/>
                 <TextView
@@ -80,34 +80,34 @@
                     android:layout_height="wrap_content"
                     android:text="Writing"
                     android:layout_gravity="center"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/sp_18"
                     android:textColor="#2d2d2d" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
         <androidx.cardview.widget.CardView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/multiple_method"
-            android:layout_width="120dp"
-            android:layout_height="140dp"
-            android:layout_margin="7dp"
-            app:cardCornerRadius="10dp">
+            android:layout_width="@dimen/dp_120"
+            android:layout_height="@dimen/dp_140"
+            android:layout_margin="@dimen/dp_7"
+            app:cardCornerRadius="@dimen/dp_10">
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" >
 
                 <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/dp_80"
+                    android:layout_height="@dimen/dp_80"
                     android:layout_gravity="center"
-                    android:layout_margin="5dp"
+                    android:layout_margin="@dimen/dp_5"
                     android:src="@drawable/ic_learn_multiple_choice"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Multiple choice"
                     android:gravity="center"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/sp_18"
                     android:textColor="#2d2d2d" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -118,11 +118,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/learn_method"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_20"
         android:text="Vocabulary list"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="@dimen/sp_18"
         android:textStyle="bold" />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -130,8 +130,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView1"
-        android:layout_margin="10dp"
-        android:layout_marginTop="16dp" />
+        android:layout_margin="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_16" />
 
 
 </RelativeLayout>
