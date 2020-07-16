@@ -30,7 +30,6 @@ class KanjiPresenter(
                 response.body()?.let { view.getKanjiByID(it) }
             }
             override fun onFailure(call: Call<Kanji>, t: Throwable) {
-                TODO("Not yet implemented")
             }
 
 
@@ -41,7 +40,6 @@ class KanjiPresenter(
                 response.body()?.let { view.getVocabByKanjiID(it) }
             }
             override fun onFailure(call: Call<List<Vocabulary>>, t: Throwable) {
-                TODO("Not yet implemented")
             }
 
         })

@@ -6,8 +6,8 @@
     android:clickable="true"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_margin="7dp"
-    app:cardCornerRadius="5dp">
+    android:layout_margin="@dimen/dp_7"
+    app:cardCornerRadius="@dimen/dp_5">
 
     <LinearLayout
         android:orientation="vertical"
@@ -16,17 +16,17 @@
 
         <ImageView
             android:id="@+id/image_learn_method"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_100"
             android:layout_gravity="center"
-            android:layout_margin="5dp"/>
+            android:layout_margin="@dimen/dp_5"/>
         <TextView
             android:id="@+id/title_learn_method"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="FlashCard"
             android:gravity="center"
-            android:textSize="18sp"
+            android:textSize="@dimen/sp_18"
             android:textColor="#2d2d2d" />
     </LinearLayout>
 

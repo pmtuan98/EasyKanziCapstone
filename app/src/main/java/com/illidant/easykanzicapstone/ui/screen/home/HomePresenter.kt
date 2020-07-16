@@ -20,7 +20,6 @@ class HomePresenter(
                 response.body()?.let { view.onDataComplete(it) }
             }
             override fun onFailure(call: Call<List<Level>>, t: Throwable) {
-                TODO("Not yet implemented")
             }
         })
 
