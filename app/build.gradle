@@ -71,4 +71,7 @@ dependencies {
 
     // Drawing kanji library
     implementation 'com.github.badoualy:kanji-strokeview:1.0.1'
+
+    //circleviewimage
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
