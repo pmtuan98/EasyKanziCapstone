@@ -39,12 +39,8 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
                         if (Math.abs(deltaX) > MIN_DISTANCE) {
                             // Left to Right swipe action
                             if (x2 > x1) {
-                                Toast.makeText(v!!.context, "Left to Right swipe [Next]", Toast.LENGTH_SHORT)
-                                    .show()
                                 previous()
                             } else {
-                                Toast.makeText(v!!.context, "Right to Left swipe [Previous]", Toast.LENGTH_SHORT)
-                                    .show()
                                 next()
                             }
                         } else {
@@ -96,9 +92,14 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         tv_totalQuestion.text = kanjiList.size.toString()
         tv_questionNo.text = (counter + 1).toString()
 
+        //Set max progress bar
+        progressBarFlashcard.max = kanjiList.size
+        progressBarFlashcard.progress = counter
+
         // Next button click
         btn_flashcard_next.setOnClickListener {
             next()
+
         }
 
         //Previous button click
@@ -109,22 +110,25 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     fun previous(){
         counter--
         if (counter < 0) {
-            counter = kanjiList.size - 1
-        }
-        flashcard_kanji.text = kanjiList[counter]
-        flashcard_meaning.text = meaningList[counter]
-        flashcard_hira.text = hiraganaList[counter]
-        tv_questionNo.text = (counter + 1).toString()
-    }
-    fun next() {
-        counter++
-        if (counter == kanjiList.size) {
             counter = 0
         }
         flashcard_kanji.text = kanjiList[counter]
         flashcard_meaning.text = meaningList[counter]
         flashcard_hira.text = hiraganaList[counter]
         tv_questionNo.text = (counter + 1).toString()
+        progressBarFlashcard.progress = counter
+
+    }
+    fun next() {
+        counter++
+        if (counter == kanjiList.size) {
+            counter = kanjiList.size - 1
+        }
+        flashcard_kanji.text = kanjiList[counter]
+        flashcard_meaning.text = meaningList[counter]
+        flashcard_hira.text = hiraganaList[counter]
+        tv_questionNo.text = (counter + 1).toString()
+        progressBarFlashcard.progress = counter+1
     }
 
 }

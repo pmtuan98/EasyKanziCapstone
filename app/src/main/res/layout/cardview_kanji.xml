@@ -7,7 +7,7 @@
     android:clickable="true"
     android:focusable="true"
     android:layout_width="110dp"
-    android:layout_height="135dp"
+    android:layout_height="145dp"
     android:layout_margin="5dp"
     app:cardCornerRadius="@dimen/dp_5"
     tools:context=".ui.screen.kanji.KanjiByLevelActivity">
