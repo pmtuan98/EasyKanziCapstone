@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/background_image">
     <TextView
         android:id="@+id/intro_text"
         android:layout_width="wrap_content"
@@ -21,15 +22,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/background_image"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/dp_430"
-        android:src="@drawable/background_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/background_image2"
@@ -43,15 +35,15 @@
         android:id="@+id/powered_by_line"
         android:layout_width="184dp"
         android:layout_height="26dp"
-        android:layout_marginStart="134dp"
+        android:layout_marginStart="32dp"
         android:layout_marginEnd="112dp"
-        android:layout_marginBottom="@dimen/dp_8"
-        android:gravity="center"
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/kiteone_regular"
+        android:gravity="center"
         android:text="@string/powered_by"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/background_image"
         app:layout_constraintHorizontal_bias="0.72"
-        app:layout_constraintStart_toStartOf="@+id/background_image" />
+        app:layout_constraintStart_toStartOf="@+id/intro_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

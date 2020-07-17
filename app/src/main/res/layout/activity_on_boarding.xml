@@ -5,17 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OnBoardingActivity">
+    tools:context=".OnBoardingActivity"
+    android:background="@drawable/background_image">
 
-    <ImageView
-        android:id="@+id/background_image1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="-430dp"
-        android:src="@drawable/background_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/intro_text1"
@@ -37,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="596dp"
         app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        android:foregroundGravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
