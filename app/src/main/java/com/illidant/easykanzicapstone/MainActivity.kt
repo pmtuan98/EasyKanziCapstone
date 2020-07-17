@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity() {
     //set animation on elements
 
     //set animation on elements
-    background_image.setAnimation(sideAnim)
     powered_by_line.setAnimation(bottomAnim)
     intro_text.setAnimation(sideAnim)
 

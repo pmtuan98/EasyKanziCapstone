@@ -1,114 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="#f4f4f4"
     android:layout_height="match_parent">
-    <LinearLayout
-        android:id="@+id/text_learn"
+
+    <TextView
+        android:id="@+id/txt_level"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:id="@+id/txt_level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="JPD111"
-            android:layout_margin="@dimen/dp_20"
-            android:textSize="@dimen/sp_30"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/txt_lesson"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lesson 1"
-            android:layout_margin="@dimen/dp_20"
-            android:textSize="@dimen/sp_30"
-            android:textStyle="bold" />
-    </LinearLayout>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="JPD111"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_lesson"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/dp_20"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        android:text="Lesson 1"
+        android:textSize="@dimen/sp_30"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/learn_method"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/learn_method"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dp_70"
-        android:orientation="horizontal">
-        <androidx.cardview.widget.CardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_marginTop="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/flashcard_method"
-            android:layout_width="@dimen/dp_120"
-            android:layout_height="@dimen/dp_140"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
             android:layout_margin="@dimen/dp_7"
             app:cardCornerRadius="@dimen/dp_10">
+
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
                 <ImageView
-                    android:src="@drawable/ic_learn_flashcard"
                     android:layout_width="@dimen/dp_80"
                     android:layout_height="@dimen/dp_80"
-                    android:layout_gravity="center" />
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_learn_flashcard" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="Flashcard"
-                    android:layout_gravity="center"
-                    android:textSize="@dimen/sp_18"
-                    android:textColor="#2d2d2d" />
+                    android:textColor="#2d2d2d"
+                    android:textSize="@dimen/sp_18" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+
+        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/writing_method"
-            android:layout_width="@dimen/dp_120"
-            android:layout_height="@dimen/dp_140"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
             android:layout_margin="@dimen/dp_7"
             app:cardCornerRadius="@dimen/dp_10">
+
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="@dimen/dp_80"
                     android:layout_height="@dimen/dp_80"
                     android:layout_gravity="center"
-                    android:src="@drawable/ic_learn_writting"/>
+                    android:src="@drawable/ic_learn_writting" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Writing"
                     android:layout_gravity="center"
-                    android:textSize="@dimen/sp_18"
-                    android:textColor="#2d2d2d" />
+                    android:text="Writing"
+                    android:textColor="#2d2d2d"
+                    android:textSize="@dimen/sp_18" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
-        <androidx.cardview.widget.CardView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
+
+        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/multiple_method"
-            android:layout_width="@dimen/dp_120"
-            android:layout_height="@dimen/dp_140"
+            android:layout_width="100dp"
+            android:layout_height="120dp"
             android:layout_margin="@dimen/dp_7"
             app:cardCornerRadius="@dimen/dp_10">
+
             <LinearLayout
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/dp_80"
-                    android:layout_height="@dimen/dp_80"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/dp_5"
-                    android:src="@drawable/ic_learn_multiple_choice"/>
+                    android:src="@drawable/ic_learn_multiple_choice" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Multiple choice"
                     android:gravity="center"
-                    android:textSize="@dimen/sp_18"
-                    android:textColor="#2d2d2d" />
+                    android:text="Multiple choice"
+                    android:textColor="#2d2d2d"
+                    android:textSize="@dimen/sp_18" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </LinearLayout>
@@ -118,20 +136,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/learn_method"
-        android:layout_marginStart="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginTop="10dp"
         android:text="Vocabulary list"
         android:textColor="#000000"
         android:textSize="@dimen/sp_18"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/recycler_vocab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/learn_method"
+        app:layout_constraintVertical_bias="0.157" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_vocab"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_below="@id/textView1"
-        android:layout_margin="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_16" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
