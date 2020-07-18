@@ -33,40 +33,11 @@
         android:text="@string/btnSignin"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/sp_18"
-        app:layout_constraintBottom_toTopOf="@id/dividerText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutInputPassword" />
 
-    <Button
-        android:id="@+id/buttonGoogleSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_40"
-        android:layout_marginTop="@dimen/dp_4"
-        android:background="@drawable/bg_google_button"
-        android:drawableStart="@drawable/ic_google"
-        android:padding="@dimen/dp_10"
-        android:text="@string/btn_signin_with_google"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/dividerText" />
 
-    <Button
-        android:id="@+id/buttonFacebookSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_40"
-        android:layout_marginBottom="78dp"
-        android:background="@drawable/bg_google_button"
-        android:drawableStart="@drawable/ic_facebook"
-        android:padding="@dimen/dp_10"
-        android:text="@string/btn_signin_with_facebook"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonGoogleSignIn"
-        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -79,46 +50,7 @@
         app:srcCompat="@drawable/background_image2"
         tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/dividerText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/dp_16"
-        android:layout_marginEnd="@dimen/dp_16"
-        android:layout_marginBottom="@dimen/dp_8"
-        android:text="@string/text_divider"
-        android:textColor="@color/color_gray"
-        app:layout_constraintBottom_toTopOf="@id/buttonGoogleSignIn"
-        app:layout_constraintEnd_toStartOf="@id/dividerRight"
-        app:layout_constraintStart_toEndOf="@id/dividerLeft"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSignin" />
 
-    <View
-        android:id="@+id/dividerRight"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="@dimen/dp_1"
-        android:layout_marginTop="@dimen/dp_8"
-        android:layout_marginEnd="@dimen/dp_40"
-        android:layout_marginBottom="@dimen/dp_8"
-        android:layout_toEndOf="@id/dividerText"
-        android:background="@color/color_gray"
-        app:layout_constraintBottom_toTopOf="@id/buttonGoogleSignIn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/dividerText"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSignin" />
-
-    <View
-        android:id="@+id/dividerLeft"
-        android:layout_width="@dimen/dp_0"
-        android:layout_height="@dimen/dp_1"
-        android:layout_marginStart="@dimen/dp_40"
-        android:layout_marginTop="@dimen/dp_8"
-        android:layout_marginBottom="@dimen/dp_8"
-        android:background="@color/color_gray"
-        app:layout_constraintBottom_toTopOf="@id/buttonGoogleSignIn"
-        app:layout_constraintEnd_toStartOf="@id/dividerText"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonSignin" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/horizontalGuildLine"
