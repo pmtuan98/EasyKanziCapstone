@@ -13,5 +13,5 @@
                 android:text="aaa"
                 android:textAlignment="center"
                 android:textColor="#000000"
-                android:textSize="80sp" />
+                android:textSize="60sp" />
 </LinearLayout>

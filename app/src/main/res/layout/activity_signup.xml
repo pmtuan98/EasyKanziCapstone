@@ -11,6 +11,7 @@
         android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
         android:layout_marginEnd="60dp"
         android:background="@drawable/ic_arrow_back"
         android:backgroundTint="@android:color/white"
@@ -18,6 +19,7 @@
         android:src="@drawable/ic_arrow_back"
         android:translationZ="@dimen/dp_8"
         app:layout_constraintEnd_toStartOf="@+id/tvCreateAccount"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/tvCreateAccount"
         tools:src="@drawable/ic_arrow_back" />
 
@@ -26,16 +28,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="106dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="@dimen/dp_50"
-        android:layout_marginEnd="@dimen/dp_100"
+        android:layout_marginEnd="100dp"
         android:text="CREATE AN ACCOUNT"
         android:textColor="#686565"
         android:textSize="@dimen/sp_20"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonBack"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
