@@ -15,6 +15,7 @@ import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
 import kotlinx.android.synthetic.main.activity_flashcard.*
 import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
+import kotlin.concurrent.thread
 
 
 class FlashcardActivity : AppCompatActivity(), LearnContract.View {
@@ -39,9 +40,17 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
                         if (Math.abs(deltaX) > MIN_DISTANCE) {
                             // Left to Right swipe action
                             if (x2 > x1) {
-                                previous()
+                                if(flash_card.isBackSide) {
+                                    flash_card.flipTheView()
+                                    layout_back.visibility = View.GONE
+                                    previous()
+                                }else  previous()
                             } else {
-                                next()
+                                if(flash_card.isBackSide) {
+                                    flash_card.flipTheView(true)
+                                    layout_back.visibility = View.GONE
+                                    next()
+                                }else next()
                             }
                         } else {
                             // consider as something else - a screen tap for example
@@ -98,22 +107,28 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
 
         // Next button click
         btn_flashcard_next.setOnClickListener {
-            next()
-
+           if(flash_card.isBackSide) {
+               flash_card.flipTheView(true)
+               layout_back.visibility = View.GONE
+               next()
+           }else next()
         }
 
         //Previous button click
         btn_flashcard_previous.setOnClickListener {
-            previous()
+            if(flash_card.isBackSide) {
+                flash_card.flipTheView()
+                layout_back.visibility = View.GONE
+                previous()
+            }else  previous()
+
         }
     }
+
     fun previous(){
         counter--
         if (counter < 0) {
             counter = 0
-        }
-        if(flash_card.isBackSide){
-            flash_card.flipTheView()
         }
         flashcard_kanji.text = kanjiList[counter]
         flashcard_meaning.text = meaningList[counter]
@@ -127,10 +142,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         if (counter == kanjiList.size) {
             counter = kanjiList.size - 1
         }
-        if(flash_card.isBackSide){
-            flash_card.flipTheView()
-        }
-        //flash_card.isAutoFlipBack = true
         flashcard_kanji.text = kanjiList[counter]
         flashcard_meaning.text = meaningList[counter]
         flashcard_hira.text = hiraganaList[counter]
