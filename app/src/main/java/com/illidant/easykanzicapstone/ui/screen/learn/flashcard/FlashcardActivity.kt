@@ -112,6 +112,9 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         if (counter < 0) {
             counter = 0
         }
+        if(flash_card.isBackSide){
+            flash_card.flipTheView()
+        }
         flashcard_kanji.text = kanjiList[counter]
         flashcard_meaning.text = meaningList[counter]
         flashcard_hira.text = hiraganaList[counter]
@@ -124,11 +127,16 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         if (counter == kanjiList.size) {
             counter = kanjiList.size - 1
         }
+        if(flash_card.isBackSide){
+            flash_card.flipTheView()
+        }
+        //flash_card.isAutoFlipBack = true
         flashcard_kanji.text = kanjiList[counter]
         flashcard_meaning.text = meaningList[counter]
         flashcard_hira.text = hiraganaList[counter]
         tv_questionNo.text = (counter + 1).toString()
         progressBarFlashcard.progress = counter+1
+
     }
 
 }

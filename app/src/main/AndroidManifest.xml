@@ -15,7 +15,8 @@
         <activity android:name=".ui.screen.learn.writing.WritingActivity">
 
         </activity>
-        <activity android:name=".ui.screen.learn.flashcard.FlashcardActivity"></activity>
+        <activity android:name=".ui.screen.learn.flashcard.FlashcardActivity">
+        </activity>
         <activity android:name=".ui.screen.learn.LearnActivity" />
         <activity android:name=".ui.screen.kanji.KanjiDetailActivity" />
         <activity android:name=".ui.screen.kanji.KanjiByLevelActivity" />
