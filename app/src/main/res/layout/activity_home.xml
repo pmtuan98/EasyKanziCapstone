@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -12,8 +12,10 @@
         android:layout_width="wrap_content"
         android:layout_height="140dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/dp_20"
-        android:src="@drawable/background_image2" />
+        android:src="@drawable/background_image2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/text_welcome"
@@ -22,7 +24,10 @@
         android:layout_below="@+id/background_image2"
         android:layout_centerHorizontal="true"
         android:text="Welcome, choose your level!"
-        android:textSize="@dimen/sp_20" />
+        android:textSize="@dimen/sp_20"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/background_image2" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -33,11 +38,17 @@
         app:itemBackground="@android:color/holo_red_light"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_welcome" />
-</RelativeLayout>
+        android:layout_below="@+id/text_welcome"
+        app:layout_constraintTop_toBottomOf="@+id/text_welcome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
