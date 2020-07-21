@@ -24,6 +24,7 @@
         app:layout_constraintTop_toTopOf="@id/imageLogo"
         tools:src="@drawable/ic_arrow_back" />
 
+
     <Button
         android:id="@+id/buttonSignin"
         android:layout_width="match_parent"
@@ -35,9 +36,7 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutInputPassword" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/txtForgotPass" />
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -75,6 +74,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/text_password"
             android:inputType="textPassword"
+            android:textColor="#000000"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,7 +94,22 @@
             android:layout_height="wrap_content"
             android:hint="@string/text_email"
             android:inputType="textEmailAddress"
+            android:textColor="#000000"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/txtForgotPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Forgot password ?"
+        android:textColor="#03A9F4"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.847"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layoutInputPassword" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

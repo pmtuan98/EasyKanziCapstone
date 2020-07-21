@@ -11,7 +11,7 @@ import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.ui.screen.home.HomeAdapter
-import kotlinx.android.synthetic.main.cardview_kanji.view.*
+import kotlinx.android.synthetic.main.item_kanji.view.*
 import kotlinx.android.synthetic.main.item_kanji_vocabulary.view.*
 
 class KanjiDetailAdapter : RecyclerView.Adapter<KanjiDetailAdapter.KanjiDetailView> {

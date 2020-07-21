@@ -1,9 +1,9 @@
 package com.illidant.easykanzicapstone.ui.screen.learn.flashcard
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
@@ -15,7 +15,6 @@ import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
 import kotlinx.android.synthetic.main.activity_flashcard.*
 import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
-import kotlin.concurrent.thread
 
 
 class FlashcardActivity : AppCompatActivity(), LearnContract.View {
@@ -52,8 +51,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
                                     next()
                                 }else next()
                             }
-                        } else {
-                            // consider as something else - a screen tap for example
                         }
                     }
                 }
@@ -71,7 +68,16 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         txt_level.text = level_name
         txt_lesson.text = lesson_name
         presenter.vocabByLessonRequest(lesson_id)
-    }
+
+
+        buttonFinish.setOnClickListener {
+            showFinishDialog()
+        }
+        buttonExit.setOnClickListener {
+            finish()
+        }
+
+}
 
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
@@ -101,7 +107,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         tv_totalQuestion.text = kanjiList.size.toString()
         tv_questionNo.text = (counter + 1).toString()
 
-        //Set max progress bar
+        //Set progress bar
         progressBarFlashcard.max = kanjiList.size
         progressBarFlashcard.progress = counter
 
@@ -149,5 +155,15 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter+1
 
     }
+
+     fun showFinishDialog() {
+        val dialog = Dialog(this)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.dialog_flashcard)
+        dialog.show()
+
+    }
+
+
 
 }

@@ -2,7 +2,6 @@ package com.illidant.easykanzicapstone.ui.screen.kanji
 
 import android.content.Context
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,7 +11,7 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Kanji
-import kotlinx.android.synthetic.main.cardview_kanji.view.*
+import kotlinx.android.synthetic.main.item_kanji.view.*
 
 class KanjiByLevelAdapter : RecyclerView.Adapter<KanjiByLevelAdapter.LevelViewHolder> {
 
@@ -25,7 +24,7 @@ class KanjiByLevelAdapter : RecyclerView.Adapter<KanjiByLevelAdapter.LevelViewHo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LevelViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.cardview_kanji, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_kanji, parent, false)
         return LevelViewHolder(view)
     }
 

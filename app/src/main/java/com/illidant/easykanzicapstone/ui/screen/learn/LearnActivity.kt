@@ -10,6 +10,7 @@ import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import com.illidant.easykanzicapstone.platform.source.remote.VocabularyRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.FlashcardActivity
+import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import kotlinx.android.synthetic.main.activity_learn.*
 import kotlinx.android.synthetic.main.activity_learn.txt_lesson
 import kotlinx.android.synthetic.main.activity_learn.txt_level
@@ -38,6 +39,14 @@ class LearnActivity : AppCompatActivity(), LearnContract.View {
         //Move to flashcard
         flashcard_method.setOnClickListener({
             val intent = Intent(it.context, FlashcardActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            intent.putExtra("LESSON_NAME", lesson_name)
+            intent.putExtra("LEVEL_NAME", level_name)
+            startActivity(intent)
+        })
+
+        writing_method.setOnClickListener({
+            val intent = Intent(it.context, WritingActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             intent.putExtra("LESSON_NAME", lesson_name)
             intent.putExtra("LEVEL_NAME", level_name)

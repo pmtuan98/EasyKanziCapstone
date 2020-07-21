@@ -17,7 +17,6 @@ class LessonPresenter (
             }
 
             override fun onFailure(call: Call<List<Lesson>>, t: Throwable) {
-                TODO("Not yet implemented")
             }
 
 

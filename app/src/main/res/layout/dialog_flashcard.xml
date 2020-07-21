@@ -3,14 +3,14 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="300dp"
+    android:layout_height="300dp">
 
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginBottom="560dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,46 +21,38 @@
         android:id="@+id/textViewmess1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Làm tôt lắm!"
+        android:text="Well done!"
+        android:textColor="#000000"
         android:textSize="28dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <TextView
-        android:id="@+id/textViewmess2"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/buttonContinue"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Tiếp tục ôn tập để nắm vững tất cả những thuật ngữ còn lại.!"
-        android:textSize="20dp"
-        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:text="Continue"
+        android:textColor="@android:color/white"
+        android:background="@drawable/btn_mess"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewmess1" />
 
     <Button
-        android:id="@+id/btn_continuous"
-        android:layout_width="200dp"
+        android:id="@+id/buttonAgain"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:text="Learn again"
         android:layout_marginTop="20dp"
-        android:text="Tiếp tục"
-        android:textColor="@android:color/white"
-        android:background="@drawable/btn_mess"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewmess2" />
-
-    <Button
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:text="Học lại"
-        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:textColor="#FFB5A8"
         android:background="@drawable/btn_mess2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_continuous" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonContinue" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
