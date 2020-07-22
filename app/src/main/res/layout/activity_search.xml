@@ -24,7 +24,10 @@
         app:itemBackground="@android:color/holo_red_light"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
+        app:itemHorizontalTranslationEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation" />
 
     <SearchView

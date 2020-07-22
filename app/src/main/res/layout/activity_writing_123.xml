@@ -7,163 +7,194 @@
     tools:context=".ui.screen.learn.writing.WritingActivity">
 
 
-    <TextView
-        android:id="@+id/txt_kanji_question"
-        android:layout_width="111dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="108dp"
-        android:text="Kanji"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold"
+    <LinearLayout
+        android:id="@+id/text_learn"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <TextView
+            android:id="@+id/txt_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="JPD111"
+            android:textSize="@dimen/sp_30"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt_lesson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Lesson 1"
+            android:textSize="@dimen/sp_30"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/switchOption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:background="@drawable/ic_setting" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_learn"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/progressBarFlashcard"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_learn">
+
+        <TextView
+            android:id="@+id/txt_questionNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptsans_bold"
+            android:text="10"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptsans_bold"
+            android:text="/"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txt_totalQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptsans_bold"
+            android:text="10"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBarWriting"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_learn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:max="100"
+        android:progressDrawable="@drawable/custom_progress_bar"
+        app:layout_constraintBottom_toTopOf="@+id/flash_card"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+    <LinearLayout
+        android:id="@+id/linearlayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarWriting">
+
+        <TextView
+            android:id="@+id/txt_kanji_question"
+            android:layout_width="111dp"
+            android:layout_height="41dp"
+            android:layout_margin="18dp"
+            android:layout_marginStart="20dp"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnHint"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_margin="26dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginEnd="242dp"
+            android:background="@drawable/ic_question_mark" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="361dp"
+        android:layout_width="match_parent"
         android:layout_height="199dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_kanji_question">
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout4">
 
         <TextView
             android:id="@+id/textViewCorrectAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:text="Correct answer"
             android:textColor="#4CAF50"
             android:textSize="20sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/ptsans_bold"
             android:visibility="invisible" />
 
         <TextView
             android:id="@+id/txt_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.172"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_wrong_answer" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewWrongAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
             android:text="Your answer"
             android:textColor="#FF0000"
             android:textSize="20sp"
-            android:textStyle="bold"
+            android:fontFamily="@font/ptsans_bold"
             android:visibility="invisible" />
 
         <TextView
             android:id="@+id/txt_wrong_answer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:textColor="#000000"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.272"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_kanji_question" />
+            android:textSize="18sp" />
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textAnswerField"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-
+        android:gravity="center"
         app:endIconDrawable="@drawable/ic_arrow_next"
         app:endIconMode="custom"
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/main_blue_color"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editext_answer"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <ImageView
-        android:id="@+id/switchOption"
-        android:layout_width="59dp"
-        android:layout_height="33dp"
-        android:layout_marginTop="72dp"
-        android:src="@drawable/ic_setting"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="50dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/txt_kanji_question"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.19">
-
-        <TextView
-            android:id="@+id/txt_questionNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="@dimen/sp_40" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="/"
-            android:textSize="@dimen/sp_40" />
-
-        <TextView
-            android:id="@+id/txt_totalQuestion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="10"
-            android:textSize="@dimen/sp_40" />
-
-    </LinearLayout>
-
-    <ProgressBar
-        android:id="@+id/progressBarWriting"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="196dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="22dp"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout"
-        app:layout_constraintHorizontal_bias="0.647"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnHint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
-        android:text="Don't know"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.224"
-        app:layout_constraintStart_toEndOf="@+id/txt_kanji_question"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
-
-    </Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

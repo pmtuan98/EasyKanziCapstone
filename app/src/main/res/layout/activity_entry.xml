@@ -51,6 +51,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_28"
             android:text="@string/btnSignin"
+            android:textColor="#FF0000"
+            android:background="@drawable/btn_custom"
             app:layout_constraintBottom_toTopOf="@id/text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.482"
