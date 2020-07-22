@@ -147,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:background="@drawable/bg_button_writing2"
-            android:text="Finish" />
+            android:text="Restart" />
 
         <ImageButton
             android:id="@+id/btn_flashcard_next"

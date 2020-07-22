@@ -72,7 +72,9 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
 
 
         buttonFinish.setOnClickListener {
-            showFinishDialog()
+            val intent = intent
+            finish()
+            startActivity(intent)
         }
         buttonExit.setOnClickListener {
             finish()
@@ -157,20 +159,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
 
     }
 
-     fun showFinishDialog() {
-        val dialog = Dialog(this)
-        dialog.setCancelable(true)
-        dialog.setContentView(R.layout.dialog_flashcard)
-         val buttonAgain= dialog.findViewById(R.id.buttonAgain) as Button
-         dialog.show()
-         buttonAgain.setOnClickListener {
-             val intent = intent
-             finish()
-             startActivity(intent)
-             dialog.dismiss()
-         }
-
-    }
 
 
 

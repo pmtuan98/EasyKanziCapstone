@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#f4f4f4"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -12,7 +14,7 @@
         android:layout_marginBottom="39dp"
         android:text="Multiple Choice"
         android:textSize="15sp"
-        app:layout_constraintBottom_toTopOf="@+id/text_question_detail"
+        app:layout_constraintBottom_toTopOf="@+id/textQuestion"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,14 +31,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/text_question_detail"
+        android:id="@+id/textQuestion"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="@dimen/dp_8"
         android:gravity="center"
+        android:text="aaaaa"
         android:textColor="@color/color_text_primary"
-        android:textSize="@dimen/sp_18"
+        android:textSize="@dimen/sp_30"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_question_number"
@@ -50,7 +54,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
-        android:id="@+id/textAnswer1"
+        android:id="@+id/textAnswerA"
         android:layout_width="164dp"
         android:layout_height="96dp"
         android:layout_marginTop="32dp"
@@ -60,10 +64,10 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_question_detail" />
+        app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
 
     <TextView
-        android:id="@+id/textAnswer2"
+        android:id="@+id/textAnswerB"
         android:layout_width="164dp"
         android:layout_height="96dp"
         android:layout_marginTop="32dp"
@@ -73,10 +77,10 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/text_question_detail" />
+        app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
 
     <TextView
-        android:id="@+id/textAnswer3"
+        android:id="@+id/textAnswerC"
         android:layout_width="164dp"
         android:layout_height="96dp"
         android:layout_marginTop="32dp"
@@ -86,10 +90,10 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswer1" />
+        app:layout_constraintTop_toBottomOf="@+id/textAnswerA" />
 
     <TextView
-        android:id="@+id/textAnswer4"
+        android:id="@+id/textAnswerD"
         android:layout_width="164dp"
         android:layout_height="96dp"
         android:layout_marginTop="32dp"
@@ -99,19 +103,20 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswer2" />
+        app:layout_constraintTop_toBottomOf="@+id/textAnswerB" />
 
     <Button
-        android:id="@+id/btn_Next_Question"
+        android:id="@+id/btnNextQuestion"
         android:layout_width="@dimen/dp_100"
         android:layout_height="64dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/ripple_effect_button"
         android:text="Next"
+        android:visibility="invisible"
         android:textSize="@dimen/sp_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswer4" />
+        app:layout_constraintTop_toBottomOf="@+id/textAnswerD" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
