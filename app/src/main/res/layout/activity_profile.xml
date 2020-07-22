@@ -31,14 +31,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.github.siyamed.shapeimageview.CircularImageView
-                android:id="@+id/imageview_profile"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="40dp"
-                android:elevation="1dp"
-                android:src="@drawable/avatar_defaul" />
+<!--            <com.github.siyamed.shapeimageview.CircularImageView-->
+<!--                android:id="@+id/imageview_profile"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="150dp"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_marginTop="40dp"-->
+<!--                android:elevation="1dp"-->
+<!--                android:src="@drawable/avatar_defaul" />-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -61,24 +61,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/username_profile"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="@dimen/dp_20"
-                            android:text="Đen Vâu"
-                            android:textColor="#000"
-                            android:textSize="@dimen/sp_18"
-                            android:textStyle="bold" />
-
                         <TextView
                             android:id="@+id/email_profile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/username_profile"
                             android:layout_gravity="center_horizontal"
+                            android:textColor="#000"
+                            android:textSize="@dimen/sp_18"
                             android:layout_marginTop="@dimen/dp_5"
                             android:text="tuanvm@gmail.com" />
 

@@ -8,7 +8,9 @@ import android.view.WindowManager
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.viewpager.widget.ViewPager
+import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.ui.screen.entry.EntryActivity
+import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import kotlinx.android.synthetic.main.activity_on_boarding.*
 
 class OnBoardingActivity : AppCompatActivity() {
@@ -42,6 +44,11 @@ class OnBoardingActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val prefs = SharedPrefs(this)
+        if (!prefs.token.isNullOrBlank()) {
+            navigateToHome()
+        }
+
         window.setFlags(
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN
@@ -64,6 +71,16 @@ class OnBoardingActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+    private fun navigateToHome() {
+        HomeActivity.getIntent(this).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                    Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                    Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(this)
+        }
+        finish()
+    }
+
 
     private fun addDots(position: Int) {
         val dots = arrayOfNulls<TextView>(3)

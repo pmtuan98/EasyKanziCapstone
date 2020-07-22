@@ -18,16 +18,14 @@ class MainActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
     window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
     setContentView(R.layout.activity_main)
-
-    //Animation
 
     //Animation
     sideAnim = AnimationUtils.loadAnimation(this, R.anim.side_anim)
     bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim)
 
-    //set animation on elements
 
     //set animation on elements
     powered_by_line.setAnimation(bottomAnim)

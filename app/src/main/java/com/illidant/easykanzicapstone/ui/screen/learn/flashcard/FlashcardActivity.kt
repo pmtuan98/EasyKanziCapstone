@@ -4,6 +4,7 @@ import android.app.Dialog
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.flashcard_layout_front.*
 
 class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     private var x1 = 0f
-    private  var x2:kotlin.Float = 0f
+    private var x2 = 0f
     val MIN_DISTANCE = 150
     var counter = 0
     val kanjiList : MutableList<String> = mutableListOf()
@@ -160,7 +161,14 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         val dialog = Dialog(this)
         dialog.setCancelable(true)
         dialog.setContentView(R.layout.dialog_flashcard)
-        dialog.show()
+         val buttonAgain= dialog.findViewById(R.id.buttonAgain) as Button
+         dialog.show()
+         buttonAgain.setOnClickListener {
+             val intent = intent
+             finish()
+             startActivity(intent)
+             dialog.dismiss()
+         }
 
     }
 

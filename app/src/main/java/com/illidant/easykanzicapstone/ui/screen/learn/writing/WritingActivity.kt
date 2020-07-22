@@ -1,27 +1,23 @@
 package com.illidant.easykanzicapstone.ui.screen.learn.writing
 
+import android.app.Dialog
 import android.content.Context
-import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.view.inputmethod.EditorInfo
+import android.widget.Button
+import android.widget.RadioButton
+import androidx.appcompat.app.AppCompatActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
-import com.illidant.easykanzicapstone.extension.isNotEmptyAndBlank
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import com.illidant.easykanzicapstone.platform.source.remote.VocabularyRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.learn.LearnActivity
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnContract
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
-import kotlinx.android.synthetic.main.activity_flashcard.*
-import kotlinx.android.synthetic.main.activity_level.*
 import kotlinx.android.synthetic.main.activity_writing_123.*
-import kotlinx.android.synthetic.main.setting_learn_writing_layout.*
 
 
 class WritingActivity : AppCompatActivity(), LearnContract.View {
@@ -32,16 +28,18 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         setContentView(R.layout.activity_writing_123)
         initialize()
 
-        switchOption.setOnClickListener{
-            navigateToSetting()
-        }
+
     }
 
     private fun initialize() {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         val lesson_name = intent.getStringExtra("LESSON_NAME")
         val level_name = intent.getStringExtra("LEVEL_NAME")
-        presenter.vocabByLessonRequest(1)
+        presenter.vocabByLessonRequest(lesson_id)
+
+        switchOption.setOnClickListener{
+            showSettingDialog()
+        }
 
         val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
         val hiraMode = prefs.getBoolean("hiraState", true)
@@ -51,8 +49,6 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         }else if (vietnamMode == true){
             textAnswerField.helperText = "Write meaning by Vietnamese"
         }
-
-
     }
 
     private val presenter by lazy {
@@ -62,9 +58,50 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         LearnPresenter(this, repository)
     }
 
-    private fun navigateToSetting() {
-        val intent = Intent(this, SettingWritingActivity::class.java)
-        startActivity(intent)
+    private fun showSettingDialog() {
+        val dialog = Dialog(this)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.setting_learn_writing_layout)
+        val buttonSave= dialog.findViewById(R.id.buttonSaveWritingMode) as Button
+        val radioHira = dialog.findViewById(R.id.radioHira) as RadioButton
+        val radioVN = dialog.findViewById(R.id.radioVN) as RadioButton
+        val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+        radioHira.isChecked = prefs.getBoolean("hiraState",radioHira.isChecked)
+        radioVN.isChecked = prefs.getBoolean("vnState", radioVN.isChecked)
+        dialog.show()
+        buttonSave.setOnClickListener{
+            if (radioHira.isChecked) {
+                val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+                prefs.edit().putBoolean("hiraState", true).apply()
+                prefs.edit().putBoolean("vnState", false).apply()
+                val intent = intent
+                finish()
+                startActivity(intent)
+                dialog.dismiss()
+            }else if(radioVN.isChecked) {
+                val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+                prefs.edit().putBoolean("vnState", true).apply()
+                prefs.edit().putBoolean("hiraState", false).apply()
+                val intent = intent
+                finish()
+                startActivity(intent)
+                dialog.dismiss()
+            }
+        }
+    }
+
+    private fun showCompleteDialog () {
+        val dialog = Dialog(this)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.dialog_flashcard)
+        val buttonAgain= dialog.findViewById(R.id.buttonAgain) as Button
+        dialog.show()
+        buttonAgain.setOnClickListener {
+            val intent = intent
+            finish()
+            startActivity(intent)
+            dialog.dismiss()
+        }
     }
 
     override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
@@ -99,6 +136,10 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
 
         fun nextQuestion() {
             counter++
+            if (counter == kanjiList.size) {
+                counter = kanjiList.size - 1
+                showCompleteDialog()
+            }
             txt_kanji_question.text = kanjiList[counter]
             txt_questionNo.text = (counter + 1).toString()
             editext_answer.text?.clear()
@@ -129,7 +170,7 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
                             nextQuestion()
                         }
                         else if (!textAnswerField.isEndIconVisible &&
-                            vietnamMode == true && editext_answer.text.toString().equals(vnAnswer)) {
+                            vietnamMode == true && editext_answer.text.toString().equals(vnAnswer,ignoreCase = true)) {
                             nextQuestion()
                         }
                     }
@@ -185,9 +226,9 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
                     txt_wrong_answer.text = userAnswer
                     checkWrongInputAnswer()
                     txt_answer.text = hiraAnswer
-                } else if(vietnamMode == true && userAnswer.equals(vnAnswer)) { //Check input answer correct
+                } else if(vietnamMode == true && userAnswer.equals(vnAnswer,ignoreCase = true)) { //Check input answer correct
                     nextQuestion()
-                } else if(vietnamMode == true && !userAnswer.equals(vnAnswer)) {  //Check input answer not correct
+                } else if(vietnamMode == true && !userAnswer.equals(vnAnswer,ignoreCase = true)) {  //Check input answer not correct
                     txt_answer.text = vnAnswer
                     txt_wrong_answer.text = userAnswer
                     checkWrongInputAnswer()
