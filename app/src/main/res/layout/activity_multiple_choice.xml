@@ -112,7 +112,6 @@
         android:layout_marginTop="28dp"
         android:background="@drawable/ripple_effect_button"
         android:text="Next"
-        android:visibility="invisible"
         android:textSize="@dimen/sp_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
