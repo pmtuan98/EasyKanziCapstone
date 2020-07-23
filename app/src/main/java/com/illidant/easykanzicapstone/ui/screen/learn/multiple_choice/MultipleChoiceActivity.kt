@@ -62,9 +62,6 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
                 textAnswerA?.background = wrongAnswerBackground
             }
             displayNextButton()
-           
-//            hideNextButton()
-
         }
         textAnswerB?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
@@ -72,8 +69,6 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
                 textAnswerB?.background = wrongAnswerBackground
             }
             displayNextButton()
-//            hideNextButton()
-
         }
         textAnswerC?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
@@ -81,8 +76,6 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
                 textAnswerC?.background = wrongAnswerBackground
             }
             displayNextButton()
-//            hideNextButton()
-
         }
         textAnswerD?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
@@ -90,8 +83,6 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
                 textAnswerD?.background = wrongAnswerBackground
             }
             displayNextButton()
-//            hideNextButton()
-
         }
 
         btnNextQuestion.setOnClickListener({
@@ -103,6 +94,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             textAnswerD.text = listQuiz[currentPosition].answerD
             correctAnswer = listQuiz[currentPosition].correctAnswer
             resetAnswersBackground()
+            hideNextButton()
         })
 
     }
