@@ -66,8 +66,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         val lesson_name = intent.getStringExtra("LESSON_NAME")
         val level_name = intent.getStringExtra("LEVEL_NAME")
-        txt_level.text = level_name
-        txt_lesson.text = lesson_name
         presenter.vocabByLessonRequest(lesson_id)
 
 

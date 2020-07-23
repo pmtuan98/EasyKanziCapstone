@@ -17,6 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <TextView
         android:id="@+id/text_welcome"
         android:layout_width="wrap_content"
@@ -25,11 +26,9 @@
         android:layout_centerHorizontal="true"
         android:text="Welcome, choose your level!"
         android:textSize="@dimen/sp_20"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/background_image2" />
-
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
