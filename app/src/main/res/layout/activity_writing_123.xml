@@ -78,7 +78,6 @@
             android:id="@+id/linearlayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
@@ -162,7 +161,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textAnswerField"
-        android:layout_width="330dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@android:color/white"
@@ -178,7 +177,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editext_answer"
-            android:layout_width="330dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
     </com.google.android.material.textfield.TextInputLayout>

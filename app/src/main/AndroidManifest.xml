@@ -13,7 +13,6 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.screen.learn.multiple_choice.MultipleChoiceActivity"></activity>
-        <activity android:name=".ui.screen.learn.writing.SettingWritingActivity"></activity>
         <activity android:name=".ui.screen.learn.writing.WritingActivity"></activity>
         <activity android:name=".ui.screen.learn.flashcard.FlashcardActivity" />
         <activity android:name=".ui.screen.learn.LearnActivity" />

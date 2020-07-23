@@ -65,8 +65,27 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             if(textAnswerA.text.equals(correctAnswer)){
                 textAnswerA.background = ContextCompat.getDrawable(this, R.drawable.bg_correct_answer)
                 btnNextQuestion.visibility = View.VISIBLE
+                textAnswerB.isClickable = false
+                textAnswerC.isClickable = false
+                textAnswerD.isClickable = false
             }else {
                 textAnswerA.background = ContextCompat.getDrawable(this, R.drawable.bg_wrong_answer)
+                textAnswerB.isClickable = false
+                textAnswerC.isClickable = false
+                textAnswerD.isClickable = false
+                if(textAnswerA.text.equals(correctAnswer)){
+                    textAnswerA.background = ContextCompat.getDrawable(this, R.drawable.bg_correct_answer)
+                    btnNextQuestion.visibility = View.VISIBLE
+                }else if(textAnswerB.text.equals(correctAnswer)){
+                    textAnswerB.background = ContextCompat.getDrawable(this, R.drawable.bg_correct_answer)
+                    btnNextQuestion.visibility = View.VISIBLE
+                }else if(textAnswerC.text.equals(correctAnswer)){
+                    textAnswerC.background = ContextCompat.getDrawable(this, R.drawable.bg_correct_answer)
+                    btnNextQuestion.visibility = View.VISIBLE
+                } else if(textAnswerD.text.equals(correctAnswer)){
+                    textAnswerD.background = ContextCompat.getDrawable(this, R.drawable.bg_correct_answer)
+                    btnNextQuestion.visibility = View.VISIBLE
+                }
             }
         })
 
