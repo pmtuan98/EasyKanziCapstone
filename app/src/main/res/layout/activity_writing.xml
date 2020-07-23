@@ -93,15 +93,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarFlashcard">
+
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:layout_marginTop="20dp"
         android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarFlashcard">
+>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -119,6 +124,7 @@
                 android:id="@+id/text_wrong_answer"
                 android:layout_width="290dp"
                 android:layout_height="23dp"
+                android:text="asdasdqwdqdsadfsdl;ovchsdfkdslbgvcklgbfdjgnbferlgfdkojgvfdskjgndkjgfsdnbjlsfdngkljvsdfnvgkjsdfngkfjsdgbskjfbgvckjsbfjkgsdbfgjsdfbgjhfsdbgvhjsfdbghjsdfkbgjhbchjdsfbghjdfbgvhjcbjabewdbtjlhocewdbtcgolhjerdbtogjieqrntoerqwhtgoieqpjntgvcoeiotprtjerowqiotvjwfogpijnfokgnmopqvrncctoeqrngfdkjollngkjfdlnvgkjdlsdffngjkvwneirtepiontveirwtneirjntjqeirvngjdfkngjksdfnvgkljsddffngkjsdfngvjksdfgngnsklvfgnfkjsdgnjksdnvgkjsdflnbgfjsdnbvgijugnbeqirt"
                 android:layout_below="@id/text_question"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="100dp" />
@@ -127,6 +133,7 @@
                 android:id="@+id/wrong_answer_detail"
                 android:layout_width="290dp"
                 android:layout_height="23dp"
+                android:text="ovchsdfkdslbgvcklgbfdjgnbferlgfdkojgvfdskjgndkjgfsdnbjlsfdngkljvsdfnvgkjsdfngkfjsdgbskjfbgvckjsbfjkgsdbfgjsdfbgjhfsdbgvhjsfdbghjsdfkbgjhbchjdsfbghjdfbgvhjcbjabewdbtjlhocewdbtcgolhjerdbtogjieqrntoerqwhtgoieqpjntgvcoeiotprtjerowqiotvjwfogpijnfokgnmopqvrncctoeqrngfdkjollngkjfdlnvgkjdlsdffngjkvwneirtepiontveirwtneirjntjqeirvngjdfkngjksdfnvgkljsddffngkjsdfngvjksdfgngnsklvfgnfkjsdgnjksdnvgkjsdflnbgfjsdnbvgijugnbeqirt"
                 android:layout_below="@id/text_wrong_answer"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp" />
@@ -135,6 +142,7 @@
                 android:id="@+id/text_correct_answer"
                 android:layout_width="290dp"
                 android:layout_height="23dp"
+                android:text="ovchsdfkdslbgvcklgbfdjgnbferlgfdkojgvfdskjgndkjgfsdnbjlsfdngkljvsdfnvgkjsdfngkfjsdgbskjfbgvckjsbfjkgsdbfgjsdfbgjhfsdbgvhjsfdbghjsdfkbgjhbchjdsfbghjdfbgvhjcbjabewdbtjlhocewdbtcgolhjerdbtogjieqrntoerqwhtgoieqpjntgvcoeiotprtjerowqiotvjwfogpijnfokgnmopqvrncctoeqrngfdkjollngkjfdlnvgkjdlsdffngjkvwneirtepiontveirwtneirjntjqeirvngjdfkngjksdfnvgkljsddffngkjsdfngvjksdfgngnsklvfgnfkjsdgnjksdnvgkjsdflnbgfjsdnbvgijugnbeqirt"
                 android:layout_below="@id/wrong_answer_detail"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp" />
@@ -143,26 +151,15 @@
                 android:id="@+id/correct_answer_detail"
                 android:layout_width="290dp"
                 android:layout_height="23dp"
+                android:text="ovchsdfkdslbgvcklgbfdjgnbferlgfdkojgvfdskjgndkjgfsdnbjlsfdngkljvsdfnvgkjsdfngkfjsdgbskjfbgvckjsbfjkgsdbfgjsdfbgjhfsdbgvhjsfdbghjsdfkbgjhbchjdsfbghjdfbgvhjcbjabewdbtjlhocewdbtcgolhjerdbtogjieqrntoerqwhtgoieqpjntgvcoeiotprtjerowqiotvjwfogpijnfokgnmopqvrncctoeqrngfdkjollngkjfdlnvgkjdlsdffngjkvwneirtepiontveirwtneirjntjqeirvngjdfkngjksdfnvgkljsddffngkjsdfngvjksdfgngnsklvfgnfkjsdgnjksdnvgkjsdflnbgfjsdnbvgijugnbeqirt"
                 android:layout_below="@id/text_correct_answer"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp" />
 
-
         </RelativeLayout>
     </LinearLayout>
+    </ScrollView>
 
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="357dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:ems="10"
-        android:hint="Nhập thuật ngữ"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

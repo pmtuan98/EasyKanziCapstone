@@ -7,50 +7,67 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/title_text"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_width="233dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="54dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="285dp"
+        android:gravity="center"
+        android:padding="@dimen/dp_15"
         android:text="Option"
-        android:textSize="18sp"
+        android:textSize="28sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="10dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RadioButton
             android:id="@+id/radioHira"
-            android:layout_width="wrap_content"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
-            android:text="Write meaning by Hiragana"
-            android:textSize="24sp" />
+            android:layout_gravity="start"
+            android:layoutDirection="rtl"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:text="Kanji to Hiragana"
+            android:textAlignment="textStart"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioVN"
-            android:layout_width="wrap_content"
+            android:layout_width="290dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_gravity="start"
             android:checked="true"
-            android:text="Write meaning by Vietnamese"
-            android:textSize="24sp" />
+            android:layoutDirection="rtl"
+            android:paddingTop="10dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="10dp"
+            android:text="Kanji to Vietnamese"
+            android:textAlignment="textStart"
+            android:textSize="20sp" />
 
     </RadioGroup>
 
     <Button
         android:id="@+id/buttonSaveWritingMode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:background="@drawable/btn_custom"
         android:text="SAVE"
+        android:textColor="@android:color/holo_blue_bright"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

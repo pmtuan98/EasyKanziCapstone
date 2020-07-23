@@ -13,14 +13,16 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".ui.screen.learn.writing.SettingWritingActivity">
+
         </activity>
-        <activity android:name=".ui.screen.learn.writing.WritingActivity">
+        <activity android:name=".ui.screen.learn.writing.WritingActivity"
+                    android:windowSoftInputMode="adjustResize">
         </activity>
         <activity android:name=".ui.screen.learn.flashcard.FlashcardActivity"></activity>
         <activity android:name=".ui.screen.learn.LearnActivity" />
         <activity android:name=".ui.screen.kanji.KanjiDetailActivity" />
         <activity android:name=".ui.screen.kanji.KanjiByLevelActivity" />
-        <activity android:name=".SearchActivity" />
+        <activity android:name=".SearchActivity" android:windowSoftInputMode="adjustPan" />
         <activity android:name=".RankingActivity" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".OnBoardingActivity" />
