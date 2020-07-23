@@ -185,8 +185,7 @@
             android:id="@+id/editext_answer"
             android:layout_width="350dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:textColor="#2196F3" />
+            android:layout_gravity="center" />
     </com.google.android.material.textfield.TextInputLayout>
 
 

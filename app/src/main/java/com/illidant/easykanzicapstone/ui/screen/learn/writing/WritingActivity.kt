@@ -17,7 +17,6 @@ import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import com.illidant.easykanzicapstone.platform.source.remote.VocabularyRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnContract
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
-import kotlinx.android.synthetic.main.activity_flashcard.*
 import kotlinx.android.synthetic.main.activity_writing_123.*
 
 
