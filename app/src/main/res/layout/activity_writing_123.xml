@@ -10,24 +10,28 @@
         <LinearLayout
             android:id="@+id/text_learn"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:gravity="center"
+            android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/view"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/buttonExit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="18dp"
                 android:background="@drawable/ic_baseline_clear_24" />
+
             <ProgressBar
                 android:id="@+id/progressBarWriting"
                 style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
                 android:max="100"
                 android:progressDrawable="@drawable/custom_progress_bar" />
 
@@ -35,51 +39,52 @@
                 android:id="@+id/switchOption"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="18dp"
                 android:background="@drawable/ic_setting" />
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/linearLayout"
+
+    <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_learn">
+
+        <TextView
+            android:id="@+id/txt_questionNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/text_learn"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_learn">
+            android:fontFamily="@font/ptsans_bold"
+            android:text="10"
+            android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/txt_questionNo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/ptsans_bold"
-                android:text="10"
-                android:textSize="16sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptsans_bold"
+            android:text="/"
+            android:textSize="16sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/ptsans_bold"
-                android:text="/"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/txt_totalQuestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/ptsans_bold"
-                android:text="10"
-                android:textSize="16sp" />
-        </LinearLayout>
-
+        <TextView
+            android:id="@+id/txt_totalQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptsans_bold"
+            android:text="10"
+            android:textSize="16sp" />
+    </LinearLayout>
 
         <LinearLayout
             android:id="@+id/linearlayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearlayout">
 
             <TextView
                 android:id="@+id/txt_kanji_question"
@@ -109,6 +114,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearlayout4">
+
         <LinearLayout
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
@@ -161,12 +167,12 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textAnswerField"
-        android:layout_width="match_parent"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@android:color/white"
         android:gravity="center"
-        app:endIconDrawable="@drawable/ic_arrow_next"
+        app:endIconDrawable="@drawable/ic_next_2"
         app:endIconMode="custom"
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/color_gray_73"
@@ -177,7 +183,7 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editext_answer"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center" />
     </com.google.android.material.textfield.TextInputLayout>
