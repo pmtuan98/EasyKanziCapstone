@@ -17,6 +17,7 @@ import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import com.illidant.easykanzicapstone.platform.source.remote.VocabularyRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnContract
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
+import kotlinx.android.synthetic.main.activity_flashcard.*
 import kotlinx.android.synthetic.main.activity_writing_123.*
 
 
@@ -33,8 +34,6 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
 
     private fun initialize() {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        val lesson_name = intent.getStringExtra("LESSON_NAME")
-        val level_name = intent.getStringExtra("LEVEL_NAME")
         presenter.vocabByLessonRequest(lesson_id)
 
         switchOption.setOnClickListener{

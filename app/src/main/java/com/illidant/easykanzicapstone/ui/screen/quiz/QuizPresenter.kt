@@ -17,7 +17,6 @@ class QuizPresenter(
 
             override fun onResponse(call: Call<List<Quiz>>, response: Response<List<Quiz>>) {
                 response.body()?.let { view.getQuizByLessonID(it) }
-                Log.d("CHECK", response.body().toString())
             }
 
             override fun onFailure(call: Call<List<Quiz>>, t: Throwable) {

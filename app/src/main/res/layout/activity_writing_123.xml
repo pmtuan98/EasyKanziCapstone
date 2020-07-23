@@ -179,7 +179,8 @@
             android:id="@+id/editext_answer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:textColor="#2196F3" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
