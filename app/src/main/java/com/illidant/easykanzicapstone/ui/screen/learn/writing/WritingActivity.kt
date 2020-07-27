@@ -4,6 +4,8 @@ import android.app.Dialog
 import android.content.Context
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
@@ -17,7 +19,7 @@ import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import com.illidant.easykanzicapstone.platform.source.remote.VocabularyRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnContract
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
-import kotlinx.android.synthetic.main.activity_writing_123.*
+import kotlinx.android.synthetic.main.activity_writing.*
 
 
 class WritingActivity : AppCompatActivity(), LearnContract.View {
@@ -25,7 +27,7 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_writing_123)
+        setContentView(R.layout.activity_writing)
         initialize()
 
 
@@ -157,9 +159,12 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
             }
         }
         fun forceInputCorrectAnswer() {
+
                 editext_answer.addTextChangedListener(object : TextWatcher {
+                    var handler: Handler = Handler(Looper.getMainLooper() /*UI thread*/)
+                    var workRunnable: Runnable? = null
                     override fun onTextChanged(text: CharSequence?, start: Int, before: Int, after: Int) {
-                        //Not use
+                      //not use
                     }
 
                     override fun afterTextChanged(p0: Editable?) {
@@ -169,7 +174,12 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
                         }
                         else if (!textAnswerField.isEndIconVisible &&
                             vietnamMode == true && editext_answer.text.toString().equals(vnAnswer,ignoreCase = true)) {
-                            nextQuestion()
+                            handler.removeCallbacks(workRunnable)
+                            workRunnable = Runnable {
+                                nextQuestion()
+                            }
+                            handler.postDelayed(workRunnable, 1000 /*delay*/)
+
                         }
                     }
 
@@ -239,4 +249,8 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
 
         }
 
+    private fun doSmth() {
+        textAnswerField.helperText = "Correct"
     }
+
+}

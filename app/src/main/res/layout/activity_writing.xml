@@ -1,61 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ui.screen.learn.writing.WritingActivity">
 
+        <LinearLayout
+            android:id="@+id/text_learn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_constraintTop_toTopOf="parent"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/buttonExit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_baseline_clear_24" />
+
+            <ProgressBar
+                android:id="@+id/progressBarWriting"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:max="100"
+                android:progressDrawable="@drawable/custom_progress_bar" />
+
+            <ImageButton
+                android:id="@+id/switchOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_setting" />
+        </LinearLayout>
 
 
     <LinearLayout
-        android:id="@+id/text_learn"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:gravity="center"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view">
-
-
-        <TextView
-            android:id="@+id/txt_level"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="JPD111"
-            android:textSize="@dimen/sp_30"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/txt_lesson"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="Lesson 1"
-            android:textSize="@dimen/sp_30"
-            android:textStyle="bold" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="18dp"
-            android:background="@drawable/ic_setting" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+        android:id="@+id/linearlayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_learn"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/progressBarFlashcard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_learn">
 
         <TextView
-            android:id="@+id/tv_questionNo"
+            android:id="@+id/txt_questionNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptsans_bold"
@@ -70,7 +70,7 @@
             android:textSize="16sp" />
 
         <TextView
-            android:id="@+id/tv_totalQuestion"
+            android:id="@+id/txt_totalQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptsans_bold"
@@ -78,88 +78,119 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-    <ProgressBar
-        android:id="@+id/progressBarFlashcard"
-        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="310dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/text_learn"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:max="100"
-        android:progressDrawable="@drawable/custom_progress_bar"
-        app:layout_constraintBottom_toTopOf="@+id/flash_card"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        <LinearLayout
+            android:id="@+id/linearlayout4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp"
+            app:layout_constraintTop_toBottomOf="@+id/linearlayout">
+
+            <TextView
+                android:id="@+id/txt_kanji_question"
+                android:layout_width="111dp"
+                android:layout_height="41dp"
+                android:layout_margin="18dp"
+                android:layout_marginStart="20dp"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnHint"
+                android:layout_width="wrap_content"
+                android:layout_height="24dp"
+                android:layout_margin="26dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginEnd="242dp"
+                android:background="@drawable/ic_question_mark" />
+
+        </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBarFlashcard">
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout4">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="match_parent"
-        android:layout_height="500dp"
-        android:orientation="vertical"
->
-
-        <RelativeLayout
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
-            android:layout_height="400dp">
-
-
-            <TextView
-                android:id="@+id/text_question"
-                android:layout_width="290dp"
-                android:layout_height="23dp"
-                android:layout_marginStart="30dp" />
-
+            android:layout_height="199dp"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/text_wrong_answer"
-                android:layout_width="290dp"
-                android:layout_height="23dp"
-                android:text="asdasdqwdqdsadfsdl;ovchsdfkdslbgvcklgbfdjgnbferlgfdkojgvfdskjgndkjgfsdnbjlsfdngkljvsdfnvgkjsdfngkfjsdgbskjfbgvckjsbfjkgsdbfgjsdfbgjhfsdbgvhjsfdbghjsdfkbgjhbchjdsfbghjdfbgvhjcbjabewdbtjlhocewdbtcgolhjerdbtogjieqrntoerqwhtgoieqpjntgvcoeiotprtjerowqiotvjwfogpijnfokgnmopqvrncctoeqrngfdkjollngkjfdlnvgkjdlsdffngjkvwneirtepiontveirwtneirjntjqeirvngjdfkngjksdfnvgkljsddffngkjsdfngvjksdfgngnsklvfgnfkjsdgnjksdnvgkjsdflnbgfjsdnbvgijugnbeqirt"
-                android:layout_below="@id/text_question"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="100dp" />
+                android:id="@+id/textViewCorrectAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/ptsans_bold"
+                android:text="Correct answer"
+                android:textColor="#4CAF50"
+                android:textSize="20sp"
+                android:visibility="invisible" />
 
             <TextView
-                android:id="@+id/wrong_answer_detail"
-                android:layout_width="290dp"
-                android:layout_height="23dp"
-                android:text="ovchsdfkdslbgvcklgbfdjgnbferlgfdkojgvfdskjgndkjgfsdnbjlsfdngkljvsdfnvgkjsdfngkfjsdgbskjfbgvckjsbfjkgsdbfgjsdfbgjhfsdbgvhjsfdbghjsdfkbgjhbchjdsfbghjdfbgvhjcbjabewdbtjlhocewdbtcgolhjerdbtogjieqrntoerqwhtgoieqpjntgvcoeiotprtjerowqiotvjwfogpijnfokgnmopqvrncctoeqrngfdkjollngkjfdlnvgkjdlsdffngjkvwneirtepiontveirwtneirjntjqeirvngjdfkngjksdfnvgkljsddffngkjsdfngvjksdfgngnsklvfgnfkjsdgnjksdnvgkjsdflnbgfjsdnbvgijugnbeqirt"
-                android:layout_below="@id/text_wrong_answer"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp" />
+                android:id="@+id/txt_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:textColor="#000000"
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/text_correct_answer"
-                android:layout_width="290dp"
-                android:layout_height="23dp"
-                android:text="ovchsdfkdslbgvcklgbfdjgnbferlgfdkojgvfdskjgndkjgfsdnbjlsfdngkljvsdfnvgkjsdfngkfjsdgbskjfbgvckjsbfjkgsdbfgjsdfbgjhfsdbgvhjsfdbghjsdfkbgjhbchjdsfbghjdfbgvhjcbjabewdbtjlhocewdbtcgolhjerdbtogjieqrntoerqwhtgoieqpjntgvcoeiotprtjerowqiotvjwfogpijnfokgnmopqvrncctoeqrngfdkjollngkjfdlnvgkjdlsdffngjkvwneirtepiontveirwtneirjntjqeirvngjdfkngjksdfnvgkljsddffngkjsdfngvjksdfgngnsklvfgnfkjsdgnjksdnvgkjsdflnbgfjsdnbvgijugnbeqirt"
-                android:layout_below="@id/wrong_answer_detail"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp" />
+                android:id="@+id/textViewWrongAnswer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/ptsans_bold"
+                android:text="Your answer"
+                android:textColor="#FF0000"
+                android:textSize="20sp"
+                android:visibility="invisible" />
 
             <TextView
-                android:id="@+id/correct_answer_detail"
-                android:layout_width="290dp"
-                android:layout_height="23dp"
-                android:text="ovchsdfkdslbgvcklgbfdjgnbferlgfdkojgvfdskjgndkjgfsdnbjlsfdngkljvsdfnvgkjsdfngkfjsdgbskjfbgvckjsbfjkgsdbfgjsdfbgjhfsdbgvhjsfdbghjsdfkbgjhbchjdsfbghjdfbgvhjcbjabewdbtjlhocewdbtcgolhjerdbtogjieqrntoerqwhtgoieqpjntgvcoeiotprtjerowqiotvjwfogpijnfokgnmopqvrncctoeqrngfdkjollngkjfdlnvgkjdlsdffngjkvwneirtepiontveirwtneirjntjqeirvngjdfkngjksdfnvgkljsddffngkjsdfngvjksdfgngnsklvfgnfkjsdgnjksdnvgkjsdflnbgfjsdnbvgijugnbeqirt"
-                android:layout_below="@id/text_correct_answer"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="10dp" />
-
-        </RelativeLayout>
-    </LinearLayout>
+                android:id="@+id/txt_wrong_answer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+        </LinearLayout>
     </ScrollView>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textAnswerField"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:background="@android:color/white"
+        android:gravity="center"
+        app:endIconDrawable="@drawable/ic_next_2"
+        app:endIconMode="custom"
+        app:helperTextEnabled="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:helperTextTextAppearance="@style/TextStyle"
+        >
+
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editext_answer"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColorHighlight="#2196F3"
+            android:textColorLink="#2196F3"
+            android:textSize="20sp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
