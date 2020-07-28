@@ -1,9 +1,11 @@
 package com.illidant.easykanzicapstone.platform.api
 import com.illidant.easykanzicapstone.domain.model.*
+import com.illidant.easykanzicapstone.domain.request.ChangePasswordRequest
 import com.illidant.easykanzicapstone.domain.request.ResetPasswordRequest
 import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.domain.request.SigninRequest
 import com.illidant.easykanzicapstone.domain.request.SignupRequest
+import com.illidant.easykanzicapstone.domain.response.ChangePasswordResponse
 import com.illidant.easykanzicapstone.domain.response.ResetPasswordResponse
 import retrofit2.Call
 import retrofit2.http.*
@@ -17,6 +19,9 @@ interface ApiService {
 
     @POST(ApiConstant.URL_RESET_PASSWORD)
     fun resetPass(@Body body: ResetPasswordRequest): Call<ResetPasswordResponse>
+
+    @POST(ApiConstant.URL_CHANGE_PASSWORD)
+    fun changePass(@Body body: ChangePasswordRequest): Call<ChangePasswordResponse>
 
     @GET(ApiConstant.URL_GET_ALL_LEVELS)
     fun getLevelData(): Call<List<Level>>

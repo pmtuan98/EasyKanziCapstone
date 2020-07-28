@@ -3,13 +3,10 @@ package com.illidant.easykanzicapstone.ui.screen.signin
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
@@ -23,10 +20,9 @@ import com.illidant.easykanzicapstone.platform.repository.UserRepository
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.forget_password.ResetPassContract
-import com.illidant.easykanzicapstone.ui.screen.forget_password.ResetPassPresenter
+import com.illidant.easykanzicapstone.ui.screen.reset_password.ResetPassContract
+import com.illidant.easykanzicapstone.ui.screen.reset_password.ResetPassPresenter
 import kotlinx.android.synthetic.main.activity_signin.*
-import kotlinx.android.synthetic.main.dialog_forgot_password.*
 
 class SigninActivity : AppCompatActivity(), SigninContract.View, ResetPassContract.View {
 
@@ -104,8 +100,11 @@ class SigninActivity : AppCompatActivity(), SigninContract.View, ResetPassContra
                 } else {
                     val resetRequest = ResetPasswordRequest(username, new_password)
                     reset_pass_presenter.resetPass(resetRequest)
+                    dialogResetPass.dismiss()
                 }
+
             }
+
         }
     }
 
@@ -132,17 +131,15 @@ class SigninActivity : AppCompatActivity(), SigninContract.View, ResetPassContra
 
 
     override fun onResetPassSucceeded(message: String) {
-
         val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
         dialog.contentText = message
-        dialog.setCancelable(false)
         dialog.show()
     }
 
     override fun onResetPassFail(message: String) {
         //Display error dialog
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-        errDialog.contentText = "Email is not exist"
+        errDialog.contentText = message
         errDialog.show()
 
     }

@@ -1,6 +1,5 @@
-package com.illidant.easykanzicapstone.ui.screen.forget_password
+package com.illidant.easykanzicapstone.ui.screen.reset_password
 
-import com.illidant.easykanzicapstone.domain.model.User
 import com.illidant.easykanzicapstone.domain.request.ResetPasswordRequest
 
 

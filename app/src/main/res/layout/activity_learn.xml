@@ -73,7 +73,7 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+        <androidx.cardview.widget.CardView
             android:id="@+id/writing_method"
             android:layout_width="100dp"
             android:layout_height="120dp"
@@ -95,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:text="Writing"
+                    android:text="Write"
                     android:textColor="#2d2d2d"
                     android:textSize="@dimen/sp_18" />
             </LinearLayout>

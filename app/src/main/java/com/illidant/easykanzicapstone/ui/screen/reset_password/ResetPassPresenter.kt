@@ -1,9 +1,9 @@
-package com.illidant.easykanzicapstone.ui.screen.forget_password
+package com.illidant.easykanzicapstone.ui.screen.reset_password
 
 import com.illidant.easykanzicapstone.domain.request.ResetPasswordRequest
 import com.illidant.easykanzicapstone.domain.response.ResetPasswordResponse
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType
-import com.illidant.easykanzicapstone.ui.screen.signin.SigninContract
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +24,8 @@ class ResetPassPresenter (
                     view.onResetPassSucceeded(it.message)
                 }
                 response.errorBody()?.let {
-                    view.onResetPassFail(it.toString())
+                    val jObjError = JSONObject(response.errorBody()!!.string())
+                    view.onResetPassFail(  jObjError.getString("message"))
                 }
             }
         })
