@@ -33,8 +33,6 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_writing)
         initialize()
-
-
     }
 
     private fun initialize() {
