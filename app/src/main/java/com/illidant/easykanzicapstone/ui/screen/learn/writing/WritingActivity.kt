@@ -2,6 +2,7 @@ package com.illidant.easykanzicapstone.ui.screen.learn.writing
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
@@ -20,6 +21,8 @@ import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import com.illidant.easykanzicapstone.platform.source.remote.VocabularyRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnContract
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
+import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.FlashcardActivity
+import com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice.MultipleChoiceActivity
 import kotlinx.android.synthetic.main.activity_writing.*
 
 
@@ -39,6 +42,9 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         presenter.vocabByLessonRequest(lesson_id)
         switchOption.setOnClickListener{
             showSettingDialog()
+        }
+        buttonExit.setOnClickListener{
+            finish()
         }
 
         val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
@@ -93,14 +99,29 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
     private fun showCompleteDialog () {
         val dialog = Dialog(this)
         dialog.setCancelable(true)
-        dialog.setContentView(R.layout.dialog_flashcard)
-        val buttonAgain= dialog.findViewById(R.id.buttonAgain) as Button
+        dialog.setContentView(R.layout.dialog_complete_writing)
+        val lesson_id = intent.getIntExtra("LESSON_ID", 0)
+        val buttonAgain= dialog.findViewById(R.id.buttonLearnAgain) as Button
+        val buttonLearnMultiple = dialog.findViewById(R.id.buttonMultipleChoice) as Button
+        val buttonLearnFlashcard = dialog.findViewById(R.id.buttonLearnFlashcard) as Button
         dialog.show()
         buttonAgain.setOnClickListener {
             val intent = intent
             finish()
             startActivity(intent)
             dialog.dismiss()
+        }
+        buttonLearnMultiple.setOnClickListener{
+            val intent = Intent(it.context, MultipleChoiceActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+        }
+        buttonLearnFlashcard.setOnClickListener{
+            val intent = Intent(it.context, FlashcardActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
         }
     }
 
@@ -113,6 +134,8 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         val hiraMode = prefs.getBoolean("hiraState", true)
         val vietnamMode = prefs.getBoolean("vnState", true)
         var counter = 0
+        var handler: Handler = Handler(Looper.getMainLooper() /*UI thread*/)
+        var workRunnable: Runnable? = null
         val kanjiList: MutableList<String> = mutableListOf()
         val vnList: MutableList<String> = mutableListOf()
         val hiraList: MutableList<String> = mutableListOf()
@@ -158,35 +181,34 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
                 textAnswerField.helperText = "Write meaning by Vietnamese"
             }
         }
+        fun displayDialogCorrect(){
+            val dialog = SweetAlertDialog(this@WritingActivity, SweetAlertDialog.SUCCESS_TYPE)
+            dialog.hideConfirmButton()
+            dialog.titleText = "Correct"
+            dialog.show()
+            handler.removeCallbacks(workRunnable)
+            workRunnable = Runnable {
+                dialog.dismiss()
+            }
+            handler.postDelayed(workRunnable, 1500 /*delay*/)
+            nextQuestion()
+        }
+
         fun forceInputCorrectAnswer() {
 
                 editext_answer.addTextChangedListener(object : TextWatcher {
-                    var handler: Handler = Handler(Looper.getMainLooper() /*UI thread*/)
-                    var workRunnable: Runnable? = null
                     override fun onTextChanged(text: CharSequence?, start: Int, before: Int, after: Int) {
-
                         if(!textAnswerField.isEndIconVisible &&
                             hiraMode == true && editext_answer.text.toString().equals(hiraAnswer)){
-                            nextQuestion()
+                            displayDialogCorrect()
                         }
                         else if (!textAnswerField.isEndIconVisible &&
                             vietnamMode == true && editext_answer.text.toString().equals(vnAnswer,ignoreCase = true)) {
-                            val dialog = SweetAlertDialog(this@WritingActivity, SweetAlertDialog.SUCCESS_TYPE)
-                            dialog.hideConfirmButton()
-                            dialog.titleText = "Correct"
-                            dialog.show()
-                            handler.removeCallbacks(workRunnable)
-                            workRunnable = Runnable {
-                                dialog.dismiss()
-                                nextQuestion()
-                            }
-                            handler.postDelayed(workRunnable, 1500 /*delay*/)
-//
+                            displayDialogCorrect()
                         }
                     }
-
                     override fun afterTextChanged(p0: Editable?) {
-
+                        //Not use
                     }
 
                     override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -235,18 +257,17 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
             } else { //Input answer not blank
 
                 if(hiraMode == true && userAnswer.equals(hiraAnswer)) { //Check input answer correct
-                    nextQuestion()
+                    displayDialogCorrect()
                 }else if(hiraMode == true && !userAnswer.equals(hiraAnswer)) {  //Check input answer not correct
                     txt_wrong_answer.text = userAnswer
                     checkWrongInputAnswer()
                     txt_answer.text = hiraAnswer
                 } else if(vietnamMode == true && userAnswer.equals(vnAnswer,ignoreCase = true)) { //Check input answer correct
-                    nextQuestion()
+                    displayDialogCorrect()
                 } else if(vietnamMode == true && !userAnswer.equals(vnAnswer,ignoreCase = true)) {  //Check input answer not correct
                     txt_answer.text = vnAnswer
                     txt_wrong_answer.text = userAnswer
                     checkWrongInputAnswer()
-
                 }
 
               }

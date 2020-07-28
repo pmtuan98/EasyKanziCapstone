@@ -1,6 +1,7 @@
 package com.illidant.easykanzicapstone.ui.screen.learn.flashcard
 
 import android.app.Dialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -13,6 +14,8 @@ import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import com.illidant.easykanzicapstone.platform.source.remote.VocabularyRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnContract
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
+import com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice.MultipleChoiceActivity
+import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import kotlinx.android.synthetic.main.activity_flashcard.*
 import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
@@ -64,8 +67,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
     private fun initialize() {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        val lesson_name = intent.getStringExtra("LESSON_NAME")
-        val level_name = intent.getStringExtra("LEVEL_NAME")
         presenter.vocabByLessonRequest(lesson_id)
 
 
@@ -131,6 +132,34 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
 
         }
     }
+    private fun showCompleteDialog () {
+        val dialog = Dialog(this)
+        val lesson_id = intent.getIntExtra("LESSON_ID", 0)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.dialog_complete_flashcard)
+        val buttonAgain= dialog.findViewById(R.id.buttonLearnAgain) as Button
+        val buttonLearnWriting = dialog.findViewById(R.id.buttonLearnWriting) as Button
+        val buttonLearnMultiple = dialog.findViewById(R.id.buttonMultipleChoice) as Button
+        dialog.show()
+        buttonAgain.setOnClickListener {
+            val intent = intent
+            finish()
+            startActivity(intent)
+            dialog.dismiss()
+        }
+        buttonLearnWriting.setOnClickListener{
+            val intent = Intent(it.context, WritingActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+        }
+        buttonLearnMultiple.setOnClickListener{
+            val intent = Intent(it.context, MultipleChoiceActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+        }
+    }
 
     fun previous(){
         counter--
@@ -148,6 +177,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         counter++
         if (counter == kanjiList.size) {
             counter = kanjiList.size - 1
+            showCompleteDialog()
         }
         flashcard_kanji.text = kanjiList[counter]
         flashcard_meaning.text = meaningList[counter]

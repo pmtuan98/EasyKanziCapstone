@@ -1,26 +1,27 @@
 package com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice
 
+import android.app.Dialog
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
+import android.widget.Button
 import androidx.core.content.ContextCompat
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.QuizRepository
-import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import com.illidant.easykanzicapstone.platform.source.remote.QuizRemoteDataSource
-import com.illidant.easykanzicapstone.platform.source.remote.VocabularyRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
+import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.FlashcardActivity
+import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
 import kotlinx.android.synthetic.main.activity_multiple_choice.*
+import kotlinx.android.synthetic.main.activity_multiple_choice.tv_totalQuestion
 
 class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
-    var currentPosition = 0
-    var totalQuestions = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,11 +39,52 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
     private fun initialize() {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         presenter.quizByLessonRequest(lesson_id)
+        buttonExit.setOnClickListener {
+            finish()
+        }
+    }
+
+    private fun showCompleteDialog () {
+        val dialog = Dialog(this)
+        val lesson_id = intent.getIntExtra("LESSON_ID", 0)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.dialog_complete_multiplechoice)
+        val buttonAgain= dialog.findViewById(R.id.buttonLearnAgain) as Button
+        val buttonLearnWriting = dialog.findViewById(R.id.buttonLearnWriting) as Button
+        val buttonLearnFlashcard = dialog.findViewById(R.id.buttonLearnFlashcard) as Button
+        dialog.show()
+        buttonAgain.setOnClickListener {
+            val intent = intent
+            finish()
+            startActivity(intent)
+            dialog.dismiss()
+        }
+        buttonLearnWriting.setOnClickListener{
+            val intent = Intent(it.context, WritingActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+        }
+        buttonLearnFlashcard.setOnClickListener{
+            val intent = Intent(it.context, FlashcardActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+        }
     }
 
     override fun getQuizByLessonID(listQuiz: List<Quiz>) {
-        var wrongAnswerBackground: Drawable? = null
+        var currentPosition = 0
+        var wrongAnswerBackground: Drawable?
         wrongAnswerBackground = ContextCompat.getDrawable(this,R.drawable.bg_wrong_answer)
+
+        //set progress bar
+        progressBarMultiple.max = listQuiz.size
+        progressBarMultiple.progress = currentPosition
+
+        //Display total question
+        tv_totalQuestion.text = listQuiz.size.toString()
+        tv_questionNo.text = (currentPosition + 1).toString()
 
         // Display question
         textQuestion.text = listQuiz[currentPosition].question
@@ -87,6 +129,12 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
         btnNextQuestion.setOnClickListener({
             currentPosition++
+            if (currentPosition == listQuiz.size) {
+                currentPosition = listQuiz.size - 1
+                showCompleteDialog()
+            }
+            tv_questionNo.text = (currentPosition + 1).toString()
+            progressBarMultiple.progress = currentPosition + 1
             textQuestion.text = listQuiz[currentPosition].question
             textAnswerA.text = listQuiz[currentPosition].answerA
             textAnswerB.text = listQuiz[currentPosition].answerB

@@ -41,23 +41,17 @@ class LearnActivity : AppCompatActivity(), LearnContract.View {
         flashcard_method.setOnClickListener({
             val intent = Intent(it.context, FlashcardActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
-            intent.putExtra("LESSON_NAME", lesson_name)
-            intent.putExtra("LEVEL_NAME", level_name)
             startActivity(intent)
         })
 
         writing_method.setOnClickListener({
             val intent = Intent(it.context, WritingActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
-            intent.putExtra("LESSON_NAME", lesson_name)
-            intent.putExtra("LEVEL_NAME", level_name)
             startActivity(intent)
         })
         multiple_method.setOnClickListener({
             val intent = Intent(it.context, MultipleChoiceActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
-            intent.putExtra("LESSON_NAME", lesson_name)
-            intent.putExtra("LEVEL_NAME", level_name)
             startActivity(intent)
         })
     }

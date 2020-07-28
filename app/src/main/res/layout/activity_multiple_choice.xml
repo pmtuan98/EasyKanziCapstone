@@ -22,16 +22,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="12dp"
             android:background="@drawable/ic_baseline_clear_24" />
-
-<!--        <TextView-->
-<!--            android:id="@+id/textView"-->
-<!--            android:layout_width="150dp"-->
-<!--            android:layout_height="32dp"-->
-<!--            android:layout_marginStart="20dp"-->
-<!--            android:layout_marginTop="12dp"-->
-<!--            android:text="Multiple Choice"-->
-<!--            android:textSize="18sp" />-->
-    </LinearLayout>
+</LinearLayout>
 
 
     <LinearLayout
