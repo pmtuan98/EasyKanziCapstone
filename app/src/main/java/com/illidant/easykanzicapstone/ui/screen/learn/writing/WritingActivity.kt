@@ -12,6 +12,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -36,7 +37,6 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
     private fun initialize() {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         presenter.vocabByLessonRequest(lesson_id)
-
         switchOption.setOnClickListener{
             showSettingDialog()
         }
@@ -164,23 +164,29 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
                     var handler: Handler = Handler(Looper.getMainLooper() /*UI thread*/)
                     var workRunnable: Runnable? = null
                     override fun onTextChanged(text: CharSequence?, start: Int, before: Int, after: Int) {
-                      //not use
-                    }
 
-                    override fun afterTextChanged(p0: Editable?) {
                         if(!textAnswerField.isEndIconVisible &&
                             hiraMode == true && editext_answer.text.toString().equals(hiraAnswer)){
                             nextQuestion()
                         }
                         else if (!textAnswerField.isEndIconVisible &&
                             vietnamMode == true && editext_answer.text.toString().equals(vnAnswer,ignoreCase = true)) {
+                            val dialog = SweetAlertDialog(this@WritingActivity, SweetAlertDialog.SUCCESS_TYPE)
+                            dialog.hideConfirmButton()
+                            dialog.titleText = "Correct"
+                            dialog.show()
                             handler.removeCallbacks(workRunnable)
                             workRunnable = Runnable {
+                                dialog.dismiss()
                                 nextQuestion()
                             }
-                            handler.postDelayed(workRunnable, 1000 /*delay*/)
-
+                            handler.postDelayed(workRunnable, 1500 /*delay*/)
+//
                         }
+                    }
+
+                    override fun afterTextChanged(p0: Editable?) {
+
                     }
 
                     override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -248,9 +254,4 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
             }
 
         }
-
-    private fun doSmth() {
-        textAnswerField.helperText = "Correct"
-    }
-
 }
