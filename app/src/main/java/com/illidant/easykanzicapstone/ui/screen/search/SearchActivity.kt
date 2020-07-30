@@ -3,27 +3,18 @@ package com.illidant.easykanzicapstone.ui.screen.search
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.RankingActivity
+import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
 import com.illidant.easykanzicapstone.domain.model.KanjiES
 import com.illidant.easykanzicapstone.domain.request.SearchRequest
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.SearchRepository
-import com.illidant.easykanzicapstone.platform.repository.UserRepository
-import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
-import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.SearchRemoteDataSource
-import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.profile.ProfileActivity
-import com.illidant.easykanzicapstone.ui.screen.signin.SigninPresenter
-import kotlinx.android.synthetic.main.activity_entry.view.*
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : AppCompatActivity(), SearchContract.View {

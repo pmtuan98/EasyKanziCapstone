@@ -13,6 +13,7 @@ import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.LevelRepository
 import com.illidant.easykanzicapstone.platform.source.remote.LevelRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.profile.ProfileActivity
+import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
 import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
 
 import kotlinx.android.synthetic.main.activity_home.*

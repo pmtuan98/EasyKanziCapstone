@@ -8,9 +8,9 @@ data class Test (
     @SerializedName("level_id")
     val level_id: Int,
     @SerializedName("resultPoint")
-    val resultPoint: String,
+    val resultPoint: Int,
     @SerializedName("timeTaken")
-    val timeTaken: String,
+    val timeTaken: Int,
     @SerializedName("user_id")
     val user_id: Int
 )

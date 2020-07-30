@@ -1,9 +1,10 @@
-package com.illidant.easykanzicapstone
+package com.illidant.easykanzicapstone.ui.screen.ranking
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.profile.ProfileActivity
 import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
@@ -17,7 +18,8 @@ class RankingActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         //set home selected
-        bottomNavigationView.selectedItemId = R.id.ranking
+        bottomNavigationView.selectedItemId =
+            R.id.ranking
 
         //Perform ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->

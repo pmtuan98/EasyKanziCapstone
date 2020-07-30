@@ -48,5 +48,6 @@ interface ApiService {
     @GET(ApiConstant.URL_GET_QUIZ_BY_LEVEL_ID)
     fun getQuizByLevelID(@Path("id")id: Int): Call<List<Quiz>>
 
-
+    @GET(ApiConstant.URL_TEST_HISTORY)
+    fun getTestHitoryByUserID(@Path("id")id: Int): Call<List<TestHistory>>
 }

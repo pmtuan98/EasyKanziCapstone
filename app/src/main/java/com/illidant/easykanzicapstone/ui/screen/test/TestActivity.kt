@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit
 
 class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  {
 
-    var timeTaken: Long = 0
+    var timeTaken: Int = 0
     var level_id: Int = 0
     val sdf = SimpleDateFormat("dd/M/yyyy")
     val currentDate = sdf.format(Date())
@@ -47,11 +47,11 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
                 TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                 TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))))
-            timeTaken = 600 - TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)
-            formatTimeTaken = String.format("%d : %d",
-                TimeUnit.MILLISECONDS.toMinutes( timeTaken),
-                TimeUnit.MILLISECONDS.toSeconds(timeTaken) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(timeTaken)))
+            timeTaken = (600 - TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)).toInt()
+//            formatTimeTaken = String.format("%d : %d",
+//                TimeUnit.MILLISECONDS.toMinutes( timeTaken),
+//                TimeUnit.MILLISECONDS.toSeconds(timeTaken) -
+//                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(timeTaken)))
         }
 
         override fun onFinish() {
@@ -173,10 +173,8 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
             var score = countCorrectAnswer * 10 / 3
             val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
             val userID = prefs.getInt("userID", 0)
-//            val testResultRequest = TestRankingRequest(currentDate.toString(),level_id,score.toString(),formatTimeTaken,userID)
-//            test_presenter.sendTestResult(testResultRequest)
-            Log.d("TIME", formatTimeTaken)
-
+            val testResultRequest = TestRankingRequest(currentDate.toString(),level_id,score,timeTaken,userID)
+            test_presenter.sendTestResult(testResultRequest)
         }
 
     }

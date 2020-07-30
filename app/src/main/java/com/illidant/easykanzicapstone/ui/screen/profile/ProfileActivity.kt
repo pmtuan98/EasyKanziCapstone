@@ -12,7 +12,7 @@ import android.widget.EditText
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.RankingActivity
+import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
 import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
 import com.illidant.easykanzicapstone.domain.request.ChangePasswordRequest
 import com.illidant.easykanzicapstone.extension.isNotEmptyAndBlank
@@ -25,6 +25,7 @@ import com.illidant.easykanzicapstone.ui.screen.profile.change_password.ChangePa
 import com.illidant.easykanzicapstone.ui.screen.profile.change_password.ChangePassPresenter
 import com.illidant.easykanzicapstone.ui.screen.entry.EntryActivity
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
+import com.illidant.easykanzicapstone.ui.screen.profile.test_history.TestHistoryActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
@@ -34,6 +35,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
         configViews()
         signOut()
         changePassword()
+        navigateToTestHistory()
     }
 
     private val changepassPresenter by lazy {
@@ -52,6 +54,13 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
             navigateToSignin()
         }
     }
+    private fun navigateToTestHistory() {
+        textTestHistory.setOnClickListener {
+            val intent = Intent(it.context, TestHistoryActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
     private fun navigateToSignin() {
         EntryActivity.getIntent(this).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or
