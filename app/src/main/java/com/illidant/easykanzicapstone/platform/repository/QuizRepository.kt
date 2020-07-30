@@ -10,5 +10,6 @@ class QuizRepository (
     private val remote: QuizDataSource.Remote
 ): QuizRepositoryType{
     override fun getQuizByLessonID(id: Int): Call<List<Quiz>> = remote.getQuizByLessonID(id)
+    override fun getQuizByLevelID(id: Int): Call<List<Quiz>> = remote.getQuizByLevelID(id)
 
 }

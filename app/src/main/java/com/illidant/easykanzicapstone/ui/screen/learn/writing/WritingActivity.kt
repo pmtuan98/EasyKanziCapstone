@@ -114,12 +114,14 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
             finish()
+            dialog.dismiss()
         }
         buttonLearnFlashcard.setOnClickListener{
             val intent = Intent(it.context, FlashcardActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
             finish()
+            dialog.dismiss()
         }
     }
 

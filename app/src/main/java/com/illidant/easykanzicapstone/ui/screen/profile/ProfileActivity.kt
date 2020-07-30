@@ -1,7 +1,9 @@
-package com.illidant.easykanzicapstone
+package com.illidant.easykanzicapstone.ui.screen.profile
 
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
@@ -9,19 +11,20 @@ import android.widget.Button
 import android.widget.EditText
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.illidant.easykanzicapstone.R
+import com.illidant.easykanzicapstone.RankingActivity
+import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
 import com.illidant.easykanzicapstone.domain.request.ChangePasswordRequest
-import com.illidant.easykanzicapstone.domain.request.ResetPasswordRequest
 import com.illidant.easykanzicapstone.extension.isNotEmptyAndBlank
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.UserRepository
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.change_password.ChangePassContract
-import com.illidant.easykanzicapstone.ui.screen.change_password.ChangePassPresenter
+import com.illidant.easykanzicapstone.ui.screen.profile.change_password.ChangePassContract
+import com.illidant.easykanzicapstone.ui.screen.profile.change_password.ChangePassPresenter
 import com.illidant.easykanzicapstone.ui.screen.entry.EntryActivity
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
-import com.illidant.easykanzicapstone.ui.screen.signin.SigninPresenter
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
@@ -119,7 +122,8 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
 
 
         //set home selected
-        bottomNavigationView.selectedItemId = R.id.profile
+        bottomNavigationView.selectedItemId =
+            R.id.profile
 
 
         //Perform ItemSelectedListener
@@ -152,6 +156,10 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
             }
             false
         })
+
+        val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+        val username = prefs.getString("userName", null)
+        email_profile.text = username
     }
 
 }

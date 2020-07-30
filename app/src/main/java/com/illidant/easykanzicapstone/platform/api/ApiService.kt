@@ -1,12 +1,7 @@
 package com.illidant.easykanzicapstone.platform.api
 import com.illidant.easykanzicapstone.domain.model.*
-import com.illidant.easykanzicapstone.domain.request.ChangePasswordRequest
-import com.illidant.easykanzicapstone.domain.request.ResetPasswordRequest
-import com.illidant.easykanzicapstone.domain.response.SignupResponse
-import com.illidant.easykanzicapstone.domain.request.SigninRequest
-import com.illidant.easykanzicapstone.domain.request.SignupRequest
-import com.illidant.easykanzicapstone.domain.response.ChangePasswordResponse
-import com.illidant.easykanzicapstone.domain.response.ResetPasswordResponse
+import com.illidant.easykanzicapstone.domain.request.*
+import com.illidant.easykanzicapstone.domain.response.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -22,6 +17,12 @@ interface ApiService {
 
     @POST(ApiConstant.URL_CHANGE_PASSWORD)
     fun changePass(@Body body: ChangePasswordRequest): Call<ChangePasswordResponse>
+
+    @POST(ApiConstant.URL_TEST_RESULT)
+    fun sendTestResult(@Body body: TestRankingRequest): Call<TestRankingResponse>
+
+    @POST(ApiConstant.URL_SEARCH)
+    fun searchKanji(@Body body: SearchRequest): Call<SearchResponse>
 
     @GET(ApiConstant.URL_GET_ALL_LEVELS)
     fun getLevelData(): Call<List<Level>>
@@ -43,4 +44,9 @@ interface ApiService {
 
     @GET(ApiConstant.URL_GET_QUIZ_BY_LESSON_ID)
     fun getQuizByLessonID(@Path("id")id: Int): Call<List<Quiz>>
+
+    @GET(ApiConstant.URL_GET_QUIZ_BY_LEVEL_ID)
+    fun getQuizByLevelID(@Path("id")id: Int): Call<List<Quiz>>
+
+
 }

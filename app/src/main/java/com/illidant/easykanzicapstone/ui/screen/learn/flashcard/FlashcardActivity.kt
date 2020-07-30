@@ -152,12 +152,14 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
             finish()
+            dialog.dismiss()
         }
         buttonLearnMultiple.setOnClickListener{
             val intent = Intent(it.context, MultipleChoiceActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
             finish()
+            dialog.dismiss()
         }
     }
 

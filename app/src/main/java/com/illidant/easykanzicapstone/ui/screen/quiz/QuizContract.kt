@@ -6,9 +6,11 @@ interface QuizContract {
     interface View{
 
         fun getQuizByLessonID(listQuiz: List<Quiz>)
+        fun getQuizByLevelID(listQuiz: List<Quiz>)
     }
 
     interface Presenter{
         fun quizByLessonRequest(id: Int)
+        fun quizByLevelRequest(id: Int)
     }
 }

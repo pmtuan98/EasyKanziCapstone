@@ -64,12 +64,14 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
             finish()
+            dialog.dismiss()
         }
         buttonLearnFlashcard.setOnClickListener{
             val intent = Intent(it.context, FlashcardActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
             finish()
+            dialog.dismiss()
         }
     }
 
@@ -146,6 +148,11 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         })
 
     }
+
+    override fun getQuizByLevelID(listQuiz: List<Quiz>) {
+       //not use
+    }
+
     fun checkCorrectAnswer(answer : String) {
         var correctAnswerBackground: Drawable? = null
         correctAnswerBackground = ContextCompat.getDrawable(this,R.drawable.bg_correct_answer)

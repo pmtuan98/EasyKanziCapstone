@@ -9,4 +9,5 @@ class QuizRemoteDataSource (
     private  val apiService: ApiService
 ): QuizDataSource.Remote {
     override fun getQuizByLessonID(id: Int): Call<List<Quiz>> = apiService.getQuizByLessonID(id)
+    override fun getQuizByLevelID(id: Int): Call<List<Quiz>> = apiService.getQuizByLevelID(id)
 }

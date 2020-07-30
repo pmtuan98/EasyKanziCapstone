@@ -22,6 +22,8 @@ import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnActivity
 import com.illidant.easykanzicapstone.ui.screen.lesson.LessonContract
 import com.illidant.easykanzicapstone.ui.screen.lesson.LessonPresenter
+import com.illidant.easykanzicapstone.ui.screen.test.EntryTestActivity
+import com.illidant.easykanzicapstone.ui.screen.test.TestActivity
 import kotlinx.android.synthetic.main.activity_level.*
 import kotlinx.android.synthetic.main.bottom_navigation_bar.*
 
@@ -52,6 +54,13 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
         val level_id = intent.getIntExtra("LEVEL_ID", 0)
         recycler_level.layoutManager = GridLayoutManager(this, 3)
         lesson_presenter.lessonRequest(level_id)
+
+        btn_test.setOnClickListener {
+            val intent = Intent(it.context, EntryTestActivity::class.java)
+            intent.putExtra("LEVEL_NAME", text_level_name.text as String?)
+            intent.putExtra("LEVEL_ID", level_id)
+            startActivity(intent)
+        }
     }
     // Fill kanji into cardview
     override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {

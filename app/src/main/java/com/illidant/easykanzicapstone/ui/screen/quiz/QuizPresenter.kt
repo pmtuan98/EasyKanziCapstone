@@ -20,9 +20,22 @@ class QuizPresenter(
             }
 
             override fun onFailure(call: Call<List<Quiz>>, t: Throwable) {
-
+                //Nothing
             }
 
         })
+    }
+
+    override fun quizByLevelRequest(id: Int) {
+       repository.getQuizByLevelID(id).enqueue(object : Callback<List<Quiz>>{
+           override fun onFailure(call: Call<List<Quiz>>, t: Throwable) {
+             //Nothing
+           }
+
+           override fun onResponse(call: Call<List<Quiz>>, response: Response<List<Quiz>>) {
+              response.body()?.let { view.getQuizByLevelID(it) }
+           }
+
+       })
     }
 }

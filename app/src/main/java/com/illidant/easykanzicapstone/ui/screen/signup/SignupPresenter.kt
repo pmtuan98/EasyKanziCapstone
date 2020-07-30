@@ -23,11 +23,9 @@ class SignupPresenter (
 
             override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
                 response.body()?.let {
-                    Log.d("SignupPresenter",it.message)
                     view.onSignupSucceeded(it.message)
                 }
                 response.errorBody()?.let {
-                    Log.d("SignupPresenter",it.toString())
                     view.onSignupFailed(Throwable(it.toString()))
                 }
             }

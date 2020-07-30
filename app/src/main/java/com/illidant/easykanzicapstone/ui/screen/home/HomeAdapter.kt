@@ -30,7 +30,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
     override fun onBindViewHolder(homePageView: HomePageView, position: Int) {
         homePageView.imageHomePage.setImageResource(R.drawable.jpd111)
         homePageView.textTitle.text = levelList?.get(position)?.name
-        homePageView.imageHomePage .setOnClickListener {
+        homePageView.itemView.setOnClickListener {
             val level_name = levelList?.get(position)?.name
             val level_id = levelList?.get(position)?.id
             val intent = Intent(it.context, KanjiByLevelActivity::class.java)
@@ -47,12 +47,12 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
     }
 
     class HomePageView(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var imageHomePage: ImageView
-        var textTitle: TextView
+    var imageHomePage: ImageView
+    var textTitle: TextView
 
-        init {
-            imageHomePage = itemView.image_homepage as ImageView
-            textTitle = itemView.text_title as TextView
-        }
+    init {
+        imageHomePage = itemView.image_homepage as ImageView
+        textTitle = itemView.text_title as TextView
     }
+}
 }

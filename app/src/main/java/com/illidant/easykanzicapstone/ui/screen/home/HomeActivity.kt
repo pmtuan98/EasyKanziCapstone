@@ -2,19 +2,18 @@ package com.illidant.easykanzicapstone.ui.screen.home
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.*
 import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.LevelRepository
-import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
-import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.LevelRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiContract
+import com.illidant.easykanzicapstone.ui.screen.profile.ProfileActivity
+import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
 
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -68,8 +67,10 @@ class HomeActivity : AppCompatActivity(),HomeContract.View {
     }
 
     private fun initialize() {
-        recycler_home!!.layoutManager = GridLayoutManager(this, 2)
         presenter.getLevelData()
+        val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+        val username = prefs.getString("userName", null)
+        text_username.text = username
     }
 
     companion object {
@@ -77,6 +78,7 @@ class HomeActivity : AppCompatActivity(),HomeContract.View {
     }
 
     override fun onDataComplete(levels: List<Level>) {
+        recycler_home!!.layoutManager = GridLayoutManager(this, 2)
         recycler_home!!.adapter = HomeAdapter(this, levels)
     }
 }

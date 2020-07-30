@@ -12,15 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.screen.learn.multiple_choice.MultipleChoiceActivity"></activity>
-        <activity android:name=".ui.screen.learn.writing.WritingActivity" android:windowSoftInputMode="adjustResize"></activity>
+        <activity android:name=".ui.screen.test.TestActivity"></activity>
+        <activity android:name=".ui.screen.test.EntryTestActivity" />
+        <activity android:name=".ui.screen.learn.multiple_choice.MultipleChoiceActivity" />
+        <activity
+            android:name=".ui.screen.learn.writing.WritingActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".ui.screen.learn.flashcard.FlashcardActivity" />
         <activity android:name=".ui.screen.learn.LearnActivity" />
         <activity android:name=".ui.screen.kanji.KanjiDetailActivity" />
         <activity android:name=".ui.screen.kanji.KanjiByLevelActivity" />
-        <activity android:name=".SearchActivity" android:windowSoftInputMode="adjustPan"/>
+        <activity
+            android:name=".ui.screen.search.SearchActivity"
+            android:windowSoftInputMode="adjustPan" />
         <activity android:name=".RankingActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".ui.screen.profile.ProfileActivity" />
         <activity android:name=".OnBoardingActivity" />
         <activity android:name=".ui.screen.home.HomeActivity" />
         <activity android:name=".MainActivity">

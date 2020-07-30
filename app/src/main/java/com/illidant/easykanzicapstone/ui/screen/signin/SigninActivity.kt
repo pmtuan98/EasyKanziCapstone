@@ -3,7 +3,9 @@ package com.illidant.easykanzicapstone.ui.screen.signin
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
@@ -119,6 +121,9 @@ class SigninActivity : AppCompatActivity(), SigninContract.View, ResetPassContra
     }
 
     override fun onSigninSucceeded(user: User) {
+        val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+        prefs.edit().putInt("userID", user.id).apply()
+        prefs.edit().putString("userName", user.username).apply()
         navigateToHome()
     }
 

@@ -1,6 +1,5 @@
-package com.illidant.easykanzicapstone.ui.screen.change_password
+package com.illidant.easykanzicapstone.ui.screen.profile.change_password
 
-import android.widget.Toast
 import com.illidant.easykanzicapstone.domain.request.ChangePasswordRequest
 import com.illidant.easykanzicapstone.domain.response.ChangePasswordResponse
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType

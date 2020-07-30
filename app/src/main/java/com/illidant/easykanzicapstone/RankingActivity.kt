@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
+import com.illidant.easykanzicapstone.ui.screen.profile.ProfileActivity
+import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
 
 class RankingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
