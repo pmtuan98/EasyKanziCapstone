@@ -6,71 +6,81 @@
     android:layout_height="match_parent"
     android:background="#f4f4f4">
 
+
     <LinearLayout
         android:id="@+id/text_learn"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/buttonExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="12dp"
             android:background="@drawable/ic_baseline_clear_24" />
-</LinearLayout>
 
-
-    <LinearLayout
-        android:id="@+id/linearlayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_learn">
-
-        <TextView
-            android:id="@+id/tv_questionNo"
+        <LinearLayout
+            android:id="@+id/linearlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans_bold"
-            android:text="10"
-            android:textSize="16sp" />
+            android:orientation="horizontal"
+            android:layout_marginStart="130dp"
+            android:layout_marginEnd="130dp"
+            android:layout_gravity="center">
 
-        <TextView
+            <TextView
+                android:id="@+id/tv_questionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsans_bold"
+                android:text="10"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsans_bold"
+                android:text="/"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_totalQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsans_bold"
+                android:text="10"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/switchOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans_bold"
-            android:text="/"
-            android:textSize="16sp" />
+            android:background="@drawable/ic_setting"
+            android:visibility="invisible"/>
 
-        <TextView
-            android:id="@+id/tv_totalQuestion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans_bold"
-            android:text="10"
-            android:textSize="16sp" />
     </LinearLayout>
+
 
     <ProgressBar
         android:id="@+id/progressBarMultiple"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="250dp"
+        android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_below="@+id/text_learn"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:max="100"
-        android:progressDrawable="@drawable/custom_progress_bar"
+        android:progressDrawable="@drawable/custom_progress_bar_flashcard"
+        app:layout_constraintBottom_toTopOf="@+id/flash_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/text_learn" />
 
     <TextView
         android:id="@+id/textQuestion"
@@ -152,9 +162,10 @@
         android:layout_width="64dp"
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bg_detail_kanji"
+        android:background="@drawable/bg_ripple"
         android:text="Next"
         android:textSize="@dimen/sp_20"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

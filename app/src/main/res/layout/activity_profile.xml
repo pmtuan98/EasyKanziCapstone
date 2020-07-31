@@ -12,7 +12,7 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="210dp"
         android:background="@color/color_background_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,18 +31,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!--            <com.github.siyamed.shapeimageview.CircularImageView-->
+            <!--                android:id="@+id/imageview_profile"-->
+            <!--                android:layout_width="150dp"-->
+            <!--                android:layout_height="150dp"-->
+            <!--                android:layout_centerHorizontal="true"-->
+            <!--                android:layout_marginTop="40dp"-->
+            <!--                android:elevation="1dp"-->
+            <!--                android:src="@drawable/avatar_defaul" />-->
+
             <LinearLayout
-                android:layout_width="376dp"
-                android:layout_height="498dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="vertical">
+                android:layout_marginEnd="20dp">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="160dp"
-                    app:cardCornerRadius="20dp"
+                    android:layout_height="180dp"
+                    android:layout_marginTop="100dp"
+                    app:cardCornerRadius="10dp"
+                    android:layout_gravity="center"
                     app:contentPaddingBottom="30dp"
                     app:contentPaddingLeft="15dp"
                     app:contentPaddingRight="15dp"
@@ -51,18 +61,20 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_marginTop="55dp">
                         <TextView
                             android:id="@+id/email_profile"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/username_profile"
                             android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="@dimen/dp_5"
-                            android:text="tuanvm@gmail.com"
                             android:textColor="#000"
-                            android:textSize="@dimen/sp_18" />
+                            android:textSize="@dimen/sp_18"
+                            android:fontFamily="@font/ptsans_regular"
+                            android:layout_marginTop="@dimen/dp_5"
+                            android:text="tuanvm@gmail.com" />
 
                         <LinearLayout
                             android:id="@+id/linearlayout4"
@@ -85,6 +97,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="5dp"
                                 android:text="Change Password"
+                                android:fontFamily="@font/ptsans_regular"
                                 android:textColor="#000"
                                 android:textSize="18sp" />
                         </LinearLayout>
@@ -113,6 +126,7 @@
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="3dp"
                         android:text="Favorite"
+                        android:fontFamily="@font/ptsans_regular"
                         android:textColor="#000"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -138,6 +152,7 @@
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="3dp"
                         android:text="History"
+                        android:fontFamily="@font/ptsans_regular"
                         android:textColor="#000"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -164,6 +179,7 @@
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="3dp"
                         android:text="Sign Out"
+                        android:fontFamily="@font/ptsans_regular"
                         android:textColor="#000"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -174,12 +190,14 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="55dp"
         android:layout_alignParentBottom="true"
         app:itemBackground="@android:color/holo_red_light"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        app:menu="@menu/menu_navigation"
-        app:layout_constraintBottom_toBottomOf="parent"/>
-
+        app:itemHorizontalTranslationEnabled="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/menu_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

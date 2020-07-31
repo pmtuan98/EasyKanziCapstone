@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -35,7 +34,7 @@
         android:text="CREATE AN ACCOUNT"
         android:textColor="#686565"
         android:textSize="@dimen/sp_20"
-        android:textStyle="bold"
+        android:fontFamily="@font/ptsans_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/buttonBack"
         app:layout_constraintTop_toTopOf="parent" />
@@ -45,6 +44,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
+        app:helperText="Email"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCreateAccount">
@@ -53,7 +54,8 @@
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_email"
+            android:hint="email@example.com"
+            android:textSize="16sp"
             android:inputType="textEmailAddress"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -63,6 +65,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
+        app:helperText="Password"
+        app:passwordToggleEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutInputEmail"
@@ -72,7 +76,6 @@
             android:id="@+id/editPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_password"
             android:inputType="textPassword"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -83,6 +86,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
         android:layout_marginTop="60dp"
+        app:helperText="Confirm Password"
+        app:passwordToggleEnabled="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,7 +99,6 @@
             android:id="@+id/editConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_cf_password"
             android:inputType="textPassword"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -109,11 +113,11 @@
         android:layout_marginBottom="500dp"
         android:background="@drawable/bg_ripple"
         android:text="@string/btnSignup"
-        android:textColor="#FFFFFF"
+        android:textColor="#FF0000"
         android:textSize="@dimen/sp_18"
+        android:fontFamily="@font/ptsans_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutConfirmInputPassword"
         app:layout_constraintVertical_bias="0.0" />

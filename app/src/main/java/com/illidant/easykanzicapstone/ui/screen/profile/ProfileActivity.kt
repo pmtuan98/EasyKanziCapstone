@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.R
@@ -75,7 +76,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
             val dialogChangePass = Dialog(this)
             dialogChangePass.setCancelable(true)
             dialogChangePass.setContentView(R.layout.dialog_change_password)
-            val buttonSave= dialogChangePass.findViewById(R.id.btnSaveChange) as Button
+            val buttonSave= dialogChangePass.findViewById(R.id.btnSaveChange) as TextView
             val edtEmail = dialogChangePass.findViewById(R.id.edtEmail) as EditText
             val edtOldPassword = dialogChangePass.findViewById(R.id.edt_old_password) as EditText
             val edtNewPassword = dialogChangePass.findViewById(R.id.edt_new_password) as EditText
