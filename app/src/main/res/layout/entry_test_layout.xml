@@ -22,13 +22,13 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:text="Test"
+        android:fontFamily="@font/ptsans_bold"
+        android:text="Test Kanji"
         android:textSize="25sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/background_image2" />
+
     <TextView
         android:id="@+id/txtDescription"
         android:layout_width="wrap_content"
@@ -39,55 +39,68 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3"/>
 
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_text"
+        android:layout_width="296dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="30dp"
+        app:cardCornerRadius="30dp"
+        app:contentPaddingBottom="30dp"
+        app:contentPaddingLeft="15dp"
+        app:contentPaddingRight="15dp"
+        app:contentPaddingTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="35dp"
+            android:text="Level : "
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtTestLevel"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="35dp"
+            android:text="JPD111"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+    </androidx.cardview.widget.CardView>
+
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="14dp"
-        android:text="Number of question : 30"
+        android:fontFamily="@font/ptsans_regular"
+        android:text="Number of question : 20"
         android:textSize="25sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescription" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="24dp"
-        android:layout_marginStart="104dp"
-        android:text="Level : "
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.333" />
-    <TextView
-        android:id="@+id/txtTestLevel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="JPD111"
-        android:layout_marginTop="36dp"
-        android:textColor="#000000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"/>
+        app:layout_constraintTop_toBottomOf="@+id/cardview_text" />
 
     <Button
         android:id="@+id/buttonStart"
         android:layout_width="174dp"
         android:layout_height="42dp"
-        android:layout_marginTop="132dp"
-        android:text="Start"
+        android:background="@drawable/bg_ripple"
+        android:fontFamily="@font/ptsans_bold"
+        android:text="START NOW"
+        android:textColor="@android:color/holo_red_light"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
