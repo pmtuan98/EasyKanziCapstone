@@ -32,8 +32,9 @@
         android:layout_margin="@dimen/dp_40"
         android:background="@drawable/bg_ripple"
         android:text="@string/btnSignin"
-        android:textColor="#FFFFFF"
+        android:textColor="#FF0000"
         android:textSize="@dimen/sp_18"
+        android:fontFamily="@font/ptsans_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtForgotPass" />
@@ -56,33 +57,15 @@
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="226dp" />
+        app:layout_constraintGuide_begin="230dp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layoutInputPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_40"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/horizontalGuildLine"
-        app:layout_constraintVertical_chainStyle="packed">
-
-        <EditText
-            android:id="@+id/editPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/text_password"
-            android:inputType="textPassword"
-            android:textColor="#000000"
-            tools:ignore="Autofill" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/layoutInputEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
+        app:helperText="Email"
         app:layout_constraintBottom_toTopOf="@id/horizontalGuildLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,8 +75,33 @@
             android:id="@+id/editEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/text_email"
+            android:hint="Enter your email"
             android:inputType="textEmailAddress"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            tools:ignore="Autofill" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layoutInputPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_40"
+        app:helperText="Password"
+        app:passwordToggleEnabled="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/horizontalGuildLine"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <EditText
+            android:id="@+id/editPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:textSize="16sp"
             android:textColor="#000000"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -102,11 +110,11 @@
         android:id="@+id/txtForgotPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/ptsans_bold"
         android:text="Forgot password ?"
-        android:textColor="#03A9F4"
+        android:textColor="@android:color/darker_gray"
         android:textSize="18sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.847"
         app:layout_constraintStart_toStartOf="parent"

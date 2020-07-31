@@ -1,48 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f4f4f4">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.screen.test.TestActivity">
 
     <LinearLayout
-        android:id="@+id/text_learn"
+        android:id="@+id/linearlayout1"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:orientation="horizontal"
+
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/buttonExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/ic_baseline_clear_24" />
 
         <TextView
-            android:id="@+id/edtTimeTest"
+            android:id="@+id/txt_level"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="30"
-            android:textSize="36sp"
-            android:layout_marginStart="100dp"/>
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/ptsans_bold"
+            android:text="JPD111"
+            android:textSize="30sp" />
+
+
     </LinearLayout>
 
-
     <LinearLayout
-        android:id="@+id/linearlayout"
+        android:id="@+id/linearlayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_learn">
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout1">
+
+        <TextView
+            android:id="@+id/tv_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/ptsans_bold"
+            android:text="Question"
+            android:textSize="20sp" />
+
 
         <TextView
             android:id="@+id/tv_questionNo"
@@ -50,7 +62,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptsans_bold"
             android:text="10"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -68,23 +80,35 @@
             android:textSize="16sp" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/edtTimeTest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="30"
+        android:textSize="36sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintStart_toEndOf="@+id/linearlayout2"
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout1" />
+
     <ProgressBar
         android:id="@+id/progressBarMultiple"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="250dp"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:max="100"
         android:progressDrawable="@drawable/custom_progress_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout2"/>
 
     <TextView
         android:id="@+id/textQuestion"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_8"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="aaaaa"
         android:textColor="@color/color_text_primary"
@@ -95,76 +119,102 @@
         app:layout_constraintTop_toBottomOf="@+id/progressBarMultiple"
         app:layout_goneMarginEnd="32dp" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
-
     <TextView
         android:id="@+id/textAnswerA"
-        android:layout_width="164dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/bg_detail_kanji"
-        android:gravity="center"
         android:textColor="@color/color_text_primary"
-        android:textSize="@dimen/sp_18"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
 
     <TextView
         android:id="@+id/textAnswerB"
-        android:layout_width="164dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/bg_detail_kanji"
-        android:gravity="center"
         android:textColor="@color/color_text_primary"
-        android:textSize="@dimen/sp_18"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
-
-    <TextView
-        android:id="@+id/textAnswerC"
-        android:layout_width="164dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="32dp"
-        android:background="@drawable/bg_detail_kanji"
-        android:gravity="center"
-        android:textColor="@color/color_text_primary"
-        android:textSize="@dimen/sp_18"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAnswerA" />
 
     <TextView
-        android:id="@+id/textAnswerD"
-        android:layout_width="164dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="32dp"
+        android:id="@+id/textAnswerC"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/bg_detail_kanji"
-        android:gravity="center"
         android:textColor="@color/color_text_primary"
-        android:textSize="@dimen/sp_18"
+        android:textSize="18sp"
+        android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAnswerB" />
 
+    <TextView
+        android:id="@+id/textAnswerD"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_detail_kanji"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_text_primary"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAnswerC" />
+
+    <TextView
+        android:id="@+id/txt_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/ptsans_bold"
+        android:text="Next"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.878"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAnswerD" />
+
+    <TextView
+        android:id="@+id/txt_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/ptsans_bold"
+        android:text="Previod"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.085"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAnswerD" />
 
     <Button
         android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginBottom="124dp"
-        android:background="@drawable/bg_detail_kanji"
-        android:text="Submit"
-        android:textSize="@dimen/sp_20"
+        android:layout_width="120dp"
+        android:layout_height="55dp"
+        android:layout_toRightOf="@+id/text_level_name"
+        android:background="@drawable/bg_ripple"
+        android:fontFamily="@font/ptsans_bold"
+        android:text="SUBMIT"
+        android:textSize="@dimen/dp_20"
+        android:textColor="@android:color/holo_red_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAnswerD" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

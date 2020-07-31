@@ -12,6 +12,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.RadioButton
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.R
@@ -66,7 +67,7 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         val dialog = Dialog(this)
         dialog.setCancelable(true)
         dialog.setContentView(R.layout.setting_learn_writing_layout)
-        val buttonSave= dialog.findViewById(R.id.buttonSaveWritingMode) as Button
+        val buttonSave= dialog.findViewById(R.id.buttonSaveWritingMode) as TextView
         val radioHira = dialog.findViewById(R.id.radioHira) as RadioButton
         val radioVN = dialog.findViewById(R.id.radioVN) as RadioButton
         val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)

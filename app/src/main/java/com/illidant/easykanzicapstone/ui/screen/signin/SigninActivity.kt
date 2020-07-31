@@ -9,6 +9,7 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
@@ -79,7 +80,7 @@ class SigninActivity : AppCompatActivity(), SigninContract.View, ResetPassContra
             val dialogResetPass = Dialog(this)
             dialogResetPass.setCancelable(true)
             dialogResetPass.setContentView(R.layout.dialog_forgot_password)
-            val buttonSave= dialogResetPass.findViewById(R.id.buttonSaveNewPass) as Button
+            val buttonSave= dialogResetPass.findViewById(R.id.buttonSaveNewPass) as TextView
             val editEmailForgot = dialogResetPass.findViewById(R.id.editEmailForgot) as EditText
             val editPasswordForgot = dialogResetPass.findViewById(R.id.editPasswordForgot) as EditText
             dialogResetPass.show()

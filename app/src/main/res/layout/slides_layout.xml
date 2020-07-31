@@ -24,7 +24,7 @@
         android:id="@+id/slider_image"
         android:layout_width="139dp"
         android:layout_height="@dimen/dp_0"
-        android:layout_marginTop="@dimen/dp_150"
+        android:layout_marginTop="170dp"
         android:padding="@dimen/dp_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,6 +38,7 @@
         android:gravity="center"
         android:text="@string/first_slide_desc"
         android:textSize="@dimen/sp_18"
+        android:fontFamily="@font/ptsans_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/slider_image" />
