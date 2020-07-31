@@ -20,17 +20,35 @@ import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : AppCompatActivity(),HomeContract.View {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_home)
+        initialize()
+        configView()
+    }
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val remote = LevelRemoteDataSource(retrofit)
         val repository = LevelRepository(remote)
         HomePresenter(this, repository)
     }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-        initialize()
 
+    private fun initialize() {
+        presenter.getLevelData()
+        val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+        val username = prefs.getString("userName", null)
+        text_username.text = username
+    }
+
+    companion object {
+        fun getIntent(context: Context) = Intent(context, HomeActivity::class.java)
+    }
+
+    override fun onDataComplete(levels: List<Level>) {
+        recycler_home!!.layoutManager = GridLayoutManager(this, 2)
+        recycler_home!!.adapter = HomeAdapter(this, levels)
+    }
+    private fun configView() {
         //set home selected
         bottom_navigation.selectedItemId = R.id.home
 
@@ -65,21 +83,5 @@ class HomeActivity : AppCompatActivity(),HomeContract.View {
             }
             false
         })
-    }
-
-    private fun initialize() {
-        presenter.getLevelData()
-        val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
-        val username = prefs.getString("userName", null)
-        text_username.text = username
-    }
-
-    companion object {
-        fun getIntent(context: Context) = Intent(context, HomeActivity::class.java)
-    }
-
-    override fun onDataComplete(levels: List<Level>) {
-        recycler_home!!.layoutManager = GridLayoutManager(this, 2)
-        recycler_home!!.adapter = HomeAdapter(this, levels)
     }
 }

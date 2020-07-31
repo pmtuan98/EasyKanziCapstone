@@ -17,6 +17,7 @@ object ApiConstant {
     const val URL_TEST_RESULT = "v1/test/save_result"
     const val URL_SEARCH = "v1/search"
     const val URL_TEST_HISTORY = "v1/test/{id}/users"
+    const val URL_TEST_RANKING = "v1/level/{id}/rankings"
 
     const val READ_TIMEOUT: Long = 60
     const val CONNECTION_TIMEOUT: Long = 60

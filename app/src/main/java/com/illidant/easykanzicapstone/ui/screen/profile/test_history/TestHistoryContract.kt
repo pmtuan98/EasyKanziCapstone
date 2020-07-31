@@ -1,6 +1,5 @@
 package com.illidant.easykanzicapstone.ui.screen.profile.test_history
 
-import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.domain.model.TestHistory
 
 interface TestHistoryContract {
