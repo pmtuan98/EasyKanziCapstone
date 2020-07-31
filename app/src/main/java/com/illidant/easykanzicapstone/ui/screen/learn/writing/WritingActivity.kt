@@ -66,7 +66,7 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
     private fun showSettingDialog() {
         val dialog = Dialog(this)
         dialog.setCancelable(true)
-        dialog.setContentView(R.layout.setting_learn_writing_layout)
+        dialog.setContentView(R.layout.dialog_setting_writing)
         val buttonSave= dialog.findViewById(R.id.buttonSaveWritingMode) as TextView
         val radioHira = dialog.findViewById(R.id.radioHira) as RadioButton
         val radioVN = dialog.findViewById(R.id.radioVN) as RadioButton

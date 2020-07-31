@@ -45,7 +45,7 @@ class HomeActivity : AppCompatActivity(),HomeContract.View {
     }
 
     override fun onDataComplete(levels: List<Level>) {
-        recycler_home!!.layoutManager = GridLayoutManager(this, 2)
+        recycler_home!!.layoutManager = GridLayoutManager(this, 1)
         recycler_home!!.adapter = HomeAdapter(this, levels)
     }
     private fun configView() {
