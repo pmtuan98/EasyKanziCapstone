@@ -44,6 +44,7 @@
             android:fontFamily="@font/ptsans_regular"
             android:text="Kanji to Hiragana"
             android:textAlignment="textStart"
+            android:checked="true"
             android:textSize="20sp" />
 
         <RadioButton
@@ -51,7 +52,6 @@
             android:layout_width="290dp"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:checked="true"
             android:layoutDirection="rtl"
             android:fontFamily="@font/ptsans_regular"
             android:paddingTop="10dp"

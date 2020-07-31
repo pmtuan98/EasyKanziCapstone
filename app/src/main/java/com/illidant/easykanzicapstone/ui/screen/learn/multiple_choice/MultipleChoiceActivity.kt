@@ -47,7 +47,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
     private fun showCompleteDialog () {
         val dialog = Dialog(this)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        dialog.setCancelable(true)
+        dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_complete_multiplechoice)
         val buttonAgain= dialog.findViewById(R.id.buttonLearnAgain) as Button
         val buttonLearnWriting = dialog.findViewById(R.id.buttonLearnWriting) as Button
