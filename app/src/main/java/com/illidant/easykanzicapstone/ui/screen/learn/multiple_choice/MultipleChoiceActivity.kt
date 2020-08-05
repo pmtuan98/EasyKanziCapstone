@@ -98,35 +98,35 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         textAnswerD.text = listQuiz[currentPosition].answerD
         var correctAnswer = listQuiz[currentPosition].correctAnswer
         resetAnswersBackground()
-        hideNextButton()
+        //hideButton()
 
         textAnswerA?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
             if(!textAnswerA.text.equals(correctAnswer)){
                 textAnswerA?.background = wrongAnswerBackground
             }
-            displayNextButton()
+            displayButton()
         }
         textAnswerB?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
             if(!textAnswerB.text.equals(correctAnswer)){
                 textAnswerB?.background = wrongAnswerBackground
             }
-            displayNextButton()
+            displayButton()
         }
         textAnswerC?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
             if(!textAnswerC.text.equals(correctAnswer)){
                 textAnswerC?.background = wrongAnswerBackground
             }
-            displayNextButton()
+            displayButton()
         }
         textAnswerD?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
             if(!textAnswerD.text.equals(correctAnswer)){
                 textAnswerD?.background = wrongAnswerBackground
             }
-            displayNextButton()
+            displayButton()
         }
 
         btnNextQuestion.setOnClickListener({
@@ -144,7 +144,28 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             textAnswerD.text = listQuiz[currentPosition].answerD
             correctAnswer = listQuiz[currentPosition].correctAnswer
             resetAnswersBackground()
-            hideNextButton()
+        })
+
+        fun checkBackQuestion(position: Int) {
+            if(position <= 0) {
+                btnBackQuestion.isClickable = false
+            }
+        }
+        checkBackQuestion(currentPosition)
+        btnBackQuestion.setOnClickListener({
+            currentPosition--
+            if (currentPosition < 0) {
+                currentPosition = 0
+            }
+            tv_questionNo.text = (currentPosition + 1).toString()
+            progressBarMultiple.progress = currentPosition
+            textQuestion.text = listQuiz[currentPosition].question
+            textAnswerA.text = listQuiz[currentPosition].answerA
+            textAnswerB.text = listQuiz[currentPosition].answerB
+            textAnswerC.text = listQuiz[currentPosition].answerC
+            textAnswerD.text = listQuiz[currentPosition].answerD
+            correctAnswer = listQuiz[currentPosition].correctAnswer
+            resetAnswersBackground()
         })
 
     }
@@ -181,12 +202,9 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         textAnswerD.isEnabled = true
     }
 
-    fun hideNextButton() {
-        btnNextQuestion?.visibility = View.INVISIBLE
-    }
-
-    fun displayNextButton() {
+    fun displayButton() {
         btnNextQuestion?.visibility = View.VISIBLE
+        btnBackQuestion?.visibility = View.VISIBLE
         textAnswerA.isEnabled = false
         textAnswerB.isEnabled = false
         textAnswerC.isEnabled = false

@@ -28,6 +28,7 @@ import com.illidant.easykanzicapstone.ui.screen.entry.EntryActivity
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.profile.test_history.TestHistoryActivity
 import kotlinx.android.synthetic.main.activity_profile.*
+import kotlinx.android.synthetic.main.activity_signup.*
 
 class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -73,26 +74,25 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
     }
     private fun changePassword() {
         txtchangepassword.setOnClickListener {
+            val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+            val username = prefs.getString("userName", null)
             val dialogChangePass = Dialog(this)
             dialogChangePass.setCancelable(true)
             dialogChangePass.setContentView(R.layout.dialog_change_password)
             val buttonSave= dialogChangePass.findViewById(R.id.btnSaveChange) as TextView
-            val edtEmail = dialogChangePass.findViewById(R.id.edtEmail) as EditText
+            val textEmail = dialogChangePass.findViewById(R.id.textEmail) as TextView
+            textEmail.text = "Email : ${username}"
             val edtOldPassword = dialogChangePass.findViewById(R.id.edt_old_password) as EditText
             val edtNewPassword = dialogChangePass.findViewById(R.id.edt_new_password) as EditText
+            val edtCfNewPassword = dialogChangePass.findViewById(R.id.cf_new_password) as EditText
             dialogChangePass.show()
 
             buttonSave.setOnClickListener {
-                val username = edtEmail.text.toString()
+
                 val current_password = edtOldPassword.text.toString()
                 val new_password = edtNewPassword.text.toString()
-                if (!username.isNotEmptyAndBlank()) {
-                    edtEmail.setError("Email is required")
-                    edtEmail.requestFocus()
-                } else if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
-                    edtEmail.setError("Enter a valid email")
-                    edtEmail.requestFocus()
-                } else if (!current_password.isNotEmptyAndBlank()) {
+                val cf_password = edtCfNewPassword.text.toString()
+                if (!current_password.isNotEmptyAndBlank()) {
                     edtOldPassword.setError("Current password is required")
                     edtOldPassword.requestFocus()
                 } else if (current_password.length < 6) {
@@ -104,8 +104,17 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
                 } else if (new_password.length < 6) {
                     edtNewPassword.setError("Password should be at least 6 character or more")
                     edtNewPassword.requestFocus()
+                }else if (!cf_password.isNotEmptyAndBlank()) {
+                    edtCfNewPassword.setError("Confirm password is required")
+                    edtCfNewPassword.requestFocus()
+                } else if (cf_password.length < 6) {
+                    edtCfNewPassword.setError("Password should be at least 6 character or more")
+                    edtCfNewPassword.requestFocus()
+                } else if (!cf_password.equals(new_password)) {
+                    edtCfNewPassword.setError("Not match password. Please re-enter")
+                    edtCfNewPassword.requestFocus()
                 } else {
-                    val request = ChangePasswordRequest(username, current_password, new_password)
+                    val request = ChangePasswordRequest(username.toString(), new_password, current_password)
                     changepassPresenter.changePass(request)
                     dialogChangePass.dismiss()
                 }

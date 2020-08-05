@@ -3,7 +3,9 @@ package com.illidant.easykanzicapstone.ui.screen.search
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.R
@@ -38,12 +40,20 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
             override fun onQueryTextChange(newText: String): Boolean {
                 val searchRequest = SearchRequest("$newText")
                 searchPresenter.searchKanji(searchRequest)
+                if(newText.trim().isEmpty()){
+                    notFoundImage.visibility = View.INVISIBLE
+                    recyclerSearch.visibility = View.INVISIBLE
+                    searchImage.visibility = View.VISIBLE
+
+                }else {
+                    searchImage.visibility = View.INVISIBLE
+                    recyclerSearch.visibility = View.VISIBLE
+                }
+
                 return false
             }
 
             override fun onQueryTextSubmit(query: String): Boolean {
-                val searchRequest = SearchRequest("$query")
-                searchPresenter.searchKanji(searchRequest)
                 return false
             }
         })
@@ -94,6 +104,11 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
     override fun onSearchResult(listSearch: List<KanjiES>) {
         recyclerSearch!!.layoutManager = GridLayoutManager(this, 1)
         recyclerSearch!!.adapter = SearchAdapter(listSearch,this)
+        if(listSearch.isEmpty()){
+            notFoundImage.visibility = View.VISIBLE
+        }else {
+            notFoundImage.visibility = View.INVISIBLE
+        }
 
     }
 }
