@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:contextClickable="false"
     tools:context=".ui.screen.search.SearchActivity">
 
 
@@ -13,7 +14,7 @@
         android:layout_height="620dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -22,21 +23,36 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:itemBackground="@android:color/holo_red_light"
+        app:itemHorizontalTranslationEnabled="false"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        app:itemHorizontalTranslationEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/menu_navigation" />
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#DCDCDC"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <SearchView
         android:id="@+id/searchView"
-        android:queryHint="Search Kanji"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/bg_search"
+        android:contextClickable="false"
         android:iconifiedByDefault="false"
-        android:background="@color/color_gray"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
