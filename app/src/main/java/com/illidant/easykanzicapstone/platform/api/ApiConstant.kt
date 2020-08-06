@@ -6,6 +6,7 @@ object ApiConstant {
     const val URL_REGISTER = "auth/signup"
     const val URL_RESET_PASSWORD = "auth/users/reset-password"
     const val URL_CHANGE_PASSWORD = "auth/users/change-password"
+    const val URL_FORGOT_PASSWORD = "auth/users/forgot-password"
     const val URL_GET_ALL_LEVELS = "v1/levels"
     const val URL_GET_KANJI_BY_LESSON_ID = "v1/lessons/{id}/kanjis"
     const val URL_GET_LESSON_BY_LEVEL_ID = "v1/level/{id}/lessons"

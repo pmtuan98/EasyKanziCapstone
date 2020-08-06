@@ -1,5 +1,6 @@
 package com.illidant.easykanzicapstone.ui.screen.reset_password
 
+import android.util.Log
 import com.illidant.easykanzicapstone.domain.request.ResetPasswordRequest
 import com.illidant.easykanzicapstone.domain.response.ResetPasswordResponse
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType
@@ -26,6 +27,7 @@ class ResetPassPresenter (
                 response.errorBody()?.let {
                     val jObjError = JSONObject(response.errorBody()!!.string())
                     view.onResetPassFail(  jObjError.getString("message"))
+                    Log.d("RESETPASS", response.errorBody().toString())
                 }
             }
         })

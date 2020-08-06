@@ -18,6 +18,9 @@ interface ApiService {
     @POST(ApiConstant.URL_CHANGE_PASSWORD)
     fun changePass(@Body body: ChangePasswordRequest): Call<ChangePasswordResponse>
 
+    @POST(ApiConstant.URL_FORGOT_PASSWORD)
+    fun forgotPass(@Body body: ForgotPasswordRequest): Call<ForgotPasswordResponse>
+
     @POST(ApiConstant.URL_TEST_RESULT)
     fun sendTestResult(@Body body: TestRankingRequest): Call<TestRankingResponse>
 

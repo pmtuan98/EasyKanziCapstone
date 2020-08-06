@@ -2,11 +2,9 @@ package com.illidant.easykanzicapstone.platform.source.remote
 
 import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.domain.model.User
-import com.illidant.easykanzicapstone.domain.request.ChangePasswordRequest
-import com.illidant.easykanzicapstone.domain.request.ResetPasswordRequest
-import com.illidant.easykanzicapstone.domain.request.SigninRequest
-import com.illidant.easykanzicapstone.domain.request.SignupRequest
+import com.illidant.easykanzicapstone.domain.request.*
 import com.illidant.easykanzicapstone.domain.response.ChangePasswordResponse
+import com.illidant.easykanzicapstone.domain.response.ForgotPasswordResponse
 import com.illidant.easykanzicapstone.domain.response.ResetPasswordResponse
 import com.illidant.easykanzicapstone.platform.api.ApiService
 import com.illidant.easykanzicapstone.platform.source.UserDataSource
@@ -20,4 +18,6 @@ class UserRemoteDataSource(
     override fun signup(request: SignupRequest): Call<SignupResponse> = apiService.signup(request)
     override fun resetPass(request: ResetPasswordRequest): Call<ResetPasswordResponse> = apiService.resetPass(request)
     override fun changePass(request: ChangePasswordRequest): Call<ChangePasswordResponse> = apiService.changePass(request)
+    override fun forgotPass(request: ForgotPasswordRequest): Call<ForgotPasswordResponse> = apiService.forgotPass(request)
+
 }
