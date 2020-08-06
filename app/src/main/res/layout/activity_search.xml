@@ -34,8 +34,8 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#DCDCDC"
+        android:layout_height="54dp"
+        android:background="#F5F5F5"
         app:layout_constraintBottom_toTopOf="@+id/recyclerSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,6 +52,7 @@
         android:background="@drawable/bg_search"
         android:contextClickable="false"
         android:iconifiedByDefault="false"
+        android:queryBackground="@null"
         app:layout_constraintBottom_toTopOf="@+id/recyclerSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

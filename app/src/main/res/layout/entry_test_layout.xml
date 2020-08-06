@@ -9,11 +9,11 @@
 
     <ImageView
         android:id="@+id/background_image2"
-        android:layout_width="200sp"
-        android:layout_height="200dp"
+        android:layout_width="150sp"
+        android:layout_height="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
-        android:src="@drawable/background_image2"
+        android:layout_marginTop="120dp"
+        android:src="@drawable/logo_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
