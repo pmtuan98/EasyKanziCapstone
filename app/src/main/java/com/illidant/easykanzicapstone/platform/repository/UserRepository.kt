@@ -2,11 +2,9 @@ package com.illidant.easykanzicapstone.platform.repository
 
 import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.domain.model.User
-import com.illidant.easykanzicapstone.domain.request.ChangePasswordRequest
-import com.illidant.easykanzicapstone.domain.request.ResetPasswordRequest
-import com.illidant.easykanzicapstone.domain.request.SigninRequest
-import com.illidant.easykanzicapstone.domain.request.SignupRequest
+import com.illidant.easykanzicapstone.domain.request.*
 import com.illidant.easykanzicapstone.domain.response.ChangePasswordResponse
+import com.illidant.easykanzicapstone.domain.response.ForgotPasswordResponse
 import com.illidant.easykanzicapstone.domain.response.ResetPasswordResponse
 import com.illidant.easykanzicapstone.platform.source.UserDataSource
 import retrofit2.Call
@@ -24,5 +22,6 @@ class UserRepository(
     override fun signup(request: SignupRequest): Call<SignupResponse> = remote.signup(request)
     override fun resetPass(request: ResetPasswordRequest): Call<ResetPasswordResponse> = remote.resetPass(request)
     override fun changePass(request: ChangePasswordRequest): Call<ChangePasswordResponse> = remote.changePass(request)
+    override fun forgotPass(request: ForgotPasswordRequest): Call<ForgotPasswordResponse> = remote.forgotPass(request)
 
 }

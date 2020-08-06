@@ -30,7 +30,6 @@ open class BaseActivity: AppCompatActivity(), ConnectivityReceiver.ConnectivityR
             mSnackBar!!.setActionTextColor(Color.WHITE)
             mSnackBar?.show()
         } else {
-            
             mSnackBar?.dismiss()
         }
 
