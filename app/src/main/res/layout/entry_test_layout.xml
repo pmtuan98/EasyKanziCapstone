@@ -4,15 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_image">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/background_image2"
         android:layout_width="200sp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="52dp"
+        android:src="@drawable/logo_text_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +22,7 @@
         android:id="@+id/cardview_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         app:cardCornerRadius="30dp"
         app:contentPaddingBottom="30dp"
         app:contentPaddingLeft="15dp"
@@ -124,11 +123,11 @@
     <Button
         android:id="@+id/buttonStart"
         android:layout_width="174dp"
-        android:layout_height="42dp"
-        android:background="@drawable/bg_ripple"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_custom"
         android:fontFamily="@font/ptsans_bold"
         android:text="START NOW"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

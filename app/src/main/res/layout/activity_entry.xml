@@ -5,37 +5,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layout_frame"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_image">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-<!--        <TextView-->
-<!--            android:id="@+id/intro_text"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop=""-->
-<!--            android:fontFamily="@font/rocksalt_regular"-->
-<!--            android:gravity="center"-->
-<!--            android:text="@string/logo_name"-->
-<!--            android:textSize="@dimen/sp_40"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.552"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="@id/background_image2" />-->
-
 
         <ImageView
             android:id="@+id/background_image2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
+            android:layout_width="match_parent"
+            android:layout_height="450dp"
             android:src="@drawable/logo_text_image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/buttonSignIn"
@@ -43,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_28"
             android:text="@string/btnSignin"
-            android:textColor="#FF0000"
+            android:textColor="@android:color/white"
             android:background="@drawable/btn_custom"
             app:layout_constraintBottom_toTopOf="@id/text"
             app:layout_constraintEnd_toEndOf="parent"

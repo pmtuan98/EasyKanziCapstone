@@ -20,6 +20,8 @@
     <color name="color_lawn_green">#A3FF4A</color>
     <color name="color_gray_73">#BABABA</color>
     <color name="color_background_profile">#f4f4f4</color>
+    <color name="color_background_bottom">#FCFBF6</color>
+
 
     <color name="color_blue_50">#d8dee4</color>
     <color name="color_blue_100">#bbc9d5</color>

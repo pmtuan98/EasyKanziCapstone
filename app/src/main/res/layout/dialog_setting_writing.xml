@@ -74,7 +74,7 @@
         android:gravity="center"
         android:textSize="20dp"
         android:text="SAVE"
-        android:textColor="@android:color/holo_red_light"
+        android:textColor="#C0392D"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
