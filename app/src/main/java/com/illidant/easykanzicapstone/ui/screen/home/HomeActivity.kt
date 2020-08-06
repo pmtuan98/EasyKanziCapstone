@@ -18,7 +18,7 @@ import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
 
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : AppCompatActivity(),HomeContract.View {
+class HomeActivity : BaseActivity(),HomeContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
