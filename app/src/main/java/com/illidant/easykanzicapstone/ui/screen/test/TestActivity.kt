@@ -39,7 +39,6 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
     var level_id: Int = 0
     val sdf = SimpleDateFormat("dd/M/yyyy")
     val currentDate = sdf.format(Date())
-    var formatTimeTaken: String = ""
 
     val timer = object : CountDownTimer(601000, 1000) {
         override fun onTick(millisUntilFinished: Long) {
@@ -48,10 +47,6 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
                 TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))))
             timeTaken = (600 - TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)).toInt()
-//            formatTimeTaken = String.format("%d : %d",
-//                TimeUnit.MILLISECONDS.toMinutes( timeTaken),
-//                TimeUnit.MILLISECONDS.toSeconds(timeTaken) -
-//                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(timeTaken)))
         }
 
         override fun onFinish() {
@@ -94,7 +89,7 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         val listRandomQuiz: List<Quiz> = listQuiz.shuffled().take(30)
         var currentPosition = 0
         var countCorrectAnswer = 0
-        var chooseAnswerBackground = ContextCompat.getDrawable(this,R.drawable.bg_correct_answer)
+
         //set progress bar
         progressBarMultiple.max = listRandomQuiz.size
         progressBarMultiple.progress = currentPosition
@@ -113,16 +108,7 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         textAnswerD.text = listRandomQuiz[currentPosition].answerD
         var correctAnswer = listRandomQuiz[currentPosition].correctAnswer
 
-        fun resetAnswersBackground() {
-            val defaultAnswerBackground = ContextCompat.getDrawable(this, R.drawable.bg_detail_kanji)
-            textAnswerA?.background = defaultAnswerBackground
-            textAnswerB?.background = defaultAnswerBackground
-            textAnswerC?.background = defaultAnswerBackground
-            textAnswerD?.background = defaultAnswerBackground
-        }
-
         fun nextQuestion() {
-            resetAnswersBackground()
             currentPosition++
             if (currentPosition == listRandomQuiz.size) {
                 currentPosition = listRandomQuiz.size - 1
@@ -140,28 +126,24 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         }
 
         textAnswerA?.setOnClickListener {
-            textAnswerA?.background = chooseAnswerBackground
             if(textAnswerA.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
             nextQuestion()
         }
         textAnswerB?.setOnClickListener {
-            textAnswerB?.background = chooseAnswerBackground
             if(textAnswerB.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
             nextQuestion()
         }
         textAnswerC?.setOnClickListener {
-            textAnswerC?.background = chooseAnswerBackground
             if(textAnswerC.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
             nextQuestion()
         }
         textAnswerD?.setOnClickListener {
-            textAnswerD?.background = chooseAnswerBackground
             if(textAnswerD.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
