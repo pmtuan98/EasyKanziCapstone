@@ -22,20 +22,17 @@ open class BaseActivity: AppCompatActivity(), ConnectivityReceiver.ConnectivityR
 
     private fun showMessage(isConnected: Boolean) {
 
-
-
         if (!isConnected) {
-
-            val messageToUser = "No internet connection. Please connect internet to continue"
+            val messageToUser = "No internet connection"
             mSnackBar = Snackbar.make(findViewById(R.id.rootLayout), messageToUser, Snackbar.LENGTH_LONG) //Assume "rootLayout" as the root layout of every activity.
             mSnackBar?.duration = Snackbar.LENGTH_INDEFINITE
             mSnackBar!!.view.setBackgroundColor(ContextCompat.getColor(this!!,R.color.snackbar_red))
             mSnackBar!!.setActionTextColor(Color.WHITE)
             mSnackBar?.show()
         } else {
+            
             mSnackBar?.dismiss()
         }
-
 
     }
 

@@ -4,6 +4,8 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
@@ -51,28 +53,44 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         configViews()
 
     }
+    private fun validateSignin() {
+        val username = editEmail.text.toString()
+        val password = editPassword.text.toString()
+        if (!username.isNotEmptyAndBlank()) {
+            editEmail.setError("Email is required")
+            editEmail.requestFocus()
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+            editEmail.setError("Enter a valid email")
+            editEmail.requestFocus()
+        } else if (!password.isNotEmptyAndBlank()) {
+            editPassword.setError("Password is required")
+            editPassword.requestFocus()
+        } else if (password.length < 6) {
+            editPassword.setError("Password should be at least 6 character or more")
+            editPassword.requestFocus()
+        } else {
+            val request = SigninRequest(username, password)
+            presenter.signin(request)
+        }
+    }
+
+    private fun popupInternetError() {
+        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+        errDialog.contentText = "No internet connection! "
+        errDialog.show()
+    }
 
     private fun configViews() {
+        val connectivityManager = baseContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork = connectivityManager.activeNetworkInfo
+
         buttonBack.setOnClickListener { finish() }
 
         buttonSignin.setOnClickListener {
-            val username = editEmail.text.toString()
-            val password = editPassword.text.toString()
-            if (!username.isNotEmptyAndBlank()) {
-                editEmail.setError("Email is required")
-                editEmail.requestFocus()
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
-                editEmail.setError("Enter a valid email")
-                editEmail.requestFocus()
-            } else if (!password.isNotEmptyAndBlank()) {
-                editPassword.setError("Password is required")
-                editPassword.requestFocus()
-            } else if (password.length < 6) {
-                editPassword.setError("Password should be at least 6 character or more")
-                editPassword.requestFocus()
-            } else {
-                val request = SigninRequest(username, password)
-                presenter.signin(request)
+            if(activeNetwork != null && activeNetwork.isConnected){
+                validateSignin()
+            }else {
+                popupInternetError()
             }
 
         }
