@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.User
@@ -27,7 +28,7 @@ import com.illidant.easykanzicapstone.ui.screen.reset_password.ResetPassContract
 import com.illidant.easykanzicapstone.ui.screen.reset_password.ResetPassPresenter
 import kotlinx.android.synthetic.main.activity_signin.*
 
-class SigninActivity : AppCompatActivity(), SigninContract.View, ResetPassContract.View {
+class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.View {
 
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
