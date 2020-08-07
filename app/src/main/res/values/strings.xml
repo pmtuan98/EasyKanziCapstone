@@ -14,8 +14,8 @@
 
     <!-- Description -->
     <string name="intro_slide_desc"></string>
-    <string name="first_slide_desc">You can learn in three different ways choose what works for you</string>
-    <string name="second_slide_desc">Quicky search Kanji by Hiragana and Sino-Vietnamese Reading</string>
+    <string name="first_slide_desc">You can learn in three different ways, choose what works for you</string>
+    <string name="second_slide_desc">Quicky search Kanji</string>
     <string name="third_slide_desc">Join the test to reach the first place</string>
 
     <!-- Button -->

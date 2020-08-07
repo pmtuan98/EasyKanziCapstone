@@ -74,7 +74,13 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             dialog.dismiss()
         }
     }
-
+    fun checkBackQuestion(position: Int) {
+        if(position <= 0) {
+            btnBackQuestion.isEnabled = false
+        }else {
+            btnBackQuestion.isEnabled = true
+        }
+    }
     override fun getQuizByLessonID(listQuiz: List<Quiz>) {
         var currentPosition = 0
         var wrongAnswerBackground: Drawable?
@@ -82,7 +88,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
         //set progress bar
         progressBarMultiple.max = listQuiz.size
-        progressBarMultiple.progress = currentPosition
+        progressBarMultiple.progress = currentPosition + 1
 
         //Display total question
         tv_totalQuestion.text = listQuiz.size.toString()
@@ -98,6 +104,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         textAnswerD.text = listQuiz[currentPosition].answerD
         var correctAnswer = listQuiz[currentPosition].correctAnswer
         resetAnswersBackground()
+        checkBackQuestion(currentPosition)
         //hideButton()
 
         textAnswerA?.setOnClickListener {
@@ -135,6 +142,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
                 currentPosition = listQuiz.size - 1
                 showCompleteDialog()
             }
+            checkBackQuestion(currentPosition)
             tv_questionNo.text = (currentPosition + 1).toString()
             progressBarMultiple.progress = currentPosition + 1
             textQuestion.text = listQuiz[currentPosition].question
@@ -145,20 +153,14 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             correctAnswer = listQuiz[currentPosition].correctAnswer
             resetAnswersBackground()
         })
-
-        fun checkBackQuestion(position: Int) {
-            if(position <= 0) {
-                btnBackQuestion.isClickable = false
-            }
-        }
-        checkBackQuestion(currentPosition)
         btnBackQuestion.setOnClickListener({
             currentPosition--
             if (currentPosition < 0) {
                 currentPosition = 0
             }
+            checkBackQuestion(currentPosition)
             tv_questionNo.text = (currentPosition + 1).toString()
-            progressBarMultiple.progress = currentPosition
+            progressBarMultiple.progress = currentPosition+1
             textQuestion.text = listQuiz[currentPosition].question
             textAnswerA.text = listQuiz[currentPosition].answerA
             textAnswerB.text = listQuiz[currentPosition].answerB

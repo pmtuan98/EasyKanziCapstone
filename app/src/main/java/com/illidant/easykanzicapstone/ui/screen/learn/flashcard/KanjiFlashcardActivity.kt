@@ -1,12 +1,9 @@
 package com.illidant.easykanzicapstone.ui.screen.learn.flashcard
 
-import android.app.Dialog
-import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -14,24 +11,11 @@ import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import com.illidant.easykanzicapstone.platform.source.remote.VocabularyRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnContract
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
-import com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice.MultipleChoiceActivity
-import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
-import kotlinx.android.synthetic.main.activity_flashcard.*
-import kotlinx.android.synthetic.main.activity_flashcard.btn_flashcard_back
-import kotlinx.android.synthetic.main.activity_flashcard.btn_flashcard_next
-import kotlinx.android.synthetic.main.activity_flashcard.buttonExit
-import kotlinx.android.synthetic.main.activity_flashcard.buttonRestart
-import kotlinx.android.synthetic.main.activity_flashcard.flash_card
-import kotlinx.android.synthetic.main.activity_flashcard.layout_back
-import kotlinx.android.synthetic.main.activity_flashcard.progressBarFlashcard
-import kotlinx.android.synthetic.main.activity_flashcard.tv_questionNo
-import kotlinx.android.synthetic.main.activity_flashcard.tv_totalQuestion
 import kotlinx.android.synthetic.main.activity_kanji_flashcard.*
 import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
 
-
-class FlashcardActivity : AppCompatActivity(), LearnContract.View {
+class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     private var x1 = 0f
     private var x2 = 0f
     val MIN_DISTANCE = 150
@@ -40,18 +24,16 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     val hiraganaList : MutableList<String> = mutableListOf()
     val meaningList : MutableList<String> = mutableListOf()
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_flashcard)
+        setContentView(R.layout.activity_kanji_flashcard)
         initialize()
-
     }
     private fun initialize() {
+        //Learn flashcard by kanji
+        val kanji_id = intent.getIntExtra("KANJI_ID", 0)
+        presenter.vocabByKanjiIDRequest(kanji_id)
 
-        //Learn flashcard by lesson
-        val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        presenter.vocabByLessonRequest(lesson_id)
         swipeFlashcard()
 
         buttonRestart.setOnClickListener {
@@ -62,14 +44,15 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         buttonExit.setOnClickListener {
             finish()
         }
-}
 
+    }
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val remote = VocabularyRemoteDataSource(retrofit)
         val repository = VocabularyRepository(remote)
         LearnPresenter(this, repository)
     }
+
     private fun swipeFlashcard() {
         flash_card.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
@@ -104,14 +87,15 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     fun checkNextBackButton(counter : Int) {
         if(counter == 0) {
             btn_flashcard_back.isEnabled = false
-        }else if (counter == kanjiList.size){
+        }else if (counter == kanjiList.size - 1){
             btn_flashcard_next.isEnabled = false
         }else {
             btn_flashcard_back.isEnabled = true
             btn_flashcard_next.isEnabled = true
         }
     }
-    override fun getVocabByLessonID(listVocab: List<Vocabulary>) {
+
+    override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
         // Add to list
         for (vocab in listVocab) {
             kanjiList.add(vocab.kanji_vocab)
@@ -134,11 +118,11 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
 
         // Next button click
         btn_flashcard_next.setOnClickListener {
-           if(flash_card.isBackSide) {
-               flash_card.flipTheView(true)
-               layout_back.visibility = View.GONE
-               next()
-           }else next()
+            if(flash_card.isBackSide) {
+                flash_card.flipTheView(true)
+                layout_back.visibility = View.GONE
+                next()
+            }else next()
         }
 
         //Previous button click
@@ -164,13 +148,12 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter+1
 
     }
-     private fun next() {
+    private fun next() {
         counter++
         if (counter == kanjiList.size) {
             counter = kanjiList.size - 1
-            showCompleteDialog()
         }
-         checkNextBackButton(counter)
+        checkNextBackButton(counter)
         flashcard_kanji.text = kanjiList[counter]
         flashcard_meaning.text = meaningList[counter]
         flashcard_hira.text = hiraganaList[counter]
@@ -179,39 +162,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
 
     }
 
-
-
-    private fun showCompleteDialog () {
-        val dialog = Dialog(this)
-        val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        dialog.setCancelable(false)
-        dialog.setContentView(R.layout.dialog_complete_flashcard)
-        val buttonAgain= dialog.findViewById(R.id.buttonLearnAgain) as Button
-        val buttonLearnWriting = dialog.findViewById(R.id.buttonLearnWriting) as Button
-        val buttonLearnMultiple = dialog.findViewById(R.id.buttonMultipleChoice) as Button
-        dialog.show()
-        buttonAgain.setOnClickListener {
-            val intent = intent
-            finish()
-            startActivity(intent)
-            dialog.dismiss()
-        }
-        buttonLearnWriting.setOnClickListener{
-            val intent = Intent(it.context, WritingActivity::class.java)
-            intent.putExtra("LESSON_ID", lesson_id)
-            startActivity(intent)
-            finish()
-            dialog.dismiss()
-        }
-        buttonLearnMultiple.setOnClickListener{
-            val intent = Intent(it.context, MultipleChoiceActivity::class.java)
-            intent.putExtra("LESSON_ID", lesson_id)
-            startActivity(intent)
-            finish()
-            dialog.dismiss()
-        }
-    }
-    override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
-        //Not use
+    override fun getVocabByLessonID(listVocab: List<Vocabulary>) {
+       //Not use
     }
 }

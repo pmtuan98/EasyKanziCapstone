@@ -1,5 +1,6 @@
 package com.illidant.easykanzicapstone.ui.screen.kanji
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -11,7 +12,11 @@ import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import com.illidant.easykanzicapstone.platform.source.remote.KanjiRemoteDataSource
+import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.FlashcardActivity
+import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.KanjiFlashcardActivity
+import com.illidant.easykanzicapstone.ui.screen.test.EntryTestActivity
 import kotlinx.android.synthetic.main.activity_kanji_detail.*
+import kotlinx.android.synthetic.main.activity_level.*
 
 class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
 
@@ -31,6 +36,7 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
     private fun initialize() {
         var kanji_id = intent.getIntExtra("KANJI_ID",0)
         presenter.kanjiByIDRequest(kanji_id)
+        learnVocabByKanji()
 
     }
 
@@ -48,6 +54,14 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         textKunFurigana.text = kanjiAttribute.kun_furigana
         stringStroke = kanjiAttribute.image
         handleKanjiStroke(stringStroke)
+    }
+    fun learnVocabByKanji() {
+        btnFlashcard.setOnClickListener {
+            var kanji_id = intent.getIntExtra("KANJI_ID",0)
+            val intent = Intent(it.context, KanjiFlashcardActivity::class.java)
+            intent.putExtra("KANJI_ID", kanji_id)
+            startActivity(intent)
+        }
     }
 
     fun handleKanjiStroke(input: String) {

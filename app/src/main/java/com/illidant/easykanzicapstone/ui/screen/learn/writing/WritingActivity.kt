@@ -39,6 +39,8 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
     private fun initialize() {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         presenter.vocabByLessonRequest(lesson_id)
+
+
         switchOption.setOnClickListener{
             showSettingDialog()
         }
@@ -156,7 +158,7 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
 
         //Set progress bar
         progressBarWriting.max = kanjiList.size
-        progressBarWriting.progress = counter
+        progressBarWriting.progress = counter+1
 
         fun nextQuestion() {
             counter++

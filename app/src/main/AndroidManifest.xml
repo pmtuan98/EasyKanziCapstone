@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.screen.profile.test_history.TestHistoryActivity"></activity>
+        <activity android:name=".ui.screen.learn.flashcard.KanjiFlashcardActivity"></activity>
+        <activity android:name=".ui.screen.profile.test_history.TestHistoryActivity" />
         <activity android:name=".ui.screen.test.TestActivity" />
         <activity android:name=".ui.screen.test.EntryTestActivity" />
         <activity android:name=".ui.screen.learn.multiple_choice.MultipleChoiceActivity" />
@@ -40,9 +41,7 @@
         </activity>
         <activity android:name=".ui.screen.entry.EntryActivity" />
         <activity android:name=".ui.screen.signin.SigninActivity" />
-        <activity android:name=".ui.screen.signup.SignupActivity" />
-
-        <!-- The below code is for android OS version below N -->
+        <activity android:name=".ui.screen.signup.SignupActivity" /> <!-- The below code is for android OS version below N -->
         <receiver
             android:name=".ConnectivityReceiver"
             android:enabled="true">

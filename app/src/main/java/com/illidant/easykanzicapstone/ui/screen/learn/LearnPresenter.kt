@@ -22,4 +22,17 @@ class LearnPresenter(
            }
        })
     }
+
+    override fun vocabByKanjiIDRequest(id: Int) {
+        repository.getVocabByKanjiID(id).enqueue(object : Callback<List<Vocabulary>> {
+            override fun onFailure(call: Call<List<Vocabulary>>, t: Throwable) {
+
+            }
+
+            override fun onResponse(call: Call<List<Vocabulary>>, response: Response<List<Vocabulary>>) {
+                response.body()?.let { view.getVocabByKanjiID(it) }
+            }
+
+        })
+    }
 }

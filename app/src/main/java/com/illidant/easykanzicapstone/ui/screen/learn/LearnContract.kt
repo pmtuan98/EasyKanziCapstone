@@ -12,6 +12,7 @@ interface LearnContract {
 
     interface Presenter{
         fun vocabByLessonRequest(id: Int)
+        fun vocabByKanjiIDRequest(id : Int)
     }
 
 }
