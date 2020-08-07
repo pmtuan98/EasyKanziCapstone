@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@android:id/background"
-        android:height="8dp">
+        android:height="6dp">
         <shape>
-            <solid android:color="#B0C4DE" />
+            <solid android:color="#C0392D" />
             <corners android:radius="2dp"/>
         </shape>
     </item>
     <item
         android:id="@android:id/progress"
-        android:height="8dp">
+        android:height="6dp">
         <clip>
             <shape>
                 <solid android:color="@color/main_blue_color" />

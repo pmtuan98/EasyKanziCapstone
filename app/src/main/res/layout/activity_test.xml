@@ -6,6 +6,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.screen.test.TestActivity">
 
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="93dp"
+        android:background="#C0392D"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <LinearLayout
         android:id="@+id/linearlayout1"
         android:layout_width="match_parent"
@@ -18,90 +27,91 @@
             android:id="@+id/buttonExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/ic_baseline_clear_24" />
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/ic_baseline_clear_24_2" />
 
-        <TextView
-            android:id="@+id/txt_level"
+
+        <LinearLayout
+            android:id="@+id/linearlayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15dp">
+
+            <TextView
+                android:id="@+id/tv_question"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsans_bold"
+                android:textColor="@android:color/white"
+                android:text="Question"
+                android:textSize="22sp" />
+
+
+            <TextView
+                android:id="@+id/tv_questionNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsans_bold"
+                android:textColor="@android:color/white"
+                android:layout_marginLeft="4dp"
+                android:text="10"
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsans_bold"
+                android:textColor="@android:color/white"
+                android:text="/"
+                android:textSize="22sp" />
+
+            <TextView
+                android:id="@+id/tv_totalQuestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsans_bold"
+                android:textColor="@android:color/white"
+                android:text="10"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:background="@drawable/btn_custom"
             android:fontFamily="@font/ptsans_bold"
-            android:text="JPD111"
-            android:textSize="30sp" />
+            android:text="SUBMIT"
+            android:textSize="18sp"
+            android:textColor="@android:color/white" />
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearlayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout1">
-
-        <TextView
-            android:id="@+id/tv_question"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans_bold"
-            android:text="Question"
-            android:textSize="20sp" />
-
-
-        <TextView
-            android:id="@+id/tv_questionNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans_bold"
-            android:text="10"
-            android:textSize="20sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans_bold"
-            android:text="/"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/tv_totalQuestion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans_bold"
-            android:text="10"
-            android:textSize="16sp" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/edtTimeTest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="30"
-        android:textSize="36sp"
+        android:textSize="26sp"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toEndOf="@+id/linearlayout2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearlayout1" />
 
     <ProgressBar
         android:id="@+id/progressBarMultiple"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="340dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="2dp"
         android:max="100"
         android:progressDrawable="@drawable/custom_progress_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout2"/>
+        app:layout_constraintTop_toBottomOf="@+id/edtTimeTest"/>
 
     <TextView
         android:id="@+id/textQuestion"
@@ -119,75 +129,170 @@
         app:layout_goneMarginEnd="32dp" />
 
     <TextView
-        android:id="@+id/textAnswerA"
-        android:layout_width="320dp"
+        android:id="@+id/stt_1"
+        android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/bg_test_answer"
+        android:layout_marginTop="20dp"
+        android:gravity="center_vertical"
+        android:text="1."
         android:textColor="@color/color_text_primary"
         android:textSize="18sp"
-        android:gravity="center_vertical"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
 
     <TextView
-        android:id="@+id/textAnswerB"
-        android:layout_width="320dp"
+        android:id="@+id/textAnswerA"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bg_test_answer"
+        android:gravity="center_vertical"
         android:textColor="@color/color_text_primary"
         android:textSize="18sp"
-        android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toEndOf="@+id/stt_1"
+        app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
+
+    <TextView
+        android:id="@+id/stt_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:text="2."
+        android:textColor="@color/color_text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAnswerA" />
 
     <TextView
-        android:id="@+id/textAnswerC"
-        android:layout_width="320dp"
+        android:id="@+id/textAnswerB"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/bg_test_answer"
         android:textColor="@color/color_text_primary"
+        android:layout_marginTop="10dp"
         android:textSize="18sp"
         android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toEndOf="@+id/stt_2"
+        app:layout_constraintTop_toBottomOf="@+id/textAnswerA" />
+
+    <TextView
+        android:id="@+id/stt_3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:text="3."
+        android:textColor="@color/color_text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textAnswerB" />
 
     <TextView
-        android:id="@+id/textAnswerD"
-        android:layout_width="320dp"
+        android:id="@+id/textAnswerC"
+        android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/bg_test_answer"
+        android:textColor="@color/color_text_primary"
+        android:textSize="18sp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stt_3"
+        app:layout_constraintTop_toBottomOf="@+id/textAnswerB" />
+
+    <TextView
+        android:id="@+id/stt_4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:text="4."
+        android:textColor="@color/color_text_primary"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAnswerC" />
+
+    <TextView
+        android:id="@+id/textAnswerD"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         android:textColor="@color/color_text_primary"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/stt_4"
         app:layout_constraintTop_toBottomOf="@+id/textAnswerC" />
 
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="120dp"
-        android:layout_height="50dp"
-        android:layout_toRightOf="@+id/text_level_name"
-        android:background="@drawable/btn_custom"
-        android:fontFamily="@font/ptsans_bold"
-        android:text="SUBMIT"
-        android:textSize="@dimen/dp_20"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <TextView
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Answer"
+        android:textColor="#C3092D"
+        android:textSize="24dp"
+        style="@style/Hyperlink"
+        app:layout_constraintBottom_toTopOf="@+id/linearlayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearlayout3"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerD" />
+        app:layout_constraintBottom_toBottomOf="parent">
 
+        <Button
+            android:id="@+id/textAnswerAA"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/bg_test_answer2"
+            android:text="1"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/textAnswerBB"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/bg_test_answer2"
+            android:text="2"
+            android:layout_marginLeft="40dp"
+            android:textSize="20sp"/>
+        <Button
+            android:id="@+id/textAnswerCC"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/bg_test_answer2"
+            android:text="3"
+            android:layout_marginLeft="40dp"
+            android:textSize="20sp"/>
+        <Button
+            android:id="@+id/textAnswerDD"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:background="@drawable/bg_test_answer2"
+            android:text="4"
+            android:layout_marginLeft="40dp"
+            android:textSize="20sp"/>
+
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
