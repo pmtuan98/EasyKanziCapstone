@@ -38,7 +38,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
-                android:text="10"
                 android:textSize="16sp" />
 
             <TextView
@@ -53,7 +52,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
-                android:text="10"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -88,7 +86,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_8"
         android:gravity="center"
-        android:text="aaaaa"
         android:textColor="@color/color_text_primary"
         android:textSize="@dimen/sp_30"
         android:textStyle="bold"
@@ -175,7 +172,6 @@
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginTop="44dp"
-        android:clickable="true"
         android:background="@drawable/bg_ripple"
         android:src="@drawable/ic_back_multiple"
         app:layout_constraintEnd_toEndOf="parent"

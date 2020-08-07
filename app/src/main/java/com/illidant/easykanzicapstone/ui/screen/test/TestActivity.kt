@@ -1,14 +1,13 @@
 package com.illidant.easykanzicapstone.ui.screen.test
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.domain.request.TestRankingRequest
@@ -19,14 +18,6 @@ import com.illidant.easykanzicapstone.platform.source.remote.QuizRemoteDataSourc
 import com.illidant.easykanzicapstone.platform.source.remote.TestRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
-import kotlinx.android.synthetic.main.activity_multiple_choice.progressBarMultiple
-import kotlinx.android.synthetic.main.activity_multiple_choice.textAnswerA
-import kotlinx.android.synthetic.main.activity_multiple_choice.textAnswerB
-import kotlinx.android.synthetic.main.activity_multiple_choice.textAnswerC
-import kotlinx.android.synthetic.main.activity_multiple_choice.textAnswerD
-import kotlinx.android.synthetic.main.activity_multiple_choice.textQuestion
-import kotlinx.android.synthetic.main.activity_multiple_choice.tv_questionNo
-import kotlinx.android.synthetic.main.activity_multiple_choice.tv_totalQuestion
 import kotlinx.android.synthetic.main.activity_test.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -37,12 +28,12 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
 
     var timeTaken: Int = 0
     var level_id: Int = 0
-    val sdf = SimpleDateFormat("dd/M/yyyy")
+    val sdf = SimpleDateFormat("dd/MM/yyyy")
     val currentDate = sdf.format(Date())
 
     val timer = object : CountDownTimer(601000, 1000) {
         override fun onTick(millisUntilFinished: Long) {
-            edtTimeTest.setText(""+String.format("%d : %d",
+            edtTimeTest.setText(""+String.format("00:%02d:%02d",
                 TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
                 TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))))
@@ -50,7 +41,7 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         }
 
         override fun onFinish() {
-
+            //Not use
         }
     }
 
@@ -81,10 +72,6 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         timer.start()
     }
 
-    override fun getQuizByLessonID(listQuiz: List<Quiz>) {
-        //Not use
-    }
-
     override fun getQuizByLevelID(listQuiz: List<Quiz>) {
         val listRandomQuiz: List<Quiz> = listQuiz.shuffled().take(30)
         var currentPosition = 0
@@ -92,7 +79,7 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
 
         //set progress bar
         progressBarMultiple.max = listRandomQuiz.size
-        progressBarMultiple.progress = currentPosition
+        progressBarMultiple.progress = currentPosition+1
 
         //Display total question
         tv_totalQuestion.text = listRandomQuiz.size.toString()
@@ -108,12 +95,27 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         textAnswerD.text = listRandomQuiz[currentPosition].answerD
         var correctAnswer = listRandomQuiz[currentPosition].correctAnswer
 
+        fun submitResult() {
+            timer.cancel()
+//            val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+//            val userID = prefs.getInt("userID", 0)
+//            var score = countCorrectAnswer * 10 / 3
+//            val testResultRequest = TestRankingRequest(currentDate.toString(),level_id,score,timeTaken,userID)
+//            test_presenter.sendTestResult(testResultRequest)
+            val intent = Intent(this, TestResultActivity::class.java)
+            intent.putExtra("TOTAL_QUES", listRandomQuiz.size)
+            intent.putExtra("TOTAL_CORRECT",countCorrectAnswer)
+            startActivity(intent)
+            finish()
+        }
+
         fun nextQuestion() {
             currentPosition++
             if (currentPosition == listRandomQuiz.size) {
                 currentPosition = listRandomQuiz.size - 1
-                // showCompleteDialog()
+
                 Toast.makeText(this,"Correct answer: "+ countCorrectAnswer, Toast.LENGTH_LONG).show()
+                submitResult()
             }
             tv_questionNo.text = (currentPosition + 1).toString()
             progressBarMultiple.progress = currentPosition + 1
@@ -125,25 +127,25 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
             correctAnswer = listRandomQuiz[currentPosition].correctAnswer
         }
 
-        textAnswerA?.setOnClickListener {
+        buttonAnswerA?.setOnClickListener {
             if(textAnswerA.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
             nextQuestion()
         }
-        textAnswerB?.setOnClickListener {
+        buttonAnswerB?.setOnClickListener {
             if(textAnswerB.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
             nextQuestion()
         }
-        textAnswerC?.setOnClickListener {
+        buttonAnswerC?.setOnClickListener {
             if(textAnswerC.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
             nextQuestion()
         }
-        textAnswerD?.setOnClickListener {
+        buttonAnswerD?.setOnClickListener {
             if(textAnswerD.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
@@ -155,8 +157,13 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
             var score = countCorrectAnswer * 10 / 3
             val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
             val userID = prefs.getInt("userID", 0)
-            val testResultRequest = TestRankingRequest(currentDate.toString(),level_id,score,timeTaken,userID)
-            test_presenter.sendTestResult(testResultRequest)
+//          val testResultRequest = TestRankingRequest(currentDate.toString(),level_id,score,timeTaken,userID)
+//          test_presenter.sendTestResult(testResultRequest)
+            val intent = Intent(it.context, TestResultActivity::class.java)
+            intent.putExtra("TOTAL_QUES", listRandomQuiz.size)
+            intent.putExtra("TOTAL_CORRECT",countCorrectAnswer)
+            startActivity(intent)
+            finish()
         }
 
     }
@@ -167,16 +174,22 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
     }
 
     override fun onSendTestResultSucceeded(message: String) {
-        val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-        dialog.titleText = message
-        dialog.setCancelable(true)
-        dialog.show()
+        //NOT USE
+//        val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+//        dialog.titleText = message
+//        dialog.setCancelable(true)
+//        dialog.show()
     }
 
     override fun onSendTestResultFail(message: String) {
-        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-        errDialog.contentText = message
-        errDialog.setCancelable(true)
-        errDialog.show()
+        //NOT USE
+//        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+//        errDialog.contentText = message
+//        errDialog.setCancelable(true)
+//        errDialog.show()
+
+    }
+    override fun getQuizByLessonID(listQuiz: List<Quiz>) {
+        //Not use
     }
 }

@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.screen.learn.flashcard.KanjiFlashcardActivity"></activity>
+        <activity android:name=".ui.screen.test.TestResultActivity"></activity>
+        <activity android:name=".ui.screen.learn.flashcard.KanjiFlashcardActivity" />
         <activity android:name=".ui.screen.profile.test_history.TestHistoryActivity" />
         <activity android:name=".ui.screen.test.TestActivity" />
         <activity android:name=".ui.screen.test.EntryTestActivity" />
