@@ -6,8 +6,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Patterns
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import cn.pedant.SweetAlert.SweetAlertDialog
@@ -22,13 +20,12 @@ import com.illidant.easykanzicapstone.platform.repository.UserRepository
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.profile.change_password.ChangePassContract
-import com.illidant.easykanzicapstone.ui.screen.profile.change_password.ChangePassPresenter
+import com.illidant.easykanzicapstone.ui.screen.change_password.ChangePassContract
+import com.illidant.easykanzicapstone.ui.screen.change_password.ChangePassPresenter
 import com.illidant.easykanzicapstone.ui.screen.entry.EntryActivity
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.profile.test_history.TestHistoryActivity
 import kotlinx.android.synthetic.main.activity_profile.*
-import kotlinx.android.synthetic.main.activity_signup.*
 
 class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {

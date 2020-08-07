@@ -39,16 +39,23 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
         buttonBack.setOnClickListener { finish() }
 
         buttonSignup.setOnClickListener {
-            val username = editEmail.text.toString()
+            val email = editEmail.text.toString()
             val password = editPassword.text.toString()
+            val username = editUsername.text.toString()
             val cf_password = editConfirmPassword.text.toString()
-            if (!username.isNotEmptyAndBlank()) {
+            if (!email.isNotEmptyAndBlank()) {
                 editEmail.setError("Email is required")
                 editEmail.requestFocus()
-            } else if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+            } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 editEmail.setError("Enter a valid email")
                 editEmail.requestFocus()
-            } else if (!password.isNotEmptyAndBlank()) {
+            } else if (!username.isNotEmptyAndBlank()) {
+                editUsername.setError("Username is required")
+                editUsername.requestFocus()
+            } else if(username.length > 7) {
+                editUsername.setError("Username max length is 6 character")
+                editUsername.requestFocus()
+            }else if (!password.isNotEmptyAndBlank()) {
                 editPassword.setError("Password is required")
                 editPassword.requestFocus()
             } else if(password.length < 6) {
@@ -61,7 +68,7 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
                 editConfirmPassword.setError("Not match password. Please re-enter")
                 editConfirmPassword.requestFocus()
             } else {
-                val request = SignupRequest(username,password)
+                val request = SignupRequest(email,cf_password,username)
                 presenter.signup(request)
             }
         }
@@ -75,7 +82,8 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
     override fun onSignupSucceeded(message: String) {
         //Display successfully dialog
         val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-        dialog.titleText = "Sign up successfully !"
+        dialog.titleText = "Sign up successfully!"
+        dialog.contentText = "A verified link have been sent to your email"
         dialog.setCancelable(false)
         dialog.show()
         dialog.setConfirmClickListener {

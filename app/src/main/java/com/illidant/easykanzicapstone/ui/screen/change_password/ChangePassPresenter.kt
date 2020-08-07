@@ -1,4 +1,4 @@
-package com.illidant.easykanzicapstone.ui.screen.profile.change_password
+package com.illidant.easykanzicapstone.ui.screen.change_password
 
 import com.illidant.easykanzicapstone.domain.request.ChangePasswordRequest
 import com.illidant.easykanzicapstone.domain.response.ChangePasswordResponse

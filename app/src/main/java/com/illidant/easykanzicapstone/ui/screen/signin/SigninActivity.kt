@@ -72,12 +72,12 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
 
     }
     private fun validateSignin() {
-        val username = editEmail.text.toString()
+        val email = editEmail.text.toString()
         val password = editPassword.text.toString()
-        if (!username.isNotEmptyAndBlank()) {
+        if (!email.isNotEmptyAndBlank()) {
             editEmail.setError("Email is required")
             editEmail.requestFocus()
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             editEmail.setError("Enter a valid email")
             editEmail.requestFocus()
         } else if (!password.isNotEmptyAndBlank()) {
@@ -87,7 +87,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
             editPassword.setError("Password should be at least 6 character or more")
             editPassword.requestFocus()
         } else {
-            val request = SigninRequest(username, password)
+            val request = SigninRequest(email, password)
             signInPresenter.signin(request)
         }
     }
@@ -99,6 +99,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
     }
 
     private fun configViews() {
+        //For check internet
         val connectivityManager = baseContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork = connectivityManager.activeNetworkInfo
 
