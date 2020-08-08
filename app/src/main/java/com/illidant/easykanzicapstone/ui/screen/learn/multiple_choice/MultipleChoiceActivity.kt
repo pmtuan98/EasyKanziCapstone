@@ -18,7 +18,7 @@ import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
 import kotlinx.android.synthetic.main.activity_multiple_choice.*
-import kotlinx.android.synthetic.main.activity_multiple_choice.tv_totalQuestion
+import kotlinx.android.synthetic.main.activity_multiple_choice.tvTotalQuestion
 
 class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
@@ -39,7 +39,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
     private fun initialize() {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         presenter.quizByLessonRequest(lesson_id)
-        buttonExit.setOnClickListener {
+        btnExit.setOnClickListener {
             finish()
         }
     }
@@ -49,8 +49,8 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_complete_multiplechoice)
-        val buttonAgain= dialog.findViewById(R.id.buttonLearnAgain) as Button
-        val buttonLearnWriting = dialog.findViewById(R.id.buttonLearnWriting) as Button
+        val buttonAgain= dialog.findViewById(R.id.btnLearnAgain) as Button
+        val buttonLearnWriting = dialog.findViewById(R.id.btnLearnWriting) as Button
         val buttonLearnFlashcard = dialog.findViewById(R.id.buttonLearnFlashcard) as Button
         dialog.show()
         buttonAgain.setOnClickListener {
@@ -91,47 +91,47 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         progressBarMultiple.progress = currentPosition + 1
 
         //Display total question
-        tv_totalQuestion.text = listQuiz.size.toString()
-        tv_questionNo.text = (currentPosition + 1).toString()
+        tvTotalQuestion.text = listQuiz.size.toString()
+        tvQuestionNo.text = (currentPosition + 1).toString()
 
         // Display question
-        textQuestion.text = listQuiz[currentPosition].question
+        tvQuestion.text = listQuiz[currentPosition].question
 
         // Display answer
-        textAnswerA.text = listQuiz[currentPosition].answerA
-        textAnswerB.text = listQuiz[currentPosition].answerB
-        textAnswerC.text = listQuiz[currentPosition].answerC
-        textAnswerD.text = listQuiz[currentPosition].answerD
+        tvAnswerA.text = listQuiz[currentPosition].answerA
+        tvAnswerB.text = listQuiz[currentPosition].answerB
+        tvAnswerC.text = listQuiz[currentPosition].answerC
+        tvAnswerD.text = listQuiz[currentPosition].answerD
         var correctAnswer = listQuiz[currentPosition].correctAnswer
         resetAnswersBackground()
         checkBackQuestion(currentPosition)
         //hideButton()
 
-        textAnswerA?.setOnClickListener {
+        tvAnswerA?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!textAnswerA.text.equals(correctAnswer)){
-                textAnswerA?.background = wrongAnswerBackground
+            if(!tvAnswerA.text.equals(correctAnswer)){
+                tvAnswerA?.background = wrongAnswerBackground
             }
             displayButton()
         }
-        textAnswerB?.setOnClickListener {
+        tvAnswerB?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!textAnswerB.text.equals(correctAnswer)){
-                textAnswerB?.background = wrongAnswerBackground
+            if(!tvAnswerB.text.equals(correctAnswer)){
+                tvAnswerB?.background = wrongAnswerBackground
             }
             displayButton()
         }
-        textAnswerC?.setOnClickListener {
+        tvAnswerC?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!textAnswerC.text.equals(correctAnswer)){
-                textAnswerC?.background = wrongAnswerBackground
+            if(!tvAnswerC.text.equals(correctAnswer)){
+                tvAnswerC?.background = wrongAnswerBackground
             }
             displayButton()
         }
-        textAnswerD?.setOnClickListener {
+        tvAnswerD?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!textAnswerD.text.equals(correctAnswer)){
-                textAnswerD?.background = wrongAnswerBackground
+            if(!tvAnswerD.text.equals(correctAnswer)){
+                tvAnswerD?.background = wrongAnswerBackground
             }
             displayButton()
         }
@@ -143,13 +143,13 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
                 showCompleteDialog()
             }
             checkBackQuestion(currentPosition)
-            tv_questionNo.text = (currentPosition + 1).toString()
+            tvQuestionNo.text = (currentPosition + 1).toString()
             progressBarMultiple.progress = currentPosition + 1
-            textQuestion.text = listQuiz[currentPosition].question
-            textAnswerA.text = listQuiz[currentPosition].answerA
-            textAnswerB.text = listQuiz[currentPosition].answerB
-            textAnswerC.text = listQuiz[currentPosition].answerC
-            textAnswerD.text = listQuiz[currentPosition].answerD
+            tvQuestion.text = listQuiz[currentPosition].question
+            tvAnswerA.text = listQuiz[currentPosition].answerA
+            tvAnswerB.text = listQuiz[currentPosition].answerB
+            tvAnswerC.text = listQuiz[currentPosition].answerC
+            tvAnswerD.text = listQuiz[currentPosition].answerD
             correctAnswer = listQuiz[currentPosition].correctAnswer
             resetAnswersBackground()
         })
@@ -159,13 +159,13 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
                 currentPosition = 0
             }
             checkBackQuestion(currentPosition)
-            tv_questionNo.text = (currentPosition + 1).toString()
+            tvQuestionNo.text = (currentPosition + 1).toString()
             progressBarMultiple.progress = currentPosition+1
-            textQuestion.text = listQuiz[currentPosition].question
-            textAnswerA.text = listQuiz[currentPosition].answerA
-            textAnswerB.text = listQuiz[currentPosition].answerB
-            textAnswerC.text = listQuiz[currentPosition].answerC
-            textAnswerD.text = listQuiz[currentPosition].answerD
+            tvQuestion.text = listQuiz[currentPosition].question
+            tvAnswerA.text = listQuiz[currentPosition].answerA
+            tvAnswerB.text = listQuiz[currentPosition].answerB
+            tvAnswerC.text = listQuiz[currentPosition].answerC
+            tvAnswerD.text = listQuiz[currentPosition].answerD
             correctAnswer = listQuiz[currentPosition].correctAnswer
             resetAnswersBackground()
         })
@@ -180,37 +180,37 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         var correctAnswerBackground: Drawable? = null
         correctAnswerBackground = ContextCompat.getDrawable(this,R.drawable.bg_correct_answer)
 
-        if(textAnswerA.text.equals(answer)){
-            textAnswerA?.background = correctAnswerBackground
-        }else if (textAnswerB.text.equals(answer)){
-            textAnswerB?.background = correctAnswerBackground
-        }else if (textAnswerC.text.equals(answer)){
-            textAnswerC?.background = correctAnswerBackground
-        }else if (textAnswerD.text.equals(answer)){
-            textAnswerD?.background = correctAnswerBackground
+        if(tvAnswerA.text.equals(answer)){
+            tvAnswerA?.background = correctAnswerBackground
+        }else if (tvAnswerB.text.equals(answer)){
+            tvAnswerB?.background = correctAnswerBackground
+        }else if (tvAnswerC.text.equals(answer)){
+            tvAnswerC?.background = correctAnswerBackground
+        }else if (tvAnswerD.text.equals(answer)){
+            tvAnswerD?.background = correctAnswerBackground
         }
     }
 
     fun resetAnswersBackground() {
         val defaultAnswerBackground = ContextCompat.getDrawable(this, R.drawable.bg_detail_kanji)
-        textAnswerA?.background = defaultAnswerBackground
-        textAnswerB?.background = defaultAnswerBackground
-        textAnswerC?.background = defaultAnswerBackground
-        textAnswerD?.background = defaultAnswerBackground
+        tvAnswerA?.background = defaultAnswerBackground
+        tvAnswerB?.background = defaultAnswerBackground
+        tvAnswerC?.background = defaultAnswerBackground
+        tvAnswerD?.background = defaultAnswerBackground
 
-        textAnswerA.isEnabled = true
-        textAnswerB.isEnabled = true
-        textAnswerC.isEnabled = true
-        textAnswerD.isEnabled = true
+        tvAnswerA.isEnabled = true
+        tvAnswerB.isEnabled = true
+        tvAnswerC.isEnabled = true
+        tvAnswerD.isEnabled = true
     }
 
     fun displayButton() {
         btnNextQuestion?.visibility = View.VISIBLE
         btnBackQuestion?.visibility = View.VISIBLE
-        textAnswerA.isEnabled = false
-        textAnswerB.isEnabled = false
-        textAnswerC.isEnabled = false
-        textAnswerD.isEnabled = false
+        tvAnswerA.isEnabled = false
+        tvAnswerB.isEnabled = false
+        tvAnswerC.isEnabled = false
+        tvAnswerD.isEnabled = false
     }
 
 }

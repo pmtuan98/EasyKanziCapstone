@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textViewmess1"
+        android:id="@+id/tvMess1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Well done!"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
-        android:id="@+id/buttonLearnAgain"
+        android:id="@+id/btnLearnAgain"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -39,10 +39,10 @@
         android:background="@drawable/btn_mess"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewmess1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvMess1" />
 
     <Button
-        android:id="@+id/buttonLearnWriting"
+        android:id="@+id/btnLearnWriting"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Writing"
@@ -52,10 +52,10 @@
         android:background="@drawable/btn_mess2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLearnAgain" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLearnAgain" />
 
     <Button
-        android:id="@+id/buttonMultipleChoice"
+        android:id="@+id/btnMultipleChoice"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Multiple choice"
@@ -65,6 +65,6 @@
         android:background="@drawable/btn_mess2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLearnWriting" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLearnWriting" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

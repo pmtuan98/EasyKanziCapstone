@@ -11,7 +11,7 @@
     android:nestedScrollingEnabled="true">
 
     <ImageButton
-        android:id="@+id/buttonBack"
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_40"
@@ -27,7 +27,7 @@
 
 
     <Button
-        android:id="@+id/buttonSignin"
+        android:id="@+id/btnSignin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
@@ -38,7 +38,7 @@
         android:fontFamily="@font/ptsans_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtForgotPass" />
+        app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword" />
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -75,7 +75,7 @@
         app:layout_constraintTop_toBottomOf="@id/imageLogo">
 
         <EditText
-            android:id="@+id/editEmail"
+            android:id="@+id/edtEmail"
             android:hint="email@example.com"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -102,7 +102,7 @@
         app:layout_constraintVertical_chainStyle="packed">
 
         <EditText
-            android:id="@+id/editPassword"
+            android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -113,7 +113,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
-        android:id="@+id/txtForgotPass"
+        android:id="@+id/tvForgotPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

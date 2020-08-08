@@ -40,9 +40,9 @@ class LearnVocabAdapter : RecyclerView.Adapter<LearnVocabAdapter.VocabView> {
         var hira: TextView
         var meaning: TextView
         init {
-            kanji = itemView.text_kanji
-            hira =  itemView.text_hira
-            meaning =  itemView.text_meaning
+            kanji = itemView.tvKanji
+            hira =  itemView.tvHira
+            meaning =  itemView.tvVietnamese
         }
     }
 }

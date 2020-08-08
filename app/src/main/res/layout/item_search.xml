@@ -7,7 +7,7 @@
     android:layout_margin="@dimen/dp_10">
 
     <TextView
-        android:id="@+id/textKanjiWord"
+        android:id="@+id/tvKanjiWord"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
@@ -18,22 +18,22 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textKanjiChinaMean"
+        android:id="@+id/tvChineseMean"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_24"
         android:text="@string/app_name"
-        android:textSize="@dimen/sp_16"
+        android:textSize="@dimen/sp_32"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/textKanjiWord"
+        app:layout_constraintStart_toEndOf="@id/tvKanjiWord"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textKanjiLevel"
+        android:id="@+id/tvKanjiLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
-        android:textSize="@dimen/sp_12"
+        android:textSize="@dimen/sp_16"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

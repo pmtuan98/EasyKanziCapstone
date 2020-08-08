@@ -27,9 +27,9 @@ class RankingAdapter : RecyclerView.Adapter<RankingAdapter.RankingView> {
         var textTime: TextView
 
         init {
-            textUserName = itemView.textUserName as TextView
-            textPoint = itemView.textPoint as TextView
-            textTime = itemView.textTime as TextView
+            textUserName = itemView.tvUsername as TextView
+            textPoint = itemView.tvPoint as TextView
+            textTime = itemView.tvTime as TextView
         }
     }
 

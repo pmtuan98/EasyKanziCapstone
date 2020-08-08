@@ -15,9 +15,6 @@ import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs
 import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.signin.SigninActivity
-import kotlinx.android.synthetic.main.activity_signin.buttonBack
-import kotlinx.android.synthetic.main.activity_signin.editEmail
-import kotlinx.android.synthetic.main.activity_signin.editPassword
 import kotlinx.android.synthetic.main.activity_signup.*
 
 class SignupActivity: AppCompatActivity(), SignupContract.View {
@@ -36,37 +33,37 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
 
 
     private fun configViews() {
-        buttonBack.setOnClickListener { finish() }
+        btnBack.setOnClickListener { finish() }
 
-        buttonSignup.setOnClickListener {
-            val email = editEmail.text.toString()
-            val password = editPassword.text.toString()
-            val username = editUsername.text.toString()
-            val cf_password = editConfirmPassword.text.toString()
+        btnSignup.setOnClickListener {
+            val email = edtEmail.text.toString()
+            val password = edtPassword.text.toString()
+            val username = edtUsername.text.toString()
+            val cf_password = edtConfirmPassword.text.toString()
             if (!email.isNotEmptyAndBlank()) {
-                editEmail.setError("Email is required")
-                editEmail.requestFocus()
+                edtEmail.setError("Email is required")
+                edtEmail.requestFocus()
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                editEmail.setError("Enter a valid email")
-                editEmail.requestFocus()
+                edtEmail.setError("Enter a valid email")
+                edtEmail.requestFocus()
             } else if (!username.isNotEmptyAndBlank()) {
-                editUsername.setError("Username is required")
-                editUsername.requestFocus()
+                edtUsername.setError("Username is required")
+                edtUsername.requestFocus()
             } else if(username.length > 7) {
-                editUsername.setError("Username max length is 6 character")
-                editUsername.requestFocus()
+                edtUsername.setError("Username max length is 6 character")
+                edtUsername.requestFocus()
             }else if (!password.isNotEmptyAndBlank()) {
-                editPassword.setError("Password is required")
-                editPassword.requestFocus()
+                edtPassword.setError("Password is required")
+                edtPassword.requestFocus()
             } else if(password.length < 6) {
-                editPassword.setError("Password should be at least 6 character or more")
-                editPassword.requestFocus()
+                edtPassword.setError("Password should be at least 6 character or more")
+                edtPassword.requestFocus()
             }else if (!cf_password.isNotEmptyAndBlank()) {
-                editConfirmPassword.setError("Confirm password is required")
-                editConfirmPassword.requestFocus()
+                edtConfirmPassword.setError("Confirm password is required")
+                edtConfirmPassword.requestFocus()
             } else if (!cf_password.equals(password)) {
-                editConfirmPassword.setError("Not match password. Please re-enter")
-                editConfirmPassword.requestFocus()
+                edtConfirmPassword.setError("Not match password. Please re-enter")
+                edtConfirmPassword.requestFocus()
             } else {
                 val request = SignupRequest(email,cf_password,username)
                 presenter.signup(request)

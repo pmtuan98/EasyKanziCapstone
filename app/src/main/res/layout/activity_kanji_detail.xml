@@ -16,16 +16,17 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
-        android:id="@+id/imageKanjiRemember"
+        android:id="@+id/tvDetailKanji"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="DETAIL KANJI"
         android:textSize="@dimen/sp_24"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintEnd_toEndOf="@id/guideline"
         app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <com.github.badoualy.kanjistroke.KanjiStrokeView
         android:id="@+id/kanjiStroke"
         android:layout_width="160dp"
@@ -33,7 +34,7 @@
         android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageKanjiRemember"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvDetailKanji" />
 
 
     <androidx.constraintlayout.widget.Barrier
@@ -41,10 +42,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="imageKanjiRemember,kanjiStroke" />
+        app:constraint_referenced_ids="tvDetailKanji,kanjiStroke" />
 
     <TextView
-        android:id="@+id/titleChinaMean"
+        android:id="@+id/titleChineseMean"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
@@ -58,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@id/barrier1" />
 
     <TextView
-        android:id="@+id/titleVietmean"
+        android:id="@+id/titleVietMean"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
@@ -72,7 +73,7 @@
         app:layout_constraintTop_toBottomOf="@+id/barrier1" />
 
     <TextView
-        android:id="@+id/textKanjiChinaMean"
+        android:id="@+id/tvChineseMean"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
@@ -89,10 +90,10 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleChinaMean" />
+        app:layout_constraintTop_toBottomOf="@id/titleChineseMean" />
 
     <TextView
-        android:id="@+id/textKanjiVietMean"
+        android:id="@+id/tvVietnameseMean"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
@@ -109,17 +110,17 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/titleChinaMean" />
+        app:layout_constraintTop_toBottomOf="@id/titleChineseMean" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="textKanjiChinaMean,textKanjiVietMean" />
+        app:constraint_referenced_ids="tvChineseMean,tvVietnameseMean" />
 
     <TextView
-        android:id="@+id/titleOnjomi"
+        android:id="@+id/titleOnyomi"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
@@ -133,7 +134,7 @@
         app:layout_constraintTop_toBottomOf="@id/barrier2" />
 
     <TextView
-        android:id="@+id/titleKunjomi"
+        android:id="@+id/titleKunyomi"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
@@ -147,7 +148,7 @@
         app:layout_constraintTop_toBottomOf="@+id/barrier2" />
 
     <TextView
-        android:id="@+id/textKanjiOnyomi"
+        android:id="@+id/tvKanjiOnyomi"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
@@ -163,10 +164,10 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleOnjomi" />
+        app:layout_constraintTop_toBottomOf="@id/titleOnyomi" />
 
     <TextView
-        android:id="@+id/textKanjiKunyomi"
+        android:id="@+id/tvKanjiKunyomi"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
@@ -183,17 +184,17 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/titleKunjomi" />
+        app:layout_constraintTop_toBottomOf="@id/titleKunyomi" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/barrier3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="textKanjiOnyomi,textKanjiKunyomi" />
+        app:constraint_referenced_ids="tvKanjiOnyomi,tvKanjiKunyomi" />
 
     <TextView
-        android:id="@+id/textOnFurigana"
+        android:id="@+id/tvOnFurigana"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
@@ -207,12 +208,12 @@
         android:paddingBottom="@dimen/dp_4"
         android:text="hon"
         android:textSize="@dimen/sp_18"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/guideline"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier3" />
 
     <TextView
-        android:id="@+id/textKunFurigana"
+        android:id="@+id/tvKunFurigana"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_8"
@@ -235,7 +236,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="textOnFurigana, textKunFurigana" />
+        app:constraint_referenced_ids="tvOnFurigana, @+id/tvKunFurigana" />
 
     <TextView
         android:id="@+id/titleExample"
@@ -243,14 +244,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_16"
         android:layout_marginEnd="@dimen/dp_16"
-        android:text="Example"
+        android:text="Vocabulary"
         android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/barrier4" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerVocabulary"
+        android:id="@+id/recyclerViewVocab"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/bg_detail_kanji"

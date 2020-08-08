@@ -13,8 +13,8 @@ import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.FlashcardActivit
 import com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice.MultipleChoiceActivity
 import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import kotlinx.android.synthetic.main.activity_learn.*
-import kotlinx.android.synthetic.main.activity_learn.txt_lesson
-import kotlinx.android.synthetic.main.activity_learn.txt_level
+import kotlinx.android.synthetic.main.activity_learn.tvLesson
+import kotlinx.android.synthetic.main.activity_learn.tvLevel
 
 class LearnActivity : AppCompatActivity(), LearnContract.View {
 
@@ -34,22 +34,22 @@ class LearnActivity : AppCompatActivity(), LearnContract.View {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         val lesson_name = intent.getStringExtra("LESSON_NAME")
         val level_name = intent.getStringExtra("LEVEL_NAME")
-        txt_lesson.text = lesson_name
-        txt_level.text = level_name
+        tvLesson.text = lesson_name
+        tvLevel.text = level_name
         presenter.vocabByLessonRequest(lesson_id)
         //Move to flashcard
-        flashcard_method.setOnClickListener({
+        flashcardMethod.setOnClickListener({
             val intent = Intent(it.context, FlashcardActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
         })
 
-        writing_method.setOnClickListener({
+        writingMethod.setOnClickListener({
             val intent = Intent(it.context, WritingActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
         })
-        multiple_method.setOnClickListener({
+        multipleMethod.setOnClickListener({
             val intent = Intent(it.context, MultipleChoiceActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
@@ -60,9 +60,9 @@ class LearnActivity : AppCompatActivity(), LearnContract.View {
     }
 
     override fun getVocabByLessonID(listVocab: List<Vocabulary>) {
-        numberOfVocab.text = "(${listVocab.size.toString()})"
-        recycler_vocab!!.layoutManager = GridLayoutManager(this, 1)
-        recycler_vocab.adapter = LearnVocabAdapter(this, listVocab)
+        tvTotalVocab.text = "(${listVocab.size.toString()})"
+        recyclerViewVocab!!.layoutManager = GridLayoutManager(this, 1)
+        recyclerViewVocab.adapter = LearnVocabAdapter(this, listVocab)
     }
 
 }

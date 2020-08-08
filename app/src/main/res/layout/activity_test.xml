@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
-            android:id="@+id/buttonExit"
+            android:id="@+id/btnExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -41,7 +41,7 @@
             android:layout_marginLeft="15dp">
 
             <TextView
-                android:id="@+id/tv_question"
+                android:id="@+id/tvQuestionName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
@@ -51,7 +51,7 @@
 
 
             <TextView
-                android:id="@+id/tv_questionNo"
+                android:id="@+id/tvQuestionNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
@@ -69,7 +69,7 @@
                 android:textSize="22sp" />
 
             <TextView
-                android:id="@+id/tv_totalQuestion"
+                android:id="@+id/tvTotalQuestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
@@ -114,7 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/edtTimeTest"/>
 
     <TextView
-        android:id="@+id/textQuestion"
+        android:id="@+id/tvQuestion"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -141,10 +141,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
 
     <TextView
-        android:id="@+id/textAnswerA"
+        android:id="@+id/tvAnswerA"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
@@ -153,7 +153,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/stt_1"
-        app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
 
     <TextView
         android:id="@+id/stt_2"
@@ -168,10 +168,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerA" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswerA" />
 
     <TextView
-        android:id="@+id/textAnswerB"
+        android:id="@+id/tvAnswerB"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:textColor="@color/color_text_primary"
@@ -180,7 +180,7 @@
         android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/stt_2"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerA" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswerA" />
 
     <TextView
         android:id="@+id/stt_3"
@@ -195,10 +195,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerB" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswerB" />
 
     <TextView
-        android:id="@+id/textAnswerC"
+        android:id="@+id/tvAnswerC"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:textColor="@color/color_text_primary"
@@ -207,7 +207,7 @@
         android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/stt_3"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerB" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswerB" />
 
     <TextView
         android:id="@+id/stt_4"
@@ -222,10 +222,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerC" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswerC" />
 
     <TextView
-        android:id="@+id/textAnswerD"
+        android:id="@+id/tvAnswerD"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
@@ -234,7 +234,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/stt_4"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerC" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswerC" />
 
 
     <TextView
@@ -260,7 +260,7 @@
         app:layout_constraintBottom_toBottomOf="parent">
 
         <Button
-            android:id="@+id/buttonAnswerA"
+            android:id="@+id/btnAnswerA"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
@@ -268,7 +268,7 @@
             android:textSize="20sp"/>
 
         <Button
-            android:id="@+id/buttonAnswerB"
+            android:id="@+id/btnAnswerB"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
@@ -276,7 +276,7 @@
             android:layout_marginLeft="40dp"
             android:textSize="20sp"/>
         <Button
-            android:id="@+id/buttonAnswerC"
+            android:id="@+id/btnAnswerC"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
@@ -284,7 +284,7 @@
             android:layout_marginLeft="40dp"
             android:textSize="20sp"/>
         <Button
-            android:id="@+id/buttonAnswerD"
+            android:id="@+id/btnAnswerD"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"

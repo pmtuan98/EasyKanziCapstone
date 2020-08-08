@@ -8,31 +8,31 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txt_level"
+        android:id="@+id/tvLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:fontFamily="@font/ptsans_bold"
         android:text="JPD111"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/learn_method"
+        app:layout_constraintBottom_toTopOf="@+id/learnMethod"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_lesson"
+        android:id="@+id/tvLesson"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginEnd="20dp"
         android:fontFamily="@font/ptsans_bold"
         android:text="Lesson 1"
         android:textSize="@dimen/sp_30"
-        app:layout_constraintBottom_toTopOf="@+id/learn_method"
+        app:layout_constraintBottom_toTopOf="@+id/learnMethod"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/learn_method"
+        android:id="@+id/learnMethod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/flashcard_method"
+            android:id="@+id/flashcardMethod"
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_margin="@dimen/dp_7"
@@ -71,7 +71,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/writing_method"
+            android:id="@+id/writingMethod"
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_margin="@dimen/dp_7"
@@ -99,7 +99,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/multiple_method"
+            android:id="@+id/multipleMethod"
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_margin="@dimen/dp_7"
@@ -132,40 +132,40 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/learn_method"
+        android:layout_below="@+id/learnMethod"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="@dimen/dp_10"
         android:text="Vocabulary list"
         android:textColor="#000000"
         android:textSize="@dimen/sp_18"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_vocab"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewVocab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/learn_method"
+        app:layout_constraintTop_toBottomOf="@+id/learnMethod"
         app:layout_constraintVertical_bias="0.157" />
 
     <TextView
-        android:id="@+id/numberOfVocab"
+        android:id="@+id/tvTotalVocab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/learn_method"
+        android:layout_below="@+id/learnMethod"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="@dimen/dp_10"
         android:text="(30)"
         android:textColor="#000000"
         android:textSize="@dimen/sp_18"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/recycler_vocab"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewVocab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.02"
         app:layout_constraintStart_toEndOf="@+id/textView1"
-        app:layout_constraintTop_toBottomOf="@+id/learn_method"
+        app:layout_constraintTop_toBottomOf="@+id/learnMethod"
         app:layout_constraintVertical_bias="1.0" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_vocab"
+        android:id="@+id/recyclerViewVocab"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_below="@id/textView1"

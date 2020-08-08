@@ -5,12 +5,10 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
-import com.illidant.easykanzicapstone.domain.request.TestRankingRequest
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.QuizRepository
 import com.illidant.easykanzicapstone.platform.repository.TestRepository
@@ -82,17 +80,17 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         progressBarMultiple.progress = currentPosition+1
 
         //Display total question
-        tv_totalQuestion.text = listRandomQuiz.size.toString()
-        tv_questionNo.text = (currentPosition + 1).toString()
+        tvTotalQuestion.text = listRandomQuiz.size.toString()
+        tvQuestionNo.text = (currentPosition + 1).toString()
 
         // Display question
-        textQuestion.text = listRandomQuiz[currentPosition].question
+        tvQuestion.text = listRandomQuiz[currentPosition].question
 
         // Display answer
-        textAnswerA.text = listRandomQuiz[currentPosition].answerA
-        textAnswerB.text = listRandomQuiz[currentPosition].answerB
-        textAnswerC.text = listRandomQuiz[currentPosition].answerC
-        textAnswerD.text = listRandomQuiz[currentPosition].answerD
+        tvAnswerA.text = listRandomQuiz[currentPosition].answerA
+        tvAnswerB.text = listRandomQuiz[currentPosition].answerB
+        tvAnswerC.text = listRandomQuiz[currentPosition].answerC
+        tvAnswerD.text = listRandomQuiz[currentPosition].answerD
         var correctAnswer = listRandomQuiz[currentPosition].correctAnswer
 
         fun submitResult() {
@@ -117,36 +115,36 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
                 Toast.makeText(this,"Correct answer: "+ countCorrectAnswer, Toast.LENGTH_LONG).show()
                 submitResult()
             }
-            tv_questionNo.text = (currentPosition + 1).toString()
+            tvQuestionNo.text = (currentPosition + 1).toString()
             progressBarMultiple.progress = currentPosition + 1
-            textQuestion.text = listRandomQuiz[currentPosition].question
-            textAnswerA.text = listRandomQuiz[currentPosition].answerA
-            textAnswerB.text = listRandomQuiz[currentPosition].answerB
-            textAnswerC.text = listRandomQuiz[currentPosition].answerC
-            textAnswerD.text = listRandomQuiz[currentPosition].answerD
+            tvQuestion.text = listRandomQuiz[currentPosition].question
+            tvAnswerA.text = listRandomQuiz[currentPosition].answerA
+            tvAnswerB.text = listRandomQuiz[currentPosition].answerB
+            tvAnswerC.text = listRandomQuiz[currentPosition].answerC
+            tvAnswerD.text = listRandomQuiz[currentPosition].answerD
             correctAnswer = listRandomQuiz[currentPosition].correctAnswer
         }
 
-        buttonAnswerA?.setOnClickListener {
-            if(textAnswerA.text.equals(correctAnswer)){
+        btnAnswerA?.setOnClickListener {
+            if(tvAnswerA.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
             nextQuestion()
         }
-        buttonAnswerB?.setOnClickListener {
-            if(textAnswerB.text.equals(correctAnswer)){
+        btnAnswerB?.setOnClickListener {
+            if(tvAnswerB.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
             nextQuestion()
         }
-        buttonAnswerC?.setOnClickListener {
-            if(textAnswerC.text.equals(correctAnswer)){
+        btnAnswerC?.setOnClickListener {
+            if(tvAnswerC.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
             nextQuestion()
         }
-        buttonAnswerD?.setOnClickListener {
-            if(textAnswerD.text.equals(correctAnswer)){
+        btnAnswerD?.setOnClickListener {
+            if(tvAnswerD.text.equals(correctAnswer)){
                 countCorrectAnswer++
             }
             nextQuestion()

@@ -3,7 +3,6 @@ package com.illidant.easykanzicapstone.ui.screen.ranking
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -11,7 +10,6 @@ import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.domain.model.Lesson
 import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.domain.model.TestRanking
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -22,13 +20,9 @@ import com.illidant.easykanzicapstone.platform.source.remote.TestRemoteDataSourc
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.home.HomeContract
 import com.illidant.easykanzicapstone.ui.screen.home.HomePresenter
-import com.illidant.easykanzicapstone.ui.screen.learn.LearnActivity
-import com.illidant.easykanzicapstone.ui.screen.lesson.LessonContract
 import com.illidant.easykanzicapstone.ui.screen.profile.ProfileActivity
 import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
-import kotlinx.android.synthetic.main.activity_level.*
 import kotlinx.android.synthetic.main.activity_ranking.*
-import kotlinx.android.synthetic.main.bottom_navigation_bar.*
 
 class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,8 +45,8 @@ class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.
     }
 
     override fun onRankingData(listRank: List<TestRanking>) {
-        recyclerRanking!!.layoutManager = GridLayoutManager(this, 1)
-        recyclerRanking!!.adapter = RankingAdapter(listRank,this)
+        recyclerViewRanking!!.layoutManager = GridLayoutManager(this, 1)
+        recyclerViewRanking!!.adapter = RankingAdapter(listRank,this)
     }
 
     override fun onDataComplete(levels: List<Level>) {
@@ -80,7 +74,7 @@ class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.
 
     private fun configView() {
         //set bottom navigation bar
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavBar)
 
         //set home selected
         bottomNavigationView.selectedItemId =

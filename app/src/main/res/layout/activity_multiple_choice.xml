@@ -8,7 +8,7 @@
 
 
     <LinearLayout
-        android:id="@+id/text_learn"
+        android:id="@+id/textLearn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +19,7 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/buttonExit"
+            android:id="@+id/btnExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_baseline_clear_24" />
@@ -34,7 +34,7 @@
             android:layout_gravity="center">
 
             <TextView
-                android:id="@+id/tv_questionNo"
+                android:id="@+id/tvQuestionNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
@@ -48,7 +48,7 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/tv_totalQuestion"
+                android:id="@+id/tvTotalQuestion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
@@ -56,7 +56,7 @@
         </LinearLayout>
 
         <ImageButton
-            android:id="@+id/switchOption"
+            android:id="@+id/btnOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_setting"
@@ -70,7 +70,7 @@
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/text_learn"
+        android:layout_below="@+id/textLearn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:max="100"
@@ -78,10 +78,10 @@
         app:layout_constraintBottom_toTopOf="@+id/flash_card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_learn" />
+        app:layout_constraintTop_toBottomOf="@+id/textLearn" />
 
     <TextView
-        android:id="@+id/textQuestion"
+        android:id="@+id/tvQuestion"
         android:layout_width="@dimen/dp_0"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/dp_8"
@@ -102,7 +102,7 @@
         app:layout_constraintGuide_percent="0.5" />
 
     <TextView
-        android:id="@+id/textAnswerA"
+        android:id="@+id/tvAnswerA"
         android:layout_width="164dp"
         android:layout_height="96dp"
         android:layout_marginTop="32dp"
@@ -112,10 +112,10 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
 
     <TextView
-        android:id="@+id/textAnswerB"
+        android:id="@+id/tvAnswerB"
         android:layout_width="164dp"
         android:layout_height="96dp"
         android:layout_marginTop="32dp"
@@ -125,10 +125,10 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textQuestion" />
+        app:layout_constraintTop_toBottomOf="@+id/tvQuestion" />
 
     <TextView
-        android:id="@+id/textAnswerC"
+        android:id="@+id/tvAnswerC"
         android:layout_width="164dp"
         android:layout_height="96dp"
         android:layout_marginTop="32dp"
@@ -138,10 +138,10 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerA" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswerA" />
 
     <TextView
-        android:id="@+id/textAnswerD"
+        android:id="@+id/tvAnswerD"
         android:layout_width="164dp"
         android:layout_height="96dp"
         android:layout_marginTop="32dp"
@@ -151,7 +151,7 @@
         android:textSize="@dimen/sp_18"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerB" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswerB" />
 
 
     <ImageButton
@@ -164,7 +164,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.801"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerD" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswerD" />
 
 
     <ImageButton
@@ -177,7 +177,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textAnswerC" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAnswerC" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

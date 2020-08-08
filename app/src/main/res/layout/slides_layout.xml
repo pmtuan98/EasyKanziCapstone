@@ -8,7 +8,7 @@
 
 
     <TextView
-        android:id="@+id/intro_text"
+        android:id="@+id/tvIntro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="110dp"
@@ -21,18 +21,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/slider_image"
+        android:id="@+id/sliderImage"
         android:layout_width="139dp"
         android:layout_height="@dimen/dp_0"
         android:layout_marginTop="200dp"
         android:padding="@dimen/dp_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/intro_text"
+        app:layout_constraintTop_toBottomOf="@+id/tvIntro"
         tools:srcCompat="@drawable/ic_search" />
 
     <TextView
-        android:id="@+id/slider_desc"
+        android:id="@+id/sliderDesc"
         android:layout_width="381dp"
         android:layout_height="@dimen/dp_48"
         android:gravity="center"
@@ -41,7 +41,7 @@
         android:fontFamily="@font/ptsans_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/slider_image" />
+        app:layout_constraintTop_toBottomOf="@+id/sliderImage" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

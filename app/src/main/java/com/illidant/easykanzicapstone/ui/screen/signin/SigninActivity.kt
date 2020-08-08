@@ -5,14 +5,10 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.ConnectivityManager
-import android.net.NetworkInfo
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
-import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
@@ -21,7 +17,6 @@ import com.illidant.easykanzicapstone.domain.model.User
 import com.illidant.easykanzicapstone.domain.request.ForgotPasswordRequest
 import com.illidant.easykanzicapstone.domain.request.ResetPasswordRequest
 import com.illidant.easykanzicapstone.domain.request.SigninRequest
-import com.illidant.easykanzicapstone.domain.request.SignupRequest
 import com.illidant.easykanzicapstone.extension.isNotEmptyAndBlank
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.UserRepository
@@ -33,10 +28,9 @@ import com.illidant.easykanzicapstone.ui.screen.forgot_password.ForgotPassPresen
 import com.illidant.easykanzicapstone.ui.screen.reset_password.ResetPassContract
 import com.illidant.easykanzicapstone.ui.screen.reset_password.ResetPassPresenter
 import kotlinx.android.synthetic.main.activity_signin.*
-import kotlinx.android.synthetic.main.activity_signin.buttonBack
-import kotlinx.android.synthetic.main.activity_signin.editEmail
-import kotlinx.android.synthetic.main.activity_signin.editPassword
-import kotlinx.android.synthetic.main.activity_signup.*
+import kotlinx.android.synthetic.main.activity_signin.btnBack
+import kotlinx.android.synthetic.main.activity_signin.edtEmail
+import kotlinx.android.synthetic.main.activity_signin.edtPassword
 
 class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.View, ForgotPassContract.View {
 
@@ -72,20 +66,20 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
 
     }
     private fun validateSignin() {
-        val email = editEmail.text.toString()
-        val password = editPassword.text.toString()
+        val email = edtEmail.text.toString()
+        val password = edtPassword.text.toString()
         if (!email.isNotEmptyAndBlank()) {
-            editEmail.setError("Email is required")
-            editEmail.requestFocus()
+            edtEmail.setError("Email is required")
+            edtEmail.requestFocus()
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            editEmail.setError("Enter a valid email")
-            editEmail.requestFocus()
+            edtEmail.setError("Enter a valid email")
+            edtEmail.requestFocus()
         } else if (!password.isNotEmptyAndBlank()) {
-            editPassword.setError("Password is required")
-            editPassword.requestFocus()
+            edtPassword.setError("Password is required")
+            edtPassword.requestFocus()
         } else if (password.length < 6) {
-            editPassword.setError("Password should be at least 6 character or more")
-            editPassword.requestFocus()
+            edtPassword.setError("Password should be at least 6 character or more")
+            edtPassword.requestFocus()
         } else {
             val request = SigninRequest(email, password)
             signInPresenter.signin(request)
@@ -103,18 +97,18 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         val connectivityManager = baseContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
         val activeNetwork = connectivityManager.activeNetworkInfo
 
-        buttonBack.setOnClickListener { finish() }
+        btnBack.setOnClickListener { finish() }
 
-        buttonSignin.setOnClickListener {
+        btnSignin.setOnClickListener {
                 validateSignin()
         }
 
-        txtForgotPass.setOnClickListener {
+        tvForgotPassword.setOnClickListener {
             val dialogForgotPass = Dialog(this)
             dialogForgotPass.setCancelable(true)
             dialogForgotPass.setContentView(R.layout.dialog_forgot_password)
-            val buttonOK= dialogForgotPass.findViewById(R.id.buttonOK) as TextView
-            val editEmailForgot = dialogForgotPass.findViewById(R.id.editEmailForgot) as EditText
+            val buttonOK= dialogForgotPass.findViewById(R.id.btnOK) as TextView
+            val editEmailForgot = dialogForgotPass.findViewById(R.id.edtEmailForgot) as EditText
             val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
             dialogForgotPass.show()
 
@@ -150,11 +144,11 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
     private fun showResetPassDialog(){
         val dialogResetPass = Dialog(this)
         dialogResetPass.setContentView(R.layout.dialog_reset_password)
-        val buttonOK= dialogResetPass.findViewById(R.id.buttonResetOK) as TextView
-        val emailForgot = dialogResetPass.findViewById(R.id.textEmailForgot) as TextView
-        val editOtpCode = dialogResetPass.findViewById(R.id.editOtpCode) as EditText
-        val editNewPassword = dialogResetPass.findViewById(R.id.editNewPassword) as EditText
-        val editCfNewPassword = dialogResetPass.findViewById(R.id.editCfNewPassword) as EditText
+        val buttonOK= dialogResetPass.findViewById(R.id.btnResetOK) as TextView
+        val emailForgot = dialogResetPass.findViewById(R.id.tvEmailForgot) as TextView
+        val editOtpCode = dialogResetPass.findViewById(R.id.edtOtpCode) as EditText
+        val editNewPassword = dialogResetPass.findViewById(R.id.edtNewPassword) as EditText
+        val editCfNewPassword = dialogResetPass.findViewById(R.id.edtCfNewPassword) as EditText
         val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
         val saveEmailForgot = prefs.getString("emailForgot", null)
         emailForgot.text = "Email: ${saveEmailForgot}"

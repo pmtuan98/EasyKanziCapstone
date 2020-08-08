@@ -28,13 +28,13 @@ class OnBoardingActivity : AppCompatActivity() {
                 addDots(position)
                 when (position) {
                     0 -> {
-                        get_started_btn.visibility = View.INVISIBLE
+                        btnGetStarted.visibility = View.INVISIBLE
                     }
                     1 -> {
-                        get_started_btn.visibility = View.INVISIBLE
+                        btnGetStarted.visibility = View.INVISIBLE
                     }
                     else -> {
-                        get_started_btn.visibility = View.VISIBLE
+                        btnGetStarted.visibility = View.VISIBLE
                     }
                 }
             }
@@ -62,7 +62,7 @@ class OnBoardingActivity : AppCompatActivity() {
         slider.addOnPageChangeListener(changeListener)
 
         //Button get started
-        get_started_btn.setOnClickListener {
+        btnGetStarted.setOnClickListener {
             val intent = EntryActivity.getIntent(this).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or
                     Intent.FLAG_ACTIVITY_CLEAR_TOP or

@@ -7,7 +7,7 @@
     android:gravity="center"
     android:background="@drawable/flashcard_layout">
             <TextView
-                android:id="@+id/flashcard_hira"
+                android:id="@+id/flashcardHira"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
@@ -15,7 +15,7 @@
                 android:textColor="#2196F3"
                 android:textSize="30sp" />
             <TextView
-                android:id="@+id/flashcard_meaning"
+                android:id="@+id/flashcardVietnamese"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAlignment="center"
