@@ -52,8 +52,8 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
             } else if (!username.isNotEmptyAndBlank()) {
                 editUsername.setError("Username is required")
                 editUsername.requestFocus()
-            } else if(username.length > 7) {
-                editUsername.setError("Username max length is 6 character")
+            } else if(username.length > 11) {
+                editUsername.setError("Username max length is 10 character")
                 editUsername.requestFocus()
             }else if (!password.isNotEmptyAndBlank()) {
                 editPassword.setError("Password is required")
