@@ -6,7 +6,7 @@ interface SignupContract {
     interface View {
         fun onSignupSucceeded(message: String)
 
-        fun onSignupFailed(exception: Throwable)
+        fun onSignupFailed(message: String)
     }
 
     interface Presenter {

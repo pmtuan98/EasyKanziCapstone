@@ -4,6 +4,7 @@ import android.util.Log
 import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.domain.request.SignupRequest
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -18,7 +19,7 @@ class SignupPresenter (
         repository.signup(request).enqueue(object : Callback<SignupResponse>{
 
             override fun onFailure(call: Call<SignupResponse>, t: Throwable) {
-                view.onSignupFailed(t)
+
             }
 
             override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
@@ -26,7 +27,8 @@ class SignupPresenter (
                     view.onSignupSucceeded(it.message)
                 }
                 response.errorBody()?.let {
-                    view.onSignupFailed(Throwable(it.toString()))
+                    val jObjError = JSONObject(response.errorBody()!!.string())
+                    view.onSignupFailed(  jObjError.getString("message"))
                 }
             }
 
