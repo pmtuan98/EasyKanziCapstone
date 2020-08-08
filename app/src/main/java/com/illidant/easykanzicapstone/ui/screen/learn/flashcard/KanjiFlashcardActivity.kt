@@ -20,9 +20,7 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     private var x2 = 0f
     val MIN_DISTANCE = 150
     var counter = 0
-    val kanjiList : MutableList<String> = mutableListOf()
-    val hiraganaList : MutableList<String> = mutableListOf()
-    val meaningList : MutableList<String> = mutableListOf()
+    val vocabularyList : MutableList<Vocabulary> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,17 +29,17 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
     private fun initialize() {
         //Learn flashcard by kanji
-        val kanji_id = intent.getIntExtra("KANJI_ID", 0)
-        presenter.vocabByKanjiIDRequest(kanji_id)
+        val kanjiId = intent.getIntExtra("KANJI_ID", 0)
+        presenter.vocabByKanjiIDRequest(kanjiId)
 
         swipeFlashcard()
 
-        buttonRestart.setOnClickListener {
+        btnRestart.setOnClickListener {
             val intent = intent
             finish()
             startActivity(intent)
         }
-        buttonExit.setOnClickListener {
+        btnExit.setOnClickListener {
             finish()
         }
 
@@ -54,7 +52,7 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
 
     private fun swipeFlashcard() {
-        flash_card.setOnTouchListener(object : View.OnTouchListener {
+        flashCard.setOnTouchListener(object : View.OnTouchListener {
             override fun onTouch(v: View?, event: MotionEvent?): Boolean {
                 when (event!!.action) {
                     MotionEvent.ACTION_DOWN -> x1 = event.x
@@ -64,15 +62,15 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
                         if (Math.abs(deltaX) > MIN_DISTANCE) {
                             // Left to Right swipe action
                             if (x2 > x1) {
-                                if(flash_card.isBackSide) {
-                                    flash_card.flipTheView()
-                                    layout_back.visibility = View.GONE
+                                if(flashCard.isBackSide) {
+                                    flashCard.flipTheView()
+                                    layoutBack.visibility = View.GONE
                                     previous()
                                 }else  previous()
                             } else {
-                                if(flash_card.isBackSide) {
-                                    flash_card.flipTheView(true)
-                                    layout_back.visibility = View.GONE
+                                if(flashCard.isBackSide) {
+                                    flashCard.flipTheView(true)
+                                    layoutBack.visibility = View.GONE
                                     next()
                                 }else next()
                             }
@@ -86,50 +84,46 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
     fun checkNextBackButton(counter : Int) {
         if(counter == 0) {
-            btn_flashcard_back.isEnabled = false
-        }else if (counter == kanjiList.size - 1){
-            btn_flashcard_next.isEnabled = false
+            btnBack.isEnabled = false
+        }else if (counter == vocabularyList.size - 1){
+            btnNext.isEnabled = false
         }else {
-            btn_flashcard_back.isEnabled = true
-            btn_flashcard_next.isEnabled = true
+            btnBack.isEnabled = true
+            btnNext.isEnabled = true
         }
     }
 
     override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
-        // Add to list
-        for (vocab in listVocab) {
-            kanjiList.add(vocab.kanji_vocab)
-            hiraganaList.add(vocab.hiragana)
-            meaningList.add(vocab.vocab_meaning)
-        }
+        vocabularyList.addAll(listVocab)
+
         //First appearance
-        flashcard_kanji.text = kanjiList[counter]
-        flashcard_hira.text = hiraganaList[counter]
-        flashcard_meaning.text = meaningList[counter]
+        flashcardKanji.text = vocabularyList[counter].kanji_vocab
+        flashcardHira.text = vocabularyList[counter].hiragana
+        flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
 
         //Display total question
-        tv_totalQuestion.text = kanjiList.size.toString()
-        tv_questionNo.text = (counter + 1).toString()
+        tvTotalQuestion.text = vocabularyList.size.toString()
+        tvQuestionNo.text = (counter + 1).toString()
 
         //Set progress bar
-        progressBarFlashcard.max = kanjiList.size
+        progressBarFlashcard.max = vocabularyList.size
         progressBarFlashcard.progress = counter+1
         checkNextBackButton(counter)
 
         // Next button click
-        btn_flashcard_next.setOnClickListener {
-            if(flash_card.isBackSide) {
-                flash_card.flipTheView(true)
-                layout_back.visibility = View.GONE
+        btnNext.setOnClickListener {
+            if(flashCard.isBackSide) {
+                flashCard.flipTheView(true)
+                layoutBack.visibility = View.GONE
                 next()
             }else next()
         }
 
         //Previous button click
-        btn_flashcard_back.setOnClickListener {
-            if(flash_card.isBackSide) {
-                flash_card.flipTheView()
-                layout_back.visibility = View.GONE
+        btnBack.setOnClickListener {
+            if(flashCard.isBackSide) {
+                flashCard.flipTheView()
+                layoutBack.visibility = View.GONE
                 previous()
             }else  previous()
 
@@ -141,23 +135,23 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
             counter = 0
         }
         checkNextBackButton(counter)
-        flashcard_kanji.text = kanjiList[counter]
-        flashcard_meaning.text = meaningList[counter]
-        flashcard_hira.text = hiraganaList[counter]
-        tv_questionNo.text = (counter + 1).toString()
+        flashcardKanji.text =vocabularyList[counter].kanji_vocab
+        flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
+        flashcardHira.text = vocabularyList[counter].hiragana
+        tvQuestionNo.text = (counter + 1).toString()
         progressBarFlashcard.progress = counter+1
 
     }
     private fun next() {
         counter++
-        if (counter == kanjiList.size) {
-            counter = kanjiList.size - 1
+        if (counter == vocabularyList.size) {
+            counter = vocabularyList.size - 1
         }
         checkNextBackButton(counter)
-        flashcard_kanji.text = kanjiList[counter]
-        flashcard_meaning.text = meaningList[counter]
-        flashcard_hira.text = hiraganaList[counter]
-        tv_questionNo.text = (counter + 1).toString()
+        flashcardKanji.text =vocabularyList[counter].kanji_vocab
+        flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
+        flashcardHira.text = vocabularyList[counter].hiragana
+        tvQuestionNo.text = (counter + 1).toString()
         progressBarFlashcard.progress = counter+1
 
     }

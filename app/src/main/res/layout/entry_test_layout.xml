@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/background_image2"
+        android:id="@+id/backgroundImage2"
         android:layout_width="200sp"
         android:layout_height="200dp"
         android:layout_centerHorizontal="true"
@@ -19,7 +19,7 @@
 
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cardview_text"
+        android:id="@+id/cardviewText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -30,7 +30,7 @@
         app:contentPaddingTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/background_image2" >
+        app:layout_constraintTop_toBottomOf="@+id/backgroundImage2" >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/txtTestLevel"
+                    android:id="@+id/tvTestLevel"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:text="JPD111"
@@ -121,7 +121,7 @@
 
 
     <Button
-        android:id="@+id/buttonStart"
+        android:id="@+id/btnStart"
         android:layout_width="174dp"
         android:layout_height="50dp"
         android:background="@drawable/btn_custom"
@@ -131,6 +131,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardview_text" />
+        app:layout_constraintTop_toBottomOf="@+id/cardviewText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

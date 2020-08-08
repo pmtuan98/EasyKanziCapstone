@@ -9,7 +9,7 @@
 
 
     <ImageView
-        android:id="@+id/background_image2"
+        android:id="@+id/backgroundImage2"
         android:layout_width="match_parent"
         android:layout_height="450dp"
         android:src="@drawable/logo_text_image"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/powered_by_line"
+        android:id="@+id/tvIntro"
         android:layout_width="184dp"
         android:layout_height="26dp"
         android:layout_marginBottom="16dp"

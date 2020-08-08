@@ -52,7 +52,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
 
     init {
         imageHomePage = itemView.image_homepage as ImageView
-        textTitle = itemView.text_title as TextView
+        textTitle = itemView.tvTitleLevel as TextView
     }
 }
 }

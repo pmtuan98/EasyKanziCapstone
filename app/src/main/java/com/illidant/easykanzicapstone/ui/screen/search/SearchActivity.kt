@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.R
@@ -42,12 +41,12 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
                 searchPresenter.searchKanji(searchRequest)
                 if(newText.trim().isEmpty()){
                     notFoundImage.visibility = View.INVISIBLE
-                    recyclerSearch.visibility = View.INVISIBLE
+                    recyclerViewSearch.visibility = View.INVISIBLE
                     searchImage.visibility = View.VISIBLE
 
                 }else {
                     searchImage.visibility = View.INVISIBLE
-                    recyclerSearch.visibility = View.VISIBLE
+                    recyclerViewSearch.visibility = View.VISIBLE
                 }
 
                 return false
@@ -62,7 +61,7 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
     private fun configViews() {
         //set bottom navigation bar
         val bottomNavigationView =
-            findViewById<BottomNavigationView>(R.id.bottom_navigation)
+            findViewById<BottomNavigationView>(R.id.bottomNavBar)
         //set home selected
         bottomNavigationView.selectedItemId =
             R.id.search
@@ -102,8 +101,8 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
     }
 
     override fun onSearchResult(listSearch: List<KanjiES>) {
-        recyclerSearch!!.layoutManager = GridLayoutManager(this, 1)
-        recyclerSearch!!.adapter = SearchAdapter(listSearch,this)
+        recyclerViewSearch!!.layoutManager = GridLayoutManager(this, 1)
+        recyclerViewSearch!!.adapter = SearchAdapter(listSearch,this)
         if(listSearch.isEmpty()){
             notFoundImage.visibility = View.VISIBLE
         }else {

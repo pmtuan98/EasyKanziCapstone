@@ -3,7 +3,6 @@ package com.illidant.easykanzicapstone.ui.screen.home
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -37,7 +36,7 @@ class HomeActivity : BaseActivity(),HomeContract.View {
         presenter.getLevelData()
         val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
         val username = prefs.getString("userName", null)
-        text_username.text = username
+        tvUsername.text = username
     }
 
     companion object {
@@ -45,15 +44,15 @@ class HomeActivity : BaseActivity(),HomeContract.View {
     }
 
     override fun onDataComplete(levels: List<Level>) {
-        recycler_home!!.layoutManager = GridLayoutManager(this, 1)
-        recycler_home!!.adapter = HomeAdapter(this, levels)
+        recyclerViewHome!!.layoutManager = GridLayoutManager(this, 1)
+        recyclerViewHome!!.adapter = HomeAdapter(this, levels)
     }
     private fun configView() {
         //set home selected
-        bottom_navigation.selectedItemId = R.id.home
+        bottomNavBar.selectedItemId = R.id.home
 
         //Perform ItemSelectedListener
-        bottom_navigation.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        bottomNavBar.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
                     return@OnNavigationItemSelectedListener true

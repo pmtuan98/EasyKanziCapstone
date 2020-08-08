@@ -20,7 +20,7 @@
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
-            android:id="@+id/text_title"
+            android:id="@+id/tvTitleLevel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="JPD111"
@@ -33,7 +33,7 @@
             android:layout_marginStart="20dp"/>
 
         <TextView
-            android:id="@+id/text_desc"
+            android:id="@+id/tvLevelDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="This is a description about JPD"
@@ -41,7 +41,7 @@
             android:textSize="16dp"
             android:layout_toRightOf="@+id/image_homepage"
             android:layout_toEndOf="@+id/image_homepage"
-            android:layout_below="@+id/text_title"
+            android:layout_below="@+id/tvTitleLevel"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"/>

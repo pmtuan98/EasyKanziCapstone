@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/txtResult"
+            android:id="@+id/tvResult"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptsans_bold"
@@ -26,7 +26,7 @@
 
 
         <TextView
-            android:id="@+id/txtCorrect"
+            android:id="@+id/titleCorrectAnswer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
@@ -42,7 +42,7 @@
             android:textSize="22sp" />
 
         <TextView
-            android:id="@+id/txtTotal"
+            android:id="@+id/tvTotalQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptsans_bold"
@@ -65,7 +65,7 @@
             android:textSize="22sp" />
 
         <TextView
-            android:id="@+id/txtCorrectRate"
+            android:id="@+id/tvCorrectRate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="50%"

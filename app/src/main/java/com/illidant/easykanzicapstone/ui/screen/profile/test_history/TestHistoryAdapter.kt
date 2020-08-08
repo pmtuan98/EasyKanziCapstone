@@ -8,7 +8,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.TestHistory
-import com.illidant.easykanzicapstone.ui.screen.search.SearchAdapter
 import kotlinx.android.synthetic.main.item_test_history.view.*
 
 class TestHistoryAdapter : RecyclerView.Adapter<TestHistoryAdapter.TestHistoryView> {
@@ -28,9 +27,9 @@ class TestHistoryAdapter : RecyclerView.Adapter<TestHistoryAdapter.TestHistoryVi
         var textDate: TextView
 
         init {
-            textLevel = itemView.textTestLevel as TextView
-            textPoint = itemView.textPoint as TextView
-            textDate = itemView.textDateAttend as TextView
+            textLevel = itemView.tvTestLevel as TextView
+            textPoint = itemView.tvPoint as TextView
+            textDate = itemView.tvTestDate as TextView
         }
     }
 

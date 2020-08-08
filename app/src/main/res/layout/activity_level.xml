@@ -7,7 +7,7 @@
     tools:context=".ui.screen.kanji.KanjiByLevelActivity">
 
     <TextView
-        android:id="@+id/text_level_name"
+        android:id="@+id/tvLevel"
         android:layout_width="@dimen/dp_130"
         android:layout_height="@dimen/dp_50"
         android:layout_marginStart="16dp"
@@ -19,29 +19,29 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_learn"
+        android:id="@+id/btnLearn"
         android:layout_width="@dimen/dp_90"
         android:layout_height="@dimen/dp_40"
         android:layout_marginStart="38dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="31dp"
-        android:layout_toRightOf="@+id/text_level_name"
+        android:layout_toRightOf="@+id/tvLevel"
         android:textColor="@android:color/white"
         android:background="@drawable/btn_custom"
         android:text="LEARN"
         android:textSize="@dimen/dp_20"
         android:fontFamily="@font/ptsans_bold"
-        app:layout_constraintEnd_toStartOf="@+id/btn_test"
-        app:layout_constraintStart_toEndOf="@+id/text_level_name"
+        app:layout_constraintEnd_toStartOf="@+id/btnTest"
+        app:layout_constraintStart_toEndOf="@+id/tvLevel"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_test"
+        android:id="@+id/btnTest"
         android:layout_width="@dimen/dp_90"
         android:layout_height="@dimen/dp_40"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="16dp"
-        android:layout_toRightOf="@+id/btn_learn"
+        android:layout_toRightOf="@+id/btnLearn"
         android:background="@drawable/btn_custom"
         android:text="TEST"
         android:textColor="@android:color/white"
@@ -54,21 +54,21 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/learn_method"
+        android:layout_below="@+id/learnMethod"
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:text="Kanji list"
         android:textSize="@dimen/sp_18"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_level_name" />
+        app:layout_constraintTop_toBottomOf="@+id/tvLevel" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_level"
+        android:id="@+id/recyclerViewLevel"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_above="@+id/bottomNavigation"
-        android:layout_below="@+id/text_level_name"
+        android:layout_below="@+id/tvLevel"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

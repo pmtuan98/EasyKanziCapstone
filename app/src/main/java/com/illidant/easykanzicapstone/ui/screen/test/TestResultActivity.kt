@@ -1,6 +1,5 @@
 package com.illidant.easykanzicapstone.ui.screen.test
 
-import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
@@ -25,9 +24,9 @@ class TestResultActivity : AppCompatActivity() {
 
     private fun showTestResult(){
         var rate = totalCorrect*100 / totalQuestion
-        txtCorrect.text = totalCorrect.toString()
-        txtTotal.text = totalQuestion.toString()
-        txtCorrectRate.text = "${rate}%"
+        titleCorrectAnswer.text = totalCorrect.toString()
+        tvTotalQuestion.text = totalQuestion.toString()
+        tvCorrectRate.text = "${rate}%"
         resultProgressbar.max = totalQuestion
         resultProgressbar.progress = totalCorrect
         if(rate <=50) {

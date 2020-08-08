@@ -51,8 +51,8 @@ class KanjiByLevelAdapter : RecyclerView.Adapter<KanjiByLevelAdapter.LevelViewHo
         var cardView: CardView
 
         init {
-            text_kanji = itemView.text_kanji as TextView
-            text_sio_vietnamese = itemView.text_sio_vietnamese as TextView
+            text_kanji = itemView.tvKanji as TextView
+            text_sio_vietnamese = itemView.tvSioVietnamese as TextView
             cardView = itemView.cardview_id as CardView
         }
     }

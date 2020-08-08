@@ -41,10 +41,10 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         presenter.vocabByLessonRequest(lesson_id)
 
 
-        switchOption.setOnClickListener{
+        btnOption.setOnClickListener{
             showSettingDialog()
         }
-        buttonExit.setOnClickListener{
+        btnExit.setOnClickListener{
             finish()
         }
 
@@ -102,8 +102,8 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         dialog.setCancelable(false)
         dialog.setContentView(R.layout.dialog_complete_writing)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        val buttonAgain= dialog.findViewById(R.id.buttonLearnAgain) as Button
-        val buttonLearnMultiple = dialog.findViewById(R.id.buttonMultipleChoice) as Button
+        val buttonAgain= dialog.findViewById(R.id.btnLearnAgain) as Button
+        val buttonLearnMultiple = dialog.findViewById(R.id.btnMultipleChoice) as Button
         val buttonLearnFlashcard = dialog.findViewById(R.id.buttonLearnFlashcard) as Button
         dialog.show()
         buttonAgain.setOnClickListener {
@@ -137,7 +137,7 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         val hiraMode = prefs.getBoolean("hiraState", true)
         val vietnamMode = prefs.getBoolean("vnState", true)
         var counter = 0
-        var handler: Handler = Handler(Looper.getMainLooper() /*UI thread*/)
+        var handler = Handler(Looper.getMainLooper() /*UI thread*/)
         var workRunnable: Runnable? = null
         val kanjiList: MutableList<String> = mutableListOf()
         val vnList: MutableList<String> = mutableListOf()
@@ -149,10 +149,10 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
             hiraList.add(vocab.hiragana)
         }
 
-        txt_totalQuestion.text = kanjiList.size.toString()  // Display total question
-        txt_questionNo.text = (counter + 1).toString()     // Display current question
+        tvTotalQuestion.text = kanjiList.size.toString()  // Display total question
+        tvQuestionNo.text = (counter + 1).toString()     // Display current question
 
-        txt_kanji_question.text = kanjiList[counter]  // Display first question
+        tvKanjiQuestion.text = kanjiList[counter]  // Display first question
         var vnAnswer = vnList[counter]
         var hiraAnswer = hiraList[counter]
 
@@ -166,13 +166,13 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
                 counter = kanjiList.size - 1
                 showCompleteDialog()
             }
-            txt_kanji_question.text = kanjiList[counter]
-            txt_questionNo.text = (counter + 1).toString()
-            editext_answer.text?.clear()
-            textViewCorrectAnswer.visibility = View.INVISIBLE
-            textViewWrongAnswer.visibility = View.INVISIBLE
-            txt_wrong_answer.text = ""
-            txt_answer.text = ""
+            tvKanjiQuestion.text = kanjiList[counter]
+            tvQuestionNo.text = (counter + 1).toString()
+            edtAnswer.text?.clear()
+            titleCorrectAnswer.visibility = View.INVISIBLE
+            titleWrongAnswer.visibility = View.INVISIBLE
+            tvWrongAnswer.text = ""
+            tvAnswer.text = ""
             textAnswerField.isEndIconVisible = true
             progressBarWriting.progress = counter+1
 
@@ -192,21 +192,21 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
             handler.removeCallbacks(workRunnable)
             workRunnable = Runnable {
                 dialog.dismiss()
+                nextQuestion()
             }
             handler.postDelayed(workRunnable, 1500 /*delay*/)
-            nextQuestion()
+
         }
 
         fun forceInputCorrectAnswer() {
-
-                editext_answer.addTextChangedListener(object : TextWatcher {
+                edtAnswer.addTextChangedListener(object : TextWatcher {
                     override fun onTextChanged(text: CharSequence?, start: Int, before: Int, after: Int) {
                         if(!textAnswerField.isEndIconVisible &&
-                            hiraMode == true && editext_answer.text.toString().equals(hiraAnswer)){
+                            hiraMode == true && edtAnswer.text.toString().equals(hiraAnswer)){
                             displayDialogCorrect()
                         }
                         else if (!textAnswerField.isEndIconVisible &&
-                            vietnamMode == true && editext_answer.text.toString().equals(vnAnswer,ignoreCase = true)) {
+                            vietnamMode == true && edtAnswer.text.toString().equals(vnAnswer,ignoreCase = true)) {
                             displayDialogCorrect()
                         }
                     }
@@ -223,11 +223,11 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
 
         btnHint.setOnClickListener {
             if(hiraMode == true) {
-                textViewCorrectAnswer.visibility = View.VISIBLE
-                txt_answer.text = hiraAnswer
+                titleCorrectAnswer.visibility = View.VISIBLE
+                tvAnswer.text = hiraAnswer
             } else if(vietnamMode == true) {
-                textViewCorrectAnswer.visibility = View.VISIBLE
-                txt_answer.text = vnAnswer
+                titleCorrectAnswer.visibility = View.VISIBLE
+                tvAnswer.text = vnAnswer
             }
             textAnswerField.helperText = "Rewrite the correct answer"
             textAnswerField.isEndIconVisible = false
@@ -235,24 +235,24 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
         }
 
         fun checkWrongInputAnswer() {
-            textViewCorrectAnswer.visibility = View.VISIBLE
-            textViewWrongAnswer.visibility = View.VISIBLE
-            editext_answer.text?.clear()
+            titleCorrectAnswer.visibility = View.VISIBLE
+            titleWrongAnswer.visibility = View.VISIBLE
+            edtAnswer.text?.clear()
             textAnswerField.helperText = "Rewrite the correct answer"
             textAnswerField.isEndIconVisible = false
             forceInputCorrectAnswer()
         }
         textAnswerField.setEndIconOnClickListener {
-            val userAnswer = editext_answer.text.toString()
+            val userAnswer = edtAnswer.text.toString()
             if (userAnswer.isEmpty()) { // Input answer blank
                 if(hiraMode == true) {
                     hiraAnswer = hiraList[counter]
-                    textViewCorrectAnswer.visibility = View.VISIBLE
-                    txt_answer.text = hiraAnswer
+                    titleCorrectAnswer.visibility = View.VISIBLE
+                    tvAnswer.text = hiraAnswer
                 }else if (vietnamMode == true) {
                     vnAnswer = vnList[counter]
-                    textViewCorrectAnswer.visibility = View.VISIBLE
-                    txt_answer.text = vnAnswer
+                    titleCorrectAnswer.visibility = View.VISIBLE
+                    tvAnswer.text = vnAnswer
                 }
                 textAnswerField.helperText = "Rewrite the correct answer"
                 textAnswerField.isEndIconVisible = false
@@ -262,14 +262,14 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
                 if(hiraMode == true && userAnswer.equals(hiraAnswer)) { //Check input answer correct
                     displayDialogCorrect()
                 }else if(hiraMode == true && !userAnswer.equals(hiraAnswer)) {  //Check input answer not correct
-                    txt_wrong_answer.text = userAnswer
+                    tvWrongAnswer.text = userAnswer
                     checkWrongInputAnswer()
-                    txt_answer.text = hiraAnswer
+                    tvAnswer.text = hiraAnswer
                 } else if(vietnamMode == true && userAnswer.equals(vnAnswer,ignoreCase = true)) { //Check input answer correct
                     displayDialogCorrect()
                 } else if(vietnamMode == true && !userAnswer.equals(vnAnswer,ignoreCase = true)) {  //Check input answer not correct
-                    txt_answer.text = vnAnswer
-                    txt_wrong_answer.text = userAnswer
+                    tvAnswer.text = vnAnswer
+                    tvWrongAnswer.text = userAnswer
                     checkWrongInputAnswer()
                 }
 

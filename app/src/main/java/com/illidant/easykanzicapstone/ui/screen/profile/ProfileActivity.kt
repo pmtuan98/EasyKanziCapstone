@@ -47,14 +47,14 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
 
     private fun signOut() {
         //Sign out button
-        buttonSignout.setOnClickListener {
+        tvSignout.setOnClickListener {
             val prefs = SharedPrefs(this)
             prefs.clear()
             navigateToSignin()
         }
     }
     private fun navigateToTestHistory() {
-        textTestHistory.setOnClickListener {
+        tvTestHistory.setOnClickListener {
             val intent = Intent(it.context, TestHistoryActivity::class.java)
             startActivity(intent)
         }
@@ -70,18 +70,18 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
         finish()
     }
     private fun changePassword() {
-        txtchangepassword.setOnClickListener {
+        tvChangePassword.setOnClickListener {
             val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
             val username = prefs.getString("userName", null)
             val dialogChangePass = Dialog(this)
             dialogChangePass.setCancelable(true)
             dialogChangePass.setContentView(R.layout.dialog_change_password)
-            val buttonSave= dialogChangePass.findViewById(R.id.btnSaveChange) as TextView
-            val textEmail = dialogChangePass.findViewById(R.id.textEmail) as TextView
+            val buttonSave= dialogChangePass.findViewById(R.id.btnSave) as TextView
+            val textEmail = dialogChangePass.findViewById(R.id.tvEmail) as TextView
             textEmail.text = "Email : ${username}"
-            val edtOldPassword = dialogChangePass.findViewById(R.id.edt_old_password) as EditText
-            val edtNewPassword = dialogChangePass.findViewById(R.id.edt_new_password) as EditText
-            val edtCfNewPassword = dialogChangePass.findViewById(R.id.cf_new_password) as EditText
+            val edtOldPassword = dialogChangePass.findViewById(R.id.edtOldPassword) as EditText
+            val edtNewPassword = dialogChangePass.findViewById(R.id.edtNewPassword) as EditText
+            val edtCfNewPassword = dialogChangePass.findViewById(R.id.edtCfPassword) as EditText
             dialogChangePass.show()
 
             buttonSave.setOnClickListener {
@@ -134,7 +134,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
 
     private fun configViews() {
         //set bottom navigation bar
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavBar)
 
 
         //set home selected
@@ -175,7 +175,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
 
         val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
         val username = prefs.getString("userName", null)
-        email_profile.text = username
+        tvUsername.text = username
     }
 
 }

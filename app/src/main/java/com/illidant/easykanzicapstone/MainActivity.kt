@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
 
     //set animation on elements
-    powered_by_line.setAnimation(bottomAnim)
+    tvIntro.setAnimation(bottomAnim)
 
     Handler().postDelayed({
       val intent = Intent(applicationContext, OnBoardingActivity::class.java)

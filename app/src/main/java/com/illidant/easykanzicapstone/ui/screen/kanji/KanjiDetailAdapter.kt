@@ -5,13 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
-import com.illidant.easykanzicapstone.ui.screen.home.HomeAdapter
-import kotlinx.android.synthetic.main.item_kanji.view.*
 import kotlinx.android.synthetic.main.item_kanji_vocabulary.view.*
 
 class KanjiDetailAdapter : RecyclerView.Adapter<KanjiDetailAdapter.KanjiDetailView> {
@@ -45,9 +41,9 @@ class KanjiDetailAdapter : RecyclerView.Adapter<KanjiDetailAdapter.KanjiDetailVi
         var textVocabVn: TextView
 
         init {
-            textVocabKanji = itemView.textVocabKanji
-            textVocabHira = itemView.textVocabHira
-            textVocabVn = itemView.textVocabVn
+            textVocabKanji = itemView.tvVocabKanji
+            textVocabHira = itemView.tvVocabHira
+            textVocabVn = itemView.tvVocabVn
         }
     }
 }

@@ -8,7 +8,7 @@
     tools:context=".ui.screen.signup.SignupActivity">
 
     <ImageButton
-        android:id="@+id/buttonBack"
+        android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
@@ -36,7 +36,7 @@
         android:textSize="@dimen/sp_20"
         android:fontFamily="@font/ptsans_bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonBack"
+        app:layout_constraintStart_toEndOf="@+id/btnBack"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toBottomOf="@id/tvCreateAccount">
 
         <EditText
-            android:id="@+id/editEmail"
+            android:id="@+id/edtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="email@example.com"
@@ -74,7 +74,7 @@
         app:layout_constraintTop_toBottomOf="@id/layoutInputEmail">
 
         <EditText
-            android:id="@+id/editUsername"
+            android:id="@+id/edtUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="User1"
@@ -98,7 +98,7 @@
         app:layout_constraintVertical_chainStyle="packed">
 
         <EditText
-            android:id="@+id/editPassword"
+            android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -124,7 +124,7 @@
         app:layout_constraintVertical_chainStyle="packed">
 
         <EditText
-            android:id="@+id/editConfirmPassword"
+            android:id="@+id/edtConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -133,7 +133,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/buttonSignup"
+        android:id="@+id/btnSignup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"

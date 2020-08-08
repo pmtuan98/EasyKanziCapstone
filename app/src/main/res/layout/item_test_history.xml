@@ -8,7 +8,7 @@
     android:background="@drawable/bg_test_history">
 
     <TextView
-        android:id="@+id/textTestLevel"
+        android:id="@+id/tvTestLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
@@ -21,7 +21,7 @@
 
 
     <TextView
-        android:id="@+id/textPoint"
+        android:id="@+id/tvPoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_24"
@@ -29,11 +29,11 @@
         android:textColor="@color/main_blue_color"
         android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/textTestLevel"
+        app:layout_constraintStart_toEndOf="@id/tvTestLevel"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textDateAttend"
+        android:id="@+id/tvTestDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"

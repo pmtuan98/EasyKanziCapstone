@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/flashcard_layout">
             <TextView
-                android:id="@+id/flashcard_kanji"
+                android:id="@+id/flashcardKanji"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"

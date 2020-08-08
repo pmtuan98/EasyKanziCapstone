@@ -1,9 +1,7 @@
 package com.illidant.easykanzicapstone.ui.screen.kanji
 
 import android.content.Intent
-import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.R
@@ -12,11 +10,8 @@ import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import com.illidant.easykanzicapstone.platform.source.remote.KanjiRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.FlashcardActivity
 import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.KanjiFlashcardActivity
-import com.illidant.easykanzicapstone.ui.screen.test.EntryTestActivity
 import kotlinx.android.synthetic.main.activity_kanji_detail.*
-import kotlinx.android.synthetic.main.activity_level.*
 
 class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
 
@@ -46,12 +41,12 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
 
     override fun getKanjiByID(kanjiAttribute: Kanji) {
         var stringStroke: String
-        textKanjiChinaMean.text = kanjiAttribute.sino_vietnamese
-        textKanjiVietMean.text = kanjiAttribute.kanji_meaning
-        textKanjiOnyomi.text = kanjiAttribute.onyomi
-        textKanjiKunyomi.text = kanjiAttribute.kunyomi
-        textOnFurigana.text = kanjiAttribute.on_furigana
-        textKunFurigana.text = kanjiAttribute.kun_furigana
+        tvChineseMean.text = kanjiAttribute.sino_vietnamese
+        tvVietnameseMean.text = kanjiAttribute.kanji_meaning
+        tvKanjiOnyomi.text = kanjiAttribute.onyomi
+        tvKanjiKunyomi.text = kanjiAttribute.kunyomi
+        tvOnFurigana.text = kanjiAttribute.on_furigana
+        tvKunFurigana.text = kanjiAttribute.kun_furigana
         stringStroke = kanjiAttribute.image
         handleKanjiStroke(stringStroke)
     }
@@ -79,8 +74,8 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
     }
 
     override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
-        recyclerVocabulary.layoutManager = GridLayoutManager(this, 1)
-        recyclerVocabulary.adapter = KanjiDetailAdapter(listVocab, this)
+        recyclerViewVocab.layoutManager = GridLayoutManager(this, 1)
+        recyclerViewVocab.adapter = KanjiDetailAdapter(listVocab, this)
     }
 
 }

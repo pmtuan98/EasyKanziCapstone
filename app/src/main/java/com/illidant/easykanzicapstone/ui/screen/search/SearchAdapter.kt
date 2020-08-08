@@ -27,9 +27,9 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchView>{
         var textLevel: TextView
 
         init {
-            textKanji = itemView.textKanjiWord as TextView
-            textKanjiChinaMean = itemView.textKanjiChinaMean as TextView
-            textLevel = itemView.textKanjiLevel as TextView
+            textKanji = itemView.tvKanjiWord as TextView
+            textKanjiChinaMean = itemView.tvChineseMean as TextView
+            textLevel = itemView.tvKanjiLevel as TextView
         }
     }
 
