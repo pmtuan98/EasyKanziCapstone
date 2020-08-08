@@ -67,7 +67,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Question: From marked answer 1 2 3 4, choose the best answer for the meaning of the Kanji in Hiragna"
+                android:text="Question: From marked answer 1 2 3 4, choose the best answer for the meaning of the Kanji in Hiragana"
                 android:textSize="20sp"
                 android:fontFamily="@font/circularstdbook"/>
             <LinearLayout
