@@ -7,7 +7,7 @@ interface SigninContract {
     interface View {
         fun onSigninSucceeded(user: User)
 
-        fun onSigninFailed(exception: Throwable)
+        fun onSigninFailed(message: String)
     }
 
     interface Presenter {

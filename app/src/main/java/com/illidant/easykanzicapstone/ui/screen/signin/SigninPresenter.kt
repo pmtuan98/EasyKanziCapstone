@@ -4,6 +4,7 @@ import android.util.Log
 import com.illidant.easykanzicapstone.domain.model.User
 import com.illidant.easykanzicapstone.domain.request.SigninRequest
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -22,12 +23,13 @@ class SigninPresenter(
                     view.onSigninSucceeded(it)
                 }
                 response.errorBody()?.let {
-                    view.onSigninFailed(Throwable(it.toString()))
+                    val jObjError = JSONObject(response.errorBody()!!.string())
+                    view.onSigninFailed(  jObjError.getString("message"))
                 }
             }
 
             override fun onFailure(call: Call<User>, t: Throwable) {
-                view.onSigninFailed(t)
+
             }
         })
     }

@@ -198,9 +198,12 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         navigateToHome()
     }
 
-    override fun onSigninFailed(exception: Throwable) {
+    override fun onSigninFailed(message: String) {
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-        errDialog.contentText = "Email or password is not correct !"
+        errDialog.contentText = message
+        if(message.isEmpty()){
+            errDialog.contentText = "Email or password is not correct"
+        }
         errDialog.show()
     }
 
