@@ -58,22 +58,22 @@
             android:id="@+id/tvQuestionNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans_bold"
+            android:fontFamily="@font/circularstdbold"
             android:text="10"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans_bold"
+            android:fontFamily="@font/circularstdbold"
             android:text="/"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/tvTotalQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans_bold"
+            android:fontFamily="@font/circularstdbold"
             android:text="10"
             android:textSize="16sp" />
     </LinearLayout>

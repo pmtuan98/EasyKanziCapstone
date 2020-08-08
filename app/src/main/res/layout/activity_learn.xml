@@ -65,6 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Flashcard"
+                    android:fontFamily="@font/circularstdbook"
                     android:textColor="#2d2d2d"
                     android:textSize="@dimen/sp_18" />
             </LinearLayout>
@@ -93,6 +94,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Writing"
+                    android:fontFamily="@font/circularstdbook"
                     android:textColor="#2d2d2d"
                     android:textSize="@dimen/sp_18" />
             </LinearLayout>
@@ -122,6 +124,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Multiple choice"
+                    android:fontFamily="@font/circularstdbook"
                     android:textColor="#2d2d2d"
                     android:textSize="@dimen/sp_18" />
             </LinearLayout>

@@ -44,9 +44,9 @@
                 android:id="@+id/tvQuestionName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/ptsans_bold"
+                android:fontFamily="@font/circularstdbold"
                 android:textColor="@android:color/white"
-                android:text="Question"
+                android:text="Question "
                 android:textSize="22sp" />
 
 
@@ -83,7 +83,7 @@
             android:layout_width="120dp"
             android:layout_height="50dp"
             android:background="#C0392D"
-            android:fontFamily="@font/ptsans_bold"
+            android:fontFamily="@font/circularstdbold"
             android:text="SUBMIT"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
@@ -96,6 +96,7 @@
         android:layout_height="wrap_content"
         android:text="30"
         android:textSize="26sp"
+        android:fontFamily="@font/circularstdbook"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +138,7 @@
         android:text="1."
         android:textColor="@color/color_text_primary"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/circularstdbold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
@@ -164,7 +165,7 @@
         android:text="2."
         android:textColor="@color/color_text_primary"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/circularstdbold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
@@ -191,7 +192,7 @@
         android:text="3."
         android:textColor="@color/color_text_primary"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/circularstdbold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
@@ -218,7 +219,7 @@
         android:text="4."
         android:textColor="@color/color_text_primary"
         android:textSize="18sp"
-        android:textStyle="bold"
+        android:fontFamily="@font/circularstdbold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
@@ -244,6 +245,7 @@
         android:text="Answer"
         android:textColor="#C3092D"
         android:textSize="24dp"
+        android:fontFamily="@font/circularstdbook"
         style="@style/Hyperlink"
         app:layout_constraintBottom_toTopOf="@+id/linearlayout3"
         app:layout_constraintEnd_toEndOf="parent"
@@ -265,7 +267,8 @@
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
             android:text="1"
-            android:textSize="20sp"/>
+            android:fontFamily="@font/circularstdbook"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btnAnswerB"
@@ -273,6 +276,7 @@
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
             android:text="2"
+            android:fontFamily="@font/circularstdbook"
             android:layout_marginLeft="40dp"
             android:textSize="20sp"/>
         <Button
@@ -281,6 +285,7 @@
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
             android:text="3"
+            android:fontFamily="@font/circularstdbook"
             android:layout_marginLeft="40dp"
             android:textSize="20sp"/>
         <Button
@@ -289,6 +294,7 @@
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
             android:text="4"
+            android:fontFamily="@font/circularstdbook"
             android:layout_marginLeft="40dp"
             android:textSize="20sp"/>
 

@@ -32,6 +32,7 @@
         android:layout_width="105dp"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:fontFamily="@font/circularstdbook"
         android:text="Nhật Bản"
         android:textSize="@dimen/sp_18" />
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/bg_app04"
     tools:context=".ui.screen.signup.SignupActivity">
 
     <ImageButton
@@ -34,7 +34,7 @@
         android:text="CREATE AN ACCOUNT"
         android:textColor="#686565"
         android:textSize="@dimen/sp_20"
-        android:fontFamily="@font/ptsans_bold"
+        android:fontFamily="@font/circularstdbold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnBack"
         app:layout_constraintTop_toTopOf="parent" />
@@ -144,7 +144,7 @@
         android:text="@string/btnSignup"
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp_18"
-        android:fontFamily="@font/ptsans_bold"
+        android:fontFamily="@font/circularstdbold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -7,7 +7,7 @@
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/bg_app04"
     android:nestedScrollingEnabled="true">
 
     <ImageButton
@@ -35,7 +35,7 @@
         android:text="@string/btnSignin"
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp_18"
-        android:fontFamily="@font/ptsans_bold"
+        android:fontFamily="@font/circularstdbold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword" />
@@ -117,7 +117,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:fontFamily="@font/ptsans_bold"
+        android:fontFamily="@font/circularstdbook"
         android:text="Forgot password ?"
         android:textColor="@color/color_blue_500"
         android:textSize="18sp"

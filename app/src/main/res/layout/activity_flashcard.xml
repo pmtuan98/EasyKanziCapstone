@@ -141,7 +141,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:background="@drawable/bg_button_writing2"
-            android:fontFamily="@font/ptsans_bold"
+            android:fontFamily="@font/circularstdbold"
             android:text="Restart" />
 
         <ImageButton

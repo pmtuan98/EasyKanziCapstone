@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_app04">
 
     <ImageView
         android:id="@+id/backgroundImage2"
@@ -20,11 +21,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardviewText"
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="25dp"
         app:cardCornerRadius="30dp"
-        app:contentPaddingBottom="30dp"
+        app:contentPaddingBottom="15dp"
         app:contentPaddingLeft="15dp"
         app:contentPaddingRight="15dp"
         app:contentPaddingTop="20dp"
@@ -50,13 +51,14 @@
                     android:text="Test level : "
                     android:textColor="#000000"
                     android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/circularstdbold" />
 
                 <TextView
                     android:id="@+id/tvTestLevel"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:text="JPD111"
+                    android:fontFamily="@font/circularstdbold"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -66,7 +68,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Question: From marked answer 1 2 3 4, choose the best answer for the meaning of the Kanji in Hiragna"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:fontFamily="@font/circularstdbook"/>
             <LinearLayout
                 android:layout_marginTop="@dimen/dp_20"
                 android:layout_width="match_parent"
@@ -82,6 +85,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="10m 0s"
+                    android:fontFamily="@font/circularstdbook"
                     android:textSize="18sp"
                     android:textColor="#000000" />
 
@@ -89,15 +93,15 @@
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/ptsans_regular"
+                    android:fontFamily="@font/circularstdbook"
                     android:text="30 questions"
-                    android:layout_marginStart="140dp"
+                    android:layout_marginStart="110dp"
                     android:textColor="#000000"
                     android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <ImageView
