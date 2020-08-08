@@ -99,10 +99,10 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
         errDialog.contentText = "Email already exist, please try again !"
         errDialog.setCancelable(false)
         errDialog.show()
-        errDialog.setConfirmClickListener {
-            val intent = intent
-            finish()
-            startActivity(intent)
-        }
+//        errDialog.setConfirmClickListener {
+//            val intent = intent
+//            finish()
+//            startActivity(intent)
+//        }
     }
 }
