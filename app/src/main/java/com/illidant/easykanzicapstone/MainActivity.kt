@@ -14,6 +14,7 @@ class MainActivity : AppCompatActivity() {
 
   //Animation
   var sideAnim: Animation? = null;
+  var sideAnim2: Animation? = null;
   var bottomAnim: Animation? = null;
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,11 +25,14 @@ class MainActivity : AppCompatActivity() {
 
     //Animation
     sideAnim = AnimationUtils.loadAnimation(this, R.anim.side_anim)
+    sideAnim2 = AnimationUtils.loadAnimation(this, R.anim.side_anim_2)
     bottomAnim = AnimationUtils.loadAnimation(this, R.anim.bottom_anim)
 
 
     //set animation on elements
     powered_by_line.setAnimation(bottomAnim)
+    background_image2.setAnimation(sideAnim2)
+    intro_image1.setAnimation(sideAnim)
 
     Handler().postDelayed({
       val intent = Intent(applicationContext, OnBoardingActivity::class.java)

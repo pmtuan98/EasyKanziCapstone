@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/bg_app04"
     tools:context=".ui.screen.signup.SignupActivity">
 
     <ImageButton
@@ -134,7 +134,7 @@
 
     <Button
         android:id="@+id/buttonSignup"
-        android:layout_width="match_parent"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
         android:layout_marginStart="@dimen/dp_8"

@@ -92,7 +92,7 @@ class OnBoardingActivity : AppCompatActivity() {
             dotsLayout.addView(dots[i])
         }
         if (dots.isNotEmpty()) {
-            dots[position]?.setTextColor(resources.getColor(R.color.colorPrimaryDark, null))
+            dots[position]?.setTextColor(resources.getColor(R.color.color_app, null))
         }
     }
 

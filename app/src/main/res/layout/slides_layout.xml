@@ -22,9 +22,9 @@
 
     <ImageView
         android:id="@+id/slider_image"
-        android:layout_width="139dp"
-        android:layout_height="@dimen/dp_0"
-        android:layout_marginTop="200dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="220dp"
         android:padding="@dimen/dp_20"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,11 +33,11 @@
 
     <TextView
         android:id="@+id/slider_desc"
-        android:layout_width="381dp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/dp_48"
         android:gravity="center"
         android:text="@string/first_slide_desc"
-        android:textSize="@dimen/sp_18"
+        android:textSize="17sp"
         android:fontFamily="@font/ptsans_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

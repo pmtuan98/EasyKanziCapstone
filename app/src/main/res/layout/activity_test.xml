@@ -82,7 +82,7 @@
             android:id="@+id/btnSubmit"
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:background="@drawable/btn_custom"
+            android:background="#C0392D"
             android:fontFamily="@font/ptsans_bold"
             android:text="SUBMIT"
             android:textColor="@android:color/white"
