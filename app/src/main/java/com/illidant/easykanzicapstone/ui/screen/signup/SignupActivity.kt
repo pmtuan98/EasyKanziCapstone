@@ -97,6 +97,12 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
         //Display error dialog
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
         errDialog.contentText = "Email already exist, please try again !"
+        errDialog.setCancelable(false)
         errDialog.show()
+        errDialog.setConfirmClickListener {
+            val intent = intent
+            finish()
+            startActivity(intent)
+        }
     }
 }
