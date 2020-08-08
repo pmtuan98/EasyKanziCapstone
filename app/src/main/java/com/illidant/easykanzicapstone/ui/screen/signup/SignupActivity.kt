@@ -49,8 +49,8 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
             } else if (!username.isNotEmptyAndBlank()) {
                 edtUsername.setError("Username is required")
                 edtUsername.requestFocus()
-            } else if(username.length > 7) {
-                edtUsername.setError("Username max length is 6 character")
+            } else if(username.length > 11) {
+                edtUsername.setError("Username max length is 10 character")
                 edtUsername.requestFocus()
             }else if (!password.isNotEmptyAndBlank()) {
                 edtPassword.setError("Password is required")
@@ -90,10 +90,16 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
         }
     }
 
-    override fun onSignupFailed(exception: Throwable) {
+    override fun onSignupFailed(message: String) {
         //Display error dialog
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-        errDialog.contentText = "Email already exist, please try again !"
+        errDialog.contentText = message
+        errDialog.setCancelable(false)
         errDialog.show()
+//        errDialog.setConfirmClickListener {
+//            val intent = intent
+//            finish()
+//            startActivity(intent)
+//        }
     }
 }
