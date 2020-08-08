@@ -90,10 +90,13 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
         }
     }
 
-    override fun onSignupFailed(exception: Throwable) {
+    override fun onSignupFailed(message: String) {
         //Display error dialog
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
         errDialog.contentText = "Email already exist, please try again !"
+        errDialog.contentText = message
+        errDialog.setCancelable(false)
         errDialog.show()
     }
+
 }
