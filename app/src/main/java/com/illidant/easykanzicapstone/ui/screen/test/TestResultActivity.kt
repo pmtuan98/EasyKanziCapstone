@@ -9,7 +9,6 @@ import kotlinx.android.synthetic.main.activity_test_result.*
 class TestResultActivity : AppCompatActivity() {
     var totalQuestion = 0
     var totalCorrect = 0
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_result)
@@ -19,6 +18,7 @@ class TestResultActivity : AppCompatActivity() {
     private fun initialize() {
         totalQuestion = intent.getIntExtra("TOTAL_QUES", 0)
         totalCorrect = intent.getIntExtra("TOTAL_CORRECT", 0)
+        //tvLevel.text = intent.getStringExtra("LEVEL_NAME").toString()
         showTestResult()
     }
 

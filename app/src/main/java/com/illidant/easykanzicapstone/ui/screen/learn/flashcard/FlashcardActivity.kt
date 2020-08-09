@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
@@ -35,7 +36,8 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     val MIN_DISTANCE = 150
     var counter = 0
     val vocabularyList : MutableList<Vocabulary> = mutableListOf()
-
+    var remember = 0
+    var notRemember = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +51,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         val lessonId = intent.getIntExtra("LESSON_ID", 0)
         presenter.vocabByLessonRequest(lessonId)
         swipeFlashcard()
-
+        saveRemember()
         btnRestart.setOnClickListener {
             val intent = intent
             finish()
@@ -174,9 +176,31 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
 
     private fun saveRemember() {
+        btnYes.setOnClickListener {
+            btnNext.isEnabled = false
+            btnBack.isEnabled = false
+            remember += + 1
+            if(flashCard.isBackSide) {
+                flashCard.flipTheView(true)
+                layoutBack.visibility = View.GONE
+                next()
+            }else next()
+        }
+        btnNo.setOnClickListener {
+            next()
+            btnNext.isEnabled = false
+            btnBack.isEnabled = false
+            notRemember += 1
+            if(flashCard.isBackSide) {
+                flashCard.flipTheView(true)
+                layoutBack.visibility = View.GONE
+                next()
+            }else next()
+        }
+    }
+    private fun showResultDialog() {
 
     }
-
 
     private fun showCompleteDialog () {
         val dialog = Dialog(this)

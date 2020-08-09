@@ -17,6 +17,7 @@ import com.illidant.easykanzicapstone.platform.source.remote.TestRemoteDataSourc
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
 import kotlinx.android.synthetic.main.activity_test.*
+import kotlinx.android.synthetic.main.entry_test_layout.*
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -101,8 +102,10 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
 //            val testResultRequest = TestRankingRequest(currentDate.toString(),level_id,score,timeTaken,userID)
 //            test_presenter.sendTestResult(testResultRequest)
             val intent = Intent(this, TestResultActivity::class.java)
+            val levelName = intent.getStringExtra("LEVEL_NAME")
             intent.putExtra("TOTAL_QUES", listRandomQuiz.size)
             intent.putExtra("TOTAL_CORRECT",countCorrectAnswer)
+            intent.putExtra("LEVEL_NAME",levelName)
             startActivity(intent)
             finish()
         }
