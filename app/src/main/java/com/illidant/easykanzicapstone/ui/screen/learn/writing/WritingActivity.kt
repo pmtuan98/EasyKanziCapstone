@@ -3,22 +3,13 @@ package com.illidant.easykanzicapstone.ui.screen.learn.writing
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.text.Editable
-import android.text.TextWatcher
-import android.util.Log
 import android.view.View
-import android.widget.Button
-import android.widget.RadioButton
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.postDelayed
-import androidx.core.widget.addTextChangedListener
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
@@ -26,15 +17,12 @@ import com.illidant.easykanzicapstone.extension.toast
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import com.illidant.easykanzicapstone.platform.source.remote.VocabularyRemoteDataSource
-import com.illidant.easykanzicapstone.ui.screen.learn.LearnContract
-import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
 import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.FlashcardActivity
 import com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice.MultipleChoiceActivity
 import com.illidant.easykanzicapstone.util.WritingMode
 import kotlinx.android.synthetic.main.activity_writing.*
 import kotlinx.android.synthetic.main.dialog_complete_writing.*
 import kotlinx.android.synthetic.main.dialog_setting_writing.*
-import kotlinx.android.synthetic.main.entry_test_layout.*
 
 private const val DELAY = 1500L
 
@@ -60,7 +48,7 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
     }
 
     private fun configViews() {
-        txt_questionNo.text = (currentIndex + 1).toString()
+        tvQuestionNo.text = (currentIndex + 1).toString()
 
         switchOption.setOnClickListener {
             showSettingDialog()
@@ -71,7 +59,7 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
         }
 
         btnHint.setOnClickListener {
-            textViewCorrectAnswer.visibility = View.VISIBLE
+            titleCorrectAnswer.visibility = View.VISIBLE
             updateWritingMode(writingMode)
         }
 
@@ -80,7 +68,7 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
                 WritingMode.Hiragana -> vocabularyList[currentIndex].hiragana
                 WritingMode.Vietnamese -> vocabularyList[currentIndex].vocab_meaning
             }
-            presenter.checkAnswer(answer, editext_answer.text.toString().trim())
+            presenter.checkAnswer(answer, edtAnswer.text.toString().trim())
         }
     }
 
@@ -105,33 +93,35 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
             return
         }
 
-        txt_questionNo.text = (currentIndex + 1).toString()
+        tvQuestionNo.text = (currentIndex + 1).toString()
         progressBarWriting.progress = currentIndex + 1
         showQuestion(vocabularyList[currentIndex])
     }
 
     private fun showQuestion(vocabulary: Vocabulary) {
-        txt_kanji_question.text = vocabulary.kanji_vocab
-        editext_answer.text?.clear()
-        textViewCorrectAnswer.visibility = View.INVISIBLE
-        textViewWrongAnswer.visibility = View.INVISIBLE
-        txt_answer.text = ""
-        txt_wrong_answer.text = ""
+        progressBarWriting.progress = currentIndex + 1
+        tvKanjiQuestion.text = vocabulary.kanji_vocab
+        edtAnswer.text?.clear()
+        titleCorrectAnswer.visibility = View.INVISIBLE
+        titleWrongAnswer.visibility = View.INVISIBLE
+        tvAnswer.text = ""
+        tvWrongAnswer.text = ""
     }
 
     private fun showCompleteDialog() {
         val dialog = Dialog(this).apply {
             setCancelable(false)
+            getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             setContentView(R.layout.dialog_complete_writing)
             val lessonId = intent.getIntExtra("LESSON_ID", 0)
 
-            buttonLearnAgain.setOnClickListener {
+            btnLearnAgain.setOnClickListener {
                 finish()
                 startActivity(intent)
                 dismiss()
             }
 
-            buttonMultipleChoice.setOnClickListener {
+            btnMultipleChoice.setOnClickListener {
                 val intent = Intent(this@WritingActivity, MultipleChoiceActivity::class.java)
                 intent.putExtra("LESSON_ID", lessonId)
                 startActivity(intent)
@@ -154,6 +144,7 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
     private fun showSettingDialog() {
         val dialog = Dialog(this).apply {
             setCancelable(true)
+            getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             setContentView(R.layout.dialog_setting_writing)
             when (writingMode) {
                 WritingMode.Hiragana -> radioHira.isChecked = true
@@ -179,8 +170,8 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
             WritingMode.Vietnamese -> "Write meaning by Vietnamese"
         }
 
-        if (textViewCorrectAnswer.visibility == View.VISIBLE) {
-            txt_answer.text = when (writingMode) {
+        if (titleCorrectAnswer.visibility == View.VISIBLE) {
+            tvAnswer.text = when (writingMode) {
                 WritingMode.Hiragana -> vocabularyList[currentIndex].hiragana
                 WritingMode.Vietnamese -> vocabularyList[currentIndex].vocab_meaning
             }
@@ -189,7 +180,7 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
 
     override fun onSuccess(vocabularyList: List<Vocabulary>) {
         this.vocabularyList.addAll(vocabularyList)
-        txt_totalQuestion.text = vocabularyList.size.toString()
+        tvTotalQuestion.text = vocabularyList.size.toString()
         showQuestion(vocabularyList.first())
     }
 
@@ -209,11 +200,11 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
     }
 
     override fun onWrongAnswer(correctAnswer: String, userAnswer: String) {
-        textViewCorrectAnswer.visibility = View.VISIBLE
-        textViewWrongAnswer.visibility = View.VISIBLE
-        editext_answer.text?.clear()
+        titleCorrectAnswer.visibility = View.VISIBLE
+        titleWrongAnswer.visibility = View.VISIBLE
+        edtAnswer.text?.clear()
         textHelper.text = getString(R.string.text_helper_rewrite_correct_answer)
-        txt_answer.text = correctAnswer
-        txt_wrong_answer.text = userAnswer
+        tvAnswer.text = correctAnswer
+        tvWrongAnswer.text = userAnswer
     }
 }

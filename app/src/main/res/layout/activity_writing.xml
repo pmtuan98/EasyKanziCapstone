@@ -35,7 +35,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginEnd="30dp"
             android:max="100"
-            android:progressDrawable="@drawable/custom_progress_bar" />
+            android:progressDrawable="@drawable/custom_progress_bar_flashcard" />
 
         <ImageButton
             android:id="@+id/switchOption"
@@ -61,7 +61,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/circularstdbold"
-            android:text="10"
             android:textSize="18sp" />
 
         <TextView
@@ -76,7 +75,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/circularstdbold"
-            android:text="10"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -89,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearlayout">
 
         <TextView
-            android:id="@+id/txt_kanji_question"
+            android:id="@+id/tvKanjiQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="18dp"
@@ -184,7 +182,7 @@
             android:src="@drawable/ic_next_2"
             app:layout_constraintBottom_toTopOf="@id/textHelper"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/editext_answer" />
+            app:layout_constraintStart_toEndOf="@id/edtAnswer" />
 
         <TextView
             android:id="@+id/textHelper"
@@ -194,10 +192,10 @@
             android:textColor="@android:color/holo_blue_dark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editext_answer" />
+            app:layout_constraintTop_toBottomOf="@id/edtAnswer" />
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editext_answer"
+            android:id="@+id/edtAnswer"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
