@@ -2,6 +2,8 @@ package com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -48,6 +50,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         val dialog = Dialog(this)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         dialog.setCancelable(false)
+        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_complete_multiplechoice)
         val buttonAgain= dialog.findViewById(R.id.btnLearnAgain) as Button
         val buttonLearnWriting = dialog.findViewById(R.id.btnLearnWriting) as Button

@@ -4,6 +4,8 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -68,6 +70,7 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
     private fun showSettingDialog() {
         val dialog = Dialog(this)
         dialog.setCancelable(true)
+        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_setting_writing)
         val buttonSave= dialog.findViewById(R.id.buttonSaveWritingMode) as TextView
         val radioHira = dialog.findViewById(R.id.radioHira) as RadioButton
@@ -100,6 +103,7 @@ class WritingActivity : AppCompatActivity(), LearnContract.View {
     private fun showCompleteDialog () {
         val dialog = Dialog(this)
         dialog.setCancelable(false)
+        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_complete_writing)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         val buttonAgain= dialog.findViewById(R.id.btnLearnAgain) as Button
