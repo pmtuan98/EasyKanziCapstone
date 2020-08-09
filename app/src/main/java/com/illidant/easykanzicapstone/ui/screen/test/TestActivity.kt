@@ -1,13 +1,9 @@
 package com.illidant.easykanzicapstone.ui.screen.test
 
-import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -17,10 +13,6 @@ import com.illidant.easykanzicapstone.platform.source.remote.QuizRemoteDataSourc
 import com.illidant.easykanzicapstone.platform.source.remote.TestRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
-import com.illidant.easykanzicapstone.ui.screen.test.show_answer.AnswerTestActivity
-import com.illidant.easykanzicapstone.ui.screen.test.show_answer.AnswerTestAdapter
-import kotlinx.android.synthetic.main.activity_answer_test.*
-import kotlinx.android.synthetic.main.activity_search.*
 import kotlinx.android.synthetic.main.activity_test.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -83,10 +75,28 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
 
     override fun getQuizByLevelID(listQuiz: List<Quiz>) {
         listRandomQuiz = listQuiz.shuffled().take(30)
-
         displayTestScreen()
-        nextQuestion()
         checkCorrectAnswer()
+    }
+
+    private fun displayTestScreen() {
+        //set progress bar
+        progressBarMultiple.max = listRandomQuiz.size
+        progressBarMultiple.progress = currentPosition+1
+
+        //Display total question
+        tvTotalQuestion.text = listRandomQuiz.size.toString()
+        tvQuestionNo.text = (currentPosition+1).toString()
+
+        // Display question
+        tvQuestion.text = listRandomQuiz[currentPosition].question
+
+        // Display answer
+        tvAnswerA.text = listRandomQuiz[currentPosition].answerA
+        tvAnswerB.text = listRandomQuiz[currentPosition].answerB
+        tvAnswerC.text = listRandomQuiz[currentPosition].answerC
+        tvAnswerD.text = listRandomQuiz[currentPosition].answerD
+        correctAnswer = listRandomQuiz[currentPosition].correctAnswer
     }
     private fun checkCorrectAnswer() {
         btnAnswerA?.setOnClickListener {
@@ -124,25 +134,6 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         tvQuestionNo.text = (currentPosition + 1).toString()
         progressBarMultiple.progress = currentPosition + 1
         tvQuestion.text = listRandomQuiz[currentPosition].question
-        tvAnswerA.text = listRandomQuiz[currentPosition].answerA
-        tvAnswerB.text = listRandomQuiz[currentPosition].answerB
-        tvAnswerC.text = listRandomQuiz[currentPosition].answerC
-        tvAnswerD.text = listRandomQuiz[currentPosition].answerD
-        correctAnswer = listRandomQuiz[currentPosition].correctAnswer
-    }
-    private fun displayTestScreen() {
-        //set progress bar
-        progressBarMultiple.max = listRandomQuiz.size
-        progressBarMultiple.progress = currentPosition+1
-
-        //Display total question
-        tvTotalQuestion.text = listRandomQuiz.size.toString()
-        tvQuestionNo.text = (currentPosition + 1).toString()
-
-        // Display question
-        tvQuestion.text = listRandomQuiz[currentPosition].question
-
-        // Display answer
         tvAnswerA.text = listRandomQuiz[currentPosition].answerA
         tvAnswerB.text = listRandomQuiz[currentPosition].answerB
         tvAnswerC.text = listRandomQuiz[currentPosition].answerC

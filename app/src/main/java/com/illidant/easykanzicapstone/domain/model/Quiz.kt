@@ -19,3 +19,9 @@ data class Quiz(
     @SerializedName("correctAnswer")
     val correctAnswer: String
 ) : Parcelable
+
+@Parcelize
+data class ResultQuiz(
+    val quiz: Quiz,
+    val selectedAnswer: String
+): Parcelable

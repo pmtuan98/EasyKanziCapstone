@@ -50,7 +50,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
-                android:text="10"
                 android:textSize="16sp" />
 
             <TextView
@@ -65,7 +64,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
-                android:text="10"
                 android:textSize="16sp" />
         </LinearLayout>
 

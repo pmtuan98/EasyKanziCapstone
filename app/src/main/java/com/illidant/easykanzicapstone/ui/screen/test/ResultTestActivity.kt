@@ -29,7 +29,6 @@ class ResultTestActivity : AppCompatActivity() {
         totalCorrect = intent.getIntExtra("TOTAL_CORRECT", 0)
         showTestResult()
         navigateToShowAnwer()
-
     }
 
     private fun showTestResult(){
