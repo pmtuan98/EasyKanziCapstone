@@ -18,10 +18,12 @@ import java.util.*
 class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
     lateinit var mTTS: TextToSpeech
     private lateinit var kanji:String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kanji_detail)
         initialize()
+
         speak.setOnClickListener{
             speak()
         }
@@ -38,6 +40,10 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         var kanji_id = intent.getIntExtra("KANJI_ID",0)
         presenter.kanjiByIDRequest(kanji_id)
         learnVocabByKanji()
+        setUpSpeaker()
+
+    }
+    private fun setUpSpeaker() {
         mTTS = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
             if (status != TextToSpeech.ERROR){
                 //if there is no error then set language
@@ -48,7 +54,6 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         mTTS.setPitch(0.75f)
         // set speed of speak
         mTTS.setSpeechRate(0.75f)
-
     }
 
     override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {

@@ -50,7 +50,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
-                android:text="10"
                 android:textSize="16sp" />
 
             <TextView
@@ -65,7 +64,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
-                android:text="10"
                 android:textSize="16sp" />
         </LinearLayout>
 
@@ -116,6 +114,33 @@
     </com.wajahatkarim3.easyflipview.EasyFlipView>
 
     <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_below="@id/flashCard"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flash_card">
+
+        <ImageButton
+            android:id="@+id/btnYes"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:background="@drawable/bg_button_writing" />
+
+        <ImageButton
+            android:id="@+id/btnNo"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/bg_button_writing"
+            />
+    </LinearLayout>
+    <LinearLayout
         android:id="@+id/linearLayout4"
         android:layout_width="300dp"
         android:layout_height="70dp"
@@ -152,27 +177,6 @@
             android:adjustViewBounds="true"
             android:background="@drawable/bg_button_writing"
             android:src="@drawable/ic_arrow_next" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout4">
-
-        <Button
-            android:id="@+id/btnYes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Yes" />
-
-        <Button
-            android:id="@+id/btnNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="No" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

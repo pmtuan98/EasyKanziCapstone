@@ -22,7 +22,7 @@
         >
 
         <TextView
-            android:id="@+id/idQuestion"
+            android:id="@+id/tvStt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="0."
@@ -30,13 +30,14 @@
             android:textSize="20sp"/>
 
         <TextView
-            android:id="@+id/txtQuestion"
+            android:id="@+id/tvQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="aaaaaaaaa"
             android:layout_marginStart="10dp"
             android:fontFamily="@font/circularstdbold"
-            android:textSize="20sp"/>
+            android:text="aaaaaaaaa"
+            android:textColor="#000000"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -61,7 +62,7 @@
                 android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/txtAnswerA"
+                android:id="@+id/tvAnswerA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="aaaaaaaaa"
@@ -80,7 +81,7 @@
                 android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/txtAnswerB"
+                android:id="@+id/tvAnswerB"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="aaaaaaaaa"
@@ -111,7 +112,7 @@
                 android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/txtAnswerC"
+                android:id="@+id/tvAnswerC"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="aaaaaaaaa"
@@ -130,7 +131,7 @@
                 android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/txtAnswerD"
+                android:id="@+id/tvAnswerD"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="aaaaaaaaa"

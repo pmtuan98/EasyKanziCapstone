@@ -34,7 +34,6 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
     }
 
     private fun searchKanji() {
-
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
                 val searchRequest = SearchRequest("$newText")
@@ -60,11 +59,9 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
 
     private fun configViews() {
         //set bottom navigation bar
-        val bottomNavigationView =
-            findViewById<BottomNavigationView>(R.id.bottomNavBar)
+        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavBar)
         //set home selected
-        bottomNavigationView.selectedItemId =
-            R.id.search
+        bottomNavigationView.selectedItemId = R.id.search
 
         //Perform ItemSelectedListener
         bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->

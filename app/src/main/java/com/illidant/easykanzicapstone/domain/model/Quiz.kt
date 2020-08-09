@@ -1,8 +1,11 @@
 package com.illidant.easykanzicapstone.domain.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
-data class Quiz (
+@Parcelize
+data class Quiz(
     @SerializedName("question")
     val question: String,
     @SerializedName("answerA")
@@ -15,4 +18,10 @@ data class Quiz (
     val answerD: String,
     @SerializedName("correctAnswer")
     val correctAnswer: String
-)
+) : Parcelable
+
+@Parcelize
+data class ResultQuiz(
+    val quiz: Quiz,
+    val selectedAnswer: String
+): Parcelable

@@ -1,61 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_app01">
-
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:src="@drawable/logo_text_image"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textview01"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="You need to try harder"
-        android:textColor="@android:color/black"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/logo" />
-
-
-    <LinearLayout
-        android:id="@+id/text_welcome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview01">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/background_image2"
-            android:text="You have completed the test "
-            android:textSize="@dimen/sp_16" />
-
-        <TextView
-            android:id="@+id/tvLevel"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="JPD111"
-            android:textColor="#C0392D"
-            android:textSize="@dimen/sp_16"
-            android:textStyle="bold" />
-    </LinearLayout>
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_dialog">
 
     <LinearLayout
         android:id="@+id/linearlayout"
@@ -63,19 +12,17 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_welcome">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/result_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptsans_bold"
-            android:textColor="@android:color/black"
             android:text="Result:  "
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <TextView
@@ -83,6 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptsans_bold"
+            android:text="10"
             android:textColor="@android:color/black"
             android:textSize="22sp" />
 
@@ -99,11 +47,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptsans_bold"
+            android:text="10"
             android:textColor="@android:color/black"
             android:textSize="22sp" />
     </LinearLayout>
-
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_text"
@@ -113,10 +60,9 @@
         app:contentPaddingBottom="15dp"
         app:contentPaddingLeft="15dp"
         app:contentPaddingRight="15dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout" >
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -127,25 +73,26 @@
 
 
             <LinearLayout
-                android:layout_marginTop="@dimen/dp_20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_20"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="The right rate"
-                    android:textSize="18sp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvCorrectRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/ptsans_regular"
                     android:layout_marginStart="150dp"
+                    android:fontFamily="@font/ptsans_regular"
+                    android:text="20%"
                     android:textColor="#000000"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -159,9 +106,9 @@
                 android:progressDrawable="@drawable/custom_progress_bar" />
 
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -176,36 +123,4 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/btnShowAnswer"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="271dp"
-        android:background="@drawable/bg_button_writing2"
-        android:fontFamily="@font/ptsans_bold"
-        android:text="Show answers"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardview_text" />
-
-    <Button
-        android:id="@+id/btnDoAgain"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_button_writing2"
-        android:fontFamily="@font/ptsans_bold"
-        android:text="Do again"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.945"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardview_text" />
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
