@@ -200,7 +200,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
         errDialog.contentText = message
         if(message.isEmpty()){
-            errDialog.contentText = "Email or password is not correct"
+            errDialog.contentText = "Password is not correct"
         }
         errDialog.show()
     }
