@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textview01"
+        android:id="@+id/tvResultAbove"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="You need to try harder"
@@ -49,7 +49,7 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview01">
+        app:layout_constraintTop_toBottomOf="@+id/tvResultAbove">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -190,6 +190,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/tvResultBottom"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
