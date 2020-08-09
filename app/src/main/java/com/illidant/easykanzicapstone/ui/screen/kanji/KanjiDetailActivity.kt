@@ -68,7 +68,7 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         tvKanjiKunyomi.text = kanjiAttribute.kunyomi
         tvOnFurigana.text = kanjiAttribute.on_furigana
         tvKunFurigana.text = kanjiAttribute.kun_furigana
-        kanji = kanjiAttribute.onyomi
+        kanji = kanjiAttribute.kunyomi
         stringStroke = kanjiAttribute.image
         handleKanjiStroke(stringStroke)
     }
