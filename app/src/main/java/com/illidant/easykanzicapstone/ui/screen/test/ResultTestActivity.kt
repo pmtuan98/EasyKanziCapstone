@@ -40,10 +40,15 @@ class ResultTestActivity : AppCompatActivity() {
         resultProgressbar.progress = totalCorrect
         if(rate <=50) {
             resultProgressbar.progressDrawable = ContextCompat.getDrawable(this, R.drawable.custom_progressbar_low)
-        }else if (rate > 30 && rate < 70) {
+        }else if (rate > 50 && rate < 80) {
             resultProgressbar.progressDrawable = ContextCompat.getDrawable(this, R.drawable.custom_progressbar_mid)
-        } else {
+            tvResultBottom.text= "Quite good!!"
+        } else if(rate >= 80 && rate < 100){
             resultProgressbar.progressDrawable = ContextCompat.getDrawable(this, R.drawable.custom_progressbar_high)
+            tvResultBottom.text= "Good!!"
+        } else {
+            tvResultAbove.text = "Congratulations! You've reached the highest score"
+            tvResultBottom.text= "Excellent"
         }
     }
     private fun navigateToShowAnwer() {
