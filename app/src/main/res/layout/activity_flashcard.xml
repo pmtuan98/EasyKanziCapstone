@@ -27,22 +27,21 @@
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
-        android:layout_marginTop="14dp"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/btnExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_baseline_clear_24" />
+            android:background="@drawable/ic_back2" />
 
         <LinearLayout
             android:id="@+id/linearlayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginStart="130dp"
-            android:layout_marginEnd="130dp"
+            android:layout_marginStart="110dp"
+            android:layout_marginEnd="150dp"
             android:layout_gravity="center">
 
             <TextView
@@ -66,14 +65,6 @@
                 android:fontFamily="@font/ptsans_bold"
                 android:textSize="16sp" />
         </LinearLayout>
-
-        <ImageButton
-            android:id="@+id/btnOption"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_setting"
-            android:visibility="invisible"/>
-
     </LinearLayout>
 
 
@@ -96,7 +87,6 @@
         android:id="@+id/flashCard"
         android:layout_width="300dp"
         android:layout_height="400dp"
-        android:layout_marginTop="20dp"
         app:flipDuration="300"
         app:flipEnabled="true"
         app:flipFrom="right"
@@ -104,7 +94,8 @@
         app:flipType="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/progressBarFlashcard">
+        app:layout_constraintBottom_toTopOf="@+id/linearVolumn"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarFlashcard">
 
         <include layout="@layout/flashcard_layout_back"
             android:id="@+id/layoutBack"/>
@@ -114,6 +105,7 @@
     </com.wajahatkarim3.easyflipview.EasyFlipView>
 
     <LinearLayout
+        android:id="@+id/linearVolumn"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_below="@id/flashCard"

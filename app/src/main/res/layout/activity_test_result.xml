@@ -8,16 +8,6 @@
     android:background="@drawable/bg_app01">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/ic_baseline_arrow_back_ios_24"
-        app:layout_constraintEnd_toStartOf="@+id/logo"
-        app:layout_constraintHorizontal_bias="0.31"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
         android:id="@+id/logo"
         android:layout_width="200dp"
         android:layout_height="200dp"
@@ -72,9 +62,9 @@
         android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.12"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,8 +75,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/ptsans_bold"
-            android:textColor="@android:color/black"
             android:text="Result:  "
+            android:textColor="@android:color/black"
             android:textSize="24sp" />
 
         <TextView
@@ -116,19 +106,17 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:src="@drawable/ic_timer"
-            android:layout_marginStart="120dp"/>
+            android:layout_marginStart="120dp"
+            android:src="@drawable/ic_timer" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10m 0s"
             android:fontFamily="@font/circularstdbook"
-            android:textSize="18sp"
-            android:textColor="#000000" />
+            android:text="10m 0s"
+            android:textColor="#000000"
+            android:textSize="18sp" />
     </LinearLayout>
-
-
 
 
     <androidx.cardview.widget.CardView
@@ -139,10 +127,9 @@
         app:contentPaddingBottom="15dp"
         app:contentPaddingLeft="15dp"
         app:contentPaddingRight="15dp"
-        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearlayout" >
+        app:layout_constraintTop_toBottomOf="@+id/linearlayout">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -153,25 +140,25 @@
 
 
             <LinearLayout
-                android:layout_marginTop="@dimen/dp_20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_20"
                 android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="The right rate"
-                    android:textSize="18sp"
-                    android:textColor="#000000" />
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvCorrectRate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/ptsans_regular"
                     android:layout_marginStart="150dp"
+                    android:fontFamily="@font/ptsans_regular"
                     android:textColor="#000000"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -185,9 +172,9 @@
                 android:progressDrawable="@drawable/custom_progress_bar" />
 
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
 
                 <TextView
                     android:id="@+id/tvResultBottom"

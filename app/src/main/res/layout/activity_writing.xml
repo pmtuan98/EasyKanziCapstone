@@ -24,23 +24,25 @@
             android:id="@+id/buttonExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_baseline_clear_24" />
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_back" />
 
         <ProgressBar
             android:id="@+id/progressBarWriting"
             style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-            android:layout_width="250dp"
+            android:layout_width="240dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="5dp"
-            android:layout_marginEnd="30dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
             android:max="100"
-            android:progressDrawable="@drawable/custom_progress_bar_flashcard" />
+            android:progressDrawable="@drawable/custom_progress_bar" />
 
         <ImageButton
             android:id="@+id/switchOption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:background="@drawable/ic_setting" />
     </LinearLayout>
 
@@ -51,10 +53,9 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@id/linearlayout4"
+        app:layout_constraintTop_toBottomOf="@id/text_learn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textLearn">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TextView
             android:id="@+id/tvQuestionNo"

@@ -23,21 +23,23 @@
         android:id="@+id/cardviewText"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
         app:cardCornerRadius="30dp"
         app:contentPaddingBottom="15dp"
         app:contentPaddingLeft="15dp"
         app:contentPaddingRight="15dp"
         app:contentPaddingTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/backgroundImage2" >
+        app:layout_constraintTop_toBottomOf="@+id/backgroundImage2">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:orientation="vertical">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -48,17 +50,17 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/circularstdbold"
                     android:text="Test level : "
                     android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:fontFamily="@font/circularstdbold" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvTestLevel"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:text="JPD111"
                     android:fontFamily="@font/circularstdbold"
+                    android:text="JPD111"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold" />
@@ -67,47 +69,50 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/circularstdbook"
                 android:text="Question: From marked answer 1 2 3 4, choose the best answer for the meaning of the Kanji in Hiragana"
-                android:textSize="20sp"
-                android:fontFamily="@font/circularstdbook"/>
+                android:textSize="20sp" />
+
             <LinearLayout
-                android:layout_marginTop="@dimen/dp_20"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="@dimen/dp_20"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_timer"/>
+                    android:src="@drawable/ic_timer" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="10m 0s"
                     android:fontFamily="@font/circularstdbook"
-                    android:textSize="18sp"
-                    android:textColor="#000000" />
+                    android:text="10m 0s"
+                    android:textColor="#000000"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/textView4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="110dp"
                     android:fontFamily="@font/circularstdbook"
                     android:text="30 questions"
-                    android:layout_marginStart="110dp"
                     android:textColor="#000000"
                     android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
                 <ImageView
                     android:layout_width="@dimen/dp_30"
                     android:layout_height="@dimen/dp_30"
-                    android:src="@drawable/ic_cup"/>
+                    android:src="@drawable/ic_cup" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -128,13 +133,13 @@
         android:id="@+id/btnStart"
         android:layout_width="174dp"
         android:layout_height="50dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_custom"
         android:fontFamily="@font/ptsans_bold"
         android:text="START NOW"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardviewText" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

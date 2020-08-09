@@ -27,9 +27,8 @@
             android:id="@+id/btnExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="10dp"
-            android:background="@drawable/ic_baseline_clear_24_2" />
+            android:layout_gravity="center"
+            android:background="@drawable/ic_back2" />
 
 
         <LinearLayout
@@ -104,12 +103,12 @@
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="10dp"
         android:max="100"
         android:progressDrawable="@drawable/custom_progress_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtTimeTest"/>
+        app:layout_constraintTop_toBottomOf="@+id/edtTimeTest" />
 
     <TextView
         android:id="@+id/tvQuestion"

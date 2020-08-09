@@ -16,16 +16,27 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageButton
+        android:id="@+id/btnExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_back"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/learnMethod"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
     <TextView
         android:id="@+id/tvLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:fontFamily="@font/ptsans_bold"
         android:text="JPD111"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/learnMethod"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btnExit"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
