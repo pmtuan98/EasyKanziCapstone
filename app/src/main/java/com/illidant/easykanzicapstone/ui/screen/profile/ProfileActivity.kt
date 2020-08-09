@@ -4,6 +4,8 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
@@ -75,6 +77,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
             val username = prefs.getString("userName", null)
             val dialogChangePass = Dialog(this)
             dialogChangePass.setCancelable(true)
+            dialogChangePass.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             dialogChangePass.setContentView(R.layout.dialog_change_password)
             val buttonSave= dialogChangePass.findViewById(R.id.btnSave) as TextView
             val textEmail = dialogChangePass.findViewById(R.id.tvEmail) as TextView

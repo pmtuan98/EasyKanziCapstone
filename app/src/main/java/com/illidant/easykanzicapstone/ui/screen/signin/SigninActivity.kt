@@ -4,6 +4,8 @@ import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Patterns
@@ -106,6 +108,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         tvForgotPassword.setOnClickListener {
             val dialogForgotPass = Dialog(this)
             dialogForgotPass.setCancelable(true)
+            dialogForgotPass.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             dialogForgotPass.setContentView(R.layout.dialog_forgot_password)
             val buttonOK= dialogForgotPass.findViewById(R.id.btnOK) as TextView
             val editEmailForgot = dialogForgotPass.findViewById(R.id.edtEmailForgot) as EditText
@@ -143,6 +146,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
     }
     private fun showResetPassDialog(){
         val dialogResetPass = Dialog(this)
+        dialogResetPass.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialogResetPass.setContentView(R.layout.dialog_reset_password)
         val buttonOK= dialogResetPass.findViewById(R.id.btnResetOK) as TextView
         val emailForgot = dialogResetPass.findViewById(R.id.tvEmailForgot) as TextView

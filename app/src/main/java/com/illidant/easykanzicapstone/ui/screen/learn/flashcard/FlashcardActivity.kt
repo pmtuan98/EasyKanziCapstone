@@ -2,6 +2,8 @@ package com.illidant.easykanzicapstone.ui.screen.learn.flashcard
 
 import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -180,6 +182,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         val dialog = Dialog(this)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         dialog.setCancelable(false)
+        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_complete_flashcard)
         val buttonAgain= dialog.findViewById(R.id.btnLearnAgain) as Button
         val buttonLearnWriting = dialog.findViewById(R.id.btnLearnWriting) as Button
