@@ -10,6 +10,7 @@
     android:layout_height="145dp"
     android:layout_margin="5dp"
     app:cardCornerRadius="@dimen/dp_5"
+    android:elevation="20dp"
     tools:context=".ui.screen.kanji.KanjiByLevelActivity">
 
     <LinearLayout

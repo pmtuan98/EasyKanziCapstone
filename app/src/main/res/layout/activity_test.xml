@@ -262,6 +262,7 @@
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
+            android:elevation="10dp"
             android:text="1"
             android:fontFamily="@font/circularstdbook"
             android:textSize="20sp" />
@@ -272,6 +273,7 @@
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
             android:text="2"
+            android:elevation="10dp"
             android:fontFamily="@font/circularstdbook"
             android:layout_marginLeft="40dp"
             android:textSize="20sp"/>
@@ -281,6 +283,7 @@
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
             android:text="3"
+            android:elevation="10dp"
             android:fontFamily="@font/circularstdbook"
             android:layout_marginLeft="40dp"
             android:textSize="20sp"/>
@@ -290,6 +293,7 @@
             android:layout_height="45dp"
             android:background="@drawable/bg_test_answer2"
             android:text="4"
+            android:elevation="10dp"
             android:fontFamily="@font/circularstdbook"
             android:layout_marginLeft="40dp"
             android:textSize="20sp"/>
