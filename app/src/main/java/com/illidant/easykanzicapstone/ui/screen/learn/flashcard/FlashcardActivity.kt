@@ -174,8 +174,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardHira.text = vocabularyList[counter].hiragana
         tvQuestionNo.text = (counter + 1).toString()
         progressBarFlashcard.progress = counter+1
-        Toast.makeText(this,"${vocabularyList[counter].id}", Toast.LENGTH_LONG).show()
-
     }
 
     private fun saveRemember() {

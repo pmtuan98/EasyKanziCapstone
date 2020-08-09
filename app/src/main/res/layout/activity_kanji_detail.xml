@@ -31,7 +31,7 @@
         android:id="@+id/speak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="100dp"
+        android:layout_marginEnd="64dp"
         android:background="@drawable/bg_button_writing2"
         android:src="@drawable/ic_baseline_volume_up_24"
         app:layout_constraintBottom_toBottomOf="@+id/kanjiStroke"

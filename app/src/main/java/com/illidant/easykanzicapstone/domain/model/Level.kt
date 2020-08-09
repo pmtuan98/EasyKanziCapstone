@@ -7,5 +7,7 @@ data class Level (
     @SerializedName("name")
     val name: String,
     @SerializedName("image")
-    val image: String
+    val image: String,
+    @SerializedName("description")
+    val description: String
 )
