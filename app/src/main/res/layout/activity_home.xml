@@ -43,14 +43,13 @@
                 android:id="@+id/tvUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="abc"
                 android:textSize="@dimen/sp_16"
                 android:textStyle="bold" />
         </LinearLayout>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose level you to start"
+            android:text="Choose your level you to start"
             android:fontFamily="@font/circularstdbook"
             android:layout_gravity="center"
             android:textSize="@dimen/sp_16"/>

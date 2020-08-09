@@ -15,11 +15,13 @@ class EntryTestActivity : AppCompatActivity() {
     }
 
     private fun initialize() {
-        tvTestLevel.text = intent.getStringExtra("LEVEL_NAME")
-        val level_id = intent.getIntExtra("LEVEL_ID", 0)
-        btnStart.setOnClickListener {
+        val levelName = intent.getStringExtra("LEVEL_NAME")
+        val levelId = intent.getIntExtra("LEVEL_ID", 0)
+        tvTestLevel.text = levelName
+            btnStart.setOnClickListener {
             val intent = Intent(it.context, TestActivity::class.java)
-            intent.putExtra("LEVEL_ID", level_id)
+            intent.putExtra("LEVEL_ID", levelId)
+                intent.putExtra("LEVEL_NAME", levelName)
             startActivity(intent)
             finish()
         }
