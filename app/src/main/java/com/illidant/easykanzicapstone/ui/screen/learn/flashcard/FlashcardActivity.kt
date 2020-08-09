@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
@@ -38,6 +39,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     val vocabularyList : MutableList<Vocabulary> = mutableListOf()
     var remember = 0
     var notRemember = 0
+    val notRememberList : MutableList<Vocabulary> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -172,6 +174,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardHira.text = vocabularyList[counter].hiragana
         tvQuestionNo.text = (counter + 1).toString()
         progressBarFlashcard.progress = counter+1
+        Toast.makeText(this,"${vocabularyList[counter].id}", Toast.LENGTH_LONG).show()
 
     }
 
@@ -197,9 +200,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
                 next()
             }else next()
         }
-    }
-    private fun showResultDialog() {
-
     }
 
     private fun showCompleteDialog () {
