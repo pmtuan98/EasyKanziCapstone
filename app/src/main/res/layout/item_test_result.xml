@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayoutQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:id="@+id/idQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0."
+            android:fontFamily="@font/circularstdbold"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/txtQuestion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="aaaaaaaaa"
+            android:layout_marginStart="10dp"
+            android:fontFamily="@font/circularstdbold"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutAnswer1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_below="@id/linearLayoutQuestion"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:gravity="center"
+                android:background="@drawable/bg_test_result_answer"
+                android:fontFamily="@font/circularstdbold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/txtAnswerA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="aaaaaaaaa"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/circularstdbold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:gravity="center"
+                android:background="@drawable/bg_test_result_answer"
+                android:layout_marginStart="80dp"
+                android:fontFamily="@font/circularstdbold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/txtAnswerB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="aaaaaaaaa"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/circularstdbold"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/layoutAnswer2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_below="@id/layoutAnswer1"
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:gravity="center"
+                android:background="@drawable/bg_test_result_answer"
+                android:fontFamily="@font/circularstdbold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/txtAnswerC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="aaaaaaaaa"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/circularstdbold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:gravity="center"
+                android:background="@drawable/bg_test_result_answer"
+                android:layout_marginStart="80dp"
+                android:fontFamily="@font/circularstdbold"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/txtAnswerD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="aaaaaaaaa"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/circularstdbold"
+                android:textSize="18sp"/>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

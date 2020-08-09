@@ -10,6 +10,7 @@
         android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:background="#C0392D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,9 +19,7 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginStart="10dp"
-            android:src="@drawable/ic_arrow_back"/>
+            android:src="@drawable/ic_back" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -28,6 +27,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginStart="80dp"
             android:text="TEST HISTORY"
+            android:textColor="@android:color/white"
             android:fontFamily="@font/ptsans_bold"
             android:textSize="24dp"/>
 
