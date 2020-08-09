@@ -5,7 +5,8 @@
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.screen.home.HomeActivity">
+    tools:context=".ui.screen.home.HomeActivity"
+    android:background="@drawable/bg_app04">
 
 
     <ImageView
