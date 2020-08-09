@@ -28,6 +28,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
     }
 
     override fun onBindViewHolder(homePageView: HomePageView, position: Int) {
+        //homePageView.imgLevel.get(position)
         homePageView.imgLevel.setImageResource(R.drawable.jpd111)
         homePageView.tvLevelName.text = levelList?.get(position)?.name
         homePageView.tvLevelDes.text = levelList?.get(position)?.description
