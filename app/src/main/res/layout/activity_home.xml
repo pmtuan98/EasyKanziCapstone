@@ -54,7 +54,6 @@
             android:fontFamily="@font/circularstdbook"
             android:layout_gravity="center"
             android:textSize="@dimen/sp_16"/>
-
     </LinearLayout>
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavBar"
@@ -73,10 +72,11 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewHome"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/textWelcome"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavBar"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textWelcome" />
 </androidx.constraintlayout.widget.ConstraintLayout>

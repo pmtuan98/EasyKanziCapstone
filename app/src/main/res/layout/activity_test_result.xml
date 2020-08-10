@@ -62,11 +62,11 @@
         android:id="@+id/linearlayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="36dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_welcome">
 
@@ -118,16 +118,17 @@
             android:textSize="18sp" />
     </LinearLayout>
 
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview_text"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
         app:cardCornerRadius="20dp"
         app:contentPaddingBottom="15dp"
         app:contentPaddingLeft="15dp"
         app:contentPaddingRight="15dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearlayout">
 
@@ -195,16 +196,14 @@
         android:id="@+id/btnShowAnswer"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
         android:background="@drawable/bg_button_writing2"
         android:fontFamily="@font/ptsans_bold"
         android:text="Show answers"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardview_text" />
-
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
