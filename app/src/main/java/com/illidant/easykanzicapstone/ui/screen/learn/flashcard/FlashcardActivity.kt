@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
@@ -27,8 +28,10 @@ import kotlinx.android.synthetic.main.activity_flashcard.layoutBack
 import kotlinx.android.synthetic.main.activity_flashcard.progressBarFlashcard
 import kotlinx.android.synthetic.main.activity_flashcard.tvQuestionNo
 import kotlinx.android.synthetic.main.activity_flashcard.tvTotalQuestion
+import kotlinx.android.synthetic.main.activity_kanji_detail.*
 import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
+import java.util.*
 
 
 class FlashcardActivity : AppCompatActivity(), LearnContract.View {
@@ -40,6 +43,8 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     var remember = 0
     var notRemember = 0
     val notRememberList : MutableList<Vocabulary> = mutableListOf()
+    lateinit var mTTS: TextToSpeech
+    private lateinit var textHiragana:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -48,12 +53,15 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
 
     }
     private fun initialize() {
-
         //Learn flashcard by lesson
         val lessonId = intent.getIntExtra("LESSON_ID", 0)
         presenter.vocabByLessonRequest(lessonId)
         swipeFlashcard()
-        saveRemember()
+        configViews()
+        setUpSpeaker()
+    }
+
+    private fun configViews() {
         btnRestart.setOnClickListener {
             val intent = intent
             finish()
@@ -62,7 +70,26 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         btnExit.setOnClickListener {
             finish()
         }
-}
+        btnSpeak.setOnClickListener{
+            speak()
+        }
+    }
+
+    private fun speak(){
+        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null)
+    }
+    private fun setUpSpeaker() {
+        mTTS = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
+            if (status != TextToSpeech.ERROR){
+                //if there is no error then set language
+                mTTS.language = Locale.JAPANESE
+            }
+        })
+        // set pitch
+        mTTS.setPitch(1f)
+        // set speed of speak
+        mTTS.setSpeechRate(1f)
+    }
 
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
@@ -101,7 +128,8 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
             }
         })
     }
-    fun checkNextBackButton(counter : Int) {
+
+    private fun checkNextBackButton(counter : Int) {
         if(counter == 0) {
             btnBack.isEnabled = false
         }else if (counter == vocabularyList.size){
@@ -118,6 +146,8 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardKanji.text = vocabularyList[counter].kanji_vocab
         flashcardHira.text =  vocabularyList[counter].hiragana
         flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
+        //Setup for speaker
+        textHiragana = vocabularyList[counter].hiragana
 
         //Display total question
         tvTotalQuestion.text = vocabularyList.size.toString()
@@ -159,6 +189,8 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardHira.text = vocabularyList[counter].hiragana
         tvQuestionNo.text = (counter + 1).toString()
         progressBarFlashcard.progress = counter+1
+        //Setup for speaker
+        textHiragana = vocabularyList[counter].hiragana
 
     }
 
@@ -174,31 +206,33 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardHira.text = vocabularyList[counter].hiragana
         tvQuestionNo.text = (counter + 1).toString()
         progressBarFlashcard.progress = counter+1
+        //Setup for speaker
+        textHiragana = vocabularyList[counter].hiragana
     }
 
-    private fun saveRemember() {
-        btnYes.setOnClickListener {
-            btnNext.isEnabled = false
-            btnBack.isEnabled = false
-            remember += + 1
-            if(flashCard.isBackSide) {
-                flashCard.flipTheView(true)
-                layoutBack.visibility = View.GONE
-                next()
-            }else next()
-        }
-        btnNo.setOnClickListener {
-            next()
-            btnNext.isEnabled = false
-            btnBack.isEnabled = false
-            notRemember += 1
-            if(flashCard.isBackSide) {
-                flashCard.flipTheView(true)
-                layoutBack.visibility = View.GONE
-                next()
-            }else next()
-        }
-    }
+//    private fun saveRemember() {
+//        btnYes.setOnClickListener {
+//            btnNext.isEnabled = false
+//            btnBack.isEnabled = false
+//            remember += + 1
+//            if(flashCard.isBackSide) {
+//                flashCard.flipTheView(true)
+//                layoutBack.visibility = View.GONE
+//                next()
+//            }else next()
+//        }
+//        btnNo.setOnClickListener {
+//            next()
+//            btnNext.isEnabled = false
+//            btnBack.isEnabled = false
+//            notRemember += 1
+//            if(flashCard.isBackSide) {
+//                flashCard.flipTheView(true)
+//                layoutBack.visibility = View.GONE
+//                next()
+//            }else next()
+//        }
+//    }
 
     private fun showCompleteDialog () {
         val dialog = Dialog(this)

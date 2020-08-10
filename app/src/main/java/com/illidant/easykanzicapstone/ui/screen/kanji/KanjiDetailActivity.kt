@@ -16,17 +16,11 @@ import kotlinx.android.synthetic.main.activity_kanji_detail.*
 import java.util.*
 
 class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
-    lateinit var mTTS: TextToSpeech
-    private lateinit var kanji:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kanji_detail)
         initialize()
-
-        speak.setOnClickListener{
-            speak()
-        }
     }
 
     private val presenter by lazy {
@@ -40,21 +34,8 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         var kanji_id = intent.getIntExtra("KANJI_ID",0)
         presenter.kanjiByIDRequest(kanji_id)
         learnVocabByKanji()
-        setUpSpeaker()
+    }
 
-    }
-    private fun setUpSpeaker() {
-        mTTS = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
-            if (status != TextToSpeech.ERROR){
-                //if there is no error then set language
-                mTTS.language = Locale.JAPANESE
-            }
-        })
-        // set pitch
-        mTTS.setPitch(0.75f)
-        // set speed of speak
-        mTTS.setSpeechRate(0.75f)
-    }
 
     override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {
        //Not use
@@ -68,7 +49,6 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         tvKanjiKunyomi.text = kanjiAttribute.kunyomi
         tvOnFurigana.text = kanjiAttribute.on_furigana
         tvKunFurigana.text = kanjiAttribute.kun_furigana
-        kanji = kanjiAttribute.kunyomi
         stringStroke = kanjiAttribute.image
         handleKanjiStroke(stringStroke)
     }
@@ -99,8 +79,4 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         recyclerViewVocab.layoutManager = GridLayoutManager(this, 1)
         recyclerViewVocab.adapter = KanjiDetailAdapter(listVocab, this)
     }
-    private fun speak(){
-        mTTS.speak(kanji, TextToSpeech.QUEUE_FLUSH, null)
-    }
-
 }
