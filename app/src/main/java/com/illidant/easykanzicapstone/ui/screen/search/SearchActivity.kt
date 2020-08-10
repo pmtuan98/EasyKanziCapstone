@@ -38,14 +38,21 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
             override fun onQueryTextChange(newText: String): Boolean {
                 val searchRequest = SearchRequest("$newText")
                 searchPresenter.searchKanji(searchRequest)
+
                 if(newText.trim().isEmpty()){
-                    notFoundImage.visibility = View.INVISIBLE
                     recyclerViewSearch.visibility = View.INVISIBLE
+                    //Not found
+                    notFoundImage.visibility = View.INVISIBLE
+                    tvNotFound.visibility = View.INVISIBLE
+                    //Found
                     searchImage.visibility = View.VISIBLE
+                    tvSearching.visibility = View.VISIBLE
 
                 }else {
-                    searchImage.visibility = View.INVISIBLE
                     recyclerViewSearch.visibility = View.VISIBLE
+
+                    searchImage.visibility = View.INVISIBLE
+                    tvSearching.visibility = View.INVISIBLE
                 }
 
                 return false
@@ -100,10 +107,13 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
     override fun onSearchResult(listSearch: List<KanjiES>) {
         recyclerViewSearch!!.layoutManager = GridLayoutManager(this, 1)
         recyclerViewSearch!!.adapter = SearchAdapter(listSearch,this)
+
         if(listSearch.isEmpty()){
             notFoundImage.visibility = View.VISIBLE
+            tvNotFound.visibility = View.VISIBLE
         }else {
             notFoundImage.visibility = View.INVISIBLE
+            tvNotFound.visibility = View.INVISIBLE
         }
 
     }
