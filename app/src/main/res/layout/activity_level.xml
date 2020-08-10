@@ -22,17 +22,15 @@
         android:id="@+id/btnLearn"
         android:layout_width="@dimen/dp_90"
         android:layout_height="@dimen/dp_40"
-        android:layout_marginStart="38dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginEnd="10dp"
         android:layout_toRightOf="@+id/tvLevel"
-        android:textColor="@android:color/white"
         android:background="@drawable/btn_custom"
-        android:text="LEARN"
-        android:textSize="@dimen/dp_20"
         android:fontFamily="@font/circularstdbold"
+        android:text="LEARN"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/dp_20"
         app:layout_constraintEnd_toStartOf="@+id/btnTest"
-        app:layout_constraintStart_toEndOf="@+id/tvLevel"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
