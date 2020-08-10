@@ -2,6 +2,7 @@ package com.illidant.easykanzicapstone.ui.screen.learn.flashcard
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.view.MotionEvent
 import android.view.View
 import com.illidant.easykanzicapstone.R
@@ -14,6 +15,7 @@ import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
 import kotlinx.android.synthetic.main.activity_kanji_flashcard.*
 import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
+import java.util.*
 
 class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     private var x1 = 0f
@@ -21,6 +23,8 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     val MIN_DISTANCE = 150
     var counter = 0
     val vocabularyList : MutableList<Vocabulary> = mutableListOf()
+    lateinit var mTTS: TextToSpeech
+    private lateinit var textHiragana:String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +37,11 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         presenter.vocabByKanjiIDRequest(kanjiId)
 
         swipeFlashcard()
+        configViews()
+        setUpSpeaker()
+    }
 
+    private fun configViews() {
         btnRestart.setOnClickListener {
             val intent = intent
             finish()
@@ -42,7 +50,24 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         btnExit.setOnClickListener {
             finish()
         }
-
+        btnSpeak.setOnClickListener{
+            speak()
+        }
+    }
+    private fun speak(){
+        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null)
+    }
+    private fun setUpSpeaker() {
+        mTTS = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
+            if (status != TextToSpeech.ERROR){
+                //if there is no error then set language
+                mTTS.language = Locale.JAPANESE
+            }
+        })
+        // set pitch
+        mTTS.setPitch(0.8f)
+        // set speed of speak
+        mTTS.setSpeechRate(0.8f)
     }
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
@@ -100,6 +125,8 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardKanji.text = vocabularyList[counter].kanji_vocab
         flashcardHira.text = vocabularyList[counter].hiragana
         flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
+        //Setup for speaker
+        textHiragana = vocabularyList[counter].hiragana
 
         //Display total question
         tvTotalQuestion.text = vocabularyList.size.toString()
@@ -140,6 +167,8 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardHira.text = vocabularyList[counter].hiragana
         tvQuestionNo.text = (counter + 1).toString()
         progressBarFlashcard.progress = counter+1
+        //Setup for speaker
+        textHiragana = vocabularyList[counter].hiragana
 
     }
     private fun next() {
@@ -153,6 +182,8 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardHira.text = vocabularyList[counter].hiragana
         tvQuestionNo.text = (counter + 1).toString()
         progressBarFlashcard.progress = counter+1
+        //Setup for speaker
+        textHiragana = vocabularyList[counter].hiragana
 
     }
 
