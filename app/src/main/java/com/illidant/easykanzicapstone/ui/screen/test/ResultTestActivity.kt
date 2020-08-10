@@ -14,8 +14,10 @@ import kotlinx.android.synthetic.main.activity_answer_test.*
 import kotlinx.android.synthetic.main.activity_test_result.*
 
 class ResultTestActivity : AppCompatActivity() {
-    var totalQuestion = 0
-    var totalCorrect = 0
+    private var totalQuestion = 0
+    private var totalCorrect = 0
+    private var takenMinutes: String = ""
+    private var takenSeconds: String = ""
     var listRandomQuiz: List<Quiz> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,6 +29,8 @@ class ResultTestActivity : AppCompatActivity() {
     private fun initialize() {
         totalQuestion = intent.getIntExtra("TOTAL_QUES", 0)
         totalCorrect = intent.getIntExtra("TOTAL_CORRECT", 0)
+        takenMinutes = intent.getStringExtra("TAKEN_MINUTES")
+        takenSeconds  = intent.getStringExtra("TAKEN_SECONDS")
         showTestResult()
         navigateToShowAnwer()
     }
@@ -38,6 +42,7 @@ class ResultTestActivity : AppCompatActivity() {
         tvCorrectRate.text = "${rate}%"
         resultProgressbar.max = totalQuestion
         resultProgressbar.progress = totalCorrect
+        tvResultTime.text = "${takenMinutes}m : ${takenSeconds}s"
         if(rate <=50) {
             resultProgressbar.progressDrawable = ContextCompat.getDrawable(this, R.drawable.custom_progressbar_low)
         }else if (rate > 50 && rate < 80) {
@@ -45,7 +50,7 @@ class ResultTestActivity : AppCompatActivity() {
             tvResultBottom.text= "Quite good!!"
         } else if(rate >= 80 && rate < 100){
             resultProgressbar.progressDrawable = ContextCompat.getDrawable(this, R.drawable.custom_progressbar_high)
-            tvResultBottom.text= "Good!!"
+            tvResultBottom.text= "Very good!!"
         } else {
             tvResultAbove.text = "Congratulations! You've reached the highest score"
             tvResultBottom.text= "Excellent"
