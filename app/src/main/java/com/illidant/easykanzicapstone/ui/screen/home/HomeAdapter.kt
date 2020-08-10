@@ -28,10 +28,19 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
     }
 
     override fun onBindViewHolder(homePageView: HomePageView, position: Int) {
-        //homePageView.imgLevel.get(position)
+        val level: String = levelList!!.get(position)?.name
         homePageView.imgLevel.setImageResource(R.drawable.jpd111)
         homePageView.tvLevelName.text = levelList?.get(position)?.name
         homePageView.tvLevelDes.text = levelList?.get(position)?.description
+        //Set image for each level
+        if(level.equals("JPD111")){
+            homePageView.imgLevel.setImageResource(R.drawable.image_level1)
+        }else if (level.equals("JPD121")){
+            homePageView.imgLevel.setImageResource(R.drawable.image_level2)
+        }else if(level.equals("JPD131")){
+            homePageView.imgLevel.setImageResource(R.drawable.image_level3)
+        }
+        //Click to each view
         homePageView.itemView.setOnClickListener {
             val level_name = levelList?.get(position)?.name
             val level_id = levelList?.get(position)?.id
@@ -39,8 +48,6 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
             intent.putExtra("LEVEL_NAME", level_name)
             intent.putExtra("LEVEL_ID", level_id)
             context.startActivity(intent)
-
-
         }
     }
 
