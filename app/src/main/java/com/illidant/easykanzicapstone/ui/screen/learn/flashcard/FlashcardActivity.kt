@@ -86,9 +86,9 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
             }
         })
         // set pitch
-        mTTS.setPitch(1f)
+        mTTS.setPitch(0.8f)
         // set speed of speak
-        mTTS.setSpeechRate(1f)
+        mTTS.setSpeechRate(0.8f)
     }
 
     private val presenter by lazy {
