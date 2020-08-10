@@ -7,10 +7,11 @@
     android:background="#f4f4f4"
     android:layout_height="match_parent">
 
-    <View
-        android:id="@+id/view"
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="200dp"
         android:background="#5ac3d9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,7 +68,7 @@
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_margin="@dimen/dp_7"
-            app:cardElevation="7dp"
+            app:cardElevation="6dp"
             app:cardCornerRadius="@dimen/dp_10">
 
             <LinearLayout
@@ -97,7 +98,7 @@
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_margin="@dimen/dp_7"
-            app:cardElevation="7dp"
+            app:cardElevation="6dp"
             app:cardCornerRadius="@dimen/dp_10">
 
             <LinearLayout
@@ -127,7 +128,7 @@
             android:layout_width="100dp"
             android:layout_height="120dp"
             android:layout_margin="@dimen/dp_7"
-            app:cardElevation="7dp"
+            app:cardElevation="6dp"
             app:cardCornerRadius="@dimen/dp_10">
 
             <LinearLayout
@@ -154,11 +155,11 @@
         </androidx.cardview.widget.CardView>
     </LinearLayout>
 
+
     <TextView
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/learnMethod"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="@dimen/dp_10"
         android:text="Vocabulary list"

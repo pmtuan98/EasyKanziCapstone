@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="horizontal"
-            android:layout_marginLeft="15dp">
+            android:layout_marginLeft="3dp">
 
             <TextView
                 android:id="@+id/tvQuestionName"
@@ -55,7 +55,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
                 android:textColor="@android:color/white"
-                android:layout_marginLeft="4dp"
+                android:layout_marginLeft="5dp"
                 android:textSize="22sp" />
 
             <TextView

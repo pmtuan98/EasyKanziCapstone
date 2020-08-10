@@ -5,7 +5,7 @@
     android:layout_height="60dp"
     android:background="@drawable/bg_learn_word"
     android:layout_margin="4dp"
-    android:elevation="5dp"
+    android:elevation="3dp"
     android:orientation="horizontal">
 
     <TextView
