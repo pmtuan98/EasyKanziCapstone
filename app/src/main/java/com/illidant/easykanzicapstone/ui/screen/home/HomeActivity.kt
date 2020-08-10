@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.*
 import com.illidant.easykanzicapstone.domain.model.Level
@@ -46,6 +47,9 @@ class HomeActivity : BaseActivity(),HomeContract.View {
     override fun onDataComplete(levels: List<Level>) {
         recyclerViewHome!!.layoutManager = GridLayoutManager(this, 1)
         recyclerViewHome!!.adapter = HomeAdapter(this, levels)
+        recyclerViewHome.layoutManager = object : LinearLayoutManager(this) {
+            override fun canScrollVertically(): Boolean = false
+        }
     }
     private fun configView() {
         //set home selected
