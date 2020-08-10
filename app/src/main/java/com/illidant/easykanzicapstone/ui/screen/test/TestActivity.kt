@@ -3,6 +3,7 @@ package com.illidant.easykanzicapstone.ui.screen.test
 import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
@@ -21,28 +22,40 @@ import kotlin.collections.ArrayList
 
 
 class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  {
-
-    var timeTaken: Int = 0
-    var level_id: Int = 0
-    val sdf = SimpleDateFormat("dd/MM/yyyy")
-    val currentDate = sdf.format(Date())
-    var listRandomQuiz: List<Quiz> = mutableListOf()
-    var currentPosition = 0
-    var countCorrectAnswer = 0
-    lateinit var correctAnswer: String
-
-    val timer = object : CountDownTimer(601000, 1000) {
+    private var takenMinutes = 0
+    private var takenSeconds = 0
+    private var takenMinutesString: String = ""
+    private var takenSecondsString: String = ""
+    private var timeTaken = 0
+    private var levelId  = 0
+    private val sdf = SimpleDateFormat("dd/MM/yyyy")
+    private val currentDate = sdf.format(Date())
+    private var listRandomQuiz: List<Quiz> = mutableListOf()
+    private var currentPosition = 0
+    private var countCorrectAnswer = 0
+    private lateinit var correctAnswer: String
+    private var seconds = 0
+    private var minutes = 0
+    private val timer = object : CountDownTimer(601000, 100) {
         override fun onTick(millisUntilFinished: Long) {
-            edtTimeTest.setText(""+String.format("00:%02d:%02d",
-                TimeUnit.MILLISECONDS.toMinutes( millisUntilFinished),
-                TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))))
-            timeTaken = (600 - TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)).toInt()
+            if(millisUntilFinished <= 100) {
+                edtTimeTest.setText("00:00")
+            }else {
+                seconds = (millisUntilFinished / 1000).toInt()
+                minutes = seconds / 60
+                seconds = seconds % 60
+                edtTimeTest.setText(String.format("%02d", minutes) + ":" + String.format("%02d", seconds))
+
+                timeTaken = (600 - TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)).toInt()
+            }
+
+
         }
 
         override fun onFinish() {
             //Use to send result when time is up
             submitResult()
+
         }
     }
 
@@ -68,8 +81,8 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
     }
 
     private fun initialize() {
-        level_id = intent.getIntExtra("LEVEL_ID", 0)
-        presenter.quizByLevelRequest(level_id)
+        levelId = intent.getIntExtra("LEVEL_ID", 0)
+        presenter.quizByLevelRequest(levelId)
         timer.start()
     }
 
@@ -142,19 +155,33 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
     }
     private fun submitResult() {
         timer.cancel()
+        formatTimeTaken()
 //            val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
 //            val userID = prefs.getInt("userID", 0)
 //            var score = countCorrectAnswer * 10 / 3
 //            val testResultRequest = TestRankingRequest(currentDate.toString(),level_id,score,timeTaken,userID)
 //            test_presenter.sendTestResult(testResultRequest)
+
         val intent = Intent(this, ResultTestActivity::class.java)
         val levelName = intent.getStringExtra("LEVEL_NAME")
+
         intent.putExtra("TOTAL_QUES", listRandomQuiz.size)
         intent.putExtra("TOTAL_CORRECT",countCorrectAnswer)
         intent.putExtra("LEVEL_NAME",levelName)
         intent.putParcelableArrayListExtra("LIST_QUIZ", ArrayList(listRandomQuiz))
+        intent.putExtra("TAKEN_MINUTES", takenMinutesString)
+        intent.putExtra("TAKEN_SECONDS",takenSecondsString)
+
         startActivity(intent)
         finish()
+
+    }
+    private fun formatTimeTaken(){
+        takenMinutes = timeTaken / 60
+        takenSeconds = timeTaken % 60
+        takenMinutesString = String.format("%02d", takenMinutes)
+        takenSecondsString = String.format("%02d", takenSeconds)
+        Log.d("1111","${takenMinutesString}:${takenSecondsString}")
     }
 
     override fun onBackPressed() {

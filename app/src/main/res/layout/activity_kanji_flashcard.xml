@@ -121,11 +121,12 @@
         android:layout_height="70dp"
         android:layout_below="@id/flashCard"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flash_card">
+        app:layout_constraintTop_toBottomOf="@+id/btnSpeak">
 
         <ImageButton
             android:id="@+id/btnBack"

@@ -65,9 +65,9 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
             }
         })
         // set pitch
-        mTTS.setPitch(0.8f)
+        mTTS.setPitch(1f)
         // set speed of speak
-        mTTS.setSpeechRate(0.8f)
+        mTTS.setSpeechRate(1f)
     }
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
