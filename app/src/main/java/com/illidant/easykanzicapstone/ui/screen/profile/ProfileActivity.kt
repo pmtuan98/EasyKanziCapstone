@@ -74,14 +74,14 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
     private fun changePassword() {
         tvChangePassword.setOnClickListener {
             val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
-            val username = prefs.getString("userName", null)
+            val email = prefs.getString("userEmail", null)
             val dialogChangePass = Dialog(this)
             dialogChangePass.setCancelable(true)
             dialogChangePass.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             dialogChangePass.setContentView(R.layout.dialog_change_password)
             val buttonSave= dialogChangePass.findViewById(R.id.btnSave) as TextView
             val textEmail = dialogChangePass.findViewById(R.id.tvEmail) as TextView
-            textEmail.text = "Email : ${username}"
+            textEmail.text = "Email : ${email}"
             val edtOldPassword = dialogChangePass.findViewById(R.id.edtOldPassword) as EditText
             val edtNewPassword = dialogChangePass.findViewById(R.id.edtNewPassword) as EditText
             val edtCfNewPassword = dialogChangePass.findViewById(R.id.edtCfPassword) as EditText
@@ -114,7 +114,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
                     edtCfNewPassword.setError("Not match password. Please re-enter")
                     edtCfNewPassword.requestFocus()
                 } else {
-                    val request = ChangePasswordRequest(username.toString(), new_password, current_password)
+                    val request = ChangePasswordRequest(email.toString(), new_password, current_password)
                     changepassPresenter.changePass(request)
                     dialogChangePass.dismiss()
                 }
