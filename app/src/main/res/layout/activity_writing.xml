@@ -96,13 +96,13 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/btnHint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="26dp"
-            android:layout_marginStart="33dp"
-            android:background="@drawable/ic_question_mark" />
+<!--        <ImageButton-->
+<!--            android:id="@+id/btnHint"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_margin="26dp"-->
+<!--            android:layout_marginStart="33dp"-->
+<!--            android:background="@drawable/ic_question_mark" />-->
     </LinearLayout>
 
     <ScrollView
@@ -126,7 +126,7 @@
                 android:layout_marginTop="@dimen/dp_20"
                 android:fontFamily="@font/ptsans_bold"
                 android:text="Correct answer"
-                android:textColor="#4CAF50"
+                android:textColor="#00aa00"
                 android:textSize="@dimen/sp_20"
                 android:visibility="invisible" />
 
@@ -147,7 +147,7 @@
                 android:layout_marginTop="@dimen/dp_20"
                 android:fontFamily="@font/ptsans_bold"
                 android:text="Your answer"
-                android:textColor="#FF0000"
+                android:textColor="#c0392d"
                 android:textSize="20sp"
                 android:visibility="invisible" />
 
@@ -189,8 +189,10 @@
             android:id="@+id/textHelper"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/sp_16"
-            android:textColor="@android:color/holo_blue_dark"
+            android:layout_marginStart="1dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edtAnswer" />
