@@ -12,8 +12,8 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:background="#5ac3d9"
+        android:layout_height="320dp"
+        android:background="#C0392D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,7 +25,7 @@
         android:background="@drawable/bg_button_writing2"
         android:src="@drawable/ic_baseline_volume_up_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flashCard" />
 
@@ -59,6 +59,7 @@
                 android:id="@+id/tvQuestionNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
                 android:fontFamily="@font/ptsans_bold"
                 android:textSize="16sp" />
 
@@ -66,6 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
+                android:textColor="@android:color/white"
                 android:text="/"
                 android:textSize="16sp" />
 
@@ -74,6 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
+                android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
@@ -98,21 +101,23 @@
         android:id="@+id/flashCard"
         android:layout_width="300dp"
         android:layout_height="400dp"
-        android:layout_marginTop="20dp"
         app:flipDuration="300"
         app:flipEnabled="true"
         app:flipFrom="right"
         app:flipOnTouch="true"
         app:flipType="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/btnSpeak"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/progressBarFlashcard">
+        app:layout_constraintTop_toBottomOf="@+id/progressBarFlashcard">
 
-        <include layout="@layout/flashcard_layout_back"
-            android:id="@+id/layoutBack"/>
+        <include
+            android:id="@+id/layoutBack"
+            layout="@layout/flashcard_layout_back" />
 
-        <include layout="@layout/flashcard_layout_front"
-            android:id="@+id/layoutFront"/>
+        <include
+            android:id="@+id/layoutFront"
+            layout="@layout/flashcard_layout_front" />
     </com.wajahatkarim3.easyflipview.EasyFlipView>
 
     <LinearLayout
@@ -124,8 +129,8 @@
         android:layout_marginTop="20dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSpeak">
 
         <ImageButton

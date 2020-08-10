@@ -12,12 +12,22 @@
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:background="#5ac3d9"
+        android:layout_height="320dp"
+        android:background="#C0392D"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
+    <ImageView
+        android:id="@+id/btnSpeak"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/bg_button_writing2"
+        android:src="@drawable/ic_baseline_volume_up_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flashCard" />
 
     <LinearLayout
         android:id="@+id/textLearn"
@@ -27,13 +37,14 @@
         app:layout_constraintTop_toBottomOf="@+id/view"
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center"
+        android:layout_marginTop="14dp"
         android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/btnExit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/ic_back2" />
+            android:background="@drawable/ic_back" />
 
         <LinearLayout
             android:id="@+id/linearlayout"
@@ -41,13 +52,14 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:layout_marginStart="110dp"
-            android:layout_marginEnd="150dp"
+            android:layout_marginEnd="130dp"
             android:layout_gravity="center">
 
             <TextView
                 android:id="@+id/tvQuestionNo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@android:color/white"
                 android:fontFamily="@font/ptsans_bold"
                 android:textSize="16sp" />
 
@@ -55,6 +67,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
+                android:textColor="@android:color/white"
                 android:text="/"
                 android:textSize="16sp" />
 
@@ -63,6 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/ptsans_bold"
+                android:textColor="@android:color/white"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>
@@ -92,69 +106,31 @@
         app:flipFrom="right"
         app:flipOnTouch="true"
         app:flipType="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/btnSpeak"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBarFlashcard">
 
-        <include layout="@layout/flashcard_layout_back"
-            android:id="@+id/layoutBack"/>
+        <include
+            android:id="@+id/layoutBack"
+            layout="@layout/flashcard_layout_back" />
 
-        <include layout="@layout/flashcard_layout_front"
-            android:id="@+id/layoutFront"/>
+        <include
+            android:id="@+id/layoutFront"
+            layout="@layout/flashcard_layout_front" />
     </com.wajahatkarim3.easyflipview.EasyFlipView>
 
-    <!--    <LinearLayout-->
-<!--        android:id="@+id/linearVolumn"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="70dp"-->
-<!--        android:layout_below="@id/flashCard"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:gravity="center"-->
-<!--        app:layout_constraintBottom_toTopOf="@+id/linearLayout4"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/flash_card">-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/btnYes"-->
-<!--            android:layout_width="50dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:adjustViewBounds="true"-->
-<!--            android:background="@drawable/bg_button_writing" />-->
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/btnNo"-->
-<!--            android:layout_width="50dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginStart="40dp"-->
-<!--            android:adjustViewBounds="true"-->
-<!--            android:background="@drawable/bg_button_writing"-->
-<!--            />-->
-<!--    </LinearLayout>-->
-
-    <ImageView
-        android:id="@+id/btnSpeak"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/bg_button_writing2"
-        android:src="@drawable/ic_baseline_volume_up_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flashCard" />
-
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout3"
         android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_below="@id/flashCard"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSpeak">
 
         <ImageButton
@@ -171,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:background="@drawable/bg_button_writing2"
-            android:fontFamily="@font/circularstdbold"
+            android:fontFamily="@font/ptsans_bold"
             android:text="Restart" />
 
         <ImageButton
