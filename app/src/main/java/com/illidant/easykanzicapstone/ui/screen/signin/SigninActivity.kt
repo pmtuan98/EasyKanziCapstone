@@ -213,7 +213,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
     override fun onForgotPassSucceeded(message: String) {
         val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
         dialog.contentText = message
-        dialog.setCancelable(false)
+        dialog.setCancelable(true)
         dialog.show()
         dialog.setConfirmClickListener {
             showResetPassDialog()
