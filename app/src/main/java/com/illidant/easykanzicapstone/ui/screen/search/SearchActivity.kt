@@ -3,8 +3,10 @@ package com.illidant.easykanzicapstone.ui.screen.search
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.R
@@ -63,39 +65,46 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
             }
         })
     }
+    private var doubleBackToExitPressedOnce = false
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
 
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
+
+        Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+    }
     private fun configViews() {
-        //set bottom navigation bar
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavBar)
         //set home selected
-        bottomNavigationView.selectedItemId = R.id.search
+        bottomNavBar.selectedItemId = R.id.search
 
         //Perform ItemSelectedListener
-        bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        bottomNavBar.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
-                    finish()
                     overridePendingTransition(0, 0)
+                    finish()
                     return@OnNavigationItemSelectedListener true
-
                 }
                 R.id.search ->
                 {
                     return@OnNavigationItemSelectedListener true
-                    finish()
                 }
                 R.id.ranking -> {
                     startActivity(Intent(applicationContext, RankingActivity::class.java))
-                    finish()
                     overridePendingTransition(0, 0)
+                    finish()
                     return@OnNavigationItemSelectedListener true
 
                 }
                 R.id.profile -> {
                     startActivity(Intent(applicationContext, ProfileActivity::class.java))
-                    finish()
                     overridePendingTransition(0, 0)
+                    finish()
                     return@OnNavigationItemSelectedListener true
 
                 }
