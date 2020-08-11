@@ -169,7 +169,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
                 editCfNewPassword.setError("Confirm password is required")
                 editCfNewPassword.requestFocus()
             } else if (!cfNewPassword.equals(newPassword)) {
-                editCfNewPassword.setError("Not match password. Please re-enter")
+                editCfNewPassword.setError("Not match new password")
                 editCfNewPassword.requestFocus()
             } else {
                 val resetRequest = ResetPasswordRequest(savedEmail.toString(),cfNewPassword,otpCode)
