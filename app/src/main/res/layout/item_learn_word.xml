@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="60dp"
     android:background="@drawable/bg_learn_word"
     android:layout_margin="4dp"
-    android:elevation="3dp"
+    android:elevation="2dp"
+    android:layout_gravity="center"
     android:orientation="horizontal">
+
 
     <TextView
         android:id="@+id/tvKanji"
@@ -16,7 +19,9 @@
         android:text="本"
         android:textColor="#000000"
         android:textSize="@dimen/sp_20"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvHira"
@@ -25,24 +30,31 @@
         android:gravity="center"
         android:text="にほん"
         android:textColor="#03A9F4"
-        android:textSize="@dimen/sp_20" />
+        android:textSize="@dimen/sp_20"
+        app:layout_constraintStart_toEndOf="@+id/tvKanji"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <TextView
         android:id="@+id/tvVietnamese"
         android:layout_width="105dp"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:fontFamily="@font/circularstdbook"
+        android:gravity="center"
         android:text="Nhật Bản"
-        android:textSize="@dimen/sp_18" />
+        android:textSize="@dimen/sp_18"
+        app:layout_constraintStart_toEndOf="@+id/tvHira"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/btnStar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:background="@drawable/ic_baseline_star_border_24"/>
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/ic_baseline_star_border_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvVietnamese"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

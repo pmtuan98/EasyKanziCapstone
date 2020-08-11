@@ -33,7 +33,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
-        android:fontFamily="@font/ptsans_bold"
+        android:fontFamily="@font/roboto_bold"
         android:text="JPD111"
         android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/learnMethod"
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_marginEnd="20dp"
-        android:fontFamily="@font/ptsans_bold"
+        android:fontFamily="@font/roboto_bold"
         android:text="Lesson 1"
         android:textSize="@dimen/sp_30"
         app:layout_constraintBottom_toTopOf="@+id/learnMethod"
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Flashcard"
-                    android:fontFamily="@font/circularstdbook"
+                    android:fontFamily="@font/roboto_regular"
                     android:textColor="#2d2d2d"
                     android:textSize="@dimen/sp_18" />
             </LinearLayout>
@@ -117,7 +117,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:text="Writing"
-                    android:fontFamily="@font/circularstdbook"
+                    android:fontFamily="@font/roboto_regular"
                     android:textColor="#2d2d2d"
                     android:textSize="@dimen/sp_18" />
             </LinearLayout>
@@ -148,7 +148,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Multiple choice"
-                    android:fontFamily="@font/circularstdbook"
+                    android:fontFamily="@font/roboto_regular"
                     android:textColor="#2d2d2d"
                     android:textSize="@dimen/sp_18" />
             </LinearLayout>
@@ -165,7 +165,7 @@
         android:text="Vocabulary list"
         android:textColor="#000000"
         android:textSize="@dimen/sp_18"
-        android:textStyle="bold"
+        android:fontFamily="@font/roboto_bold"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewVocab"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.065"

@@ -57,7 +57,6 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
         buttonExit.setOnClickListener {
             finish()
         }
-
         buttonSubmit.setOnClickListener {
             val answer = when (writingMode) {
                 WritingMode.Hiragana -> vocabularyList[currentIndex].hiragana

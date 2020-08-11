@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@android:id/background"
-        android:height="6dp">
+        android:height="8dp">
         <shape>
-            <solid android:color="#C0392D" />
+            <solid android:color="#ECE9E0" />
             <corners android:radius="2dp"/>
         </shape>
     </item>
     <item
         android:id="@android:id/progress"
-        android:height="6dp">
+        android:height="8dp">
         <clip>
             <shape>
-                <solid android:color="#990000" />
+                <solid android:color="#C0392D" />
                 <corners android:radius="2dp" />
             </shape>
         </clip>

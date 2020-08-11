@@ -14,7 +14,7 @@
         android:text="@string/app_name"
         android:textColor="@color/design_default_color_primary_dark"
         android:textSize="28dp"
-        android:fontFamily="@font/circularstdbold"
+        android:fontFamily="@font/roboto_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,7 +29,7 @@
         android:text="@string/app_name"
         android:textColor="@color/main_blue_color"
         android:textSize="28dp"
-        android:fontFamily="@font/circularstdbold"
+        android:fontFamily="@font/roboto_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@id/tvTestLevel"
         app:layout_constraintTop_toTopOf="parent" />
@@ -41,7 +41,7 @@
         android:text="@string/app_name"
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp_16"
-        android:fontFamily="@font/circularstdbook"
+        android:fontFamily="@font/roboto_regular"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

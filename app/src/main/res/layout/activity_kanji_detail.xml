@@ -15,28 +15,29 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
-    <ImageButton
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#C0392D"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="Detail Kanji"
+        app:titleMarginStart="55dp">
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <ImageView
         android:id="@+id/btnExit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_back"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="20dp"
-        app:layout_constraintEnd_toStartOf="@+id/tvDetailKanji"
+        android:src="@drawable/ic_back2"
+        android:layout_marginTop="3dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/tvDetailKanji"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="DETAIL KANJI"
-        android:textSize="@dimen/sp_24"
-        android:textStyle="bold"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toEndOf="@id/btnExit"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.github.badoualy.kanjistroke.KanjiStrokeView
@@ -46,7 +47,7 @@
         android:layout_gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDetailKanji" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
 
     <androidx.constraintlayout.widget.Barrier
@@ -54,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tvDetailKanji,kanjiStroke" />
+        app:constraint_referenced_ids="toolbar,kanjiStroke" />
 
     <TextView
         android:id="@+id/titleChineseMean"
