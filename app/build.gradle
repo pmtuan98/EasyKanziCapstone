@@ -33,6 +33,13 @@ android {
     }
 }
 
+
+repositories {
+    maven {
+        url 'https://dl.bintray.com/spark/maven'
+    }
+}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
 
@@ -68,4 +75,7 @@ dependencies {
    //Support snackbar
     //noinspection GradleCompatible
     implementation 'com.android.support:design:26.1.0'
+
+    //button effect
+    compile 'me.spark:submitbutton:1.0.1'
 }
