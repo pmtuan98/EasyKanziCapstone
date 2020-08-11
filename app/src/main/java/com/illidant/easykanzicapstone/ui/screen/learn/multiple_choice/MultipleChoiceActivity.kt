@@ -146,6 +146,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             tvAnswerD.text = listQuiz[currentPosition].answerD
             correctAnswer = listQuiz[currentPosition].correctAnswer
             resetAnswersBackground()
+            hideNextButton()
         })
     }
 
