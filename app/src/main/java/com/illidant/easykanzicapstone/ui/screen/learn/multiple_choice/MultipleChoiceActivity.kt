@@ -52,24 +52,24 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         dialog.setCancelable(false)
         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_complete_multiplechoice)
-        val buttonAgain= dialog.findViewById(R.id.btnLearnAgain) as Button
-        val buttonLearnWriting = dialog.findViewById(R.id.btnLearnWriting) as Button
-        val buttonLearnFlashcard = dialog.findViewById(R.id.buttonLearnFlashcard) as Button
+        val btnAgain= dialog.findViewById(R.id.btnLearnAgain) as Button
+        val btnWriting = dialog.findViewById(R.id.btnWriting) as Button
+        val btnFlashcard = dialog.findViewById(R.id.btnFlashcard) as Button
         dialog.show()
-        buttonAgain.setOnClickListener {
+        btnAgain.setOnClickListener {
             val intent = intent
             finish()
             startActivity(intent)
             dialog.dismiss()
         }
-        buttonLearnWriting.setOnClickListener{
+        btnWriting.setOnClickListener{
             val intent = Intent(it.context, WritingActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
             finish()
             dialog.dismiss()
         }
-        buttonLearnFlashcard.setOnClickListener{
+        btnFlashcard.setOnClickListener{
             val intent = Intent(it.context, FlashcardActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
