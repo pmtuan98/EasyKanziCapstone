@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/backgroundImage2"
                 android:text="Welcome to Easy Kanji, "
-                android:fontFamily="@font/circularstdbook"
+                android:fontFamily="@font/roboto_regular"
                 android:textSize="@dimen/sp_16" />
 
             <TextView
@@ -51,7 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Choose your level to start !"
-            android:fontFamily="@font/circularstdbook"
+            android:fontFamily="@font/roboto_regular"
             android:layout_gravity="center"
             android:textSize="@dimen/sp_16"/>
     </LinearLayout>

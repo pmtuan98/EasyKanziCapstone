@@ -62,7 +62,7 @@
                             android:layout_gravity="center_horizontal"
                             android:textColor="#000"
                             android:textSize="@dimen/sp_18"
-                            android:fontFamily="@font/ptsans_regular"
+                            android:fontFamily="@font/roboto_regular"
                             android:layout_marginTop="@dimen/dp_5"
                             android:text="tuanvm@gmail.com" />
 
@@ -87,7 +87,7 @@
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="5dp"
                                 android:text="Change Password"
-                                android:fontFamily="@font/ptsans_regular"
+                                android:fontFamily="@font/roboto_regular"
                                 android:textColor="#000"
                                 android:textSize="18sp" />
                         </LinearLayout>
@@ -116,7 +116,7 @@
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="3dp"
                         android:text="Favorite"
-                        android:fontFamily="@font/ptsans_regular"
+                        android:fontFamily="@font/roboto_regular"
                         android:textColor="#000"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -142,7 +142,7 @@
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="3dp"
                         android:text="History"
-                        android:fontFamily="@font/ptsans_regular"
+                        android:fontFamily="@font/roboto_regular"
                         android:textColor="#000"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -169,7 +169,7 @@
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="3dp"
                         android:text="Sign Out"
-                        android:fontFamily="@font/ptsans_regular"
+                        android:fontFamily="@font/roboto_regular"
                         android:textColor="#000"
                         android:textSize="20sp" />
                 </LinearLayout>

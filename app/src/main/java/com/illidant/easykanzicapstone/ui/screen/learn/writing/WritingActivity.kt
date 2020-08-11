@@ -58,10 +58,10 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
             finish()
         }
 
-        btnHint.setOnClickListener {
-            titleCorrectAnswer.visibility = View.VISIBLE
-            updateWritingMode(writingMode)
-        }
+//        btnHint.setOnClickListener {
+//            titleCorrectAnswer.visibility = View.VISIBLE
+//            updateWritingMode(writingMode)
+//        }
 
         buttonSubmit.setOnClickListener {
             val answer = when (writingMode) {

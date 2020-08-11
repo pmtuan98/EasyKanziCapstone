@@ -58,7 +58,7 @@
         android:gravity="center"
         android:text="@string/first_slide_desc"
         android:textSize="@dimen/sp_18"
-        android:fontFamily="@font/circularstdbook"
+        android:fontFamily="@font/roboto_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sliderImage" />

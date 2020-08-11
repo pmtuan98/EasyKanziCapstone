@@ -23,7 +23,7 @@
         android:id="@+id/cardviewText"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="24dp"
         app:cardCornerRadius="30dp"
         app:contentPaddingBottom="15dp"
         app:contentPaddingLeft="15dp"
@@ -51,7 +51,7 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/circularstdbold"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="Test level : "
                     android:textColor="#000000"
                     android:textSize="18sp" />
@@ -60,7 +60,7 @@
                     android:id="@+id/tvTestLevel"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:fontFamily="@font/circularstdbold"
+                    android:fontFamily="@font/roboto_bold"
                     android:text="JPD111"
                     android:textColor="#000000"
                     android:textSize="18sp"
@@ -70,7 +70,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/circularstdbook"
+                android:fontFamily="@font/roboto_regular"
                 android:text="Question: From marked answer 1 2 3 4, choose the best answer for the meaning of the Kanji in Hiragana"
                 android:textSize="20sp" />
 
@@ -89,7 +89,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/circularstdbook"
+                    android:fontFamily="@font/roboto_regular"
                     android:text="10m 0s"
                     android:textColor="#000000"
                     android:textSize="18sp" />
@@ -99,7 +99,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="110dp"
-                    android:fontFamily="@font/circularstdbook"
+                    android:fontFamily="@font/roboto_regular"
                     android:text="30 questions"
                     android:textColor="#000000"
                     android:textSize="18sp" />
@@ -123,7 +123,7 @@
                     android:text="Try your best to get in top 10 "
                     android:textColor="#000000"
                     android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:fontFamily="@font/roboto_bold" />
             </LinearLayout>
         </LinearLayout>
 
@@ -133,9 +133,9 @@
         android:id="@+id/btnStart"
         android:layout_width="174dp"
         android:layout_height="50dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/btn_custom"
-        android:fontFamily="@font/ptsans_bold"
+        android:fontFamily="@font/roboto_bold"
         android:text="START NOW"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"

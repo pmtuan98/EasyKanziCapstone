@@ -51,9 +51,9 @@
             android:layout_width="260dp"
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_custom"
+            android:background="@drawable/btn_custom_on_board"
             android:text="@string/let_get_started"
-            android:textColor="@android:color/white"
+            android:textColor="#C0392D"
             android:visibility="invisible" />
 
     </RelativeLayout>

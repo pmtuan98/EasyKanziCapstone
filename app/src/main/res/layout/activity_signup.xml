@@ -144,7 +144,7 @@
         android:text="@string/btnSignup"
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp_18"
-        android:fontFamily="@font/circularstdbold"
+        android:fontFamily="@font/roboto_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
