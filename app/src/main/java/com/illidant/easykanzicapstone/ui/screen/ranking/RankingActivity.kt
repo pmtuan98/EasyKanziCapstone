@@ -3,6 +3,7 @@ package com.illidant.easykanzicapstone.ui.screen.ranking
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -70,18 +71,25 @@ class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.
 
         }
     }
+    private var doubleBackToExitPressedOnce = false
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
 
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
+
+        Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+    }
 
     private fun configView() {
-        //set bottom navigation bar
-        val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavBar)
-
         //set home selected
-        bottomNavigationView.selectedItemId =
-            R.id.ranking
+        bottomNavBar.selectedItemId = R.id.ranking
 
         //Perform ItemSelectedListener
-        bottomNavigationView.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
+        bottomNavBar.setOnNavigationItemSelectedListener(BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
                     startActivity(Intent(applicationContext, HomeActivity::class.java))
@@ -100,7 +108,6 @@ class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.
                 R.id.ranking ->
                 {
                     return@OnNavigationItemSelectedListener true
-                    finish()
                 }
                 R.id.profile -> {
                     startActivity(Intent(applicationContext, ProfileActivity::class.java))

@@ -98,14 +98,6 @@
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold" />
-
-<!--        <ImageButton-->
-<!--            android:id="@+id/btnHint"-->
-<!--            android:layout_width="24dp"-->
-<!--            android:layout_height="24dp"-->
-<!--            android:layout_margin="26dp"-->
-<!--            android:layout_marginStart="33dp"-->
-<!--            android:background="@drawable/ic_question" />-->
     </LinearLayout>
 
     <ScrollView
@@ -129,7 +121,7 @@
                 android:layout_marginTop="@dimen/dp_20"
                 android:fontFamily="@font/ptsans_bold"
                 android:text="Correct answer"
-                android:textColor="#4CAF50"
+                android:textColor="#00aa00"
                 android:textSize="@dimen/sp_20"
                 android:visibility="invisible" />
 
@@ -150,7 +142,7 @@
                 android:layout_marginTop="@dimen/dp_20"
                 android:fontFamily="@font/ptsans_bold"
                 android:text="Your answer"
-                android:textColor="#FF0000"
+                android:textColor="#c0392d"
                 android:textSize="20sp"
                 android:visibility="invisible" />
 
@@ -185,7 +177,8 @@
             android:textSize="@dimen/sp_16"
             android:layout_marginStart="10dp"
             android:gravity="center_vertical"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textStyle="bold"
+            android:textColor="#000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/edtAnswer" />
@@ -195,6 +188,7 @@
             android:layout_width="240dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:inputType="text"
             android:textColorHighlight="#2196F3"
             android:textColorLink="#2196F3"
             android:textSize="@dimen/sp_20"

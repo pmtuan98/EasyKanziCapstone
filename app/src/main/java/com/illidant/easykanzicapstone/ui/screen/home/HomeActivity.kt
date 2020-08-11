@@ -4,6 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.os.Handler
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -51,6 +53,20 @@ class HomeActivity : BaseActivity(),HomeContract.View {
             override fun canScrollVertically(): Boolean = false
         }
     }
+
+    private var doubleBackToExitPressedOnce = false
+    override fun onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed()
+            return
+        }
+
+        this.doubleBackToExitPressedOnce = true
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
+
+        Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+    }
+
     private fun configView() {
         //set home selected
         bottomNavBar.selectedItemId = R.id.home
@@ -60,27 +76,26 @@ class HomeActivity : BaseActivity(),HomeContract.View {
             when (item.itemId) {
                 R.id.home -> {
                     return@OnNavigationItemSelectedListener true
-                    finish()
                 }
                 R.id.search -> {
                     startActivity(Intent(applicationContext, SearchActivity::class.java))
-                    finish()
                     overridePendingTransition(0, 0)
+                    finish()
                     return@OnNavigationItemSelectedListener true
 
                 }
                 R.id.ranking -> {
                     startActivity(Intent(applicationContext, RankingActivity::class.java))
-                    finish()
                     overridePendingTransition(0, 0)
+                    finish()
                     return@OnNavigationItemSelectedListener true
 
                 }
 
                 R.id.profile -> {
                     startActivity(Intent(applicationContext, ProfileActivity::class.java))
-                    finish()
                     overridePendingTransition(0, 0)
+                    finish()
                     return@OnNavigationItemSelectedListener true
                 }
             }

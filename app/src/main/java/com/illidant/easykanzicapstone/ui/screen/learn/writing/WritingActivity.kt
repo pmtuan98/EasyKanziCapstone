@@ -57,12 +57,6 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
         buttonExit.setOnClickListener {
             finish()
         }
-
-//        btnHint.setOnClickListener {
-//            titleCorrectAnswer.visibility = View.VISIBLE
-//            updateWritingMode(writingMode)
-//        }
-
         buttonSubmit.setOnClickListener {
             val answer = when (writingMode) {
                 WritingMode.Hiragana -> vocabularyList[currentIndex].hiragana
@@ -92,10 +86,11 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
             showCompleteDialog()
             return
         }
-
         tvQuestionNo.text = (currentIndex + 1).toString()
         progressBarWriting.progress = currentIndex + 1
         showQuestion(vocabularyList[currentIndex])
+        updateWritingMode(writingMode)
+        textHelper.setTextColor(Color.parseColor("#000000"))
     }
 
     private fun showQuestion(vocabulary: Vocabulary) {
@@ -165,9 +160,15 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
     }
 
     private fun updateWritingMode(writingMode: WritingMode) {
-        textHelper.text = when (writingMode) {
-            WritingMode.Hiragana -> "Write meaning by Hiragana"
-            WritingMode.Vietnamese -> "Write meaning by Vietnamese"
+        if(titleWrongAnswer.visibility == View.VISIBLE){
+            textHelper.text = getString(R.string.text_helper_rewrite_correct_answer)
+            textHelper.setTextColor(Color.parseColor("#c0392d"))
+        }else {
+            textHelper.text = when (writingMode) {
+                WritingMode.Hiragana -> "Write meaning by Hiragana"
+                WritingMode.Vietnamese -> "Write meaning by Vietnamese"
+            }
+            textHelper.setTextColor(Color.parseColor("#000000"))
         }
 
         if (titleCorrectAnswer.visibility == View.VISIBLE) {
@@ -204,6 +205,7 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
         titleWrongAnswer.visibility = View.VISIBLE
         edtAnswer.text?.clear()
         textHelper.text = getString(R.string.text_helper_rewrite_correct_answer)
+        textHelper.setTextColor(Color.parseColor("#c0392d"))
         tvAnswer.text = correctAnswer
         tvWrongAnswer.text = userAnswer
     }
