@@ -26,8 +26,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:title="Detail Kanji"
         app:titleMarginStart="55dp">
-
-
     </androidx.appcompat.widget.Toolbar>
 
 
