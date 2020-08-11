@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
@@ -24,7 +25,8 @@ import kotlinx.android.synthetic.main.activity_multiple_choice.tvTotalQuestion
 
 class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
-
+    private var correctAnswer:Int = 0
+    val listQuizAll : MutableList<Quiz> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multiple_choice)
@@ -55,6 +57,12 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         val btnAgain= dialog.findViewById(R.id.btnLearnAgain) as Button
         val btnWriting = dialog.findViewById(R.id.btnWriting) as Button
         val btnFlashcard = dialog.findViewById(R.id.btnFlashcard) as Button
+        val tvTotalQuestion= dialog.findViewById(R.id.tvTotalQuestion) as TextView
+        val tvCorrect = dialog.findViewById(R.id.tvCorrect) as TextView
+        val tvWrong = dialog.findViewById(R.id.tvWrong) as TextView
+        tvTotalQuestion.text = listQuizAll.size.toString()
+        tvCorrect.text = correctAnswer.toString()
+        tvWrong.text = (listQuizAll.size-correctAnswer).toString()
         dialog.show()
         btnAgain.setOnClickListener {
             val intent = intent
@@ -78,6 +86,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         }
     }
     override fun getQuizByLessonID(listQuiz: List<Quiz>) {
+        listQuizAll.addAll(listQuiz)
         var currentPosition = 0
         var wrongAnswerBackground: Drawable?
         wrongAnswerBackground = ContextCompat.getDrawable(this,R.drawable.bg_wrong_answer)
@@ -106,6 +115,8 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             checkCorrectAnswer(correctAnswer)
             if(!tvAnswerA.text.equals(correctAnswer)){
                 tvAnswerA?.background = wrongAnswerBackground
+            }else {
+                correctAnswer += 1
             }
             displayNextButton()
         }
@@ -113,6 +124,8 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             checkCorrectAnswer(correctAnswer)
             if(!tvAnswerB.text.equals(correctAnswer)){
                 tvAnswerB?.background = wrongAnswerBackground
+            }else {
+                correctAnswer += 1
             }
             displayNextButton()
         }
@@ -120,6 +133,8 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             checkCorrectAnswer(correctAnswer)
             if(!tvAnswerC.text.equals(correctAnswer)){
                 tvAnswerC?.background = wrongAnswerBackground
+            }else {
+                correctAnswer += 1
             }
             displayNextButton()
         }
@@ -127,6 +142,8 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             checkCorrectAnswer(correctAnswer)
             if(!tvAnswerD.text.equals(correctAnswer)){
                 tvAnswerD?.background = wrongAnswerBackground
+            }else {
+                correctAnswer += 1
             }
             displayNextButton()
         }
