@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -14,6 +15,7 @@ import com.illidant.easykanzicapstone.platform.source.remote.QuizRemoteDataSourc
 import com.illidant.easykanzicapstone.platform.source.remote.TestRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
+import com.illidant.easykanzicapstone.ui.screen.signin.SigninActivity
 import kotlinx.android.synthetic.main.activity_test.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -63,6 +65,7 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
         initialize()
+        configViews()
 
     }
 
@@ -183,10 +186,43 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         takenSecondsString = String.format("%02d", takenSeconds)
         Log.d("1111","${takenMinutesString}:${takenSecondsString}")
     }
+    private fun configViews() {
+        btnExit.setOnClickListener {
+            //Display successfully dialog
+            val dialog = SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+            dialog.titleText = "Quit current test?"
+            dialog.contentText = "All results will be lost!"
+            dialog.setCancelable(true)
+            dialog.setCancelText("Cancel")
+            dialog.setConfirmText("Quit")
+
+            dialog.show()
+            dialog.setConfirmClickListener {
+                super.onBackPressed()
+                timer.cancel()
+            }
+            dialog.setCancelClickListener {
+                dialog.dismiss()
+            }
+        }
+    }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-        timer.cancel()
+        //Display successfully dialog
+        val dialog = SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+        dialog.titleText = "Quit current test?"
+        dialog.contentText = "All results will be lost!"
+        dialog.setCancelable(true)
+        dialog.setCancelText("Cancel")
+        dialog.setConfirmText("Quit")
+        dialog.show()
+        dialog.setConfirmClickListener {
+            super.onBackPressed()
+            timer.cancel()
+        }
+        dialog.setCancelClickListener {
+            dialog.dismiss()
+        }
     }
 
     override fun onSendTestResultSucceeded(message: String) {
