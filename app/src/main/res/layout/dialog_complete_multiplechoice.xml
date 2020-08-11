@@ -45,31 +45,30 @@
         app:layout_constraintTop_toBottomOf="@+id/tvMess1" />
 
     <Button
-        android:id="@+id/btnMultipleChoice"
+        android:id="@+id/btnWriting"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Writing"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="#FFB5A8"
-        android:fontFamily="@font/roboto_bold"
+        android:layout_marginTop="16dp"
         android:background="@drawable/btn_mess2"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Writing"
+        android:textColor="#FFB5A8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnLearnAgain" />
 
     <Button
-        android:id="@+id/buttonLearnFlashcard"
+        android:id="@+id/btnFlashcard"
         android:layout_width="150dp"
+        android:layout_marginTop="16dp"
         android:layout_height="wrap_content"
-        android:text="Flashcard"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="10dp"
-        android:textColor="#FFB5A8"
-        android:fontFamily="@font/roboto_bold"
         android:background="@drawable/btn_mess2"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Flashcard"
+        android:textColor="#FFB5A8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLearnWriting" />
+        app:layout_constraintTop_toBottomOf="@+id/btnWriting"
+        tools:layout_editor_absoluteY="10dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

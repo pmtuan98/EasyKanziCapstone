@@ -33,7 +33,7 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
     private fun initialize() {
         var kanji_id = intent.getIntExtra("KANJI_ID",0)
         presenter.kanjiByIDRequest(kanji_id)
-        learnVocabByKanji()
+//        learnVocabByKanji()
     }
 
 
@@ -52,14 +52,14 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         stringStroke = kanjiAttribute.image
         handleKanjiStroke(stringStroke)
     }
-    fun learnVocabByKanji() {
-        btnFlashcard.setOnClickListener {
-            var kanji_id = intent.getIntExtra("KANJI_ID",0)
-            val intent = Intent(it.context, KanjiFlashcardActivity::class.java)
-            intent.putExtra("KANJI_ID", kanji_id)
-            startActivity(intent)
-        }
-    }
+//    fun learnVocabByKanji() {
+//        btnFlashcard.setOnClickListener {
+//            var kanji_id = intent.getIntExtra("KANJI_ID",0)
+//            val intent = Intent(it.context, KanjiFlashcardActivity::class.java)
+//            intent.putExtra("KANJI_ID", kanji_id)
+//            startActivity(intent)
+//        }
+//    }
 
     fun handleKanjiStroke(input: String) {
         var listStroke = mutableListOf<String>()

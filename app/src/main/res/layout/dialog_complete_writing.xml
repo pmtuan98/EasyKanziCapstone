@@ -45,7 +45,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tvMess1" />
 
     <Button
-        android:id="@+id/buttonLearnFlashcard"
+        android:id="@+id/btnFlashcard"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Flashcard"
@@ -70,6 +70,6 @@
         android:background="@drawable/btn_mess2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLearnFlashcard" />
+        app:layout_constraintTop_toBottomOf="@+id/btnFlashcard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
