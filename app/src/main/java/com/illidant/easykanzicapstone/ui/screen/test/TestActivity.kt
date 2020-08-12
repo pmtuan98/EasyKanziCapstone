@@ -15,7 +15,6 @@ import com.illidant.easykanzicapstone.platform.source.remote.QuizRemoteDataSourc
 import com.illidant.easykanzicapstone.platform.source.remote.TestRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
-import com.illidant.easykanzicapstone.ui.screen.signin.SigninActivity
 import kotlinx.android.synthetic.main.activity_test.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -38,8 +37,12 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
     private lateinit var correctAnswer: String
     private var seconds = 0
     private var minutes = 0
-    private val timer = object : CountDownTimer(601000, 100) {
+    private var timerValue = 601000
+    private var timeLeft:Long = 0
+
+    private val timer = object : CountDownTimer(timerValue.toLong(), 100) {
         override fun onTick(millisUntilFinished: Long) {
+            timeLeft = millisUntilFinished
             if(millisUntilFinished <= 100) {
                 edtTimeTest.setText("00:00")
             }else {
@@ -51,21 +54,18 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
                 timeTaken = (600 - TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)).toInt()
             }
 
-
         }
-
         override fun onFinish() {
             //Use to send result when time is up
             submitResult()
 
         }
     }
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
         initialize()
-        configViews()
+//        configViews()
 
     }
 
@@ -184,41 +184,18 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         takenSeconds = timeTaken % 60
         takenMinutesString = String.format("%02d", takenMinutes)
         takenSecondsString = String.format("%02d", takenSeconds)
-        Log.d("1111","${takenMinutesString}:${takenSecondsString}")
     }
-    private fun configViews() {
-        btnExit.setOnClickListener {
-            //Display successfully dialog
-            val dialog = SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-            dialog.titleText = "Quit current test?"
-            dialog.contentText = "All results will be lost!"
-            dialog.setCancelable(true)
-            dialog.setCancelText("Cancel")
-            dialog.setConfirmText("Quit")
-
-            dialog.show()
-            dialog.setConfirmClickListener {
-                super.onBackPressed()
-                timer.cancel()
-            }
-            dialog.setCancelClickListener {
-                dialog.dismiss()
-            }
-        }
-    }
-
     override fun onBackPressed() {
-        //Display successfully dialog
+        timer.cancel()
         val dialog = SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
         dialog.titleText = "Quit current test?"
         dialog.contentText = "All results will be lost!"
-        dialog.setCancelable(true)
+        dialog.setCancelable(false)
         dialog.setCancelText("Cancel")
         dialog.setConfirmText("Quit")
         dialog.show()
         dialog.setConfirmClickListener {
             super.onBackPressed()
-            timer.cancel()
         }
         dialog.setCancelClickListener {
             dialog.dismiss()

@@ -142,21 +142,4 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardviewText" />
-
-    <com.spark.submitbutton.SubmitButton
-        android:layout_width="128dp"
-        android:layout_height="40dp"
-        android:text="Submit"
-        android:gravity="center"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnStart"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:sub_btn_background="#C0392D"
-        app:sub_btn_duration="3000"
-        app:sub_btn_line_color="#C0392D"
-        app:sub_btn_ripple_color="#C0392D"
-        app:sub_btn_tick_color="@color/white" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
