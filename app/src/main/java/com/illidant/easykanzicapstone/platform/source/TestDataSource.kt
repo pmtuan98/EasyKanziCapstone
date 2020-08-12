@@ -7,13 +7,9 @@ import com.illidant.easykanzicapstone.domain.response.TestRankingResponse
 import retrofit2.Call
 
 interface TestDataSource {
-    interface Local {
-
-    }
-
     interface Remote {
         fun sendTestResult(request: TestRankingRequest): Call<TestRankingResponse>
-        fun getTestHistoryByUserID(id: Int): Call<List<TestHistory>>
+        fun getTestHistoryByUserID(userId: Int, levelId: Int): Call<List<TestHistory>>
         fun getTestRankingByLevelID(id: Int): Call<List<TestRanking>>
     }
 }

@@ -53,7 +53,7 @@ interface ApiService {
     fun getQuizByLevelID(@Path("id") id: Int): Call<List<Quiz>>
 
     @GET(ApiConstant.URL_TEST_HISTORY)
-    fun getTestHitoryByUserID(@Path("id") id: Int): Call<List<TestHistory>>
+    fun getTestHitoryByUserID(@Path("id1") userId: Int, @Path("id2") levelId: Int): Call<List<TestHistory>>
 
     @GET(ApiConstant.URL_TEST_RANKING)
     fun getRankingByLevelID(@Path("id") id: Int): Call<List<TestRanking>>

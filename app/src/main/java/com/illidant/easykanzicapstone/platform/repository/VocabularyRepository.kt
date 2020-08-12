@@ -6,7 +6,7 @@ import com.illidant.easykanzicapstone.platform.source.KanjiDataSource
 import com.illidant.easykanzicapstone.platform.source.VocabularyDataSource
 import retrofit2.Call
 
-interface VocabularyRepositoryType : VocabularyDataSource.Local, VocabularyDataSource.Remote
+interface VocabularyRepositoryType : VocabularyDataSource.Remote
 
 class VocabularyRepository(
     private val remote: VocabularyDataSource.Remote

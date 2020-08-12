@@ -5,7 +5,7 @@ import com.illidant.easykanzicapstone.platform.source.LessonDataSource
 import retrofit2.Call
 
 
-interface LessonRepositoryType : LessonDataSource.Local, LessonDataSource.Remote
+interface LessonRepositoryType : LessonDataSource.Remote
 
 class LessonRepository(
     private val remote: LessonDataSource.Remote

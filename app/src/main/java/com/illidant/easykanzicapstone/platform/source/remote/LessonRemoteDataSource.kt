@@ -7,6 +7,4 @@ import retrofit2.Call
 
 class LessonRemoteDataSource(private val apiService: ApiService) : LessonDataSource.Remote {
     override fun getLessonByLevelID(id: Int): Call<List<Lesson>> = apiService.getLessonByLevelID(id)
-
-
 }
