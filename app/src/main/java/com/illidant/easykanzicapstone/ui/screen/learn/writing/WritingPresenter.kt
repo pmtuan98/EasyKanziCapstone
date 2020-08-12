@@ -26,7 +26,6 @@ class WritingPresenter(
     }
 
     override fun checkAnswer(correctAnswer: String, userAnswer: String) {
-        Log.d("PRESENTER", "Correct: $correctAnswer - User: $userAnswer")
         if (userAnswer.equals(correctAnswer, true)) {
             view.onCorrectAnswer()
         } else {

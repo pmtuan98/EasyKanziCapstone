@@ -94,7 +94,6 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
         //Display error dialog
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
         errDialog.contentText = message
-        errDialog.setCancelable(false)
         errDialog.show()
     }
 
