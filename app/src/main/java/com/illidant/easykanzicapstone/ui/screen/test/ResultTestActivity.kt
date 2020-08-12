@@ -27,6 +27,7 @@ class ResultTestActivity : AppCompatActivity() {
     }
 
     private fun initialize() {
+        tvLevel.text = intent.getStringExtra("LEVEL_NAME")
         totalQuestion = intent.getIntExtra("TOTAL_QUES", 0)
         totalCorrect = intent.getIntExtra("TOTAL_CORRECT", 0)
         takenMinutes = intent.getStringExtra("TAKEN_MINUTES")
