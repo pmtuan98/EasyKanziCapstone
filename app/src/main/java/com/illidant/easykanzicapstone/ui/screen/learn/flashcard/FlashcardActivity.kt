@@ -6,11 +6,9 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
@@ -28,7 +26,6 @@ import kotlinx.android.synthetic.main.activity_flashcard.layoutBack
 import kotlinx.android.synthetic.main.activity_flashcard.progressBarFlashcard
 import kotlinx.android.synthetic.main.activity_flashcard.tvQuestionNo
 import kotlinx.android.synthetic.main.activity_flashcard.tvTotalQuestion
-import kotlinx.android.synthetic.main.activity_kanji_detail.*
 import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
 import java.util.*

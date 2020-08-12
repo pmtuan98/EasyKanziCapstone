@@ -1,6 +1,7 @@
 package com.illidant.easykanzicapstone.ui.screen.lesson
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,5 +41,14 @@ class LessonAdapter : RecyclerView.Adapter<LessonAdapter.LessonView> {
 
     override fun onBindViewHolder(holder: LessonView, position: Int) {
         holder.tvLesson.text = lessonList?.get(position)?.name
+        val lessonId = lessonList?.get(position)?.id
+        val lessonName = lessonList?.get(position)?.name
+        //Click to each lesson
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, KanjiByLessonActivity::class.java)
+            intent.putExtra("LESSON_NAME", lessonName)
+            intent.putExtra("LESSON_ID", lessonId)
+            context.startActivity(intent)
+        }
     }
 }

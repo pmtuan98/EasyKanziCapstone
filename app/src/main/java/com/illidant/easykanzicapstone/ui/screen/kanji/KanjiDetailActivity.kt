@@ -21,6 +21,7 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kanji_detail)
         initialize()
+        configViews()
     }
 
     private val presenter by lazy {
@@ -30,10 +31,15 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         KanjiPresenter(this, repository)
     }
 
+    private fun configViews() {
+        btnBack.setOnClickListener {
+            finish()
+        }
+    }
+
     private fun initialize() {
-        var kanji_id = intent.getIntExtra("KANJI_ID", 0)
-        presenter.kanjiByIDRequest(kanji_id)
-//        learnVocabByKanji()
+        var kanjiId = intent.getIntExtra("KANJI_ID", 0)
+        presenter.kanjiByIDRequest(kanjiId)
     }
 
 
@@ -52,14 +58,6 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         stringStroke = kanjiAttribute.image
         handleKanjiStroke(stringStroke)
     }
-//    fun learnVocabByKanji() {
-//        btnFlashcard.setOnClickListener {
-//            var kanji_id = intent.getIntExtra("KANJI_ID",0)
-//            val intent = Intent(it.context, KanjiFlashcardActivity::class.java)
-//            intent.putExtra("KANJI_ID", kanji_id)
-//            startActivity(intent)
-//        }
-//    }
 
     fun handleKanjiStroke(input: String) {
         var listStroke = mutableListOf<String>()

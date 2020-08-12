@@ -38,10 +38,13 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="247dp"
-        android:layout_height="28dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Choose lesson to start"
+        android:background="@color/white"
+        android:gravity="center"
+        android:text="Choose lesson"
+        android:textColor="@color/black"
         android:textSize="@dimen/sp_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

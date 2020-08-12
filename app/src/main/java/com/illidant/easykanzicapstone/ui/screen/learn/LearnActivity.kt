@@ -14,9 +14,11 @@ import com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice.MultipleCh
 import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import kotlinx.android.synthetic.main.activity_learn.*
 import kotlinx.android.synthetic.main.activity_learn.tvLesson
-import kotlinx.android.synthetic.main.activity_learn.tvLevel
 
 class LearnActivity : AppCompatActivity(), LearnContract.View {
+
+    private var lessonId:Int = 0
+    private var lessonName:String = ""
 
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
@@ -29,32 +31,38 @@ class LearnActivity : AppCompatActivity(), LearnContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_learn)
         initialize()
+        configViews()
     }
 
     private fun initialize() {
-        val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        val lesson_name = intent.getStringExtra("LESSON_NAME")
-        val level_name = intent.getStringExtra("LEVEL_NAME")
-        tvLesson.text = lesson_name
-        tvLevel.text = level_name
-        presenter.vocabByLessonRequest(lesson_id)
+        lessonId = intent.getIntExtra("LESSON_ID", 0)
+        lessonName = intent.getStringExtra("LESSON_NAME")
+        presenter.vocabByLessonRequest(lessonId)
+    }
+
+    private fun  configViews() {
+        tvLesson.text = lessonName
         //Move to flashcard
         flashcardMethod.setOnClickListener({
             val intent = Intent(it.context, FlashcardActivity::class.java)
-            intent.putExtra("LESSON_ID", lesson_id)
+            intent.putExtra("LESSON_ID", lessonId)
             startActivity(intent)
         })
 
         writingMethod.setOnClickListener({
             val intent = Intent(it.context, WritingActivity::class.java)
-            intent.putExtra("LESSON_ID", lesson_id)
+            intent.putExtra("LESSON_ID", lessonId)
             startActivity(intent)
         })
         multipleMethod.setOnClickListener({
             val intent = Intent(it.context, MultipleChoiceActivity::class.java)
-            intent.putExtra("LESSON_ID", lesson_id)
+            intent.putExtra("LESSON_ID", lessonId)
             startActivity(intent)
         })
+
+        btnBack.setOnClickListener {
+            finish()
+        }
     }
 
     override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
@@ -62,7 +70,7 @@ class LearnActivity : AppCompatActivity(), LearnContract.View {
     }
 
     override fun getVocabByLessonID(listVocab: List<Vocabulary>) {
-        tvTotalVocab.text = "(${listVocab.size.toString()})"
+        tvTotalVocab.text = "(${listVocab.size})"
         recyclerViewVocab!!.layoutManager = GridLayoutManager(this, 1)
         recyclerViewVocab.adapter = LearnVocabAdapter(this, listVocab)
     }
