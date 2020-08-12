@@ -12,20 +12,23 @@ import retrofit2.Response
 class ChangePassPresenter(
     private val view: ChangePassContract.View,
     private val repository: UserRepositoryType
-): ChangePassContract.Presenter {
+) : ChangePassContract.Presenter {
     override fun changePass(request: ChangePasswordRequest) {
-        repository.changePass(request).enqueue(object : Callback<ChangePasswordResponse>{
+        repository.changePass(request).enqueue(object : Callback<ChangePasswordResponse> {
             override fun onFailure(call: Call<ChangePasswordResponse>, t: Throwable) {
 
             }
 
-            override fun onResponse(call: Call<ChangePasswordResponse>, response: Response<ChangePasswordResponse>) {
+            override fun onResponse(
+                call: Call<ChangePasswordResponse>,
+                response: Response<ChangePasswordResponse>
+            ) {
                 response.body()?.let {
                     view.onChangePassSucceeded(it.message)
                 }
                 response.errorBody()?.let {
                     val jObjError = JSONObject(response.errorBody()!!.string())
-                    view.onChangePassFail(  jObjError.getString("message"))
+                    view.onChangePassFail(jObjError.getString("message"))
                 }
             }
 

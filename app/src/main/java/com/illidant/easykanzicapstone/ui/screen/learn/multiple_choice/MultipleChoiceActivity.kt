@@ -26,7 +26,7 @@ import kotlinx.android.synthetic.main.activity_multiple_choice.tvTotalQuestion
 class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
     private var countCorrect = 0
-    val listQuizAll : MutableList<Quiz> = mutableListOf()
+    val listQuizAll: MutableList<Quiz> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multiple_choice)
@@ -48,21 +48,21 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         }
     }
 
-    private fun showCompleteDialog () {
+    private fun showCompleteDialog() {
         val dialog = Dialog(this)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         dialog.setCancelable(false)
         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_complete_multiplechoice)
-        val btnAgain= dialog.findViewById(R.id.btnLearnAgain) as Button
+        val btnAgain = dialog.findViewById(R.id.btnLearnAgain) as Button
         val btnWriting = dialog.findViewById(R.id.btnWriting) as Button
         val btnFlashcard = dialog.findViewById(R.id.btnFlashcard) as Button
-        val tvTotalQuestion= dialog.findViewById(R.id.tvTotalQuestion) as TextView
+        val tvTotalQuestion = dialog.findViewById(R.id.tvTotalQuestion) as TextView
         val tvCorrect = dialog.findViewById(R.id.tvCorrect) as TextView
         val tvWrong = dialog.findViewById(R.id.tvWrong) as TextView
         tvTotalQuestion.text = listQuizAll.size.toString()
         tvCorrect.text = countCorrect.toString()
-        tvWrong.text = (listQuizAll.size-countCorrect).toString()
+        tvWrong.text = (listQuizAll.size - countCorrect).toString()
         dialog.show()
         btnAgain.setOnClickListener {
             val intent = intent
@@ -70,14 +70,14 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             startActivity(intent)
             dialog.dismiss()
         }
-        btnWriting.setOnClickListener{
+        btnWriting.setOnClickListener {
             val intent = Intent(it.context, WritingActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
             finish()
             dialog.dismiss()
         }
-        btnFlashcard.setOnClickListener{
+        btnFlashcard.setOnClickListener {
             val intent = Intent(it.context, FlashcardActivity::class.java)
             intent.putExtra("LESSON_ID", lesson_id)
             startActivity(intent)
@@ -85,11 +85,12 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             dialog.dismiss()
         }
     }
+
     override fun getQuizByLessonID(listQuiz: List<Quiz>) {
         listQuizAll.addAll(listQuiz)
         var currentPosition = 0
         var wrongAnswerBackground: Drawable?
-        wrongAnswerBackground = ContextCompat.getDrawable(this,R.drawable.bg_wrong_answer)
+        wrongAnswerBackground = ContextCompat.getDrawable(this, R.drawable.bg_wrong_answer)
 
         //set progress bar
         progressBarMultiple.max = listQuiz.size
@@ -113,36 +114,36 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
         tvAnswerA?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(tvAnswerA.text.equals(correctAnswer)){
+            if (tvAnswerA.text.equals(correctAnswer)) {
                 countCorrect++
-            }else {
+            } else {
                 tvAnswerA?.background = wrongAnswerBackground
             }
             displayNextButton()
         }
         tvAnswerB?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(tvAnswerB.text.equals(correctAnswer)){
+            if (tvAnswerB.text.equals(correctAnswer)) {
                 countCorrect++
-            }else {
+            } else {
                 tvAnswerB?.background = wrongAnswerBackground
             }
             displayNextButton()
         }
         tvAnswerC?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(tvAnswerC.text.equals(correctAnswer)){
+            if (tvAnswerC.text.equals(correctAnswer)) {
                 countCorrect++
-            }else {
+            } else {
                 tvAnswerC?.background = wrongAnswerBackground
             }
             displayNextButton()
         }
         tvAnswerD?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(tvAnswerD.text.equals(correctAnswer)){
+            if (tvAnswerD.text.equals(correctAnswer)) {
                 countCorrect++
-            }else {
+            } else {
                 tvAnswerD?.background = wrongAnswerBackground
             }
             displayNextButton()
@@ -168,19 +169,19 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
     }
 
     override fun getQuizByLevelID(listQuiz: List<Quiz>) {
-       //not use
+        //not use
     }
 
-    private fun checkCorrectAnswer(answer : String) {
+    private fun checkCorrectAnswer(answer: String) {
         var correctAnswerBackground: Drawable?
-        correctAnswerBackground = ContextCompat.getDrawable(this,R.drawable.bg_correct_answer)
-        if(tvAnswerA.text.equals(answer)){
+        correctAnswerBackground = ContextCompat.getDrawable(this, R.drawable.bg_correct_answer)
+        if (tvAnswerA.text.equals(answer)) {
             tvAnswerA?.background = correctAnswerBackground
-        }else if (tvAnswerB.text.equals(answer)){
+        } else if (tvAnswerB.text.equals(answer)) {
             tvAnswerB?.background = correctAnswerBackground
-        }else if (tvAnswerC.text.equals(answer)){
+        } else if (tvAnswerC.text.equals(answer)) {
             tvAnswerC?.background = correctAnswerBackground
-        }else if (tvAnswerD.text.equals(answer)){
+        } else if (tvAnswerD.text.equals(answer)) {
             tvAnswerD?.background = correctAnswerBackground
         }
     }
@@ -205,6 +206,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         tvAnswerC.isEnabled = false
         tvAnswerD.isEnabled = false
     }
+
     private fun hideNextButton() {
         btnNextQuestion?.visibility = View.INVISIBLE
     }

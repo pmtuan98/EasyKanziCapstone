@@ -22,7 +22,8 @@ class TestHistoryActivity : AppCompatActivity(), TestHistoryContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_history)
-        val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+        val prefs: SharedPreferences =
+            getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
         val userID = prefs.getInt("userID", 0)
         configViews()
         historyPresenter.getTestHistoryRequest(userID)
@@ -37,7 +38,7 @@ class TestHistoryActivity : AppCompatActivity(), TestHistoryContract.View {
 
     override fun onTestHistoryData(listHistory: List<TestHistory>) {
         recyclerViewHistory!!.layoutManager = GridLayoutManager(this, 1)
-        recyclerViewHistory!!.adapter = TestHistoryAdapter(listHistory,this)
+        recyclerViewHistory!!.adapter = TestHistoryAdapter(listHistory, this)
     }
 
     private fun configViews() {

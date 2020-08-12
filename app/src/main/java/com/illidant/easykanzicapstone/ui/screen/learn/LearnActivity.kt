@@ -30,6 +30,7 @@ class LearnActivity : AppCompatActivity(), LearnContract.View {
         setContentView(R.layout.activity_learn)
         initialize()
     }
+
     private fun initialize() {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         val lesson_name = intent.getStringExtra("LESSON_NAME")
@@ -55,8 +56,9 @@ class LearnActivity : AppCompatActivity(), LearnContract.View {
             startActivity(intent)
         })
     }
+
     override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
-     //Not use
+        //Not use
     }
 
     override fun getVocabByLessonID(listVocab: List<Vocabulary>) {

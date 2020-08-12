@@ -15,9 +15,9 @@ interface UserDataSource {
 
     interface Remote {
         fun signin(request: SigninRequest): Call<User>
-        fun signup(request: SignupRequest) : Call<SignupResponse>
-        fun resetPass(request: ResetPasswordRequest) : Call<ResetPasswordResponse>
-        fun changePass(request: ChangePasswordRequest) : Call<ChangePasswordResponse>
-        fun forgotPass(request: ForgotPasswordRequest) : Call<ForgotPasswordResponse>
+        fun signup(request: SignupRequest): Call<SignupResponse>
+        fun resetPass(request: ResetPasswordRequest): Call<ResetPasswordResponse>
+        fun changePass(request: ChangePasswordRequest): Call<ChangePasswordResponse>
+        fun forgotPass(request: ForgotPasswordRequest): Call<ForgotPasswordResponse>
     }
 }

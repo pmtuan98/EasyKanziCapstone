@@ -19,8 +19,10 @@ class LessonAdapter : RecyclerView.Adapter<LessonAdapter.LessonView> {
         this.lessonList = levelList
         this.context = context
     }
+
     class LessonView(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvLesson: TextView
+
         init {
             tvLesson = itemView.tvLesson as TextView
         }

@@ -20,7 +20,7 @@ import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
 
 import kotlinx.android.synthetic.main.activity_home.*
 
-class HomeActivity : BaseActivity(),HomeContract.View {
+class HomeActivity : BaseActivity(), HomeContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +28,7 @@ class HomeActivity : BaseActivity(),HomeContract.View {
         initialize()
         configView()
     }
+
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val remote = LevelRemoteDataSource(retrofit)
@@ -37,7 +38,8 @@ class HomeActivity : BaseActivity(),HomeContract.View {
 
     private fun initialize() {
         presenter.getLevelData()
-        val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+        val prefs: SharedPreferences =
+            getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
         val username = prefs.getString("userName", null)
         tvUsername.text = username
     }

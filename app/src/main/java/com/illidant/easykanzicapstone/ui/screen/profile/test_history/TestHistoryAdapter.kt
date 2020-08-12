@@ -34,7 +34,8 @@ class TestHistoryAdapter : RecyclerView.Adapter<TestHistoryAdapter.TestHistoryVi
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): TestHistoryView {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_test_history, viewGroup, false)
+        val view = LayoutInflater.from(viewGroup.context)
+            .inflate(R.layout.item_test_history, viewGroup, false)
         return TestHistoryView(view)
     }
 

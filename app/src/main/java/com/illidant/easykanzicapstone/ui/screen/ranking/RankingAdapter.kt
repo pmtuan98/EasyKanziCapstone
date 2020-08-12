@@ -34,12 +34,13 @@ class RankingAdapter : RecyclerView.Adapter<RankingAdapter.RankingView> {
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): RankingView {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_ranking, viewGroup, false)
+        val view =
+            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_ranking, viewGroup, false)
         return RankingView(view)
     }
 
     override fun getItemCount(): Int {
-       return listRanking!!.size
+        return listRanking!!.size
     }
 
     override fun onBindViewHolder(view: RankingView, position: Int) {

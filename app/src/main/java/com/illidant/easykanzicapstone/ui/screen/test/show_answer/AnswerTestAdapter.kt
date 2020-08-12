@@ -10,7 +10,7 @@ import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import kotlinx.android.synthetic.main.item_test_result.view.*
 
-class AnswerTestAdapter: RecyclerView.Adapter<AnswerTestAdapter.AnswerView> {
+class AnswerTestAdapter : RecyclerView.Adapter<AnswerTestAdapter.AnswerView> {
     var listQuiz: List<Quiz>? = null
     var context: Context
 
@@ -40,7 +40,8 @@ class AnswerTestAdapter: RecyclerView.Adapter<AnswerTestAdapter.AnswerView> {
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): AnswerView {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_test_result, viewGroup, false)
+        val view = LayoutInflater.from(viewGroup.context)
+            .inflate(R.layout.item_test_result, viewGroup, false)
         return AnswerView(view)
     }
 

@@ -31,14 +31,14 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
     }
 
     private fun initialize() {
-        var kanji_id = intent.getIntExtra("KANJI_ID",0)
+        var kanji_id = intent.getIntExtra("KANJI_ID", 0)
         presenter.kanjiByIDRequest(kanji_id)
 //        learnVocabByKanji()
     }
 
 
     override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {
-       //Not use
+        //Not use
     }
 
     override fun getKanjiByID(kanjiAttribute: Kanji) {
@@ -63,9 +63,9 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
 
     fun handleKanjiStroke(input: String) {
         var listStroke = mutableListOf<String>()
-        val delimiter ="|"
+        val delimiter = "|"
         val parts = input.split(delimiter)
-        for (i in 0 .. parts.size.minus(1)) {
+        for (i in 0..parts.size.minus(1)) {
             listStroke.add(parts[i])
         }
         kanjiStroke.loadPathData(listStroke)

@@ -18,21 +18,27 @@ class LessonActivity : AppCompatActivity(), LessonContract.View {
         setContentView(R.layout.activity_lesson)
         initialize()
     }
+
     private val lessonPresenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val remote = LessonRemoteDataSource(retrofit)
         val repository = LessonRepository(remote)
         LessonPresenter(this, repository)
     }
+
     private fun initialize() {
         tvLevel.text = intent.getStringExtra("LEVEL_NAME")
         val levelId = intent.getIntExtra("LEVEL_ID", 0)
         lessonPresenter.lessonRequest(levelId)
+        btnBack.setOnClickListener {
+            finish()
+        }
 
     }
+
     override fun getLesson(listLesson: List<Lesson>) {
         recyclerViewLesson!!.layoutManager = GridLayoutManager(this, 1)
-        recyclerViewLesson!!.adapter = LessonAdapter(listLesson,this)
+        recyclerViewLesson!!.adapter = LessonAdapter(listLesson, this)
         recyclerViewLesson.layoutManager = object : LinearLayoutManager(this) { //prevent scroll
             override fun canScrollVertically(): Boolean = false
         }

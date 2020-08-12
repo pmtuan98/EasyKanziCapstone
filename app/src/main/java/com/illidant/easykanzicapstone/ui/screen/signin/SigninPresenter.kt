@@ -24,7 +24,7 @@ class SigninPresenter(
                 }
                 response.errorBody()?.let {
                     val jObjError = JSONObject(response.errorBody()!!.string())
-                    view.onSigninFailed(  jObjError.getString("message"))
+                    view.onSigninFailed(jObjError.getString("message"))
                 }
             }
 

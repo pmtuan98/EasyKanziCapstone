@@ -7,7 +7,7 @@ import com.illidant.easykanzicapstone.domain.request.SignupRequest
 import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import retrofit2.Call
 
-interface LevelDataSource  {
+interface LevelDataSource {
     interface Local {
 
     }

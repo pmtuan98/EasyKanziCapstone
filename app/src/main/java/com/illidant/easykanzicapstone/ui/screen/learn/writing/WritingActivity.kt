@@ -161,10 +161,10 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
     }
 
     private fun updateWritingMode(writingMode: WritingMode) {
-        if(titleWrongAnswer.visibility == View.VISIBLE){
+        if (titleWrongAnswer.visibility == View.VISIBLE) {
             textHelper.text = getString(R.string.text_helper_rewrite_correct_answer)
             textHelper.setTextColor(Color.parseColor("#c0392d"))
-        }else {
+        } else {
             textHelper.text = when (writingMode) {
                 WritingMode.Hiragana -> "Write meaning by Hiragana"
                 WritingMode.Vietnamese -> "Write meaning by Vietnamese"
@@ -185,7 +185,7 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
         this.vocabularyList.addAll(vocabularyList.take(8))
         tvTotalQuestion.text = vocabularyList.take(8).size.toString()
         progressBarWriting.max = vocabularyList.take(8).size
-            showQuestion(vocabularyList.first())
+        showQuestion(vocabularyList.first())
     }
 
     override fun onError(throwable: Throwable) {

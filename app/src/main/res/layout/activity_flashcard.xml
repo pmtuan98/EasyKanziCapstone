@@ -64,8 +64,6 @@
     </LinearLayout>
 
 
-
-
     <ProgressBar
         android:id="@+id/progressBarFlashcard"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -76,7 +74,7 @@
         android:progressDrawable="@drawable/custom_progress_bar_flashcard"
         app:layout_constraintTop_toBottomOf="@id/linearlayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/btnSpeak"
@@ -90,7 +88,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flashCard" />
-
 
 
     <com.wajahatkarim3.easyflipview.EasyFlipView

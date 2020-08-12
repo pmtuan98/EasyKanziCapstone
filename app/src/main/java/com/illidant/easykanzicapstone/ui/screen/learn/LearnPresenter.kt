@@ -10,17 +10,21 @@ import retrofit2.Response
 
 class LearnPresenter(
     private val view: LearnContract.View,
-    private val repository: VocabularyRepository) : LearnContract.Presenter {
+    private val repository: VocabularyRepository
+) : LearnContract.Presenter {
     override fun vocabByLessonRequest(id: Int) {
-       repository.getVocabByLessonID(id).enqueue(object : Callback<List<Vocabulary>>{
+        repository.getVocabByLessonID(id).enqueue(object : Callback<List<Vocabulary>> {
 
-           override fun onResponse(call: Call<List<Vocabulary>>, response: Response<List<Vocabulary>>) {
-               response.body()?.let { view.getVocabByLessonID(it) }
-           }
+            override fun onResponse(
+                call: Call<List<Vocabulary>>,
+                response: Response<List<Vocabulary>>
+            ) {
+                response.body()?.let { view.getVocabByLessonID(it) }
+            }
 
-           override fun onFailure(call: Call<List<Vocabulary>>, t: Throwable) {
-           }
-       })
+            override fun onFailure(call: Call<List<Vocabulary>>, t: Throwable) {
+            }
+        })
     }
 
     override fun vocabByKanjiIDRequest(id: Int) {
@@ -29,7 +33,10 @@ class LearnPresenter(
 
             }
 
-            override fun onResponse(call: Call<List<Vocabulary>>, response: Response<List<Vocabulary>>) {
+            override fun onResponse(
+                call: Call<List<Vocabulary>>,
+                response: Response<List<Vocabulary>>
+            ) {
                 response.body()?.let { view.getVocabByKanjiID(it) }
             }
 

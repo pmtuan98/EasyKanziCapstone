@@ -8,20 +8,24 @@ import retrofit2.Response
 
 class RankingPresenter(
     private val view: RankingContract.View,
-    private val repository: TestRepository) : RankingContract.Presenter {
+    private val repository: TestRepository
+) : RankingContract.Presenter {
     override fun getRankingByLevelIDRequest(id: Int) {
-       repository.getTestRankingByLevelID(id).enqueue(object : Callback<List<TestRanking>>{
-           override fun onFailure(call: Call<List<TestRanking>>, t: Throwable) {
+        repository.getTestRankingByLevelID(id).enqueue(object : Callback<List<TestRanking>> {
+            override fun onFailure(call: Call<List<TestRanking>>, t: Throwable) {
 
-           }
+            }
 
-           override fun onResponse(call: Call<List<TestRanking>>, response: Response<List<TestRanking>>) {
-               response.body()?.let {
-                   view.onRankingData(it)
-               }
-           }
+            override fun onResponse(
+                call: Call<List<TestRanking>>,
+                response: Response<List<TestRanking>>
+            ) {
+                response.body()?.let {
+                    view.onRankingData(it)
+                }
+            }
 
-       })
+        })
     }
 
 }

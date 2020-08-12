@@ -19,7 +19,10 @@ class WritingPresenter(
                 view.onError(t)
             }
 
-            override fun onResponse(call: Call<List<Vocabulary>>, response: Response<List<Vocabulary>>) {
+            override fun onResponse(
+                call: Call<List<Vocabulary>>,
+                response: Response<List<Vocabulary>>
+            ) {
                 response.body()?.let { view.onSuccess(it) }
             }
         })

@@ -23,7 +23,7 @@ class EntryActivity : AppCompatActivity() {
             startActivity(SignupActivity.getIntent(this))
         }
     }
-    
+
     companion object {
         fun getIntent(context: Context) = Intent(context, EntryActivity::class.java)
     }

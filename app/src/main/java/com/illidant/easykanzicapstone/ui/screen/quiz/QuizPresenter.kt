@@ -10,10 +10,11 @@ import retrofit2.Response
 
 class QuizPresenter(
     private val view: QuizContract.View,
-    private val repository: QuizRepository): QuizContract.Presenter {
+    private val repository: QuizRepository
+) : QuizContract.Presenter {
     override fun quizByLessonRequest(id: Int) {
 
-        repository.getQuizByLessonID(id).enqueue(object : Callback<List<Quiz>>{
+        repository.getQuizByLessonID(id).enqueue(object : Callback<List<Quiz>> {
 
             override fun onResponse(call: Call<List<Quiz>>, response: Response<List<Quiz>>) {
                 response.body()?.let { view.getQuizByLessonID(it) }
@@ -27,15 +28,15 @@ class QuizPresenter(
     }
 
     override fun quizByLevelRequest(id: Int) {
-       repository.getQuizByLevelID(id).enqueue(object : Callback<List<Quiz>>{
-           override fun onFailure(call: Call<List<Quiz>>, t: Throwable) {
-             //Nothing
-           }
+        repository.getQuizByLevelID(id).enqueue(object : Callback<List<Quiz>> {
+            override fun onFailure(call: Call<List<Quiz>>, t: Throwable) {
+                //Nothing
+            }
 
-           override fun onResponse(call: Call<List<Quiz>>, response: Response<List<Quiz>>) {
-              response.body()?.let { view.getQuizByLevelID(it) }
-           }
+            override fun onResponse(call: Call<List<Quiz>>, response: Response<List<Quiz>>) {
+                response.body()?.let { view.getQuizByLevelID(it) }
+            }
 
-       })
+        })
     }
 }

@@ -60,6 +60,7 @@ class KanjiByLessonActivity : AppCompatActivity(),
             startActivity(intent)
         }
     }
+
     // Fill kanji into cardview
     override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {
         recyclerViewLevel.adapter =
@@ -70,70 +71,73 @@ class KanjiByLessonActivity : AppCompatActivity(),
     }
 
     override fun getKanjiByID(listKanjiElement: Kanji) {
-      //Not use
+        //Not use
     }
 
     override fun getVocabByKanjiID(listVocab: List<Vocabulary>) {
-       //Not use
+        //Not use
     }
 
     override fun getLesson(listLesson: List<Lesson>) {
 
         var lesson_names = mutableListOf<String>()
         var lesson_ids = mutableListOf<Int>()
-        for(lesson in listLesson) {
+        for (lesson in listLesson) {
             lesson_names.add(lesson.name)
             lesson_ids.add(lesson.id)
         }
 
         fun checkNextPreviousButton(position: Int) {
-            if(position <= 0) {
+            if (position <= 0) {
                 btnLessonBack.visibility = View.INVISIBLE
 
-            }else {
+            } else {
                 btnLessonBack.visibility = View.VISIBLE
             }
-            if(position + 1 >= lesson_ids.size){
+            if (position + 1 >= lesson_ids.size) {
                 btnLessonNext.visibility = View.INVISIBLE
-            }else {
+            } else {
                 btnLessonNext.visibility = View.VISIBLE
             }
         }
 
-        lessonSpinner.adapter = ArrayAdapter<String>(this,R.layout.item_lesson_spinner, lesson_names)
+        lessonSpinner.adapter =
+            ArrayAdapter<String>(this, R.layout.item_lesson_spinner, lesson_names)
 
         lessonSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                Toast.makeText(applicationContext,"Please choose a lesson", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Please choose a lesson", Toast.LENGTH_SHORT)
+                    .show()
             }
+
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    var lessonId = lesson_ids.get(p2)
-                    kanjiPresenter.kanjiByLessonRequest(lessonId)
-                    checkNextPreviousButton(p2)
-                    btnLearn.setOnClickListener{
-                        val intent = Intent(it.context, LearnActivity::class.java)
-                        var lesson_position = lessonSpinner.selectedItemPosition
-                        intent.putExtra("LESSON_ID", lessonId)
-                        intent.putExtra("LESSON_NAME", lesson_names[lesson_position])
-                        intent.putExtra("LEVEL_NAME", tvLevel.text)
-                        startActivity(intent)
-                    }
+                var lessonId = lesson_ids.get(p2)
+                kanjiPresenter.kanjiByLessonRequest(lessonId)
+                checkNextPreviousButton(p2)
+                btnLearn.setOnClickListener {
+                    val intent = Intent(it.context, LearnActivity::class.java)
+                    var lesson_position = lessonSpinner.selectedItemPosition
+                    intent.putExtra("LESSON_ID", lessonId)
+                    intent.putExtra("LESSON_NAME", lesson_names[lesson_position])
+                    intent.putExtra("LEVEL_NAME", tvLevel.text)
+                    startActivity(intent)
+                }
             }
 
         }
 
-        btnLessonBack.setOnClickListener{
+        btnLessonBack.setOnClickListener {
             var lesson_position = lessonSpinner.selectedItemPosition
-            if(lesson_position > 0) {
-                lesson_position = lesson_position -1
+            if (lesson_position > 0) {
+                lesson_position = lesson_position - 1
                 lessonSpinner.setSelection(lesson_position)
                 checkNextPreviousButton(lesson_position)
             }
         }
 
-        btnLessonNext.setOnClickListener{
+        btnLessonNext.setOnClickListener {
             var lesson_position = lessonSpinner.selectedItemPosition
-            if(lesson_position + 1 <  lesson_ids.size) {
+            if (lesson_position + 1 < lesson_ids.size) {
                 lesson_position = lesson_position + 1
                 lessonSpinner.setSelection(lesson_position)
                 checkNextPreviousButton(lesson_position)
@@ -141,7 +145,6 @@ class KanjiByLessonActivity : AppCompatActivity(),
         }
 
     }
-
 
 
 }

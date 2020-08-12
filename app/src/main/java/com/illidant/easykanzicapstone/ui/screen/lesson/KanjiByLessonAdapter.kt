@@ -16,8 +16,8 @@ import kotlinx.android.synthetic.main.item_kanji.view.*
 
 class KanjiByLessonAdapter : RecyclerView.Adapter<KanjiByLessonAdapter.LevelViewHolder> {
 
-     var context: Context
-     var listKanji: List<Kanji>? = null
+    var context: Context
+    var listKanji: List<Kanji>? = null
 
     constructor(mContext: Context, listKanji: List<Kanji>) {
         this.context = mContext
@@ -36,7 +36,7 @@ class KanjiByLessonAdapter : RecyclerView.Adapter<KanjiByLessonAdapter.LevelView
     }
 
     override fun onBindViewHolder(holder: LevelViewHolder, position: Int) {
-        holder.text_kanji.text =listKanji?.get(position)?.kanji
+        holder.text_kanji.text = listKanji?.get(position)?.kanji
         holder.text_sio_vietnamese.text = listKanji?.get(position)?.sino_vietnamese
         var kanji_id = listKanji?.get(position)?.id!!
         holder.cardView.setOnClickListener {
