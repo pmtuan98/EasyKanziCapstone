@@ -9,6 +9,8 @@ data class User(
     val username: String,
     @SerializedName("roles")
     val roles: List<String>,
+    @SerializedName("email")
+    val email: String,
     @SerializedName("accessToken")
     private val accessToken: String,
     @SerializedName("tokenType")

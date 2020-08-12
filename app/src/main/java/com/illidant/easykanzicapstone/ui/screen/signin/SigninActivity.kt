@@ -115,7 +115,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
                     editEmailForgot.setError("Enter a valid email")
                     editEmailForgot.requestFocus()
                 } else {
-                    prefs.edit().putString("userEmail", email).apply()
+                    prefs.edit().putString("emailForgot", email).apply()
                     val forgetRequest = ForgotPasswordRequest(email)
                     forgotPassPresenter.forgotPass(forgetRequest)
                     dialogForgotPass.dismiss()
@@ -140,13 +140,13 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         dialogResetPass.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialogResetPass.setContentView(R.layout.dialog_reset_password)
         val buttonOK= dialogResetPass.findViewById(R.id.btnResetOK) as TextView
-        val userEmail = dialogResetPass.findViewById(R.id.tvEmailForgot) as TextView
+        val emailForgot = dialogResetPass.findViewById(R.id.tvEmailForgot) as TextView
         val editOtpCode = dialogResetPass.findViewById(R.id.edtOtpCode) as EditText
         val editNewPassword = dialogResetPass.findViewById(R.id.edtNewPassword) as EditText
         val editCfNewPassword = dialogResetPass.findViewById(R.id.edtCfNewPassword) as EditText
         val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
-        val savedEmail = prefs.getString("userEmail", null)
-        userEmail.text = "Email: ${savedEmail}"
+        val savedEmail = prefs.getString("emailForgot", null)
+        emailForgot.text = "Email: ${savedEmail}"
         dialogResetPass.show()
 
         buttonOK.setOnClickListener {
@@ -184,6 +184,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
         prefs.edit().putInt("userID", user.id).apply()
         prefs.edit().putString("userName", user.username).apply()
+        prefs.edit().putString("userEmail",user.email).apply()
         navigateToHome()
     }
 
