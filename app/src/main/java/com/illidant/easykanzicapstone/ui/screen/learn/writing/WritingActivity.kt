@@ -8,6 +8,7 @@ import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
@@ -124,7 +125,7 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
                 dismiss()
             }
 
-            buttonLearnFlashcard.setOnClickListener {
+            btnFlashcard.setOnClickListener {
                 val intent = Intent(this@WritingActivity, FlashcardActivity::class.java)
                 intent.putExtra("LESSON_ID", lessonId)
                 startActivity(intent)
@@ -180,9 +181,11 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
     }
 
     override fun onSuccess(vocabularyList: List<Vocabulary>) {
-        this.vocabularyList.addAll(vocabularyList)
-        tvTotalQuestion.text = vocabularyList.size.toString()
-        showQuestion(vocabularyList.first())
+        //Slice list to test
+        this.vocabularyList.addAll(vocabularyList.take(8))
+        tvTotalQuestion.text = vocabularyList.take(8).size.toString()
+        progressBarWriting.max = vocabularyList.take(8).size
+            showQuestion(vocabularyList.first())
     }
 
     override fun onError(throwable: Throwable) {

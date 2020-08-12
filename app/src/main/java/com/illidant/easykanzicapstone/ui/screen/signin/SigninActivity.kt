@@ -169,7 +169,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
                 editCfNewPassword.setError("Confirm password is required")
                 editCfNewPassword.requestFocus()
             } else if (!cfNewPassword.equals(newPassword)) {
-                editCfNewPassword.setError("Not match password. Please re-enter")
+                editCfNewPassword.setError("Not match new password")
                 editCfNewPassword.requestFocus()
             } else {
                 val resetRequest = ResetPasswordRequest(savedEmail.toString(),cfNewPassword,otpCode)
@@ -213,7 +213,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
     override fun onForgotPassSucceeded(message: String) {
         val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
         dialog.contentText = message
-        dialog.setCancelable(false)
+        dialog.setCancelable(true)
         dialog.show()
         dialog.setConfirmClickListener {
             showResetPassDialog()

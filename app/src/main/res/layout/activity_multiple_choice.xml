@@ -6,23 +6,10 @@
     android:layout_height="match_parent"
     android:background="#f4f4f4">
 
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/textLearn"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="12dp"-->
-<!--        android:gravity="center"-->
-<!--        android:orientation="horizontal"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/progressBarMultiple"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent">-->
-
     <ImageButton
         android:id="@+id/btnExit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
@@ -37,8 +24,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/switchOption"
-        app:layout_constraintStart_toEndOf="@+id/btnExit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -63,30 +50,17 @@
             android:textSize="16sp" />
     </LinearLayout>
 
-
-    <ImageButton
-        android:id="@+id/switchOption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/ic_setting"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
     <ProgressBar
         android:id="@+id/progressBarMultiple"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
-        android:layout_width="300dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:max="100"
         android:progressDrawable="@drawable/custom_progress_bar"
-        app:layout_constraintTop_toBottomOf="@id/linearlayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linearlayout" />
 
 
     <TextView
@@ -167,26 +141,26 @@
         android:id="@+id/btnNextQuestion"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/bg_ripple"
         android:src="@drawable/ic_next_multiple"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.801"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAnswerD" />
 
 
-    <ImageButton
-        android:id="@+id/btnBackQuestion"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="44dp"
-        android:background="@drawable/bg_ripple"
-        android:src="@drawable/ic_back_multiple"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.201"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvAnswerC" />
+    <!--    <ImageButton-->
+    <!--        android:id="@+id/btnBackQuestion"-->
+    <!--        android:layout_width="64dp"-->
+    <!--        android:layout_height="64dp"-->
+    <!--        android:layout_marginTop="44dp"-->
+    <!--        android:background="@drawable/bg_ripple"-->
+    <!--        android:src="@drawable/ic_back_multiple"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.201"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tvAnswerC" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
