@@ -35,6 +35,12 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         btnBack.setOnClickListener {
             finish()
         }
+        btnFlashcard.setOnClickListener {
+            var kanji_id = intent.getIntExtra("KANJI_ID",0)
+            val intent = Intent(it.context, KanjiFlashcardActivity::class.java)
+            intent.putExtra("KANJI_ID", kanji_id)
+            startActivity(intent)
+        }
     }
 
     private fun initialize() {
@@ -59,7 +65,7 @@ class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
         handleKanjiStroke(stringStroke)
     }
 
-    fun handleKanjiStroke(input: String) {
+    private fun handleKanjiStroke(input: String) {
         var listStroke = mutableListOf<String>()
         val delimiter = "|"
         val parts = input.split(delimiter)

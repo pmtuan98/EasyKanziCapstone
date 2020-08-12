@@ -277,10 +277,24 @@
         android:layout_height="0dp"
         android:background="@drawable/bg_detail_kanji"
         android:padding="@dimen/dp_12"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btnFlashcard"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titleExample"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnFlashcard"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/bg_button_writing2"
+        android:fontFamily="@font/circularstdbook"
+        android:text="Flashcard"
+        android:textColor="#c0392d"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
