@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
@@ -24,7 +25,8 @@ import kotlinx.android.synthetic.main.activity_multiple_choice.tvTotalQuestion
 
 class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
-
+    private var countCorrect = 0
+    val listQuizAll : MutableList<Quiz> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multiple_choice)
@@ -55,6 +57,12 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         val btnAgain= dialog.findViewById(R.id.btnLearnAgain) as Button
         val btnWriting = dialog.findViewById(R.id.btnWriting) as Button
         val btnFlashcard = dialog.findViewById(R.id.btnFlashcard) as Button
+        val tvTotalQuestion= dialog.findViewById(R.id.tvTotalQuestion) as TextView
+        val tvCorrect = dialog.findViewById(R.id.tvCorrect) as TextView
+        val tvWrong = dialog.findViewById(R.id.tvWrong) as TextView
+        tvTotalQuestion.text = listQuizAll.size.toString()
+        tvCorrect.text = countCorrect.toString()
+        tvWrong.text = (listQuizAll.size-countCorrect).toString()
         dialog.show()
         btnAgain.setOnClickListener {
             val intent = intent
@@ -78,6 +86,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         }
     }
     override fun getQuizByLessonID(listQuiz: List<Quiz>) {
+        listQuizAll.addAll(listQuiz)
         var currentPosition = 0
         var wrongAnswerBackground: Drawable?
         wrongAnswerBackground = ContextCompat.getDrawable(this,R.drawable.bg_wrong_answer)
@@ -104,28 +113,36 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
         tvAnswerA?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!tvAnswerA.text.equals(correctAnswer)){
+            if(tvAnswerA.text.equals(correctAnswer)){
+                countCorrect++
+            }else {
                 tvAnswerA?.background = wrongAnswerBackground
             }
             displayNextButton()
         }
         tvAnswerB?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!tvAnswerB.text.equals(correctAnswer)){
+            if(tvAnswerB.text.equals(correctAnswer)){
+                countCorrect++
+            }else {
                 tvAnswerB?.background = wrongAnswerBackground
             }
             displayNextButton()
         }
         tvAnswerC?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!tvAnswerC.text.equals(correctAnswer)){
+            if(tvAnswerC.text.equals(correctAnswer)){
+                countCorrect++
+            }else {
                 tvAnswerC?.background = wrongAnswerBackground
             }
             displayNextButton()
         }
         tvAnswerD?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!tvAnswerD.text.equals(correctAnswer)){
+            if(tvAnswerD.text.equals(correctAnswer)){
+                countCorrect++
+            }else {
                 tvAnswerD?.background = wrongAnswerBackground
             }
             displayNextButton()
@@ -146,6 +163,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             tvAnswerD.text = listQuiz[currentPosition].answerD
             correctAnswer = listQuiz[currentPosition].correctAnswer
             resetAnswersBackground()
+            hideNextButton()
         })
     }
 
@@ -154,9 +172,8 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
     }
 
     private fun checkCorrectAnswer(answer : String) {
-        var correctAnswerBackground: Drawable? = null
+        var correctAnswerBackground: Drawable?
         correctAnswerBackground = ContextCompat.getDrawable(this,R.drawable.bg_correct_answer)
-
         if(tvAnswerA.text.equals(answer)){
             tvAnswerA?.background = correctAnswerBackground
         }else if (tvAnswerB.text.equals(answer)){
