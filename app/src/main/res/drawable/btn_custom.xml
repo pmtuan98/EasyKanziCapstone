@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/colorPrimary">
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/color_background_bottom">
 
-    <item android:state_pressed="true">
-        <shape android:shape="rectangle">
-            <solid android:color="#C0392D" />
-            <corners android:radius="28dp" />
-        </shape>
-
-    </item>
     <item>
+
         <shape android:shape="rectangle">
             <solid android:color="#C0392D" />
-            <corners android:radius="28dp" />
+            <corners android:radius="28dp"/>
         </shape>
 
     </item>
-</selector>
+
+
+</ripple>
+
+
+
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<selector xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    android:color="@color/colorPrimary">-->
+
+<!--    <item android:state_pressed="true">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <solid android:color="#C0392D" />-->
+<!--            <corners android:radius="28dp" />-->
+<!--        </shape>-->
+
+<!--    </item>-->
+<!--    <item>-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <solid android:color="#C0392D" />-->
+<!--            <corners android:radius="28dp" />-->
+<!--        </shape>-->
+
+<!--    </item>-->
+<!--</selector>-->

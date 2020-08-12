@@ -78,4 +78,6 @@ dependencies {
 
     //button effect
     compile 'me.spark:submitbutton:1.0.1'
+
+    compile 'com.github.ceryle:RadioRealButton:v2.1.1'
 }
