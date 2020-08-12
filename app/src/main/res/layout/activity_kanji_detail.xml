@@ -251,12 +251,12 @@
         app:layout_constraintStart_toEndOf="@id/guideline"
         app:layout_constraintTop_toBottomOf="@id/barrier3" />
 
-    <androidx.constraintlayout.widget.Barrier
-        android:id="@+id/barrier4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:barrierDirection="bottom"
-        app:constraint_referenced_ids="tvOnFurigana, @+id/tvKunFurigana" />
+<!--    <androidx.constraintlayout.widget.Barrier-->
+<!--        android:id="@+id/barrier4"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:barrierDirection="bottom"-->
+<!--        app:constraint_referenced_ids="tvOnFurigana, @+id/tvKunFurigana" />-->
 
     <TextView
         android:id="@+id/titleExample"
@@ -269,30 +269,18 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toStartOf="@id/guideline"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/barrier4" />
+        app:layout_constraintTop_toBottomOf="@id/tvKunFurigana" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewVocab"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:background="@drawable/bg_detail_kanji"
         android:padding="@dimen/dp_12"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/titleExample" />
-
-    <!--    <Button-->
-    <!--        android:id="@+id/btnFlashcard"-->
-    <!--        android:layout_width="120dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginBottom="16dp"-->
-    <!--        android:background="@drawable/bg_button_writing2"-->
-    <!--        android:fontFamily="@font/circularstdbook"-->
-    <!--        android:text="Flashcard"-->
-    <!--        android:textColor="#c0392d"-->
-    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.498"-->
-    <!--        app:layout_constraintStart_toStartOf="parent" />-->
+        app:layout_constraintTop_toBottomOf="@id/titleExample"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
