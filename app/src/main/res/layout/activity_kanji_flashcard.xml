@@ -13,29 +13,14 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        android:background="#C0392D"
+        android:background="#FFB5A8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/btnSpeak"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/bg_button_writing2"
-        android:src="@drawable/ic_baseline_volume_up_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flashCard" />
-
-
     <ImageButton
         android:id="@+id/btnExit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
@@ -50,43 +35,92 @@
         android:layout_gravity="center"
         android:layout_marginTop="4dp"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/switchOption"
-        app:layout_constraintStart_toEndOf="@+id/btnExit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tvQuestionNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbold"
-            android:textSize="18sp" />
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbold"
+            android:fontFamily="@font/roboto_bold"
             android:text="/"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvTotalQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbold"
-            android:textSize="16sp" />
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="20sp" />
     </LinearLayout>
-
-
-    <ImageButton
-        android:id="@+id/switchOption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="4dp"
-        android:background="@drawable/ic_setting"
+    <ImageView
+        android:id="@+id/btnSpeak"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/bg_button_writing2"
+        android:src="@drawable/ic_baseline_volume_up_24"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flashCard" />
+
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/btnExit"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center_vertical"-->
+<!--        android:layout_marginStart="4dp"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:background="@drawable/ic_baseline_clear_24"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/linearlayout"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:orientation="horizontal"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/switchOption"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/btnExit"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvQuestionNo"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/roboto_bold"-->
+<!--            android:text="aaa"-->
+<!--            android:textSize="18sp" />-->
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/roboto_bold"-->
+<!--            android:text="/"-->
+<!--            android:textSize="18sp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvTotalQuestion"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/roboto_bold"-->
+<!--            android:text="aaa"-->
+<!--            android:textSize="18sp" />-->
+<!--    </LinearLayout>-->
+
+
 
 
     <ProgressBar

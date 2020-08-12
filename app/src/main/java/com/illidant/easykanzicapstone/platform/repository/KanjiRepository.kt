@@ -6,7 +6,7 @@ import com.illidant.easykanzicapstone.platform.source.KanjiDataSource
 import retrofit2.Call
 
 
-interface KanjiRepositoryType : KanjiDataSource.Local, KanjiDataSource.Remote
+interface KanjiRepositoryType : KanjiDataSource.Remote
 class KanjiRepository(
     private val remote: KanjiDataSource.Remote
 ) : KanjiRepositoryType {

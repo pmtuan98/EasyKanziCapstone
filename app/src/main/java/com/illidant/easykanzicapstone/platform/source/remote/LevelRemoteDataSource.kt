@@ -9,5 +9,4 @@ class LevelRemoteDataSource(
     private val apiService: ApiService
 ) : LevelDataSource.Remote {
     override fun getLevelData(): Call<List<Level>> = apiService.getLevelData()
-
 }

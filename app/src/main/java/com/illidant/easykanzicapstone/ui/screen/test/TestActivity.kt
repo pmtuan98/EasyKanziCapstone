@@ -1,6 +1,8 @@
 package com.illidant.easykanzicapstone.ui.screen.test
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -8,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
+import com.illidant.easykanzicapstone.domain.request.TestRankingRequest
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.QuizRepository
 import com.illidant.easykanzicapstone.platform.repository.TestRepository
@@ -168,11 +171,11 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
     private fun submitResult() {
         timer.cancel()
         formatTimeTaken()
-//            val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
-//            val userID = prefs.getInt("userID", 0)
-//            var score = countCorrectAnswer * 10 / 3
-//            val testResultRequest = TestRankingRequest(currentDate.toString(),level_id,score,timeTaken,userID)
-//            test_presenter.sendTestResult(testResultRequest)
+            val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+            val userID = prefs.getInt("userID", 0)
+            var score = countCorrectAnswer * 10 / 3
+            val testResultRequest = TestRankingRequest(currentDate.toString(),levelId,score,timeTaken,userID)
+            test_presenter.sendTestResult(testResultRequest)
 
         val intent = Intent(this, ResultTestActivity::class.java)
         val levelName = intent.getStringExtra("LEVEL_NAME")
@@ -214,19 +217,19 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
     }
 
     override fun onSendTestResultSucceeded(message: String) {
-        //send test result to server
-//        val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-//        dialog.titleText = message
-//        dialog.setCancelable(true)
-//        dialog.show()
+//        send test result to server
+        val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+        dialog.titleText = message
+        dialog.setCancelable(true)
+        dialog.show()
     }
 
     override fun onSendTestResultFail(message: String) {
         //NOT USE
-//        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-//        errDialog.contentText = message
-//        errDialog.setCancelable(true)
-//        errDialog.show()
+        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+        errDialog.contentText = message
+        errDialog.setCancelable(true)
+        errDialog.show()
 
     }
 

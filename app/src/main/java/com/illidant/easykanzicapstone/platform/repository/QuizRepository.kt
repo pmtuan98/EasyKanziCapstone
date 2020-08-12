@@ -5,7 +5,7 @@ import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.platform.source.QuizDataSource
 import retrofit2.Call
 
-interface QuizRepositoryType : QuizDataSource.Local, QuizDataSource.Remote
+interface QuizRepositoryType : QuizDataSource.Remote
 class QuizRepository(
     private val remote: QuizDataSource.Remote
 ) : QuizRepositoryType {

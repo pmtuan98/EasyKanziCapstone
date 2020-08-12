@@ -14,8 +14,8 @@ class TestRepository(
     override fun sendTestResult(request: TestRankingRequest): Call<TestRankingResponse> =
         remote.sendTestResult(request)
 
-    override fun getTestHistoryByUserID(id: Int): Call<List<TestHistory>> =
-        remote.getTestHistoryByUserID(id)
+    override fun getTestHistoryByUserID(userId: Int, levelId: Int): Call<List<TestHistory>> =
+        remote.getTestHistoryByUserID(userId, levelId)
 
     override fun getTestRankingByLevelID(id: Int): Call<List<TestRanking>> =
         remote.getTestRankingByLevelID(id)
