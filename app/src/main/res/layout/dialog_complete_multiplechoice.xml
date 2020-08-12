@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Total question:"
+                android:text="Total question: "
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#000000"
-                android:textSize="24sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <LinearLayout
@@ -47,7 +47,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Correct answer:"
+                android:text="Correct answer: "
                 android:textColor="#000000"
                 android:textSize="20sp" />
 
@@ -68,7 +68,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Wrong answer:"
+                android:text="Wrong answer: "
                 android:textColor="#000000"
                 android:textSize="20sp" />
 

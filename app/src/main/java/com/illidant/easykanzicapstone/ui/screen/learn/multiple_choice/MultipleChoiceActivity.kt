@@ -25,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_multiple_choice.tvTotalQuestion
 
 class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
-    private var correctAnswer:Int = 0
+    private var countCorrect = 0
     val listQuizAll : MutableList<Quiz> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,8 +61,8 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         val tvCorrect = dialog.findViewById(R.id.tvCorrect) as TextView
         val tvWrong = dialog.findViewById(R.id.tvWrong) as TextView
         tvTotalQuestion.text = listQuizAll.size.toString()
-        tvCorrect.text = correctAnswer.toString()
-        tvWrong.text = (listQuizAll.size-correctAnswer).toString()
+        tvCorrect.text = countCorrect.toString()
+        tvWrong.text = (listQuizAll.size-countCorrect).toString()
         dialog.show()
         btnAgain.setOnClickListener {
             val intent = intent
@@ -113,37 +113,37 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
         tvAnswerA?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!tvAnswerA.text.equals(correctAnswer)){
-                tvAnswerA?.background = wrongAnswerBackground
+            if(tvAnswerA.text.equals(correctAnswer)){
+                countCorrect++
             }else {
-                correctAnswer += 1
+                tvAnswerA?.background = wrongAnswerBackground
             }
             displayNextButton()
         }
         tvAnswerB?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!tvAnswerB.text.equals(correctAnswer)){
-                tvAnswerB?.background = wrongAnswerBackground
+            if(tvAnswerB.text.equals(correctAnswer)){
+                countCorrect++
             }else {
-                correctAnswer += 1
+                tvAnswerB?.background = wrongAnswerBackground
             }
             displayNextButton()
         }
         tvAnswerC?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!tvAnswerC.text.equals(correctAnswer)){
-                tvAnswerC?.background = wrongAnswerBackground
+            if(tvAnswerC.text.equals(correctAnswer)){
+                countCorrect++
             }else {
-                correctAnswer += 1
+                tvAnswerC?.background = wrongAnswerBackground
             }
             displayNextButton()
         }
         tvAnswerD?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
-            if(!tvAnswerD.text.equals(correctAnswer)){
-                tvAnswerD?.background = wrongAnswerBackground
+            if(tvAnswerD.text.equals(correctAnswer)){
+                countCorrect++
             }else {
-                correctAnswer += 1
+                tvAnswerD?.background = wrongAnswerBackground
             }
             displayNextButton()
         }
@@ -172,9 +172,8 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
     }
 
     private fun checkCorrectAnswer(answer : String) {
-        var correctAnswerBackground: Drawable? = null
+        var correctAnswerBackground: Drawable?
         correctAnswerBackground = ContextCompat.getDrawable(this,R.drawable.bg_correct_answer)
-
         if(tvAnswerA.text.equals(answer)){
             tvAnswerA?.background = correctAnswerBackground
         }else if (tvAnswerB.text.equals(answer)){
