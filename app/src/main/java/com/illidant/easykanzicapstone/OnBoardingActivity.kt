@@ -65,12 +65,13 @@ class OnBoardingActivity : AppCompatActivity() {
         btnGetStarted.setOnClickListener {
             val intent = EntryActivity.getIntent(this).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or
-                    Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                    Intent.FLAG_ACTIVITY_CLEAR_TASK
+                        Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                        Intent.FLAG_ACTIVITY_CLEAR_TASK
             }
             startActivity(intent)
         }
     }
+
     private fun navigateToHome() {
         HomeActivity.getIntent(this).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or

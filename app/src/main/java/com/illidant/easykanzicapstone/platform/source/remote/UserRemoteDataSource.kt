@@ -16,8 +16,13 @@ class UserRemoteDataSource(
 
     override fun signin(request: SigninRequest): Call<User> = apiService.signin(request)
     override fun signup(request: SignupRequest): Call<SignupResponse> = apiService.signup(request)
-    override fun resetPass(request: ResetPasswordRequest): Call<ResetPasswordResponse> = apiService.resetPass(request)
-    override fun changePass(request: ChangePasswordRequest): Call<ChangePasswordResponse> = apiService.changePass(request)
-    override fun forgotPass(request: ForgotPasswordRequest): Call<ForgotPasswordResponse> = apiService.forgotPass(request)
+    override fun resetPass(request: ResetPasswordRequest): Call<ResetPasswordResponse> =
+        apiService.resetPass(request)
+
+    override fun changePass(request: ChangePasswordRequest): Call<ChangePasswordResponse> =
+        apiService.changePass(request)
+
+    override fun forgotPass(request: ForgotPasswordRequest): Call<ForgotPasswordResponse> =
+        apiService.forgotPass(request)
 
 }

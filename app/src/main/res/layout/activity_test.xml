@@ -72,19 +72,8 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@android:color/white"
-                android:textSize="22sp"/>
+                android:textSize="22sp" />
         </LinearLayout>
-
-<!--        <Button-->
-<!--            android:id="@+id/btnSubmit"-->
-<!--            android:layout_width="120dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:background="#C0392D"-->
-<!--            android:fontFamily="@font/circularstdbold"-->
-<!--            android:text="SUBMIT"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="18sp" />-->
-
     </LinearLayout>
 
     <TextView
@@ -275,7 +264,8 @@
             android:elevation="10dp"
             android:fontFamily="@font/circularstdbook"
             android:layout_marginLeft="40dp"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
+
         <Button
             android:id="@+id/btnAnswerC"
             android:layout_width="45dp"
@@ -285,7 +275,8 @@
             android:elevation="10dp"
             android:fontFamily="@font/circularstdbook"
             android:layout_marginLeft="40dp"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
+
         <Button
             android:id="@+id/btnAnswerD"
             android:layout_width="45dp"
@@ -295,7 +286,7 @@
             android:elevation="10dp"
             android:fontFamily="@font/circularstdbook"
             android:layout_marginLeft="40dp"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
 
     </LinearLayout>

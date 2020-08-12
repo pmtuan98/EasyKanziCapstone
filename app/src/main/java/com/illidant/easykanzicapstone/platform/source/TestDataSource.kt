@@ -10,6 +10,7 @@ interface TestDataSource {
     interface Local {
 
     }
+
     interface Remote {
         fun sendTestResult(request: TestRankingRequest): Call<TestRankingResponse>
         fun getTestHistoryByUserID(id: Int): Call<List<TestHistory>>

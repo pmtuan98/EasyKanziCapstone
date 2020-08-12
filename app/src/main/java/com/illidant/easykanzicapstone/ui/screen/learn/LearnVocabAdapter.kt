@@ -21,7 +21,8 @@ class LearnVocabAdapter : RecyclerView.Adapter<LearnVocabAdapter.VocabView> {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VocabView {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_learn_word, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_learn_word, parent, false)
         return VocabView(view)
     }
 
@@ -39,10 +40,11 @@ class LearnVocabAdapter : RecyclerView.Adapter<LearnVocabAdapter.VocabView> {
         var kanji: TextView
         var hira: TextView
         var meaning: TextView
+
         init {
             kanji = itemView.tvKanji
-            hira =  itemView.tvHira
-            meaning =  itemView.tvVietnamese
+            hira = itemView.tvHira
+            meaning = itemView.tvVietnamese
         }
     }
 }

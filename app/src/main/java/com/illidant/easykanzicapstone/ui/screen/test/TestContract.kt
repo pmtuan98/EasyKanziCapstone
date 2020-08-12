@@ -1,4 +1,5 @@
 package com.illidant.easykanzicapstone.ui.screen.test
+
 import com.illidant.easykanzicapstone.domain.request.TestRankingRequest
 
 interface TestContract {

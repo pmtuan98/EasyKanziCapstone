@@ -32,6 +32,7 @@ class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.
         configView()
         homePresenter.getLevelData()
     }
+
     private val rankingPresenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val remote = TestRemoteDataSource(retrofit)
@@ -47,23 +48,26 @@ class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.
 
     override fun onRankingData(listRank: List<TestRanking>) {
         recyclerViewRanking!!.layoutManager = GridLayoutManager(this, 1)
-        recyclerViewRanking!!.adapter = RankingAdapter(listRank,this)
+        recyclerViewRanking!!.adapter = RankingAdapter(listRank, this)
     }
 
     override fun onDataComplete(levels: List<Level>) {
         var level_names = mutableListOf<String>()
         var level_ids = mutableListOf<Int>()
-        for(level in levels) {
+        for (level in levels) {
             level_names.add(level.name)
             level_ids.add(level.id)
         }
 
-        spinnerRanking.adapter = ArrayAdapter<String>(this,R.layout.item_lesson_spinner, level_names)
+        spinnerRanking.adapter =
+            ArrayAdapter<String>(this, R.layout.item_lesson_spinner, level_names)
 
         spinnerRanking.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(p0: AdapterView<*>?) {
-                Toast.makeText(applicationContext,"Please choose a lesson", Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, "Please choose a lesson", Toast.LENGTH_SHORT)
+                    .show()
             }
+
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 var level_id = level_ids.get(p2)
                 rankingPresenter.getRankingByLevelIDRequest(level_id)
@@ -71,6 +75,7 @@ class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.
 
         }
     }
+
     private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -105,8 +110,7 @@ class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.
                     return@OnNavigationItemSelectedListener true
 
                 }
-                R.id.ranking ->
-                {
+                R.id.ranking -> {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.profile -> {

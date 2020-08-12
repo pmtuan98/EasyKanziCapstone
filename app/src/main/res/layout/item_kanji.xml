@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardview_id"
@@ -11,7 +10,7 @@
     android:layout_margin="5dp"
     app:cardCornerRadius="@dimen/dp_5"
     app:cardElevation="5dp"
-    tools:context=".ui.screen.kanji.KanjiByLevelActivity">
+    tools:context=".ui.screen.lesson.KanjiByLessonActivity">
 
     <LinearLayout
         android:orientation="vertical"

@@ -10,6 +10,6 @@ interface SearchDataSource {
     }
 
     interface Remote {
-        fun searchKanji(request: SearchRequest) : Call<SearchResponse>
+        fun searchKanji(request: SearchRequest): Call<SearchResponse>
     }
 }

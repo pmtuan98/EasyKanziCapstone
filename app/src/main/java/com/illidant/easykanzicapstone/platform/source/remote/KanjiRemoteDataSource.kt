@@ -7,9 +7,10 @@ import com.illidant.easykanzicapstone.platform.source.KanjiDataSource
 import retrofit2.Call
 
 class KanjiRemoteDataSource(
-    private val  apiService: ApiService
-): KanjiDataSource.Remote {
+    private val apiService: ApiService
+) : KanjiDataSource.Remote {
     override fun getKanjiByLessonID(id: Int): Call<List<Kanji>> = apiService.getKanjiByLessonID(id)
     override fun getKanjiByID(id: Int): Call<Kanji> = apiService.getKanjiByID(id)
-    override fun getVocabByKanjiID(id: Int): Call<List<Vocabulary>> = apiService.getVocabByKanjiID(id)
+    override fun getVocabByKanjiID(id: Int): Call<List<Vocabulary>> =
+        apiService.getVocabByKanjiID(id)
 }

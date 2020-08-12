@@ -8,9 +8,9 @@ import retrofit2.Call
 
 interface VocabularyRepositoryType : VocabularyDataSource.Local, VocabularyDataSource.Remote
 
-class VocabularyRepository (
+class VocabularyRepository(
     private val remote: VocabularyDataSource.Remote
-): VocabularyRepositoryType{
+) : VocabularyRepositoryType {
     override fun getVocabByKanjiID(id: Int): Call<List<Vocabulary>> = remote.getVocabByKanjiID(id)
 
     override fun getVocabByLessonID(id: Int): Call<List<Vocabulary>> = remote.getVocabByLessonID(id)

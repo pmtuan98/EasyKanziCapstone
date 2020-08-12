@@ -17,13 +17,15 @@ class AnswerTestActivity : AppCompatActivity() {
         answerTestData()
         returnButton()
     }
+
     private fun answerTestData() {
         //Send question and answer to show answer screen
         listRandomQuiz = intent.getParcelableArrayListExtra("LIST_QUIZ")
         Log.d("RANDOM", listRandomQuiz.toString())
         recyclerShowAnswer!!.layoutManager = GridLayoutManager(this, 1)
-        recyclerShowAnswer!!.adapter = AnswerTestAdapter(listRandomQuiz,this)
+        recyclerShowAnswer!!.adapter = AnswerTestAdapter(listRandomQuiz, this)
     }
+
     private fun returnButton() {
         btnBack.setOnClickListener {
             finish()

@@ -2,7 +2,7 @@ package com.illidant.easykanzicapstone.domain.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Test (
+data class Test(
     @SerializedName("dateAttend")
     val dateAttend: String,
     @SerializedName("level_id")

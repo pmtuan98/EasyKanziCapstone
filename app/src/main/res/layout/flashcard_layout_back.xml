@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
     android:background="@drawable/flashcard_layout">
-            <TextView
-                android:id="@+id/flashcardHira"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:layout_gravity="center"
-                android:textColor="#2196F3"
-                android:textSize="30sp" />
-            <TextView
-                android:id="@+id/flashcardVietnamese"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAlignment="center"
-                android:textColor="#000000"
-                android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/flashcardHira"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textColor="#2196F3"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/flashcardVietnamese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp" />
 </LinearLayout>

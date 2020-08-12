@@ -22,13 +22,13 @@ import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
 
-class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  {
+class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
     private var takenMinutes = 0
     private var takenSeconds = 0
     private var takenMinutesString: String = ""
     private var takenSecondsString: String = ""
     private var timeTaken = 0
-    private var levelId  = 0
+    private var levelId = 0
     private val sdf = SimpleDateFormat("dd/MM/yyyy")
     private val currentDate = sdf.format(Date())
     private var listRandomQuiz: List<Quiz> = mutableListOf()
@@ -38,29 +38,36 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
     private var seconds = 0
     private var minutes = 0
     private var timerValue = 601000
-    private var timeLeft:Long = 0
+    private var timeLeft: Long = 0
 
     private val timer = object : CountDownTimer(timerValue.toLong(), 100) {
         override fun onTick(millisUntilFinished: Long) {
             timeLeft = millisUntilFinished
-            if(millisUntilFinished <= 100) {
+            if (millisUntilFinished <= 100) {
                 edtTimeTest.setText("00:00")
-            }else {
+            } else {
                 seconds = (millisUntilFinished / 1000).toInt()
                 minutes = seconds / 60
                 seconds = seconds % 60
-                edtTimeTest.setText(String.format("%02d", minutes) + ":" + String.format("%02d", seconds))
+                edtTimeTest.setText(
+                    String.format("%02d", minutes) + ":" + String.format(
+                        "%02d",
+                        seconds
+                    )
+                )
 
                 timeTaken = (600 - TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)).toInt()
             }
 
         }
+
         override fun onFinish() {
             //Use to send result when time is up
             submitResult()
 
         }
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
@@ -98,11 +105,11 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
     private fun displayTestScreen() {
         //set progress bar
         progressBarMultiple.max = listRandomQuiz.size
-        progressBarMultiple.progress = currentPosition+1
+        progressBarMultiple.progress = currentPosition + 1
 
         //Display total question
         tvTotalQuestion.text = listRandomQuiz.size.toString()
-        tvQuestionNo.text = (currentPosition+1).toString()
+        tvQuestionNo.text = (currentPosition + 1).toString()
 
         // Display question
         tvQuestion.text = listRandomQuiz[currentPosition].question
@@ -114,27 +121,28 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         tvAnswerD.text = listRandomQuiz[currentPosition].answerD
         correctAnswer = listRandomQuiz[currentPosition].correctAnswer
     }
+
     private fun checkCorrectAnswer() {
         btnAnswerA?.setOnClickListener {
-            if(tvAnswerA.text.equals(correctAnswer)){
+            if (tvAnswerA.text.equals(correctAnswer)) {
                 countCorrectAnswer++
             }
             nextQuestion()
         }
         btnAnswerB?.setOnClickListener {
-            if(tvAnswerB.text.equals(correctAnswer)){
+            if (tvAnswerB.text.equals(correctAnswer)) {
                 countCorrectAnswer++
             }
             nextQuestion()
         }
         btnAnswerC?.setOnClickListener {
-            if(tvAnswerC.text.equals(correctAnswer)){
+            if (tvAnswerC.text.equals(correctAnswer)) {
                 countCorrectAnswer++
             }
             nextQuestion()
         }
         btnAnswerD?.setOnClickListener {
-            if(tvAnswerD.text.equals(correctAnswer)){
+            if (tvAnswerD.text.equals(correctAnswer)) {
                 countCorrectAnswer++
             }
             nextQuestion()
@@ -156,6 +164,7 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         tvAnswerD.text = listRandomQuiz[currentPosition].answerD
         correctAnswer = listRandomQuiz[currentPosition].correctAnswer
     }
+
     private fun submitResult() {
         timer.cancel()
         formatTimeTaken()
@@ -169,22 +178,24 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         val levelName = intent.getStringExtra("LEVEL_NAME")
 
         intent.putExtra("TOTAL_QUES", listRandomQuiz.size)
-        intent.putExtra("TOTAL_CORRECT",countCorrectAnswer)
-        intent.putExtra("LEVEL_NAME",levelName)
+        intent.putExtra("TOTAL_CORRECT", countCorrectAnswer)
+        intent.putExtra("LEVEL_NAME", levelName)
         intent.putParcelableArrayListExtra("LIST_QUIZ", ArrayList(listRandomQuiz))
         intent.putExtra("TAKEN_MINUTES", takenMinutesString)
-        intent.putExtra("TAKEN_SECONDS",takenSecondsString)
+        intent.putExtra("TAKEN_SECONDS", takenSecondsString)
 
         startActivity(intent)
         finish()
 
     }
-    private fun formatTimeTaken(){
+
+    private fun formatTimeTaken() {
         takenMinutes = timeTaken / 60
         takenSeconds = timeTaken % 60
         takenMinutesString = String.format("%02d", takenMinutes)
         takenSecondsString = String.format("%02d", takenSeconds)
     }
+
     override fun onBackPressed() {
         timer.cancel()
         val dialog = SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
@@ -218,6 +229,7 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
 //        errDialog.show()
 
     }
+
     override fun getQuizByLessonID(listQuiz: List<Quiz>) {
         //Not use
     }

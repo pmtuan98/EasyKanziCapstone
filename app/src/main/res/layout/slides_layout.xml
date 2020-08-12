@@ -31,25 +31,25 @@
         app:layout_constraintTop_toBottomOf="@+id/tvIntro"
         tools:srcCompat="@drawable/ic_search" />
 
-<!--    <ImageView-->
-<!--        android:id="@+id/sliderImage1"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:layout_marginTop="220dp"-->
-<!--        android:padding="@dimen/dp_20"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/sliderImage"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tvIntro"-->
-<!--        tools:srcCompat="@drawable/ic_multichoice" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/sliderImage1"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="100dp"-->
+    <!--        android:layout_marginTop="220dp"-->
+    <!--        android:padding="@dimen/dp_20"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/sliderImage"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tvIntro"-->
+    <!--        tools:srcCompat="@drawable/ic_multichoice" />-->
 
-<!--    <ImageView-->
-<!--        android:id="@+id/sliderImage2"-->
-<!--        android:layout_width="100dp"-->
-<!--        android:layout_height="100dp"-->
-<!--        android:layout_marginTop="220dp"-->
-<!--        android:padding="@dimen/dp_20"-->
-<!--        app:layout_constraintEnd_toStartOf="@+id/sliderImage"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tvIntro"-->
-<!--        tools:srcCompat="@drawable/ic_flashcard" />-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/sliderImage2"-->
+    <!--        android:layout_width="100dp"-->
+    <!--        android:layout_height="100dp"-->
+    <!--        android:layout_marginTop="220dp"-->
+    <!--        android:padding="@dimen/dp_20"-->
+    <!--        app:layout_constraintEnd_toStartOf="@+id/sliderImage"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tvIntro"-->
+    <!--        tools:srcCompat="@drawable/ic_flashcard" />-->
 
     <TextView
         android:id="@+id/sliderDesc"

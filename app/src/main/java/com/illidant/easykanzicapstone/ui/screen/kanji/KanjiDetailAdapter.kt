@@ -20,7 +20,8 @@ class KanjiDetailAdapter : RecyclerView.Adapter<KanjiDetailAdapter.KanjiDetailVi
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KanjiDetailView {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_kanji_vocabulary, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_kanji_vocabulary, parent, false)
         return KanjiDetailView(view)
     }
 
@@ -30,9 +31,9 @@ class KanjiDetailAdapter : RecyclerView.Adapter<KanjiDetailAdapter.KanjiDetailVi
     }
 
     override fun onBindViewHolder(holder: KanjiDetailView, position: Int) {
-        holder.textVocabKanji.text =vocabList?.get(position)?.kanji_vocab
-        holder.textVocabHira.text =vocabList?.get(position)?.hiragana
-        holder.textVocabVn.text =vocabList?.get(position)?.vocab_meaning
+        holder.textVocabKanji.text = vocabList?.get(position)?.kanji_vocab
+        holder.textVocabHira.text = vocabList?.get(position)?.hiragana
+        holder.textVocabVn.text = vocabList?.get(position)?.vocab_meaning
     }
 
     class KanjiDetailView(itemView: View) : RecyclerView.ViewHolder(itemView) {

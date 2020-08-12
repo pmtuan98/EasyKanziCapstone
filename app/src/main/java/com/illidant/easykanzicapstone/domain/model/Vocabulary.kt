@@ -2,7 +2,7 @@ package com.illidant.easykanzicapstone.domain.model
 
 import com.google.gson.annotations.SerializedName
 
-data class Vocabulary (
+data class Vocabulary(
     @SerializedName("id")
     val id: Int,
     @SerializedName("hiragana")

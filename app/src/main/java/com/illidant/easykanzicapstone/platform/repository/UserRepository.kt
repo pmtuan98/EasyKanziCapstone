@@ -13,14 +13,20 @@ interface UserRepositoryType : UserDataSource.Local, UserDataSource.Remote
 
 class UserRepository(
     private val local: UserDataSource.Local,
-    private val remote: UserDataSource.Remote) : UserRepositoryType {
+    private val remote: UserDataSource.Remote
+) : UserRepositoryType {
 
 
     override fun saveToken(token: String) = local.saveToken(token)
     override fun signin(request: SigninRequest): Call<User> = remote.signin(request)
     override fun signup(request: SignupRequest): Call<SignupResponse> = remote.signup(request)
-    override fun resetPass(request: ResetPasswordRequest): Call<ResetPasswordResponse> = remote.resetPass(request)
-    override fun changePass(request: ChangePasswordRequest): Call<ChangePasswordResponse> = remote.changePass(request)
-    override fun forgotPass(request: ForgotPasswordRequest): Call<ForgotPasswordResponse> = remote.forgotPass(request)
+    override fun resetPass(request: ResetPasswordRequest): Call<ResetPasswordResponse> =
+        remote.resetPass(request)
+
+    override fun changePass(request: ChangePasswordRequest): Call<ChangePasswordResponse> =
+        remote.changePass(request)
+
+    override fun forgotPass(request: ForgotPasswordRequest): Call<ForgotPasswordResponse> =
+        remote.forgotPass(request)
 
 }
