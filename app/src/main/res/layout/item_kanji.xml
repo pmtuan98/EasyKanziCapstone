@@ -11,7 +11,7 @@
     android:layout_margin="5dp"
     app:cardCornerRadius="@dimen/dp_5"
     app:cardElevation="5dp"
-    tools:context=".ui.screen.kanji.KanjiByLevelActivity">
+    tools:context=".ui.screen.lesson.KanjiByLessonActivity">
 
     <LinearLayout
         android:orientation="vertical"

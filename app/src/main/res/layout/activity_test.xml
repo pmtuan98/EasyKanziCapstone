@@ -74,17 +74,6 @@
                 android:textColor="@android:color/white"
                 android:textSize="22sp"/>
         </LinearLayout>
-
-<!--        <Button-->
-<!--            android:id="@+id/btnSubmit"-->
-<!--            android:layout_width="120dp"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:background="#C0392D"-->
-<!--            android:fontFamily="@font/circularstdbold"-->
-<!--            android:text="SUBMIT"-->
-<!--            android:textColor="@android:color/white"-->
-<!--            android:textSize="18sp" />-->
-
     </LinearLayout>
 
     <TextView

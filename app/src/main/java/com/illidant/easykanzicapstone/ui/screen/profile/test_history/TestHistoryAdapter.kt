@@ -44,7 +44,7 @@ class TestHistoryAdapter : RecyclerView.Adapter<TestHistoryAdapter.TestHistoryVi
 
     override fun onBindViewHolder(view: TestHistoryView, position: Int) {
         view.textLevel.text = listHistory?.get(position)?.levelName
-        view.textPoint.text = listHistory?.get(position)?.resultPoint
+        view.textPoint.text = listHistory?.get(position)?.resultPoint.toString()
         view.textDate.text = listHistory?.get(position)?.dateAttend
     }
 

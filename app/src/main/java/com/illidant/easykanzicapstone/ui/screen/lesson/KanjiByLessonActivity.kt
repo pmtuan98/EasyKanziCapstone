@@ -1,4 +1,4 @@
-package com.illidant.easykanzicapstone.ui.screen.kanji
+package com.illidant.easykanzicapstone.ui.screen.lesson
 
 import android.content.Intent
 import android.os.Bundle
@@ -17,22 +17,23 @@ import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import com.illidant.easykanzicapstone.platform.repository.LessonRepository
 import com.illidant.easykanzicapstone.platform.source.remote.KanjiRemoteDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.LessonRemoteDataSource
+import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiContract
+import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiPresenter
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnActivity
-import com.illidant.easykanzicapstone.ui.screen.lesson.LessonContract
-import com.illidant.easykanzicapstone.ui.screen.lesson.LessonPresenter
 import com.illidant.easykanzicapstone.ui.screen.test.EntryTestActivity
-import kotlinx.android.synthetic.main.activity_level.*
+import kotlinx.android.synthetic.main.activity_lesson_detail.*
 import kotlinx.android.synthetic.main.bottom_navigation_bar.*
 
-class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonContract.View {
+class KanjiByLessonActivity : AppCompatActivity(),
+    KanjiContract.View, LessonContract.View {
 
-    private val presenter by lazy {
+    private val kanjiPresenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val remote = KanjiRemoteDataSource(retrofit)
         val repository = KanjiRepository(remote)
         KanjiPresenter(this, repository)
     }
-    private val lesson_presenter by lazy {
+    private val lessonPresenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val remote = LessonRemoteDataSource(retrofit)
         val repository = LessonRepository(remote)
@@ -41,27 +42,31 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_level)
+        setContentView(R.layout.activity_lesson_detail)
         initialize()
     }
 
 
     private fun initialize() {
         tvLevel.text = intent.getStringExtra("LEVEL_NAME")
-        val level_id = intent.getIntExtra("LEVEL_ID", 0)
+        val levelId = intent.getIntExtra("LEVEL_ID", 0)
         recyclerViewLevel.layoutManager = GridLayoutManager(this, 3)
-        lesson_presenter.lessonRequest(level_id)
+        lessonPresenter.lessonRequest(levelId)
 
         btnTest.setOnClickListener {
             val intent = Intent(it.context, EntryTestActivity::class.java)
             intent.putExtra("LEVEL_NAME", tvLevel.text as String?)
-            intent.putExtra("LEVEL_ID", level_id)
+            intent.putExtra("LEVEL_ID", levelId)
             startActivity(intent)
         }
     }
     // Fill kanji into cardview
     override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {
-        recyclerViewLevel.adapter = KanjiByLevelAdapter(this, listKanjiLesson)
+        recyclerViewLevel.adapter =
+            KanjiByLessonAdapter(
+                this,
+                listKanjiLesson
+            )
     }
 
     override fun getKanjiByID(listKanjiElement: Kanji) {
@@ -102,13 +107,13 @@ class KanjiByLevelActivity : AppCompatActivity(), KanjiContract.View, LessonCont
                 Toast.makeText(applicationContext,"Please choose a lesson", Toast.LENGTH_SHORT).show()
             }
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                    var lesson_id = lesson_ids.get(p2)
-                    presenter.kanjiByLessonRequest(lesson_id)
+                    var lessonId = lesson_ids.get(p2)
+                    kanjiPresenter.kanjiByLessonRequest(lessonId)
                     checkNextPreviousButton(p2)
                     btnLearn.setOnClickListener{
                         val intent = Intent(it.context, LearnActivity::class.java)
                         var lesson_position = lessonSpinner.selectedItemPosition
-                        intent.putExtra("LESSON_ID", lesson_id)
+                        intent.putExtra("LESSON_ID", lessonId)
                         intent.putExtra("LESSON_NAME", lesson_names[lesson_position])
                         intent.putExtra("LEVEL_NAME", tvLevel.text)
                         startActivity(intent)

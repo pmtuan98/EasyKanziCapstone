@@ -10,7 +10,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Level
-import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiByLevelActivity
+import com.illidant.easykanzicapstone.ui.screen.lesson.KanjiByLessonActivity
+import com.illidant.easykanzicapstone.ui.screen.lesson.LessonActivity
 import kotlinx.android.synthetic.main.item_home.view.*
 
 
@@ -44,7 +45,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView>{
         homePageView.itemView.setOnClickListener {
             val level_name = levelList?.get(position)?.name
             val level_id = levelList?.get(position)?.id
-            val intent = Intent(it.context, KanjiByLevelActivity::class.java)
+            val intent = Intent(it.context, LessonActivity::class.java)
             intent.putExtra("LEVEL_NAME", level_name)
             intent.putExtra("LEVEL_ID", level_id)
             context.startActivity(intent)
