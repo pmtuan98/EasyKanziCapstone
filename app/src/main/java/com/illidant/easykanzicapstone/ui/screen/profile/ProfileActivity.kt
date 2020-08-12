@@ -94,7 +94,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
             dialogChangePass.setContentView(R.layout.dialog_change_password)
             val buttonSave = dialogChangePass.findViewById(R.id.btnSave) as TextView
             val textEmail = dialogChangePass.findViewById(R.id.tvEmail) as TextView
-            textEmail.text = "Email : ${email}"
+            textEmail.text = "${email}"
             val edtOldPassword = dialogChangePass.findViewById(R.id.edtOldPassword) as EditText
             val edtNewPassword = dialogChangePass.findViewById(R.id.edtNewPassword) as EditText
             val edtCfNewPassword = dialogChangePass.findViewById(R.id.edtCfPassword) as EditText

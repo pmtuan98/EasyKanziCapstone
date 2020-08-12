@@ -151,7 +151,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         val prefs: SharedPreferences =
             getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
         val savedEmail = prefs.getString("emailForgot", null)
-        emailForgot.text = "Email: ${savedEmail}"
+        emailForgot.text = "${savedEmail}"
         dialogResetPass.show()
 
         buttonOK.setOnClickListener {

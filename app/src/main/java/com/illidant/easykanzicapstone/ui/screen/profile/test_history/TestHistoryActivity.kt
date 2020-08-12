@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -82,6 +83,11 @@ class TestHistoryActivity : AppCompatActivity(), TestHistoryContract.View {
     }
 
     override fun onTestHistoryData(listHistory: List<TestHistory>) {
+        if(listHistory.size == 0){
+            tvNotDone.visibility = View.VISIBLE
+        }else {
+            tvNotDone.visibility = View.INVISIBLE
+        }
         recyclerViewHistory!!.layoutManager = GridLayoutManager(this, 1)
         recyclerViewHistory!!.adapter = TestHistoryAdapter(listHistory, this)
     }

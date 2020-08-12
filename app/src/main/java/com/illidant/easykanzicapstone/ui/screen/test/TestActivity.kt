@@ -176,17 +176,14 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
             var score = countCorrectAnswer * 10 / 3
             val testResultRequest = TestRankingRequest(currentDate.toString(),levelId,score,timeTaken,userID)
             test_presenter.sendTestResult(testResultRequest)
-
-        val intent = Intent(this, ResultTestActivity::class.java)
         val levelName = intent.getStringExtra("LEVEL_NAME")
-
+        val intent = Intent(this, ResultTestActivity::class.java)
         intent.putExtra("TOTAL_QUES", listRandomQuiz.size)
         intent.putExtra("TOTAL_CORRECT", countCorrectAnswer)
         intent.putExtra("LEVEL_NAME", levelName)
         intent.putParcelableArrayListExtra("LIST_QUIZ", ArrayList(listRandomQuiz))
         intent.putExtra("TAKEN_MINUTES", takenMinutesString)
         intent.putExtra("TAKEN_SECONDS", takenSecondsString)
-
         startActivity(intent)
         finish()
 
