@@ -3,6 +3,7 @@ package com.illidant.easykanzicapstone.ui.screen.kanji
 import android.util.Log
 import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
+import com.illidant.easykanzicapstone.domain.response.KanjiResponse
 import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,15 +27,14 @@ class KanjiPresenter(
     }
 
     override fun kanjiByIDRequest(id: Int) {
-        repository.getKanjiByID(id).enqueue(object : Callback<Kanji> {
-            override fun onResponse(call: Call<Kanji>, response: Response<Kanji>) {
-                response.body()?.let { view.getKanjiByID(it) }
+        repository.getKanjiByID(id).enqueue(object : Callback<KanjiResponse> {
+            override fun onFailure(call: Call<KanjiResponse>, t: Throwable) {
+
             }
 
-            override fun onFailure(call: Call<Kanji>, t: Throwable) {
+            override fun onResponse(call: Call<KanjiResponse>, response: Response<KanjiResponse>) {
+                response.body()?.let { view.getKanjiByID(it.body) }
             }
-
-
         })
 
         repository.getVocabByKanjiID(id).enqueue(object : Callback<List<Vocabulary>> {

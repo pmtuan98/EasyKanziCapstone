@@ -29,7 +29,7 @@ interface ApiService {
     fun searchKanji(@Body body: SearchRequest): Call<SearchResponse>
 
     @GET(ApiConstant.URL_GET_ALL_LEVELS)
-    fun getLevelData(): Call<List<Level>>
+    fun getLevelData(): Call<LevelResponse>
 
     @GET(ApiConstant.URL_GET_KANJI_BY_LESSON_ID)
     fun getKanjiByLessonID(@Path("id") id: Int): Call<List<Kanji>>
@@ -38,7 +38,7 @@ interface ApiService {
     fun getLessonByLevelID(@Path("id") id: Int): Call<List<Lesson>>
 
     @GET(ApiConstant.URL_GET_KANJI_BY_ID)
-    fun getKanjiByID(@Path("id") id: Int): Call<Kanji>
+    fun getKanjiByID(@Path("id") id: Int): Call<KanjiResponse>
 
     @GET(ApiConstant.URL_GET_VOCAB_BY_KANJI_ID)
     fun getVocabByKanjiID(@Path("id") id: Int): Call<List<Vocabulary>>
