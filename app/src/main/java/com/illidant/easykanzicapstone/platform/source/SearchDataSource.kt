@@ -5,11 +5,7 @@ import com.illidant.easykanzicapstone.domain.response.SearchResponse
 import retrofit2.Call
 
 interface SearchDataSource {
-    interface Local {
-
-    }
-
     interface Remote {
-        fun searchKanji(request: SearchRequest) : Call<SearchResponse>
+        fun searchKanji(request: SearchRequest): Call<SearchResponse>
     }
 }

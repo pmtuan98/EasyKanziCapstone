@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.screen.test.show_answer.AnswerTestActivity"></activity>
+        <activity android:name=".ui.screen.lesson.LessonActivity"></activity>
+        <activity android:name=".ui.screen.test.show_answer.AnswerTestActivity" />
         <activity android:name=".ui.screen.test.ResultTestActivity" />
         <activity android:name=".ui.screen.learn.flashcard.KanjiFlashcardActivity" />
         <activity android:name=".ui.screen.profile.test_history.TestHistoryActivity" />
@@ -26,7 +27,7 @@
         <activity android:name=".ui.screen.learn.flashcard.FlashcardActivity" />
         <activity android:name=".ui.screen.learn.LearnActivity" />
         <activity android:name=".ui.screen.kanji.KanjiDetailActivity" />
-        <activity android:name=".ui.screen.kanji.KanjiByLevelActivity" />
+        <activity android:name=".ui.screen.lesson.KanjiByLessonActivity" />
         <activity
             android:name=".ui.screen.search.SearchActivity"
             android:windowSoftInputMode="adjustPan" />

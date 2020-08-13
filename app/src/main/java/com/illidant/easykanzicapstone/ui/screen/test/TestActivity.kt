@@ -1,6 +1,8 @@
 package com.illidant.easykanzicapstone.ui.screen.test
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -8,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
+import com.illidant.easykanzicapstone.domain.request.TestRankingRequest
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.QuizRepository
 import com.illidant.easykanzicapstone.platform.repository.TestRepository
@@ -15,7 +18,6 @@ import com.illidant.easykanzicapstone.platform.source.remote.QuizRemoteDataSourc
 import com.illidant.easykanzicapstone.platform.source.remote.TestRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
-import com.illidant.easykanzicapstone.ui.screen.signin.SigninActivity
 import kotlinx.android.synthetic.main.activity_test.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -23,13 +25,13 @@ import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
 
-class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  {
+class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
     private var takenMinutes = 0
     private var takenSeconds = 0
     private var takenMinutesString: String = ""
     private var takenSecondsString: String = ""
     private var timeTaken = 0
-    private var levelId  = 0
+    private var levelId = 0
     private val sdf = SimpleDateFormat("dd/MM/yyyy")
     private val currentDate = sdf.format(Date())
     private var listRandomQuiz: List<Quiz> = mutableListOf()
@@ -38,19 +40,27 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
     private lateinit var correctAnswer: String
     private var seconds = 0
     private var minutes = 0
-    private val timer = object : CountDownTimer(601000, 100) {
+    private var timerValue = 601000
+    private var timeLeft: Long = 0
+
+    private val timer = object : CountDownTimer(timerValue.toLong(), 100) {
         override fun onTick(millisUntilFinished: Long) {
-            if(millisUntilFinished <= 100) {
+            timeLeft = millisUntilFinished
+            if (millisUntilFinished <= 100) {
                 edtTimeTest.setText("00:00")
-            }else {
+            } else {
                 seconds = (millisUntilFinished / 1000).toInt()
                 minutes = seconds / 60
                 seconds = seconds % 60
-                edtTimeTest.setText(String.format("%02d", minutes) + ":" + String.format("%02d", seconds))
+                edtTimeTest.setText(
+                    String.format("%02d", minutes) + ":" + String.format(
+                        "%02d",
+                        seconds
+                    )
+                )
 
                 timeTaken = (600 - TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)).toInt()
             }
-
 
         }
 
@@ -65,7 +75,7 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
         initialize()
-        configViews()
+//        configViews()
 
     }
 
@@ -98,11 +108,11 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
     private fun displayTestScreen() {
         //set progress bar
         progressBarMultiple.max = listRandomQuiz.size
-        progressBarMultiple.progress = currentPosition+1
+        progressBarMultiple.progress = currentPosition + 1
 
         //Display total question
         tvTotalQuestion.text = listRandomQuiz.size.toString()
-        tvQuestionNo.text = (currentPosition+1).toString()
+        tvQuestionNo.text = (currentPosition + 1).toString()
 
         // Display question
         tvQuestion.text = listRandomQuiz[currentPosition].question
@@ -114,27 +124,28 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         tvAnswerD.text = listRandomQuiz[currentPosition].answerD
         correctAnswer = listRandomQuiz[currentPosition].correctAnswer
     }
+
     private fun checkCorrectAnswer() {
         btnAnswerA?.setOnClickListener {
-            if(tvAnswerA.text.equals(correctAnswer)){
+            if (tvAnswerA.text.equals(correctAnswer)) {
                 countCorrectAnswer++
             }
             nextQuestion()
         }
         btnAnswerB?.setOnClickListener {
-            if(tvAnswerB.text.equals(correctAnswer)){
+            if (tvAnswerB.text.equals(correctAnswer)) {
                 countCorrectAnswer++
             }
             nextQuestion()
         }
         btnAnswerC?.setOnClickListener {
-            if(tvAnswerC.text.equals(correctAnswer)){
+            if (tvAnswerC.text.equals(correctAnswer)) {
                 countCorrectAnswer++
             }
             nextQuestion()
         }
         btnAnswerD?.setOnClickListener {
-            if(tvAnswerD.text.equals(correctAnswer)){
+            if (tvAnswerD.text.equals(correctAnswer)) {
                 countCorrectAnswer++
             }
             nextQuestion()
@@ -156,69 +167,46 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
         tvAnswerD.text = listRandomQuiz[currentPosition].answerD
         correctAnswer = listRandomQuiz[currentPosition].correctAnswer
     }
+
     private fun submitResult() {
         timer.cancel()
         formatTimeTaken()
-//            val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
-//            val userID = prefs.getInt("userID", 0)
-//            var score = countCorrectAnswer * 10 / 3
-//            val testResultRequest = TestRankingRequest(currentDate.toString(),level_id,score,timeTaken,userID)
-//            test_presenter.sendTestResult(testResultRequest)
-
-        val intent = Intent(this, ResultTestActivity::class.java)
+            val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+            val userID = prefs.getInt("userID", 0)
+            var score = countCorrectAnswer * 10 / 3
+            val testResultRequest = TestRankingRequest(currentDate.toString(),levelId,score,timeTaken,userID)
+            test_presenter.sendTestResult(testResultRequest)
         val levelName = intent.getStringExtra("LEVEL_NAME")
-
+        val intent = Intent(this, ResultTestActivity::class.java)
         intent.putExtra("TOTAL_QUES", listRandomQuiz.size)
-        intent.putExtra("TOTAL_CORRECT",countCorrectAnswer)
-        intent.putExtra("LEVEL_NAME",levelName)
+        intent.putExtra("TOTAL_CORRECT", countCorrectAnswer)
+        intent.putExtra("LEVEL_NAME", levelName)
         intent.putParcelableArrayListExtra("LIST_QUIZ", ArrayList(listRandomQuiz))
         intent.putExtra("TAKEN_MINUTES", takenMinutesString)
-        intent.putExtra("TAKEN_SECONDS",takenSecondsString)
-
+        intent.putExtra("TAKEN_SECONDS", takenSecondsString)
         startActivity(intent)
         finish()
 
     }
-    private fun formatTimeTaken(){
+
+    private fun formatTimeTaken() {
         takenMinutes = timeTaken / 60
         takenSeconds = timeTaken % 60
         takenMinutesString = String.format("%02d", takenMinutes)
         takenSecondsString = String.format("%02d", takenSeconds)
-        Log.d("1111","${takenMinutesString}:${takenSecondsString}")
-    }
-    private fun configViews() {
-        btnExit.setOnClickListener {
-            //Display successfully dialog
-            val dialog = SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
-            dialog.titleText = "Quit current test?"
-            dialog.contentText = "All results will be lost!"
-            dialog.setCancelable(true)
-            dialog.setCancelText("Cancel")
-            dialog.setConfirmText("Quit")
-
-            dialog.show()
-            dialog.setConfirmClickListener {
-                super.onBackPressed()
-                timer.cancel()
-            }
-            dialog.setCancelClickListener {
-                dialog.dismiss()
-            }
-        }
     }
 
     override fun onBackPressed() {
-        //Display successfully dialog
+        timer.cancel()
         val dialog = SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
         dialog.titleText = "Quit current test?"
         dialog.contentText = "All results will be lost!"
-        dialog.setCancelable(true)
+        dialog.setCancelable(false)
         dialog.setCancelText("Cancel")
         dialog.setConfirmText("Quit")
         dialog.show()
         dialog.setConfirmClickListener {
             super.onBackPressed()
-            timer.cancel()
         }
         dialog.setCancelClickListener {
             dialog.dismiss()
@@ -226,21 +214,22 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View  
     }
 
     override fun onSendTestResultSucceeded(message: String) {
-        //send test result to server
-//        val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-//        dialog.titleText = message
-//        dialog.setCancelable(true)
-//        dialog.show()
+//        send test result to server
+        val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
+        dialog.titleText = message
+        dialog.setCancelable(true)
+        dialog.show()
     }
 
     override fun onSendTestResultFail(message: String) {
         //NOT USE
-//        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-//        errDialog.contentText = message
-//        errDialog.setCancelable(true)
-//        errDialog.show()
+        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
+        errDialog.contentText = message
+        errDialog.setCancelable(true)
+        errDialog.show()
 
     }
+
     override fun getQuizByLessonID(listQuiz: List<Quiz>) {
         //Not use
     }

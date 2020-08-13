@@ -7,6 +7,8 @@ import com.illidant.easykanzicapstone.platform.source.SearchDataSource
 import retrofit2.Call
 
 class SearchRemoteDataSource(
-    private  val apiService: ApiService) : SearchDataSource.Remote {
-    override fun searchKanji(request: SearchRequest): Call<SearchResponse> = apiService.searchKanji(request)
+    private val apiService: ApiService
+) : SearchDataSource.Remote {
+    override fun searchKanji(request: SearchRequest): Call<SearchResponse> =
+        apiService.searchKanji(request)
 }

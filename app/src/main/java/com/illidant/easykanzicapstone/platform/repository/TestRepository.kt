@@ -8,10 +8,15 @@ import com.illidant.easykanzicapstone.platform.source.TestDataSource
 import retrofit2.Call
 
 interface TestRepositoryType : TestDataSource.Remote
-class TestRepository (
+class TestRepository(
     private val remote: TestDataSource.Remote
-): TestRepositoryType {
-    override fun sendTestResult(request: TestRankingRequest): Call<TestRankingResponse> = remote.sendTestResult(request)
-    override fun getTestHistoryByUserID(id: Int): Call<List<TestHistory>> = remote.getTestHistoryByUserID(id)
-    override fun getTestRankingByLevelID(id: Int): Call<List<TestRanking>> = remote.getTestRankingByLevelID(id)
+) : TestRepositoryType {
+    override fun sendTestResult(request: TestRankingRequest): Call<TestRankingResponse> =
+        remote.sendTestResult(request)
+
+    override fun getTestHistoryByUserID(userId: Int, levelId: Int): Call<List<TestHistory>> =
+        remote.getTestHistoryByUserID(userId, levelId)
+
+    override fun getTestRankingByLevelID(id: Int): Call<List<TestRanking>> =
+        remote.getTestRankingByLevelID(id)
 }

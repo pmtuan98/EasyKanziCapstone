@@ -10,11 +10,12 @@ import retrofit2.Response
 
 class KanjiPresenter(
     private val view: KanjiContract.View,
-    private val repository: KanjiRepository): KanjiContract.Presenter {
+    private val repository: KanjiRepository
+) : KanjiContract.Presenter {
     override fun kanjiByLessonRequest(id: Int) {
-        repository.getKanjiByLessonID(id).enqueue(object : Callback<List<Kanji>>{
+        repository.getKanjiByLessonID(id).enqueue(object : Callback<List<Kanji>> {
             override fun onResponse(call: Call<List<Kanji>>, response: Response<List<Kanji>>) {
-               response.body()?.let { view.getKanjiByLesson(it) }
+                response.body()?.let { view.getKanjiByLesson(it) }
             }
 
             override fun onFailure(call: Call<List<Kanji>>, t: Throwable) {
@@ -25,20 +26,25 @@ class KanjiPresenter(
     }
 
     override fun kanjiByIDRequest(id: Int) {
-        repository.getKanjiByID(id).enqueue(object : Callback<Kanji>{
+        repository.getKanjiByID(id).enqueue(object : Callback<Kanji> {
             override fun onResponse(call: Call<Kanji>, response: Response<Kanji>) {
                 response.body()?.let { view.getKanjiByID(it) }
             }
+
             override fun onFailure(call: Call<Kanji>, t: Throwable) {
             }
 
 
         })
 
-        repository.getVocabByKanjiID(id).enqueue(object : Callback<List<Vocabulary>>{
-            override fun onResponse(call: Call<List<Vocabulary>>, response: Response<List<Vocabulary>>) {
+        repository.getVocabByKanjiID(id).enqueue(object : Callback<List<Vocabulary>> {
+            override fun onResponse(
+                call: Call<List<Vocabulary>>,
+                response: Response<List<Vocabulary>>
+            ) {
                 response.body()?.let { view.getVocabByKanjiID(it) }
             }
+
             override fun onFailure(call: Call<List<Vocabulary>>, t: Throwable) {
             }
 

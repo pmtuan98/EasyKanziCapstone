@@ -13,7 +13,7 @@
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="320dp"
-        android:background="#C0392D"
+        android:background="#FFB5A8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,8 +64,6 @@
     </LinearLayout>
 
 
-
-
     <ProgressBar
         android:id="@+id/progressBarFlashcard"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
@@ -76,7 +74,7 @@
         android:progressDrawable="@drawable/custom_progress_bar_flashcard"
         app:layout_constraintTop_toBottomOf="@id/linearlayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/btnSpeak"
@@ -90,7 +88,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flashCard" />
-
 
 
     <com.wajahatkarim3.easyflipview.EasyFlipView

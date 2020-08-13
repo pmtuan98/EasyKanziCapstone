@@ -19,14 +19,16 @@ class WritingPresenter(
                 view.onError(t)
             }
 
-            override fun onResponse(call: Call<List<Vocabulary>>, response: Response<List<Vocabulary>>) {
+            override fun onResponse(
+                call: Call<List<Vocabulary>>,
+                response: Response<List<Vocabulary>>
+            ) {
                 response.body()?.let { view.onSuccess(it) }
             }
         })
     }
 
     override fun checkAnswer(correctAnswer: String, userAnswer: String) {
-        Log.d("PRESENTER", "Correct: $correctAnswer - User: $userAnswer")
         if (userAnswer.equals(correctAnswer, true)) {
             view.onCorrectAnswer()
         } else {

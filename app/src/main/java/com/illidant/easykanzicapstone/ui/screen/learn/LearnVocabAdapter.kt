@@ -11,8 +11,8 @@ import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import kotlinx.android.synthetic.main.item_learn_word.view.*
 
 class LearnVocabAdapter : RecyclerView.Adapter<LearnVocabAdapter.VocabView> {
-    var context: Context
-    var listVocab: List<Vocabulary>? = null
+    private var context: Context
+    private var listVocab: List<Vocabulary>? = null
 
     constructor(context: Context, listVocab: List<Vocabulary>?) : super() {
         this.context = context
@@ -21,7 +21,8 @@ class LearnVocabAdapter : RecyclerView.Adapter<LearnVocabAdapter.VocabView> {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VocabView {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_learn_word, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_learn_word, parent, false)
         return VocabView(view)
     }
 
@@ -39,10 +40,11 @@ class LearnVocabAdapter : RecyclerView.Adapter<LearnVocabAdapter.VocabView> {
         var kanji: TextView
         var hira: TextView
         var meaning: TextView
+
         init {
             kanji = itemView.tvKanji
-            hira =  itemView.tvHira
-            meaning =  itemView.tvVietnamese
+            hira = itemView.tvHira
+            meaning = itemView.tvVietnamese
         }
     }
 }

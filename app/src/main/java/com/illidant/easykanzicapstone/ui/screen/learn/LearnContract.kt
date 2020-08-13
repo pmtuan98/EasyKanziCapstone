@@ -4,15 +4,15 @@ import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 
 interface LearnContract {
-    interface View{
+    interface View {
         fun getVocabByKanjiID(listVocab: List<Vocabulary>)
 
         fun getVocabByLessonID(listVocab: List<Vocabulary>)
     }
 
-    interface Presenter{
+    interface Presenter {
         fun vocabByLessonRequest(id: Int)
-        fun vocabByKanjiIDRequest(id : Int)
+        fun vocabByKanjiIDRequest(id: Int)
     }
 
 }

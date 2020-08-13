@@ -41,7 +41,7 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
                 val searchRequest = SearchRequest("$newText")
                 searchPresenter.searchKanji(searchRequest)
 
-                if(newText.trim().isEmpty()){
+                if (newText.trim().isEmpty()) {
                     recyclerViewSearch.visibility = View.INVISIBLE
                     //Not found
                     notFoundImage.visibility = View.INVISIBLE
@@ -50,7 +50,7 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
                     searchImage.visibility = View.VISIBLE
                     tvSearching.visibility = View.VISIBLE
 
-                }else {
+                } else {
                     recyclerViewSearch.visibility = View.VISIBLE
 
                     searchImage.visibility = View.INVISIBLE
@@ -65,6 +65,7 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
             }
         })
     }
+
     private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
@@ -77,6 +78,7 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
 
         Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
     }
+
     private fun configViews() {
         //set home selected
         bottomNavBar.selectedItemId = R.id.search
@@ -90,8 +92,7 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
                     finish()
                     return@OnNavigationItemSelectedListener true
                 }
-                R.id.search ->
-                {
+                R.id.search -> {
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.ranking -> {
@@ -115,12 +116,12 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
 
     override fun onSearchResult(listSearch: List<KanjiES>) {
         recyclerViewSearch!!.layoutManager = GridLayoutManager(this, 1)
-        recyclerViewSearch!!.adapter = SearchAdapter(listSearch,this)
+        recyclerViewSearch!!.adapter = SearchAdapter(listSearch, this)
 
-        if(listSearch.isEmpty()){
+        if (listSearch.isEmpty()) {
             notFoundImage.visibility = View.VISIBLE
             tvNotFound.visibility = View.VISIBLE
-        }else {
+        } else {
             notFoundImage.visibility = View.INVISIBLE
             tvNotFound.visibility = View.INVISIBLE
         }

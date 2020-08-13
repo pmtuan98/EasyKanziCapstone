@@ -72,7 +72,7 @@ dependencies {
     // Drawing kanji library
     implementation 'com.github.badoualy:kanji-strokeview:1.0.1'
 
-   //Support snackbar
+    //Support snackbar
     //noinspection GradleCompatible
     implementation 'com.android.support:design:26.1.0'
 

@@ -24,4 +24,4 @@ data class Quiz(
 data class ResultQuiz(
     val quiz: Quiz,
     val selectedAnswer: String
-): Parcelable
+) : Parcelable

@@ -1,4 +1,4 @@
-package com.illidant.easykanzicapstone.ui.screen.kanji
+package com.illidant.easykanzicapstone.ui.screen.lesson
 
 import android.content.Context
 import android.content.Intent
@@ -11,12 +11,13 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Kanji
+import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiDetailActivity
 import kotlinx.android.synthetic.main.item_kanji.view.*
 
-class KanjiByLevelAdapter : RecyclerView.Adapter<KanjiByLevelAdapter.LevelViewHolder> {
+class KanjiByLessonAdapter : RecyclerView.Adapter<KanjiByLessonAdapter.LevelViewHolder> {
 
-     var context: Context
-     var listKanji: List<Kanji>? = null
+    var context: Context
+    var listKanji: List<Kanji>? = null
 
     constructor(mContext: Context, listKanji: List<Kanji>) {
         this.context = mContext
@@ -25,7 +26,9 @@ class KanjiByLevelAdapter : RecyclerView.Adapter<KanjiByLevelAdapter.LevelViewHo
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LevelViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_kanji, parent, false)
-        return LevelViewHolder(view)
+        return LevelViewHolder(
+            view
+        )
     }
 
     override fun getItemCount(): Int {
@@ -33,7 +36,7 @@ class KanjiByLevelAdapter : RecyclerView.Adapter<KanjiByLevelAdapter.LevelViewHo
     }
 
     override fun onBindViewHolder(holder: LevelViewHolder, position: Int) {
-        holder.text_kanji.text =listKanji?.get(position)?.kanji
+        holder.text_kanji.text = listKanji?.get(position)?.kanji
         holder.text_sio_vietnamese.text = listKanji?.get(position)?.sino_vietnamese
         var kanji_id = listKanji?.get(position)?.id!!
         holder.cardView.setOnClickListener {

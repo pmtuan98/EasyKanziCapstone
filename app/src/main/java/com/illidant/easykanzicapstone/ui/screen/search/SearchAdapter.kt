@@ -12,7 +12,7 @@ import com.illidant.easykanzicapstone.domain.model.KanjiES
 import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiDetailActivity
 import kotlinx.android.synthetic.main.item_search.view.*
 
-class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchView>{
+class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchView> {
     var listSearchResult: List<KanjiES>? = null
     var context: Context
 
@@ -34,7 +34,8 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchView>{
     }
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): SearchView {
-        val view = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_search, viewGroup, false)
+        val view =
+            LayoutInflater.from(viewGroup.context).inflate(R.layout.item_search, viewGroup, false)
         return SearchView(view)
     }
 

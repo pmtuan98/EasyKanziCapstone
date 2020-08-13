@@ -1,4 +1,5 @@
 package com.illidant.easykanzicapstone.platform.api
+
 import com.illidant.easykanzicapstone.domain.model.*
 import com.illidant.easykanzicapstone.domain.request.*
 import com.illidant.easykanzicapstone.domain.response.*
@@ -31,29 +32,29 @@ interface ApiService {
     fun getLevelData(): Call<List<Level>>
 
     @GET(ApiConstant.URL_GET_KANJI_BY_LESSON_ID)
-    fun getKanjiByLessonID(@Path("id")id: Int): Call<List<Kanji>>
+    fun getKanjiByLessonID(@Path("id") id: Int): Call<List<Kanji>>
 
     @GET(ApiConstant.URL_GET_LESSON_BY_LEVEL_ID)
-    fun getLessonByLevelID(@Path("id")id: Int): Call<List<Lesson>>
+    fun getLessonByLevelID(@Path("id") id: Int): Call<List<Lesson>>
 
     @GET(ApiConstant.URL_GET_KANJI_BY_ID)
-    fun getKanjiByID(@Path("id")id: Int): Call<Kanji>
+    fun getKanjiByID(@Path("id") id: Int): Call<Kanji>
 
     @GET(ApiConstant.URL_GET_VOCAB_BY_KANJI_ID)
-    fun getVocabByKanjiID(@Path("id")id: Int): Call<List<Vocabulary>>
+    fun getVocabByKanjiID(@Path("id") id: Int): Call<List<Vocabulary>>
 
     @GET(ApiConstant.URL_GET_VOCAB_BY_LESSON_ID)
-    fun getVocabByLessonID(@Path("id")id: Int): Call<List<Vocabulary>>
+    fun getVocabByLessonID(@Path("id") id: Int): Call<List<Vocabulary>>
 
     @GET(ApiConstant.URL_GET_QUIZ_BY_LESSON_ID)
-    fun getQuizByLessonID(@Path("id")id: Int): Call<List<Quiz>>
+    fun getQuizByLessonID(@Path("id") id: Int): Call<List<Quiz>>
 
     @GET(ApiConstant.URL_GET_QUIZ_BY_LEVEL_ID)
-    fun getQuizByLevelID(@Path("id")id: Int): Call<List<Quiz>>
+    fun getQuizByLevelID(@Path("id") id: Int): Call<List<Quiz>>
 
     @GET(ApiConstant.URL_TEST_HISTORY)
-    fun getTestHitoryByUserID(@Path("id")id: Int): Call<List<TestHistory>>
+    fun getTestHitoryByUserID(@Path("id1") userId: Int, @Path("id2") levelId: Int): Call<List<TestHistory>>
 
     @GET(ApiConstant.URL_TEST_RANKING)
-    fun getRankingByLevelID(@Path("id")id: Int): Call<List<TestRanking>>
+    fun getRankingByLevelID(@Path("id") id: Int): Call<List<TestRanking>>
 }

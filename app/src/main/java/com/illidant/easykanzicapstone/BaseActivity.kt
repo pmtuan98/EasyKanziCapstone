@@ -8,13 +8,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.google.android.material.snackbar.Snackbar
 
-open class BaseActivity: AppCompatActivity(), ConnectivityReceiver.ConnectivityReceiverListener {
+open class BaseActivity : AppCompatActivity(), ConnectivityReceiver.ConnectivityReceiverListener {
 
     private var mSnackBar: Snackbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        registerReceiver(ConnectivityReceiver(),
+        registerReceiver(
+            ConnectivityReceiver(),
             IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION)
         )
     }
@@ -24,9 +25,18 @@ open class BaseActivity: AppCompatActivity(), ConnectivityReceiver.ConnectivityR
 
         if (!isConnected) {
             val messageToUser = "No internet connection"
-            mSnackBar = Snackbar.make(findViewById(R.id.rootLayout), messageToUser, Snackbar.LENGTH_LONG) //Assume "rootLayout" as the root layout of every activity.
+            mSnackBar = Snackbar.make(
+                findViewById(R.id.rootLayout),
+                messageToUser,
+                Snackbar.LENGTH_LONG
+            ) //Assume "rootLayout" as the root layout of every activity.
             mSnackBar?.duration = Snackbar.LENGTH_INDEFINITE
-            mSnackBar!!.view.setBackgroundColor(ContextCompat.getColor(this!!,R.color.snackbar_red))
+            mSnackBar!!.view.setBackgroundColor(
+                ContextCompat.getColor(
+                    this!!,
+                    R.color.snackbar_red
+                )
+            )
             mSnackBar!!.setActionTextColor(Color.WHITE)
             mSnackBar?.show()
         } else {

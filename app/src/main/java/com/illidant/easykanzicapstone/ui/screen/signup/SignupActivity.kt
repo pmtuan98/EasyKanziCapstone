@@ -17,7 +17,7 @@ import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSourc
 import com.illidant.easykanzicapstone.ui.screen.signin.SigninActivity
 import kotlinx.android.synthetic.main.activity_signup.*
 
-class SignupActivity: AppCompatActivity(), SignupContract.View {
+class SignupActivity : AppCompatActivity(), SignupContract.View {
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val local = UserLocalDataSource.getInstance(SharedPrefs(this))
@@ -25,6 +25,7 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
         val repository = UserRepository(local, remote)
         SignupPresenter(this, repository)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
@@ -49,23 +50,23 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
             } else if (!username.isNotEmptyAndBlank()) {
                 edtUsername.setError("Username is required")
                 edtUsername.requestFocus()
-            } else if(username.length > 11) {
+            } else if (username.length > 11) {
                 edtUsername.setError("Username max length is 10 character")
                 edtUsername.requestFocus()
-            }else if (!password.isNotEmptyAndBlank()) {
+            } else if (!password.isNotEmptyAndBlank()) {
                 edtPassword.setError("Password is required")
                 edtPassword.requestFocus()
-            } else if(password.length < 6) {
+            } else if (password.length < 6) {
                 edtPassword.setError("Password should be at least 6 character or more")
                 edtPassword.requestFocus()
-            }else if (!cf_password.isNotEmptyAndBlank()) {
+            } else if (!cf_password.isNotEmptyAndBlank()) {
                 edtConfirmPassword.setError("Confirm password is required")
                 edtConfirmPassword.requestFocus()
             } else if (!cf_password.equals(password)) {
                 edtConfirmPassword.setError("Not match password. Please re-enter")
                 edtConfirmPassword.requestFocus()
             } else {
-                val request = SignupRequest(email,cf_password,username)
+                val request = SignupRequest(email, cf_password, username)
                 presenter.signup(request)
             }
         }
@@ -94,7 +95,6 @@ class SignupActivity: AppCompatActivity(), SignupContract.View {
         //Display error dialog
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
         errDialog.contentText = message
-        errDialog.setCancelable(false)
         errDialog.show()
     }
 

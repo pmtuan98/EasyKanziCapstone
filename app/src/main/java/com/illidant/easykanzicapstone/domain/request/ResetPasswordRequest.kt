@@ -2,7 +2,7 @@ package com.illidant.easykanzicapstone.domain.request
 
 import com.google.gson.annotations.SerializedName
 
-data class ResetPasswordRequest (
+data class ResetPasswordRequest(
     @SerializedName("email")
     val email: String,
     @SerializedName("newPassword")

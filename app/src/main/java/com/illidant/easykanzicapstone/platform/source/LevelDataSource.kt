@@ -7,11 +7,7 @@ import com.illidant.easykanzicapstone.domain.request.SignupRequest
 import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import retrofit2.Call
 
-interface LevelDataSource  {
-    interface Local {
-
-    }
-
+interface LevelDataSource {
     interface Remote {
         fun getLevelData(): Call<List<Level>>
     }

@@ -34,7 +34,8 @@ import kotlinx.android.synthetic.main.activity_signin.btnBack
 import kotlinx.android.synthetic.main.activity_signin.edtEmail
 import kotlinx.android.synthetic.main.activity_signin.edtPassword
 
-class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.View, ForgotPassContract.View {
+class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.View,
+    ForgotPassContract.View {
 
     private val signInPresenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
@@ -67,6 +68,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         configViews()
 
     }
+
     private fun validateSignin() {
         val email = edtEmail.text.toString()
         val password = edtPassword.text.toString()
@@ -93,7 +95,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         btnBack.setOnClickListener { finish() }
 
         btnSignin.setOnClickListener {
-                validateSignin()
+            validateSignin()
         }
 
         tvForgotPassword.setOnClickListener {
@@ -101,9 +103,10 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
             dialogForgotPass.setCancelable(true)
             dialogForgotPass.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             dialogForgotPass.setContentView(R.layout.dialog_forgot_password)
-            val buttonOK= dialogForgotPass.findViewById(R.id.btnOK) as TextView
+            val buttonOK = dialogForgotPass.findViewById(R.id.btnOK) as TextView
             val editEmailForgot = dialogForgotPass.findViewById(R.id.edtEmailForgot) as EditText
-            val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+            val prefs: SharedPreferences =
+                getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
             dialogForgotPass.show()
 
             buttonOK.setOnClickListener {
@@ -115,7 +118,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
                     editEmailForgot.setError("Enter a valid email")
                     editEmailForgot.requestFocus()
                 } else {
-                    prefs.edit().putString("userEmail", email).apply()
+                    prefs.edit().putString("emailForgot", email).apply()
                     val forgetRequest = ForgotPasswordRequest(email)
                     forgotPassPresenter.forgotPass(forgetRequest)
                     dialogForgotPass.dismiss()
@@ -135,18 +138,20 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         }
         finish()
     }
-    private fun showResetPassDialog(){
+
+    private fun showResetPassDialog() {
         val dialogResetPass = Dialog(this)
         dialogResetPass.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialogResetPass.setContentView(R.layout.dialog_reset_password)
-        val buttonOK= dialogResetPass.findViewById(R.id.btnResetOK) as TextView
-        val userEmail = dialogResetPass.findViewById(R.id.tvEmailForgot) as TextView
+        val buttonOK = dialogResetPass.findViewById(R.id.btnResetOK) as TextView
+        val emailForgot = dialogResetPass.findViewById(R.id.tvEmailForgot) as TextView
         val editOtpCode = dialogResetPass.findViewById(R.id.edtOtpCode) as EditText
         val editNewPassword = dialogResetPass.findViewById(R.id.edtNewPassword) as EditText
         val editCfNewPassword = dialogResetPass.findViewById(R.id.edtCfNewPassword) as EditText
-        val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
-        val savedEmail = prefs.getString("userEmail", null)
-        userEmail.text = "Email: ${savedEmail}"
+        val prefs: SharedPreferences =
+            getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+        val savedEmail = prefs.getString("emailForgot", null)
+        emailForgot.text = "${savedEmail}"
         dialogResetPass.show()
 
         buttonOK.setOnClickListener {
@@ -156,23 +161,24 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
             if (!otpCode.isNotEmptyAndBlank()) {
                 editOtpCode.setError("OTP code is required")
                 editOtpCode.requestFocus()
-            }else if (otpCode.length != 8){
+            } else if (otpCode.length != 8) {
                 editOtpCode.setError("OTP code is required 8 character")
                 editOtpCode.requestFocus()
-            }else if (!newPassword.isNotEmptyAndBlank()) {
+            } else if (!newPassword.isNotEmptyAndBlank()) {
                 editNewPassword.setError("New password is required")
                 editNewPassword.requestFocus()
-            } else if(newPassword.length < 6) {
+            } else if (newPassword.length < 6) {
                 editNewPassword.setError("Password should be at least 6 character or more")
                 editNewPassword.requestFocus()
-            }else if (!cfNewPassword.isNotEmptyAndBlank()) {
+            } else if (!cfNewPassword.isNotEmptyAndBlank()) {
                 editCfNewPassword.setError("Confirm password is required")
                 editCfNewPassword.requestFocus()
             } else if (!cfNewPassword.equals(newPassword)) {
                 editCfNewPassword.setError("Not match new password")
                 editCfNewPassword.requestFocus()
             } else {
-                val resetRequest = ResetPasswordRequest(savedEmail.toString(),cfNewPassword,otpCode)
+                val resetRequest =
+                    ResetPasswordRequest(savedEmail.toString(), cfNewPassword, otpCode)
                 resetPassPresenter.resetPass(resetRequest)
                 dialogResetPass.dismiss()
             }
@@ -181,16 +187,18 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
     }
 
     override fun onSigninSucceeded(user: User) {
-        val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+        val prefs: SharedPreferences =
+            getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
         prefs.edit().putInt("userID", user.id).apply()
         prefs.edit().putString("userName", user.username).apply()
+        prefs.edit().putString("userEmail", user.email).apply()
         navigateToHome()
     }
 
     override fun onSigninFailed(message: String) {
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
         errDialog.contentText = message
-        if(message.isEmpty()){
+        if (message.isEmpty()) {
             errDialog.contentText = "Password is not correct"
         }
         errDialog.show()
@@ -202,6 +210,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         dialog.contentText = message
         dialog.show()
     }
+
     // Reset passsword fail
     override fun onResetPassFail(message: String) {
         val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
@@ -209,6 +218,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
         errDialog.show()
 
     }
+
     // Forgot password success
     override fun onForgotPassSucceeded(message: String) {
         val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
@@ -220,6 +230,7 @@ class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.Vi
             dialog.dismiss()
         }
     }
+
     // Forgot password fail
     override fun onForgotPassFail(message: String) {
         //Display error dialog

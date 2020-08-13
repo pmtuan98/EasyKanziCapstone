@@ -22,15 +22,16 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     private var x2 = 0f
     val MIN_DISTANCE = 150
     var counter = 0
-    val vocabularyList : MutableList<Vocabulary> = mutableListOf()
+    val vocabularyList: MutableList<Vocabulary> = mutableListOf()
     lateinit var mTTS: TextToSpeech
-    private lateinit var textHiragana:String
+    private lateinit var textHiragana: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kanji_flashcard)
         initialize()
     }
+
     private fun initialize() {
         //Learn flashcard by kanji
         val kanjiId = intent.getIntExtra("KANJI_ID", 0)
@@ -50,16 +51,18 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         btnExit.setOnClickListener {
             finish()
         }
-        btnSpeak.setOnClickListener{
+        btnSpeak.setOnClickListener {
             speak()
         }
     }
-    private fun speak(){
+
+    private fun speak() {
         mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null)
     }
+
     private fun setUpSpeaker() {
         mTTS = TextToSpeech(applicationContext, TextToSpeech.OnInitListener { status ->
-            if (status != TextToSpeech.ERROR){
+            if (status != TextToSpeech.ERROR) {
                 //if there is no error then set language
                 mTTS.language = Locale.JAPANESE
             }
@@ -69,6 +72,7 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         // set speed of speak
         mTTS.setSpeechRate(1f)
     }
+
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val remote = VocabularyRemoteDataSource(retrofit)
@@ -87,17 +91,17 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
                         if (Math.abs(deltaX) > MIN_DISTANCE) {
                             // Left to Right swipe action
                             if (x2 > x1) {
-                                if(flashCard.isBackSide) {
+                                if (flashCard.isBackSide) {
                                     flashCard.flipTheView()
                                     layoutBack.visibility = View.GONE
                                     previous()
-                                }else  previous()
+                                } else previous()
                             } else {
-                                if(flashCard.isBackSide) {
+                                if (flashCard.isBackSide) {
                                     flashCard.flipTheView(true)
                                     layoutBack.visibility = View.GONE
                                     next()
-                                }else next()
+                                } else next()
                             }
                         }
                     }
@@ -107,12 +111,13 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
             }
         })
     }
-    fun checkNextBackButton(counter : Int) {
-        if(counter == 0) {
+
+    fun checkNextBackButton(counter: Int) {
+        if (counter == 0) {
             btnBack.isEnabled = false
-        }else if (counter == vocabularyList.size - 1){
+        } else if (counter == vocabularyList.size - 1) {
             btnNext.isEnabled = false
-        }else {
+        } else {
             btnBack.isEnabled = true
             btnNext.isEnabled = true
         }
@@ -134,60 +139,62 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
 
         //Set progress bar
         progressBarFlashcard.max = vocabularyList.size
-        progressBarFlashcard.progress = counter+1
+        progressBarFlashcard.progress = counter + 1
         checkNextBackButton(counter)
 
         // Next button click
         btnNext.setOnClickListener {
-            if(flashCard.isBackSide) {
+            if (flashCard.isBackSide) {
                 flashCard.flipTheView(true)
                 layoutBack.visibility = View.GONE
                 next()
-            }else next()
+            } else next()
         }
 
         //Previous button click
         btnBack.setOnClickListener {
-            if(flashCard.isBackSide) {
+            if (flashCard.isBackSide) {
                 flashCard.flipTheView()
                 layoutBack.visibility = View.GONE
                 previous()
-            }else  previous()
+            } else previous()
 
         }
     }
-    private fun previous(){
+
+    private fun previous() {
         counter--
         if (counter < 0) {
             counter = 0
         }
         checkNextBackButton(counter)
-        flashcardKanji.text =vocabularyList[counter].kanji_vocab
+        flashcardKanji.text = vocabularyList[counter].kanji_vocab
         flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
         flashcardHira.text = vocabularyList[counter].hiragana
         tvQuestionNo.text = (counter + 1).toString()
-        progressBarFlashcard.progress = counter+1
+        progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
 
     }
+
     private fun next() {
         counter++
         if (counter == vocabularyList.size) {
             counter = vocabularyList.size - 1
         }
         checkNextBackButton(counter)
-        flashcardKanji.text =vocabularyList[counter].kanji_vocab
+        flashcardKanji.text = vocabularyList[counter].kanji_vocab
         flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
         flashcardHira.text = vocabularyList[counter].hiragana
         tvQuestionNo.text = (counter + 1).toString()
-        progressBarFlashcard.progress = counter+1
+        progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
 
     }
 
     override fun getVocabByLessonID(listVocab: List<Vocabulary>) {
-       //Not use
+        //Not use
     }
 }

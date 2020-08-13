@@ -5,10 +5,6 @@ import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import retrofit2.Call
 
 interface VocabularyDataSource {
-    interface Local {
-
-    }
-
     interface Remote {
         fun getVocabByKanjiID(id: Int): Call<List<Vocabulary>>
 

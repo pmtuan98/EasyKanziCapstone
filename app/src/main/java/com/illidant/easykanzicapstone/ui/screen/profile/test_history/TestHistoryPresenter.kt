@@ -7,22 +7,24 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class TestHistoryPresenter(
-    private val view : TestHistoryContract.View,
-    private val repository: TestRepository) : TestHistoryContract.Presenter {
-    override fun getTestHistoryRequest(id: Int) {
-       repository.getTestHistoryByUserID(id).enqueue(object : Callback<List<TestHistory>>{
+    private val view: TestHistoryContract.View,
+    private val repository: TestRepository
+) : TestHistoryContract.Presenter {
+    override fun getTestHistoryRequest(userId: Int, levelId: Int) {
+        repository.getTestHistoryByUserID(userId,levelId).enqueue(object : Callback<List<TestHistory>>{
+            override fun onFailure(call: Call<List<TestHistory>>, t: Throwable) {
 
-           override fun onFailure(call: Call<List<TestHistory>>, t: Throwable) {
+            }
 
-           }
+            override fun onResponse(call: Call<List<TestHistory>>, response: Response<List<TestHistory>>
+            ) {
+                response.body()?.let {
+                    view.onTestHistoryData(it)
+                }
+            }
 
-           override fun onResponse(call: Call<List<TestHistory>>, response: Response<List<TestHistory>>) {
-               response.body()?.let {
-                   view.onTestHistoryData(it)
-               }
-           }
-
-       })
+        })
     }
+
 
 }
