@@ -51,16 +51,16 @@ class TestHistoryAdapter : RecyclerView.Adapter<TestHistoryAdapter.TestHistoryVi
     private var takenMinutes = ""
     private var takenSeconds = ""
     private var point = 0
-    private fun formatTime() {
-        takenMinutes = (testTime / 60).toString()
-        takenSeconds = (testTime % 60).toString()
+    private fun formatTime(time:Int) {
+        takenMinutes = (time / 60).toString()
+        takenSeconds = (time % 60).toString()
     }
 
     override fun onBindViewHolder(view: TestHistoryView, position: Int) {
         testTime = listHistory?.get(position)?.timeTaken!!
         point = listHistory?.get(position)?.resultPoint!!
-        formatTime()
-        view.textTime.text = "${takenMinutes}m : ${takenSeconds}s"
+        formatTime(testTime)
+        view.textTime.text = "${takenMinutes}m ${takenSeconds}s"
         view.textPoint.text = point.toString()
         view.textDate.text = listHistory?.get(position)?.dateAttend
 

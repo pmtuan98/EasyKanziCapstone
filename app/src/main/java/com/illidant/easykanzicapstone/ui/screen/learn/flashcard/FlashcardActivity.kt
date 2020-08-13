@@ -34,13 +34,13 @@ import java.util.*
 class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     private var x1 = 0f
     private var x2 = 0f
-    val MIN_DISTANCE = 150
-    var counter = 0
-    val vocabularyList: MutableList<Vocabulary> = mutableListOf()
-    var remember = 0
-    var notRemember = 0
-    val notRememberList: MutableList<Vocabulary> = mutableListOf()
-    lateinit var mTTS: TextToSpeech
+    private val MIN_DISTANCE = 150
+    private var counter = 0
+    private val vocabularyList: MutableList<Vocabulary> = mutableListOf()
+    private var remember = 0
+    private var notRemember = 0
+    private val notRememberList: MutableList<Vocabulary> = mutableListOf()
+    private lateinit var mTTS: TextToSpeech
     private lateinit var textHiragana: String
 
     override fun onCreate(savedInstanceState: Bundle?) {

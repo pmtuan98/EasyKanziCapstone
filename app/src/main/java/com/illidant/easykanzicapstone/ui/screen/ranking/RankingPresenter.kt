@@ -1,5 +1,6 @@
 package com.illidant.easykanzicapstone.ui.screen.ranking
 
+import android.util.Log
 import com.illidant.easykanzicapstone.domain.model.TestRanking
 import com.illidant.easykanzicapstone.platform.repository.TestRepository
 import retrofit2.Call
@@ -16,10 +17,7 @@ class RankingPresenter(
 
             }
 
-            override fun onResponse(
-                call: Call<List<TestRanking>>,
-                response: Response<List<TestRanking>>
-            ) {
+            override fun onResponse(call: Call<List<TestRanking>>, response: Response<List<TestRanking>>) {
                 response.body()?.let {
                     view.onRankingData(it)
                 }
