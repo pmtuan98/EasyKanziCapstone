@@ -8,8 +8,8 @@
     android:layout_marginStart="6dp"
     app:cardCornerRadius="2dp"
     app:cardElevation="10dp"
-    android:layout_gravity="center"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    android:layout_gravity="center">
 
 
     <RelativeLayout

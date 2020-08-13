@@ -22,6 +22,8 @@
     <color name="color_background_profile">#f4f4f4</color>
     <color name="color_background_bottom">#FCFBF6</color>
     <color name="color_app">#C0392D</color>
+    <color name="color_ranking_cardview">#B9CB65</color>
+
 
 
     <color name="color_blue_50">#d8dee4</color>
