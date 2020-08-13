@@ -34,17 +34,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/btnLearn"
-            android:layout_width="@dimen/dp_90"
-            android:layout_height="@dimen/dp_40"
-            android:layout_gravity="center"
-            android:layout_marginStart="100dp"
-            android:background="@drawable/btn_dots"
-            android:fontFamily="@font/roboto_bold"
-            android:text="LEARN"
-            android:textColor="#C0392D"
-            android:textSize="@dimen/dp_20" />
     </LinearLayout>
 
     <TextView
@@ -73,4 +62,20 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <Button
+        android:id="@+id/btnLearn"
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="center"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/btn_dots"
+        android:fontFamily="@font/roboto_bold"
+        android:text="LEARN"
+        android:textColor="#C0392D"
+        android:textSize="@dimen/dp_20"
+        app:layout_constraintBottom_toBottomOf="@+id/linearlayout1"
+        app:layout_constraintEnd_toEndOf="@+id/linearlayout1"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

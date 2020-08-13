@@ -132,7 +132,7 @@
         <ImageButton
             android:id="@+id/btnBack"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
             android:adjustViewBounds="true"
             android:background="@drawable/bg_button_writing"
             android:src="@drawable/ic_arrow_back" />
