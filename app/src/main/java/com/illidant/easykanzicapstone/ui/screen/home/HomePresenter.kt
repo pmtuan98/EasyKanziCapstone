@@ -3,6 +3,7 @@ package com.illidant.easykanzicapstone.ui.screen.home
 import android.util.Log
 import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.domain.model.User
+import com.illidant.easykanzicapstone.domain.response.LevelResponse
 import com.illidant.easykanzicapstone.platform.repository.LevelRepository
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType
 import com.illidant.easykanzicapstone.ui.screen.signin.SigninContract
@@ -15,12 +16,15 @@ class HomePresenter(
     private val repository: LevelRepository
 ) : HomeContract.Presenter {
     override fun getLevelData() {
-        repository.getLevelData().enqueue(object : Callback<List<Level>> {
-            override fun onResponse(call: Call<List<Level>>, response: Response<List<Level>>) {
-                response.body()?.let { view.onDataComplete(it) }
+        repository.getLevelData().enqueue(object : Callback<LevelResponse> {
+            override fun onResponse(call: Call<LevelResponse>, response: Response<LevelResponse>) {
+                response.body()?.let {
+                    view.onDataComplete(it.body)
+                }
             }
 
-            override fun onFailure(call: Call<List<Level>>, t: Throwable) {
+            override fun onFailure(call: Call<LevelResponse>, t: Throwable) {
+
             }
         })
 
