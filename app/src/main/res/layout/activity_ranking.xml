@@ -52,6 +52,7 @@
             android:background="@drawable/btn_ranking_pressed"
             android:fontFamily="@font/roboto_bold"
             android:text="JPD111"
+            android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -61,7 +62,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/btn_ranking_default"
             android:textSize="18sp"
-            android:textColor="#69696c"
+            android:textColor="@color/color_gray"
+            android:textStyle="bold"
             android:text="JPD121" />
 
         <Button
@@ -70,7 +72,8 @@
             android:layout_height="wrap_content"
             android:textSize="18sp"
             android:background="@drawable/btn_ranking_default"
-            android:textColor="#69696c"
+            android:textColor="@color/color_gray"
+            android:textStyle="bold"
             android:text="JPD131" />
     </LinearLayout>
 
@@ -119,7 +122,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="pmtuan98"
                 android:textColor="#000000"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +151,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
-                    android:text="100 pt"
                     android:textColor="#73854a"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -175,7 +176,6 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
-                    android:text="2m 54s"
                     android:textColor="#f57840"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -206,7 +206,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:text="thangvqSE"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
@@ -219,7 +218,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="100 pts"
                 android:textColor="#73854a"
                 android:textSize="16sp"/>
             <TextView
@@ -228,7 +226,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="3m 51s"
                 android:textColor="#f57840"
                 android:textSize="16sp"/>
         </LinearLayout>
@@ -258,7 +255,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:text="abc"
             android:textColor="@color/black"
             android:textSize="18sp" />
         <LinearLayout
@@ -270,7 +266,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="100 pts"
                 android:textColor="#73854a"
                 android:textSize="16sp"/>
             <TextView
@@ -279,7 +274,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="3m 51s"
                 android:textColor="#f57840"
                 android:textSize="16sp"/>
         </LinearLayout>
