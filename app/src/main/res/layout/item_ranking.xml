@@ -5,28 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/sttRanking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="2"
-        android:textColor="@color/design_default_color_primary_dark"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <androidx.cardview.widget.CardView
         android:layout_width="340dp"
         android:layout_height="86dp"
-        app:cardCornerRadius="24dp"
+        app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/sttRanking"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,43 +20,55 @@
             android:layout_height="match_parent"
             android:background="@drawable/bg_detail_kanji">
 
-            <ImageView
-                android:id="@+id/avatarRanking"
-                android:layout_width="32dp"
-                android:layout_height="32dp"
-                android:layout_marginStart="3dp"
-                android:src="@drawable/img_avatar"
+            <Button
+                android:id="@+id/btnOrder"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/ranking_order"
+                android:fontFamily="@font/roboto_bold"
+                android:text="4"
+                android:textColor="@color/white"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guideline0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.15" />
 
             <TextView
                 android:id="@+id/tvUsername"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textColor="@color/design_default_color_primary_dark"
-                android:textSize="16sp"
-                android:layout_marginStart="5dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="123456789a"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp_18"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/avatarRanking"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toStartOf="@id/guideline1"
+                app:layout_constraintStart_toEndOf="@+id/btnOrder"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.526" />
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.6" />
+                app:layout_constraintGuide_percent="0.56" />
 
             <TextView
                 android:id="@+id/tvPoint"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:textColor="#C0392D"
-                android:textSize="16sp"
+                android:text="100 pts"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="#73854a"
+                android:textSize="@dimen/sp_18"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/guideline2"
                 app:layout_constraintStart_toEndOf="@id/guideline1"
@@ -87,8 +85,10 @@
                 android:id="@+id/tvTime"
                 android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
+                android:text="9m 24s"
                 android:textSize="@dimen/sp_16"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="#f57840"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@id/guideline2"

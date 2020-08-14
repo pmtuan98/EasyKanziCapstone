@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
@@ -16,17 +17,19 @@ class RankingAdapter : RecyclerView.Adapter<RankingAdapter.RankingView> {
     var context: Context
 
     constructor(listRanking: List<TestRanking>?, context: Context) : super() {
-        this.listRanking = listRanking
+        this.listRanking = listRanking?.drop(3)
         this.context = context
     }
 
 
     class RankingView(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var btnOrder : Button
         var textUserName: TextView
         var textPoint: TextView
         var textTime: TextView
 
         init {
+            btnOrder = itemView.btnOrder as Button
             textUserName = itemView.tvUsername as TextView
             textPoint = itemView.tvPoint as TextView
             textTime = itemView.tvTime as TextView
@@ -42,11 +45,20 @@ class RankingAdapter : RecyclerView.Adapter<RankingAdapter.RankingView> {
     override fun getItemCount(): Int {
         return listRanking!!.size
     }
-
+    private var testTime = 0
+    private var takenMinutes = ""
+    private var takenSeconds = ""
+    private fun formatTime(time:Int) {
+        takenMinutes = (time / 60).toString()
+        takenSeconds = (time % 60).toString()
+    }
     override fun onBindViewHolder(view: RankingView, position: Int) {
+        testTime= listRanking?.get(position)?.timeTaken!!.toInt()
+        formatTime(testTime)
+        view.btnOrder.text = (position+4).toString()
         view.textUserName.text = listRanking?.get(position)?.userName
-        view.textPoint.text = listRanking?.get(position)?.resultPoint
-        view.textTime.text = listRanking?.get(position)?.timeTaken
+        view.textPoint.text = "${listRanking?.get(position)?.resultPoint}pts"
+        view.textTime.text = "${takenMinutes}m ${takenSeconds}s"
     }
 }
 

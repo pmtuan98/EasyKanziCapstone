@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -13,6 +14,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.domain.model.TestRanking
+import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.LevelRepository
 import com.illidant.easykanzicapstone.platform.repository.TestRepository
@@ -25,12 +27,15 @@ import com.illidant.easykanzicapstone.ui.screen.profile.ProfileActivity
 import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_ranking.*
 
-class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.View {
+class RankingActivity : AppCompatActivity(), RankingContract.View {
+
+    private var listRanking: MutableList<TestRanking> = mutableListOf()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ranking)
+        rankingPresenter.getRankingByLevelIDRequest(1)
         configView()
-        homePresenter.getLevelData()
     }
 
     private val rankingPresenter by lazy {
@@ -39,41 +44,39 @@ class RankingActivity : AppCompatActivity(), RankingContract.View, HomeContract.
         val repository = TestRepository(remote)
         RankingPresenter(this, repository)
     }
-    private val homePresenter by lazy {
-        val retrofit = RetrofitService.getInstance(application).getService()
-        val remote = LevelRemoteDataSource(retrofit)
-        val repository = LevelRepository(remote)
-        HomePresenter(this, repository)
+    private fun displayTopThree() {
+        tvNameTop1.text = listRanking[0].userName
+        tvNameTop2.text = listRanking[1].userName
+        tvNameTop3.text = listRanking[2].userName
+        tvPointTop1.text = "${listRanking[0].resultPoint}pts"
+        tvPointTop2.text = "${listRanking[1].resultPoint}pts"
+        tvPointTop3.text = "${listRanking[2].resultPoint}pts"
+        testTime1 = listRanking[0].timeTaken.toInt()
+        testTime2 = listRanking[1].timeTaken.toInt()
+        testTime3 = listRanking[2].timeTaken.toInt()
+        formatTime(testTime1)
+        tvTimeTop1.text = "${takenMinutes}m ${takenSeconds}s"
+        formatTime(testTime2)
+        tvTimeTop2.text = "${takenMinutes}m ${takenSeconds}s"
+        formatTime(testTime3)
+        tvTimeTop3.text = "${takenMinutes}m ${takenSeconds}s"
+
+    }
+    private var testTime1 = 0
+    private var testTime2 = 0
+    private var testTime3 = 0
+    private var takenMinutes = ""
+    private var takenSeconds = ""
+    private fun formatTime(testTime: Int) {
+        takenMinutes = (testTime / 60).toString()
+        takenSeconds = (testTime % 60).toString()
     }
 
     override fun onRankingData(listRank: List<TestRanking>) {
+        listRanking.addAll(listRank)
+        displayTopThree()
         recyclerViewRanking!!.layoutManager = GridLayoutManager(this, 1)
         recyclerViewRanking!!.adapter = RankingAdapter(listRank, this)
-    }
-
-    override fun onDataComplete(levels: List<Level>) {
-        var level_names = mutableListOf<String>()
-        var level_ids = mutableListOf<Int>()
-        for (level in levels) {
-            level_names.add(level.name)
-            level_ids.add(level.id)
-        }
-
-        spinnerRanking.adapter =
-            ArrayAdapter<String>(this, R.layout.item_lesson_spinner, level_names)
-
-        spinnerRanking.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onNothingSelected(p0: AdapterView<*>?) {
-                Toast.makeText(applicationContext, "Please choose a lesson", Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                var level_id = level_ids.get(p2)
-                rankingPresenter.getRankingByLevelIDRequest(level_id)
-            }
-
-        }
     }
 
     private var doubleBackToExitPressedOnce = false

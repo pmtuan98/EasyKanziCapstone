@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/profile"
     android:layout_width="match_parent"
-    android:background="@android:color/white"
+    android:background="@drawable/bg_profile"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ui.screen.profile.ProfileActivity">
@@ -13,7 +13,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C0392D"
+        android:background="#fcfbf6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintStart_toStartOf="@id/view"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
@@ -49,16 +49,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
                 android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp">
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="180dp"
+                    android:layout_gravity="center"
                     android:layout_marginTop="100dp"
                     app:cardCornerRadius="10dp"
-                    android:layout_gravity="center"
                     app:contentPaddingBottom="30dp"
                     app:contentPaddingLeft="15dp"
                     app:contentPaddingRight="15dp"
@@ -67,9 +67,9 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
+                        android:layout_marginTop="55dp"
                         android:gravity="center"
-                        android:layout_marginTop="55dp">
+                        android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tvUsername"
@@ -77,11 +77,11 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/username_profile"
                             android:layout_gravity="center_horizontal"
-                            android:textColor="#000"
-                            android:textSize="@dimen/sp_18"
-                            android:fontFamily="@font/roboto_regular"
                             android:layout_marginTop="@dimen/dp_5"
-                            android:text="tuanvm@gmail.com" />
+                            android:fontFamily="@font/roboto_regular"
+                            android:text="tuanvm@gmail.com"
+                            android:textColor="#000"
+                            android:textSize="@dimen/sp_18" />
 
                         <LinearLayout
                             android:id="@+id/linearlayout4"
@@ -103,8 +103,8 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="5dp"
-                                android:text="Change Password"
                                 android:fontFamily="@font/roboto_regular"
+                                android:text="Change Password"
                                 android:textColor="#000"
                                 android:textSize="18sp" />
                         </LinearLayout>
@@ -132,8 +132,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="3dp"
-                        android:text="Favorite"
                         android:fontFamily="@font/roboto_regular"
+                        android:text="Favorite"
                         android:textColor="#000"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -158,8 +158,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="3dp"
-                        android:text="Test History"
                         android:fontFamily="@font/roboto_regular"
+                        android:text="Test History"
                         android:textColor="#000"
                         android:textSize="20sp" />
                 </LinearLayout>
@@ -185,8 +185,8 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="3dp"
-                        android:text="Sign Out"
                         android:fontFamily="@font/roboto_regular"
+                        android:text="Sign Out"
                         android:textColor="#000"
                         android:textSize="20sp" />
                 </LinearLayout>

@@ -4,19 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FCFBF6"
+    android:background="#f3f3f3"
     tools:context=".ui.screen.ranking.RankingActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#C0392D"
+        android:background="#f3f3f3"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:title="Top 10 Ranking"
+        app:titleTextColor="@color/black"
         app:titleMarginStart="55dp">
 
     </androidx.appcompat.widget.Toolbar>
@@ -27,47 +28,54 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
-
-
-
-    <ImageView
-        android:id="@+id/btnBack"
+    <LinearLayout
+        android:id="@+id/linearLayout6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_back2"
-        android:layout_marginTop="3dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-
-    <Spinner
-        android:id="@+id/spinnerRanking"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/guideline"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/toolbar"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
+        <Button
+            android:id="@+id/btnJPD111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#f3f3f3"
+            android:fontFamily="@font/roboto_bold"
+            android:text="JPD111"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnJPD121"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JPD121" />
+
+        <Button
+            android:id="@+id/btnJPD131"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JPD131" />
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView_ranking"
-        android:layout_width="360dp"
+        android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:layout_gravity="center"
-        android:background="@color/color_ranking_cardview"
+        app:cardBackgroundColor="#fcfbf6"
         app:cardCornerRadius="20dp"
         app:cardElevation="12dp"
-        app:cardBackgroundColor="@color/color_ranking_cardview"
         app:cardUseCompatPadding="true"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:padding="16dp">
 
@@ -80,42 +88,83 @@
 
 
             <ImageView
-                android:id="@+id/image_homepage"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:src="@drawable/img_avatar"
+                android:id="@+id/top1Img"
+                android:layout_width="140dp"
+                android:layout_height="120dp"
+                android:src="@drawable/top1medal"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/guideline1"
+                app:layout_constraintHorizontal_bias="0.3"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
 
             <TextView
-                android:id="@+id/userName_ranking1"
+                android:id="@+id/tvNameTop1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="38dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="JPD111"
+                android:text="pmtuan98"
                 android:textColor="#000000"
-                android:textSize="22sp"
+                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.592"
                 app:layout_constraintStart_toEndOf="@+id/guideline1"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/point_ranking1"
-                android:layout_width="180dp"
+            <LinearLayout
+                android:id="@+id/linearLayout7"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:fontFamily="@font/roboto_regular"
-                android:text="This is point"
-                android:textColor="#69696C"
-                android:textSize="16dp"
+                android:orientation="horizontal"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/guideline1"
-                app:layout_constraintTop_toBottomOf="@+id/userName_ranking1"/>
+                app:layout_constraintTop_toBottomOf="@+id/tvNameTop1">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_tick" />
+
+                <TextView
+                    android:id="@+id/tvPointTop1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:text="100 pt"
+                    android:textColor="#73854a"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guideline1"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout7">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_clock" />
+
+                <TextView
+                    android:id="@+id/tvTimeTop1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_bold"
+                    android:gravity="center"
+                    android:text="2m 54s"
+                    android:textColor="#f57840"
+                    android:textSize="18sp" />
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -133,51 +182,41 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView_ranking">
 
-        <TextView
-            android:id="@+id/sttRanking2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbold"
-            android:text="2"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
-
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/img_avatar" />
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/top2medal" />
 
         <TextView
-            android:id="@+id/userName_ranking2"
+            android:id="@+id/tvNameTop2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbold"
+            android:fontFamily="@font/roboto_bold"
             android:text="thangvqSE"
-            android:textColor="@android:color/black"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/point_ranking2"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdmedium"
-            android:text="100 pts"
-            android:textColor="#C0392D"
-            android:textSize="16sp" />
-
-        <TextView
-            android:id="@+id/tvTime2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
-            android:text="80"
-            android:layout_marginStart="40dp"
-            android:textColor="#C0392D"
-            android:textSize="16sp" />
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tvPointTop2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="100 pts"
+                android:textColor="#73854a"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/tvTimeTop2"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="3m 51s"
+                android:textColor="#f57840"
+                android:textSize="16sp"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -195,51 +234,40 @@
         app:layout_constraintStart_toEndOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/cardView_ranking">
 
-        <TextView
-            android:id="@+id/sttRanking3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbold"
-            android:text="3"
-            android:textColor="@android:color/black"
-            android:textSize="20sp" />
-
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/img_avatar" />
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/top3medal" />
 
         <TextView
-            android:id="@+id/userName_ranking3"
+            android:id="@+id/tvNameTop3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbold"
-            android:textColor="@android:color/black"
-            android:text="tuanVm"
+            android:fontFamily="@font/roboto_bold"
+            android:text="abc"
+            android:textColor="@color/black"
             android:textSize="18sp" />
-
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/point_ranking3"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdmedium"
-            android:text="0 pts"
-            android:textColor="#C0392D"
-            android:textSize="16sp" />
-
+            android:orientation="horizontal">
             <TextView
-                android:id="@+id/tvTime3"
+                android:id="@+id/tvPointTop3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="80"
-                android:layout_marginStart="40dp"
-                android:textColor="#C0392D"
-                android:textSize="16sp" />
+                android:text="100 pts"
+                android:textColor="#73854a"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/tvTimeTop3"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="3m 51s"
+                android:textColor="#f57840"
+                android:textSize="16sp"/>
         </LinearLayout>
 
     </LinearLayout>
