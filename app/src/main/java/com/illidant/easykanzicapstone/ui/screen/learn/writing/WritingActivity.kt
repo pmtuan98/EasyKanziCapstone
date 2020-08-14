@@ -58,6 +58,9 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
         buttonExit.setOnClickListener {
             finish()
         }
+        btnFinish.setOnClickListener {
+            showCompleteDialog()
+        }
         buttonSubmit.setOnClickListener {
             val answer = when (writingMode) {
                 WritingMode.Hiragana -> vocabularyList[currentIndex].hiragana
@@ -106,7 +109,7 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
 
     private fun showCompleteDialog() {
         val dialog = Dialog(this).apply {
-            setCancelable(false)
+            setCancelable(true)
             getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             setContentView(R.layout.dialog_complete_writing)
             val lessonId = intent.getIntExtra("LESSON_ID", 0)

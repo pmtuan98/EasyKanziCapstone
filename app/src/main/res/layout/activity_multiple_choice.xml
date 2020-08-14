@@ -8,8 +8,8 @@
 
     <ImageButton
         android:id="@+id/btnExit"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
@@ -32,24 +32,35 @@
             android:id="@+id/tvQuestionNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbold"
-            android:textSize="18sp" />
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbold"
+            android:fontFamily="@font/roboto_bold"
             android:text="/"
-            android:textSize="18sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvTotalQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbold"
-            android:textSize="16sp" />
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="20sp" />
     </LinearLayout>
 
+
+    <ImageButton
+        android:id="@+id/btnFinish"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/ic_finish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <ProgressBar
         android:id="@+id/progressBarMultiple"
         style="@style/Widget.AppCompat.ProgressBar.Horizontal"

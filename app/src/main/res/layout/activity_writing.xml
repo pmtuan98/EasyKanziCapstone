@@ -5,12 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.screen.learn.writing.WritingActivity">
-
-
     <ImageButton
         android:id="@+id/buttonExit"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:layout_gravity="center_vertical"
         android:layout_marginStart="4dp"
         android:layout_marginTop="4dp"
@@ -34,32 +32,32 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
             android:text="/"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/tvTotalQuestion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:textSize="22sp" />
+            android:textSize="20sp" />
     </LinearLayout>
 
 
     <ImageButton
-        android:id="@+id/switchOption"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
+        android:id="@+id/btnFinish"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_gravity="center_vertical"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="4dp"
-        android:background="@drawable/ic_setting"
+        android:background="@drawable/ic_finish"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -78,11 +76,13 @@
 
     <LinearLayout
         android:id="@+id/linearlayout4"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:gravity="center"
         android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/progressBarWriting">
 
         <TextView
@@ -95,7 +95,20 @@
             android:textStyle="bold" />
     </LinearLayout>
 
+    <ImageButton
+        android:id="@+id/switchOption"
+        android:layout_width="22dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_setting"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toEndOf="@+id/linearlayout4"
+        app:layout_constraintTop_toBottomOf="@+id/progressBarWriting" />
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -198,7 +211,7 @@
             android:fontFamily="@font/roboto_bold"
             android:text="Submit"
             android:textColor="#C0392D"
-            android:background="#f5f5f5"
+            android:background="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/edtAnswer"
             app:layout_constraintTop_toTopOf="parent" />

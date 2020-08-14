@@ -60,16 +60,14 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
 
     private fun configViews() {
-        btnRestart.setOnClickListener {
-            val intent = intent
-            finish()
-            startActivity(intent)
-        }
         btnExit.setOnClickListener {
             finish()
         }
         btnSpeak.setOnClickListener {
             speak()
+        }
+        btnFinish.setOnClickListener {
+            showCompleteDialog()
         }
     }
 
@@ -211,34 +209,10 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         textHiragana = vocabularyList[counter].hiragana
     }
 
-//    private fun saveRemember() {
-//        btnYes.setOnClickListener {
-//            btnNext.isEnabled = false
-//            btnBack.isEnabled = false
-//            remember += + 1
-//            if(flashCard.isBackSide) {
-//                flashCard.flipTheView(true)
-//                layoutBack.visibility = View.GONE
-//                next()
-//            }else next()
-//        }
-//        btnNo.setOnClickListener {
-//            next()
-//            btnNext.isEnabled = false
-//            btnBack.isEnabled = false
-//            notRemember += 1
-//            if(flashCard.isBackSide) {
-//                flashCard.flipTheView(true)
-//                layoutBack.visibility = View.GONE
-//                next()
-//            }else next()
-//        }
-//    }
-
     private fun showCompleteDialog() {
         val dialog = Dialog(this)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        dialog.setCancelable(false)
+        dialog.setCancelable(true)
         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_complete_flashcard)
         val buttonAgain = dialog.findViewById(R.id.btnLearnAgain) as Button

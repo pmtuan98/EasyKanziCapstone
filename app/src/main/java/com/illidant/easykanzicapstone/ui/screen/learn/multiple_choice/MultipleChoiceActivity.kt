@@ -26,11 +26,13 @@ import kotlinx.android.synthetic.main.activity_multiple_choice.tvTotalQuestion
 class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
     private var countCorrect = 0
+    private var countSelect = 0
     val listQuizAll: MutableList<Quiz> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multiple_choice)
         initialize()
+        configViews()
     }
 
     private val presenter by lazy {
@@ -43,15 +45,21 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
     private fun initialize() {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         presenter.quizByLessonRequest(lesson_id)
+
+    }
+    private fun configViews() {
         btnExit.setOnClickListener {
             finish()
+        }
+        btnFinish.setOnClickListener {
+            showCompleteDialog()
         }
     }
 
     private fun showCompleteDialog() {
         val dialog = Dialog(this)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        dialog.setCancelable(false)
+        dialog.setCancelable(true)
         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_complete_multiplechoice)
         val btnAgain = dialog.findViewById(R.id.btnLearnAgain) as Button
@@ -62,7 +70,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         val tvWrong = dialog.findViewById(R.id.tvWrong) as TextView
         tvTotalQuestion.text = listQuizAll.size.toString()
         tvCorrect.text = countCorrect.toString()
-        tvWrong.text = (listQuizAll.size - countCorrect).toString()
+        tvWrong.text = (countSelect - countCorrect).toString()
         dialog.show()
         btnAgain.setOnClickListener {
             val intent = intent
@@ -114,6 +122,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
         tvAnswerA?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
+            countSelect++
             if (tvAnswerA.text.equals(correctAnswer)) {
                 countCorrect++
             } else {
@@ -122,6 +131,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             displayNextButton()
         }
         tvAnswerB?.setOnClickListener {
+            countSelect++
             checkCorrectAnswer(correctAnswer)
             if (tvAnswerB.text.equals(correctAnswer)) {
                 countCorrect++
@@ -131,6 +141,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             displayNextButton()
         }
         tvAnswerC?.setOnClickListener {
+            countSelect++
             checkCorrectAnswer(correctAnswer)
             if (tvAnswerC.text.equals(correctAnswer)) {
                 countCorrect++
@@ -140,6 +151,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             displayNextButton()
         }
         tvAnswerD?.setOnClickListener {
+            countSelect++
             checkCorrectAnswer(correctAnswer)
             if (tvAnswerD.text.equals(correctAnswer)) {
                 countCorrect++
