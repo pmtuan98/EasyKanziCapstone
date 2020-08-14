@@ -119,7 +119,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_bold"
-                android:text="pmtuan98"
+                android:text=""
                 android:textColor="#000000"
                 android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +149,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
-                    android:text="100 pt"
+                    android:text=""
                     android:textColor="#73854a"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -175,7 +175,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_bold"
                     android:gravity="center"
-                    android:text="2m 54s"
+                    android:text=""
                     android:textColor="#f57840"
                     android:textSize="18sp" />
             </LinearLayout>
@@ -206,7 +206,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:text="thangvqSE"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="18sp" />
 
@@ -219,7 +219,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="100 pts"
+                android:text=""
                 android:textColor="#73854a"
                 android:textSize="16sp"/>
             <TextView
@@ -228,7 +228,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="3m 51s"
+                android:text=""
                 android:textColor="#f57840"
                 android:textSize="16sp"/>
         </LinearLayout>
@@ -258,7 +258,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/roboto_bold"
-            android:text="abc"
+            android:text=""
             android:textColor="@color/black"
             android:textSize="18sp" />
         <LinearLayout
@@ -270,7 +270,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="100 pts"
+                android:text=""
                 android:textColor="#73854a"
                 android:textSize="16sp"/>
             <TextView
@@ -279,7 +279,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
-                android:text="3m 51s"
+                android:text=""
                 android:textColor="#f57840"
                 android:textSize="16sp"/>
         </LinearLayout>
