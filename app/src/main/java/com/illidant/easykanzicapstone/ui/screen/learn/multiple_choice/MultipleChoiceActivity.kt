@@ -27,7 +27,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
     private var countCorrect = 0
     private var countSelect = 0
-    val listQuizAll: MutableList<Quiz> = mutableListOf()
+    private val listQuizAll: MutableList<Quiz> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_multiple_choice)
@@ -93,33 +93,40 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             dialog.dismiss()
         }
     }
+    private var correctAnswer = ""
+    private var currentPosition = 0
+    private var wrongAnswerBackground: Drawable? = null
 
     override fun getQuizByLessonID(listQuiz: List<Quiz>) {
-        listQuizAll.addAll(listQuiz)
-        var currentPosition = 0
-        var wrongAnswerBackground: Drawable?
-        wrongAnswerBackground = ContextCompat.getDrawable(this, R.drawable.bg_wrong_answer)
+        listQuizAll.addAll(listQuiz.shuffled())
+        displayQuestion()
+        resetAnswersBackground()
+        hideNextButton()
+        checkSelection()
+        nextQuestion()
 
+    }
+    private fun displayQuestion() {
+        wrongAnswerBackground = ContextCompat.getDrawable(this, R.drawable.bg_wrong_answer)
         //set progress bar
-        progressBarMultiple.max = listQuiz.size
+        progressBarMultiple.max = listQuizAll.size
         progressBarMultiple.progress = currentPosition + 1
 
         //Display total question
-        tvTotalQuestion.text = listQuiz.size.toString()
+        tvTotalQuestion.text = listQuizAll.size.toString()
         tvQuestionNo.text = (currentPosition + 1).toString()
 
         // Display question
-        tvQuestion.text = listQuiz[currentPosition].question
+        tvQuestion.text = listQuizAll[currentPosition].question
 
         // Display answer
-        tvAnswerA.text = listQuiz[currentPosition].answerA
-        tvAnswerB.text = listQuiz[currentPosition].answerB
-        tvAnswerC.text = listQuiz[currentPosition].answerC
-        tvAnswerD.text = listQuiz[currentPosition].answerD
-        var correctAnswer = listQuiz[currentPosition].correctAnswer
-        resetAnswersBackground()
-        hideNextButton()
-
+        tvAnswerA.text = listQuizAll[currentPosition].answerA
+        tvAnswerB.text = listQuizAll[currentPosition].answerB
+        tvAnswerC.text = listQuizAll[currentPosition].answerC
+        tvAnswerD.text = listQuizAll[currentPosition].answerD
+        correctAnswer = listQuizAll[currentPosition].correctAnswer
+    }
+    private fun checkSelection() {
         tvAnswerA?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
             countSelect++
@@ -160,21 +167,22 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             }
             displayNextButton()
         }
-
+    }
+    private fun nextQuestion() {
         btnNextQuestion.setOnClickListener({
             currentPosition++
-            if (currentPosition == listQuiz.size) {
-                currentPosition = listQuiz.size - 1
+            if (currentPosition == listQuizAll.size) {
+                currentPosition = listQuizAll.size - 1
                 showCompleteDialog()
             }
             tvQuestionNo.text = (currentPosition + 1).toString()
             progressBarMultiple.progress = currentPosition + 1
-            tvQuestion.text = listQuiz[currentPosition].question
-            tvAnswerA.text = listQuiz[currentPosition].answerA
-            tvAnswerB.text = listQuiz[currentPosition].answerB
-            tvAnswerC.text = listQuiz[currentPosition].answerC
-            tvAnswerD.text = listQuiz[currentPosition].answerD
-            correctAnswer = listQuiz[currentPosition].correctAnswer
+            tvQuestion.text = listQuizAll[currentPosition].question
+            tvAnswerA.text = listQuizAll[currentPosition].answerA
+            tvAnswerB.text = listQuizAll[currentPosition].answerB
+            tvAnswerC.text = listQuizAll[currentPosition].answerC
+            tvAnswerD.text = listQuizAll[currentPosition].answerD
+            correctAnswer = listQuizAll[currentPosition].correctAnswer
             resetAnswersBackground()
             hideNextButton()
         })
