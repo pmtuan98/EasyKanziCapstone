@@ -18,7 +18,11 @@ import com.illidant.easykanzicapstone.platform.source.remote.TestRemoteDataSourc
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
 import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
+import kotlinx.android.synthetic.main.activity_ranking.*
 import kotlinx.android.synthetic.main.activity_test_history.*
+import kotlinx.android.synthetic.main.activity_test_history.btnJPD111
+import kotlinx.android.synthetic.main.activity_test_history.btnJPD121
+import kotlinx.android.synthetic.main.activity_test_history.btnJPD131
 
 class TestHistoryActivity : AppCompatActivity(), TestHistoryContract.View {
     private var levelId:Int = 0
@@ -32,21 +36,30 @@ class TestHistoryActivity : AppCompatActivity(), TestHistoryContract.View {
         val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
         val userID = prefs.getInt("userID", 0)
         historyPresenter.getTestHistoryRequest(userID,1)
-        btnJPD111.background =  ContextCompat.getDrawable(this, R.drawable.btn_mess)
+        btnJPD111.background =  ContextCompat.getDrawable(this, R.drawable.btn_ranking_pressed)
     }
     private fun changeButtonColor() {
         if(btnJPD111.isPressed) {
-            btnJPD111.background =  ContextCompat.getDrawable(this, R.drawable.btn_mess)
-            btnJPD121.background =  ContextCompat.getDrawable(this, R.drawable.btn_mess2)
-            btnJPD131.background =  ContextCompat.getDrawable(this, R.drawable.btn_mess2)
+            btnJPD111.background =  ContextCompat.getDrawable(this, R.drawable.btn_ranking_pressed)
+            btnJPD111.setTextColor(Color.BLACK)
+            btnJPD121.background =  ContextCompat.getDrawable(this, R.drawable.btn_ranking_default)
+            btnJPD121.setTextColor(Color.GRAY)
+            btnJPD131.background =  ContextCompat.getDrawable(this, R.drawable.btn_ranking_default)
+            btnJPD131.setTextColor(Color.GRAY)
         }else if (btnJPD121.isPressed){
-            btnJPD111.background =  ContextCompat.getDrawable(this, R.drawable.btn_mess2)
-            btnJPD121.background =  ContextCompat.getDrawable(this, R.drawable.btn_mess)
-            btnJPD131.background =  ContextCompat.getDrawable(this, R.drawable.btn_mess2)
+            btnJPD111.background =  ContextCompat.getDrawable(this, R.drawable.btn_ranking_default)
+            btnJPD111.setTextColor(Color.GRAY)
+            btnJPD121.background =  ContextCompat.getDrawable(this, R.drawable.btn_ranking_pressed)
+            btnJPD121.setTextColor(Color.BLACK)
+            btnJPD131.background =  ContextCompat.getDrawable(this, R.drawable.btn_ranking_default)
+            btnJPD131.setTextColor(Color.GRAY)
         }else if (btnJPD131.isPressed){
-            btnJPD121.background =  ContextCompat.getDrawable(this, R.drawable.btn_mess2)
-            btnJPD111.background =  ContextCompat.getDrawable(this, R.drawable.btn_mess2)
-            btnJPD131.background =  ContextCompat.getDrawable(this, R.drawable.btn_mess)
+            btnJPD111.background =  ContextCompat.getDrawable(this, R.drawable.btn_ranking_default)
+            btnJPD111.setTextColor(Color.GRAY)
+            btnJPD121.background =  ContextCompat.getDrawable(this, R.drawable.btn_ranking_default)
+            btnJPD121.setTextColor(Color.GRAY)
+            btnJPD131.background =  ContextCompat.getDrawable(this, R.drawable.btn_ranking_pressed)
+            btnJPD131.setTextColor(Color.BLACK)
         }
     }
 

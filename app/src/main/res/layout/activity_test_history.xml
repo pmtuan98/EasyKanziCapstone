@@ -5,54 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.screen.profile.test_history.TestHistoryActivity">
-<!--    <androidx.appcompat.widget.Toolbar-->
-<!--        android:id="@+id/toolbar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="#C0392D"-->
-<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:title="Test History"-->
-<!--        app:titleMarginStart="55dp">-->
-
-<!--    </androidx.appcompat.widget.Toolbar>-->
-
-<!--    <TableLayout-->
-<!--        android:id="@+id/tabLayout"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="#C0392D"-->
-<!--        android:minHeight="?attr/actionBarSize"-->
-<!--        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/toolbar">-->
-
-<!--    </TableLayout>-->
-
-<!--    <androidx.viewpager.widget.ViewPager-->
-<!--        android:id="@+id/pager"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/tabLayout">-->
-
-<!--    </androidx.viewpager.widget.ViewPager>-->
-
-
-<!--    <ImageView-->
-<!--        android:id="@+id/btnBack"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:src="@drawable/ic_back2"-->
-<!--        android:layout_marginTop="3dp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
 
     <LinearLayout
         android:id="@+id/linearlayout"
@@ -96,21 +48,29 @@
             android:id="@+id/btnJPD111"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_mess2"
+            android:background="@drawable/btn_ranking_pressed"
+            android:textSize="18sp"
+            android:textStyle="bold"
             android:text="JPD111" />
 
         <Button
             android:id="@+id/btnJPD121"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_mess2"
+            android:background="@drawable/btn_ranking_default"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_gray"
             android:text="JPD121" />
 
         <Button
             android:id="@+id/btnJPD131"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/btn_mess2"
+            android:background="@drawable/btn_ranking_default"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/color_gray"
             android:text="JPD131" />
     </LinearLayout>
 
