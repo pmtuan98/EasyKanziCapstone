@@ -139,8 +139,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/circularstdbold"
             android:text="2"
-            android:textColor="@color/design_default_color_primary_dark"
-            android:textSize="16sp" />
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <ImageView
             android:layout_width="60dp"
@@ -151,19 +151,34 @@
             android:id="@+id/userName_ranking2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbook"
+            android:fontFamily="@font/circularstdbold"
             android:text="thangvqSE"
-            android:textColor="@color/design_default_color_primary_dark"
-            android:textSize="16sp" />
+            android:textColor="@android:color/black"
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/point_ranking2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/circularstdmedium"
             android:text="100 pts"
-            android:textColor="@color/design_default_color_primary_dark"
+            android:textColor="#C0392D"
             android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvTime2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto_bold"
+            android:text="80"
+            android:layout_marginStart="40dp"
+            android:textColor="#C0392D"
+            android:textSize="16sp" />
+        </LinearLayout>
 
     </LinearLayout>
 
@@ -186,8 +201,8 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/circularstdbold"
             android:text="3"
-            android:textColor="@color/design_default_color_primary_dark"
-            android:textSize="16sp" />
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
 
         <ImageView
             android:layout_width="60dp"
@@ -198,19 +213,34 @@
             android:id="@+id/userName_ranking3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/circularstdbook"
+            android:fontFamily="@font/circularstdbold"
+            android:textColor="@android:color/black"
             android:text="tuanVm"
-            android:textColor="@color/design_default_color_primary_dark"
-            android:textSize="16sp" />
+            android:textSize="18sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/point_ranking3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/circularstdmedium"
             android:text="0 pts"
-            android:textColor="@color/design_default_color_primary_dark"
+            android:textColor="#C0392D"
             android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tvTime3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_bold"
+                android:text="80"
+                android:layout_marginStart="40dp"
+                android:textColor="#C0392D"
+                android:textSize="16sp" />
+        </LinearLayout>
 
     </LinearLayout>
 
