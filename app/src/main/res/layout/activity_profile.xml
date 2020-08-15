@@ -93,7 +93,7 @@
 
             <TextView
                 android:id="@+id/tvChangePassword"
-                android:layout_width="wrap_content"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/roboto_regular"
@@ -104,7 +104,6 @@
             <ImageView
                 android:layout_width="26dp"
                 android:layout_height="26dp"
-                android:layout_marginStart="130dp"
                 android:src="@drawable/ic_next" />
 
 
@@ -127,7 +126,7 @@
 
             <TextView
                 android:id="@+id/tvTestHistory"
-                android:layout_width="wrap_content"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
@@ -140,7 +139,6 @@
             <ImageView
                 android:layout_width="26dp"
                 android:layout_height="26dp"
-                android:layout_marginLeft="175dp"
                 android:src="@drawable/ic_next" />
         </LinearLayout>
 
@@ -162,7 +160,7 @@
 
             <TextView
                 android:id="@+id/tvSignout"
-                android:layout_width="wrap_content"
+                android:layout_width="265dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/roboto_regular"
@@ -173,7 +171,6 @@
             <ImageView
                 android:layout_width="26dp"
                 android:layout_height="26dp"
-                android:layout_marginLeft="203dp"
                 android:src="@drawable/ic_next" />
 
 
