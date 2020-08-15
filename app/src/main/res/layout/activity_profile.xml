@@ -40,13 +40,13 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
-            android:id="@+id/tvEmailName"
+            android:id="@+id/tvUserEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:fontFamily="@font/roboto_regular"
             android:text="tuanpm1192001@gmail.com"
-            android:textColor="#000"
+            android:textColor="@color/gray"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvUsername" />
@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/lineProfile">
 
         <LinearLayout
-            android:id="@+id/linearlayout4"
+            android:id="@+id/layoutChangePass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/imageview_pic"
@@ -99,7 +99,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="Change Password"
                 android:textColor="#000"
-                android:textSize="17sp" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:layout_width="26dp"
@@ -111,7 +111,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearlayout2"
+            android:id="@+id/layoutTestHistory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearlayout1"
@@ -134,7 +134,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="Test History"
                 android:textColor="#000"
-                android:textSize="17sp" />
+                android:textSize="18sp" />
 
 
             <ImageView
@@ -146,7 +146,7 @@
 
 
         <LinearLayout
-            android:id="@+id/linearlayout3"
+            android:id="@+id/layoutSignOut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearlayout2"
@@ -168,7 +168,7 @@
                 android:fontFamily="@font/roboto_regular"
                 android:text="Sign Out"
                 android:textColor="#000"
-                android:textSize="17sp" />
+                android:textSize="18sp" />
 
             <ImageView
                 android:layout_width="26dp"
