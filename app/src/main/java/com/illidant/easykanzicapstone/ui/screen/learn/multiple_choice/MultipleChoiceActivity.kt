@@ -52,11 +52,49 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             finish()
         }
         btnFinish.setOnClickListener {
-            showCompleteDialog()
+            showFinishDialog()
         }
     }
 
     private fun showCompleteDialog() {
+        val dialog = Dialog(this)
+        val lesson_id = intent.getIntExtra("LESSON_ID", 0)
+        dialog.setCancelable(false)
+        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        dialog.setContentView(R.layout.dialog_complete_multiplechoice)
+        val btnAgain = dialog.findViewById(R.id.btnLearnAgain) as Button
+        val btnWriting = dialog.findViewById(R.id.btnWriting) as Button
+        val btnFlashcard = dialog.findViewById(R.id.btnFlashcard) as Button
+        val tvTotalQuestion = dialog.findViewById(R.id.tvTotalQuestion) as TextView
+        val tvCorrect = dialog.findViewById(R.id.tvCorrect) as TextView
+        val tvWrong = dialog.findViewById(R.id.tvWrong) as TextView
+        tvTotalQuestion.text = listQuizAll.size.toString()
+        tvCorrect.text = countCorrect.toString()
+        tvWrong.text = (countSelect - countCorrect).toString()
+        dialog.show()
+        btnAgain.setOnClickListener {
+            val intent = intent
+            finish()
+            startActivity(intent)
+            dialog.dismiss()
+        }
+        btnWriting.setOnClickListener {
+            val intent = Intent(it.context, WritingActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+            dialog.dismiss()
+        }
+        btnFlashcard.setOnClickListener {
+            val intent = Intent(it.context, FlashcardActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+            dialog.dismiss()
+        }
+    }
+
+    private fun showFinishDialog() {
         val dialog = Dialog(this)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         dialog.setCancelable(true)
@@ -93,6 +131,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             dialog.dismiss()
         }
     }
+
     private var correctAnswer = ""
     private var currentPosition = 0
     private var wrongAnswerBackground: Drawable? = null
