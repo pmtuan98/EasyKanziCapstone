@@ -115,19 +115,6 @@
     </com.wajahatkarim3.easyflipview.EasyFlipView>
 
 
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="24dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/bg_button_writing"
-        android:src="@drawable/ic_arrow_back"
-        app:layout_constraintEnd_toStartOf="@+id/btnSpeak"
-        app:layout_constraintHorizontal_bias="0.414"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flashCard" />
-
     <ImageView
         android:id="@+id/btnSpeak"
         android:layout_width="40dp"
@@ -142,16 +129,46 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flashCard" />
 
-    <ImageButton
-        android:id="@+id/btnNext"
-        android:layout_width="50dp"
+
+    <LinearLayout
+        android:id="@+id/linearLayoutFlashcard"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:adjustViewBounds="true"
-        android:background="@drawable/bg_button_writing"
-        android:src="@drawable/ic_arrow_next"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.592"
-        app:layout_constraintStart_toEndOf="@+id/btnSpeak"
-        app:layout_constraintTop_toBottomOf="@+id/flashCard" />
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSpeak">
+
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:adjustViewBounds="true"
+            android:background="@drawable/bg_button_writing"
+            android:src="@drawable/ic_arrow_back" />
+
+
+        <Button
+            android:id="@+id/btnShuffle"
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_dots2"
+            android:drawableLeft="@drawable/ic_baseline_shuffle_24"
+            android:gravity="center"
+            android:layout_marginStart="50dp"
+            android:text="Shuffle"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btnNext"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:layout_marginStart="50dp"
+            android:background="@drawable/bg_button_writing"
+            android:src="@drawable/ic_arrow_next" />
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
