@@ -43,11 +43,6 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
 
     private fun configViews() {
-        btnRestart.setOnClickListener {
-            val intent = intent
-            finish()
-            startActivity(intent)
-        }
         btnExit.setOnClickListener {
             finish()
         }
@@ -57,7 +52,7 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
 
     private fun speak() {
-        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null)
+        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null,null)
     }
 
     private fun setUpSpeaker() {
@@ -132,7 +127,7 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-
+        speak()
         //Display total question
         tvTotalQuestion.text = vocabularyList.size.toString()
         tvQuestionNo.text = (counter + 1).toString()
@@ -175,6 +170,7 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
+        speak()
 
     }
 
@@ -191,6 +187,7 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
+        speak()
 
     }
 

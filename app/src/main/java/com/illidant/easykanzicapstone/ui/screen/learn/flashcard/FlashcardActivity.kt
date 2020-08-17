@@ -72,7 +72,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
 
     private fun speak() {
-        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null)
+        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null,null)
     }
 
     private fun setUpSpeaker() {
@@ -147,7 +147,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-
+        speak()
         //Display total question
         tvTotalQuestion.text = vocabularyList.size.toString()
         tvQuestionNo.text = (counter + 1).toString()
@@ -190,6 +190,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
+        speak()
 
     }
 
@@ -207,6 +208,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
+        speak()
     }
 
     private fun showCompleteDialog() {

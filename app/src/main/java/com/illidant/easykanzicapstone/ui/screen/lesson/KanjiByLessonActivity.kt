@@ -17,6 +17,7 @@ import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import com.illidant.easykanzicapstone.platform.repository.LessonRepository
 import com.illidant.easykanzicapstone.platform.source.remote.KanjiRemoteDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.LessonRemoteDataSource
+import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiContract
 import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiPresenter
 import com.illidant.easykanzicapstone.ui.screen.learn.LearnActivity
@@ -60,6 +61,11 @@ class KanjiByLessonActivity : AppCompatActivity(),
             intent.putExtra("LESSON_ID", lessonId)
             intent.putExtra("LESSON_NAME", lessonName)
             startActivity(intent)
+        }
+        btnFab.setOnClickListener {
+            val intent = Intent(it.context, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 
