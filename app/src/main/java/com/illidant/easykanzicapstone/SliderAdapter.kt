@@ -18,7 +18,7 @@ class SliderAdapter : PagerAdapter {
     }
 
     var images = intArrayOf(
-        R.drawable.ic_learn,
+        R.drawable.ic_on_board,
         R.drawable.ic_search,
         R.drawable.ic_ranking
     )

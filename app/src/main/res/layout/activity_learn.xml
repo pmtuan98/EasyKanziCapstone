@@ -124,7 +124,7 @@
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/dp_5"
-                    android:src="@drawable/ic_learn_multiple_choice" />
+                    android:src="@drawable/ic_multiple_choice" />
 
                 <TextView
                     android:layout_width="wrap_content"
