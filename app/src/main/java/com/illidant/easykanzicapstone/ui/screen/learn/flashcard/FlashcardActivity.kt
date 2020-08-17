@@ -20,12 +20,12 @@ import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
 import com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice.MultipleChoiceActivity
 import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import kotlinx.android.synthetic.main.activity_flashcard.*
-import kotlinx.android.synthetic.main.activity_flashcard.btnExit
 import kotlinx.android.synthetic.main.activity_flashcard.flashCard
 import kotlinx.android.synthetic.main.activity_flashcard.layoutBack
 import kotlinx.android.synthetic.main.activity_flashcard.progressBarFlashcard
 import kotlinx.android.synthetic.main.activity_flashcard.tvQuestionNo
 import kotlinx.android.synthetic.main.activity_flashcard.tvTotalQuestion
+import kotlinx.android.synthetic.main.dialog_complete_flashcard.*
 import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
 import java.util.*
@@ -64,7 +64,7 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
             speak()
         }
         btnFinish.setOnClickListener {
-            showCompleteDialog()
+            showFinishDialog()
         }
     }
 
@@ -207,9 +207,44 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     private fun showCompleteDialog() {
         val dialog = Dialog(this)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        dialog.setCancelable(true)
+        dialog.setCancelable(false)
         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_complete_flashcard)
+        val buttonAgain = dialog.findViewById(R.id.btnLearnAgain) as Button
+        val buttonLearnWriting = dialog.findViewById(R.id.btnLearnWriting) as Button
+        val buttonLearnMultiple = dialog.findViewById(R.id.btnMultipleChoice) as Button
+        val buttonQuit = dialog.findViewById(R.id.btnQuit) as Button
+        dialog.show()
+        buttonAgain.setOnClickListener {
+            val intent = intent
+            finish()
+            startActivity(intent)
+            dialog.dismiss()
+        }
+        buttonLearnWriting.setOnClickListener {
+            val intent = Intent(it.context, WritingActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+            dialog.dismiss()
+        }
+        buttonLearnMultiple.setOnClickListener {
+            val intent = Intent(it.context, MultipleChoiceActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+            dialog.dismiss()
+        }
+        buttonQuit.setOnClickListener {
+            finish()
+        }
+    }
+    private fun showFinishDialog() {
+        val dialog = Dialog(this)
+        val lesson_id = intent.getIntExtra("LESSON_ID", 0)
+        dialog.setCancelable(true)
+        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        dialog.setContentView(R.layout.dialog_finish_flashcard)
         val buttonAgain = dialog.findViewById(R.id.btnLearnAgain) as Button
         val buttonLearnWriting = dialog.findViewById(R.id.btnLearnWriting) as Button
         val buttonLearnMultiple = dialog.findViewById(R.id.btnMultipleChoice) as Button

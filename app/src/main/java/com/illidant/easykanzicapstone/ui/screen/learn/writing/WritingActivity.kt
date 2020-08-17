@@ -59,7 +59,7 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
             finish()
         }
         btnFinish.setOnClickListener {
-            showCompleteDialog()
+            showFinishDialog()
         }
         buttonSubmit.setOnClickListener {
             val answer = when (writingMode) {
@@ -109,9 +109,44 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
 
     private fun showCompleteDialog() {
         val dialog = Dialog(this).apply {
-            setCancelable(true)
+            setCancelable(false)
             getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
             setContentView(R.layout.dialog_complete_writing)
+            val lessonId = intent.getIntExtra("LESSON_ID", 0)
+
+            btnLearnAgain.setOnClickListener {
+                finish()
+                startActivity(intent)
+                dismiss()
+            }
+
+            btnMultipleChoice.setOnClickListener {
+                val intent = Intent(this@WritingActivity, MultipleChoiceActivity::class.java)
+                intent.putExtra("LESSON_ID", lessonId)
+                startActivity(intent)
+                finish()
+                dismiss()
+            }
+
+            btnFlashcard.setOnClickListener {
+                val intent = Intent(this@WritingActivity, FlashcardActivity::class.java)
+                intent.putExtra("LESSON_ID", lessonId)
+                startActivity(intent)
+                finish()
+                dismiss()
+            }
+            btnQuit.setOnClickListener {
+                finish()
+            }
+        }
+        dialog.show()
+    }
+
+    private fun showFinishDialog() {
+        val dialog = Dialog(this).apply {
+            setCancelable(true)
+            getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+            setContentView(R.layout.dialog_finish_writing)
             val lessonId = intent.getIntExtra("LESSON_ID", 0)
 
             btnLearnAgain.setOnClickListener {
@@ -138,7 +173,6 @@ class WritingActivity : AppCompatActivity(), WritingContract.View {
         }
         dialog.show()
     }
-
 
     private fun showSettingDialog() {
         val dialog = Dialog(this).apply {

@@ -22,6 +22,7 @@ import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
 import kotlinx.android.synthetic.main.activity_multiple_choice.*
 import kotlinx.android.synthetic.main.activity_multiple_choice.tvTotalQuestion
+import kotlinx.android.synthetic.main.dialog_complete_multiplechoice.*
 
 class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
 
@@ -65,6 +66,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         val btnAgain = dialog.findViewById(R.id.btnLearnAgain) as Button
         val btnWriting = dialog.findViewById(R.id.btnWriting) as Button
         val btnFlashcard = dialog.findViewById(R.id.btnFlashcard) as Button
+        val btnQuit = dialog.findViewById(R.id.btnQuit) as Button
         val tvTotalQuestion = dialog.findViewById(R.id.tvTotalQuestion) as TextView
         val tvCorrect = dialog.findViewById(R.id.tvCorrect) as TextView
         val tvWrong = dialog.findViewById(R.id.tvWrong) as TextView
@@ -92,6 +94,9 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
             finish()
             dialog.dismiss()
         }
+        btnQuit.setOnClickListener {
+            finish()
+        }
     }
 
     private fun showFinishDialog() {
@@ -99,7 +104,7 @@ class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
         dialog.setCancelable(true)
         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
-        dialog.setContentView(R.layout.dialog_complete_multiplechoice)
+        dialog.setContentView(R.layout.dialog_finish_multiplechoice)
         val btnAgain = dialog.findViewById(R.id.btnLearnAgain) as Button
         val btnWriting = dialog.findViewById(R.id.btnWriting) as Button
         val btnFlashcard = dialog.findViewById(R.id.btnFlashcard) as Button
