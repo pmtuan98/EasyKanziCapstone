@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.illidant.easykanzicapstone"
-        minSdkVersion 23
+        minSdkVersion 21
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -78,7 +78,7 @@ dependencies {
     implementation 'com.android.support:design:26.1.0'
 
     //button effect
-    compile 'me.spark:submitbutton:1.0.1'
+    implementation 'me.spark:submitbutton:1.0.1'
 
-    compile 'com.github.ceryle:RadioRealButton:v2.1.1'
+    implementation 'com.github.ceryle:RadioRealButton:v2.1.1'
 }

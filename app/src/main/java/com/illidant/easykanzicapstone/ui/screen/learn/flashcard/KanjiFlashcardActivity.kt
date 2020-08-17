@@ -127,7 +127,6 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-        speak()
         //Display total question
         tvTotalQuestion.text = vocabularyList.size.toString()
         tvQuestionNo.text = (counter + 1).toString()
@@ -170,7 +169,6 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-        speak()
 
     }
 
@@ -187,8 +185,6 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-        speak()
-
     }
 
     override fun getVocabByLessonID(listVocab: List<Vocabulary>) {

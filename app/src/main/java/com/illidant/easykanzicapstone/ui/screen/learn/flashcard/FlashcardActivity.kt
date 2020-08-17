@@ -144,7 +144,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-        speak()
         //Display total question
         tvTotalQuestion.text = vocabularyList.size.toString()
         tvQuestionNo.text = (counter + 1).toString()
@@ -187,8 +186,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-        speak()
-
     }
 
     private fun next() {
@@ -205,7 +202,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-        speak()
     }
 
     private fun showCompleteDialog() {
