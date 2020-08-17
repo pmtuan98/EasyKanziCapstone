@@ -32,7 +32,6 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView> {
 
     override fun onBindViewHolder(homePageView: HomePageView, position: Int) {
         val level: String = levelList!!.get(position)?.name
-        homePageView.imgLevel.setImageResource(R.drawable.jpd111)
         homePageView.tvLevelName.text = levelList?.get(position)?.name
         homePageView.tvLevelDes.text = levelList?.get(position)?.description
         //Set image for each level
@@ -41,6 +40,8 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView> {
         } else if (level.equals("JPD121")) {
             homePageView.imgLevel.setImageResource(R.drawable.image_level2)
         } else if (level.equals("JPD131")) {
+            homePageView.imgLevel.setImageResource(R.drawable.image_level3)
+        } else {
             homePageView.imgLevel.setImageResource(R.drawable.image_level3)
         }
         //Click to each view
