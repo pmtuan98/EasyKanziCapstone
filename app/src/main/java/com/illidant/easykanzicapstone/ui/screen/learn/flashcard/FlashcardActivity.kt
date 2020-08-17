@@ -37,9 +37,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     private val MIN_DISTANCE = 150
     private var counter = 0
     private val vocabularyList: MutableList<Vocabulary> = mutableListOf()
-    private var remember = 0
-    private var notRemember = 0
-    private val notRememberList: MutableList<Vocabulary> = mutableListOf()
     private lateinit var mTTS: TextToSpeech
     private lateinit var textHiragana: String
 
