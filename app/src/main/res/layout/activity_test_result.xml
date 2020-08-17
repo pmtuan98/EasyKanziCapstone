@@ -218,7 +218,7 @@
         android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="@drawable/bg_button_writing2"
+        android:background="@drawable/btn_dots2"
         android:fontFamily="@font/roboto_bold"
         android:text="Show answers"
         app:layout_constraintEnd_toEndOf="parent"
