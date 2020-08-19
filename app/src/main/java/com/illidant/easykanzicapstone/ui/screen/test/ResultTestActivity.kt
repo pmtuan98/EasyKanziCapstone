@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiDetailActivity
@@ -13,7 +14,7 @@ import com.illidant.easykanzicapstone.ui.screen.test.show_answer.AnswerTestAdapt
 import kotlinx.android.synthetic.main.activity_answer_test.*
 import kotlinx.android.synthetic.main.activity_test_result.*
 
-class ResultTestActivity : AppCompatActivity() {
+class ResultTestActivity : BaseActivity() {
     private var totalQuestion = 0
     private var totalCorrect = 0
     private var takenMinutes: String = ""

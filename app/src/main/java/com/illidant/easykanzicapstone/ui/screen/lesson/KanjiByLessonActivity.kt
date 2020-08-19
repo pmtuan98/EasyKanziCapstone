@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Lesson
@@ -25,7 +26,7 @@ import com.illidant.easykanzicapstone.ui.screen.test.EntryTestActivity
 import kotlinx.android.synthetic.main.activity_lesson_detail.*
 import kotlinx.android.synthetic.main.bottom_navigation_bar.*
 
-class KanjiByLessonActivity : AppCompatActivity(),
+class KanjiByLessonActivity : BaseActivity(),
     KanjiContract.View{
 
     private var lessonId:Int = 0

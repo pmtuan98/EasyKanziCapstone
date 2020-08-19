@@ -3,10 +3,11 @@ package com.illidant.easykanzicapstone.ui.screen.test
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import kotlinx.android.synthetic.main.entry_test_layout.*
 
-class EntryTestActivity : AppCompatActivity() {
+class EntryTestActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

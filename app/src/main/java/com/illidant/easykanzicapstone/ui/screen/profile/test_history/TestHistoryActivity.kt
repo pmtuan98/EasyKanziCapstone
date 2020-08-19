@@ -10,6 +10,7 @@ import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.TestHistory
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -24,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_test_history.btnJPD111
 import kotlinx.android.synthetic.main.activity_test_history.btnJPD121
 import kotlinx.android.synthetic.main.activity_test_history.btnJPD131
 
-class TestHistoryActivity : AppCompatActivity(), TestHistoryContract.View {
+class TestHistoryActivity : BaseActivity(), TestHistoryContract.View {
     private var levelId:Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
