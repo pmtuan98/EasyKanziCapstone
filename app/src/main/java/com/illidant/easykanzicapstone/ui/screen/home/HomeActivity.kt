@@ -60,6 +60,7 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
+            finishAffinity()
             return
         }
 

@@ -1,18 +1,17 @@
 package com.illidant.easykanzicapstone.ui.screen.test
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
-import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiDetailActivity
+import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.test.show_answer.AnswerTestActivity
-import com.illidant.easykanzicapstone.ui.screen.test.show_answer.AnswerTestAdapter
-import kotlinx.android.synthetic.main.activity_answer_test.*
+import kotlinx.android.synthetic.main.activity_lesson_detail.*
 import kotlinx.android.synthetic.main.activity_test_result.*
+import kotlinx.android.synthetic.main.activity_test_result.btnBack
+import kotlinx.android.synthetic.main.activity_test_result.btnFab
 
 class ResultTestActivity : BaseActivity() {
     private var totalQuestion = 0
@@ -25,6 +24,7 @@ class ResultTestActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_result)
         initialize()
+        configViews()
     }
 
     private fun initialize() {
@@ -68,6 +68,16 @@ class ResultTestActivity : BaseActivity() {
             val intent = Intent(it.context, AnswerTestActivity::class.java)
             intent.putParcelableArrayListExtra("LIST_QUIZ", ArrayList(listRandomQuiz))
             startActivity(intent)
+        }
+    }
+    private fun configViews() {
+        btnBack.setOnClickListener {
+            finish()
+        }
+        btnFab.setOnClickListener {
+            val intent = Intent(it.context, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }

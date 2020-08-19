@@ -158,6 +158,7 @@ class ProfileActivity : BaseActivity(), ChangePassContract.View {
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
+            finishAffinity()
             return
         }
 

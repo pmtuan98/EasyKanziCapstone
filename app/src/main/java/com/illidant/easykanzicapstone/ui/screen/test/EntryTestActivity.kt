@@ -26,5 +26,8 @@ class EntryTestActivity : BaseActivity() {
             startActivity(intent)
             finish()
         }
+        btnBack.setOnClickListener {
+            finish()
+        }
     }
 }

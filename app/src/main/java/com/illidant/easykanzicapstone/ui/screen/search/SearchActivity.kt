@@ -71,6 +71,7 @@ class SearchActivity : BaseActivity(), SearchContract.View {
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
+            finishAffinity()
             return
         }
 

@@ -135,6 +135,7 @@ class RankingActivity : BaseActivity(), RankingContract.View {
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
+            finishAffinity()
             return
         }
 
