@@ -50,7 +50,6 @@ class LessonAdapter : RecyclerView.Adapter<LessonAdapter.LessonView> {
             intent.putExtra("LESSON_NAME", lessonName)
             intent.putExtra("LESSON_ID", lessonId)
             context.startActivity(intent)
-            (context as LessonActivity).finish()
         }
     }
 }
