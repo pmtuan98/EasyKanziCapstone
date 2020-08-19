@@ -52,6 +52,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView> {
             intent.putExtra("LEVEL_NAME", level_name)
             intent.putExtra("LEVEL_ID", level_id)
             context.startActivity(intent)
+            (context as HomeActivity).finish()
         }
     }
 

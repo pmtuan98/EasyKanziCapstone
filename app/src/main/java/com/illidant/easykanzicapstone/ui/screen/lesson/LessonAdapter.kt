@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Lesson
+import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import kotlinx.android.synthetic.main.item_lesson.view.*
 
 
@@ -49,6 +50,7 @@ class LessonAdapter : RecyclerView.Adapter<LessonAdapter.LessonView> {
             intent.putExtra("LESSON_NAME", lessonName)
             intent.putExtra("LESSON_ID", lessonId)
             context.startActivity(intent)
+            (context as LessonActivity).finish()
         }
     }
 }
