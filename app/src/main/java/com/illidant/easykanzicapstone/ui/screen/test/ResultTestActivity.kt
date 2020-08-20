@@ -4,13 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.domain.model.Quiz
-import com.illidant.easykanzicapstone.ui.screen.kanji.KanjiDetailActivity
+import com.illidant.easykanzicapstone.domain.model.ResultQuiz
 import com.illidant.easykanzicapstone.ui.screen.test.show_answer.AnswerTestActivity
-import com.illidant.easykanzicapstone.ui.screen.test.show_answer.AnswerTestAdapter
-import kotlinx.android.synthetic.main.activity_answer_test.*
 import kotlinx.android.synthetic.main.activity_test_result.*
 
 class ResultTestActivity : AppCompatActivity() {
@@ -18,12 +14,12 @@ class ResultTestActivity : AppCompatActivity() {
     private var totalCorrect = 0
     private var takenMinutes: String = ""
     private var takenSeconds: String = ""
-    var listRandomQuiz: List<Quiz> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_result)
         initialize()
+        configViews()
     }
 
     private fun initialize() {
@@ -33,39 +29,50 @@ class ResultTestActivity : AppCompatActivity() {
         takenMinutes = intent.getStringExtra("TAKEN_MINUTES")
         takenSeconds = intent.getStringExtra("TAKEN_SECONDS")
         showTestResult()
-        navigateToShowAnwer()
+        navigateToShowAnswer()
+    }
+
+    private fun configViews() {
+        btnBack.setOnClickListener { onBackPressed() }
     }
 
     private fun showTestResult() {
-        var rate = totalCorrect * 100 / totalQuestion
+        val rate = totalCorrect * 100 / totalQuestion
         titleCorrectAnswer.text = totalCorrect.toString()
         tvTotalQuestion.text = totalQuestion.toString()
-        tvCorrectRate.text = "${rate}%"
+        tvCorrectRate.text = "$rate %"
         resultProgressbar.max = totalQuestion
         resultProgressbar.progress = totalCorrect
         tvResultTime.text = "${takenMinutes}m : ${takenSeconds}s"
-        if (rate <= 50) {
-            resultProgressbar.progressDrawable =
-                ContextCompat.getDrawable(this, R.drawable.custom_progressbar_low)
-        } else if (rate > 50 && rate < 80) {
-            resultProgressbar.progressDrawable =
-                ContextCompat.getDrawable(this, R.drawable.custom_progressbar_mid)
-            tvResultBottom.text = "Quite good!!"
-        } else if (rate >= 80 && rate < 100) {
-            resultProgressbar.progressDrawable =
-                ContextCompat.getDrawable(this, R.drawable.custom_progressbar_high)
-            tvResultBottom.text = "Very good!!"
-        } else {
-            tvResultAbove.text = "Congratulations! You've reached the highest score"
-            tvResultBottom.text = "Excellent"
+        when {
+            rate <= 50 -> {
+                resultProgressbar.progressDrawable =
+                    ContextCompat.getDrawable(this, R.drawable.custom_progressbar_low)
+            }
+            rate in 51..79 -> {
+                resultProgressbar.progressDrawable =
+                    ContextCompat.getDrawable(this, R.drawable.custom_progressbar_mid)
+                tvResultBottom.text = "Quite good!!"
+            }
+            rate in 80..99 -> {
+                resultProgressbar.progressDrawable =
+                    ContextCompat.getDrawable(this, R.drawable.custom_progressbar_high)
+                tvResultBottom.text = "Very good!!"
+            }
+            else -> {
+                tvResultAbove.text = "Congratulations! You've reached the highest score"
+                tvResultBottom.text = "Excellent"
+            }
         }
     }
 
-    private fun navigateToShowAnwer() {
+    private fun navigateToShowAnswer() {
         btnShowAnswer.setOnClickListener {
-            listRandomQuiz = intent.getParcelableArrayListExtra("LIST_QUIZ")
+            val quizResultList = intent.getParcelableArrayListExtra<ResultQuiz>("QUIZ_RESULT")
             val intent = Intent(it.context, AnswerTestActivity::class.java)
-            intent.putParcelableArrayListExtra("LIST_QUIZ", ArrayList(listRandomQuiz))
+            quizResultList?.let { list ->
+                intent.putParcelableArrayListExtra("QUIZ_RESULT", ArrayList(list))
+            }
             startActivity(intent)
         }
     }

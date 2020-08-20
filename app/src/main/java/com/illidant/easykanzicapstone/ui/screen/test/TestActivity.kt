@@ -4,12 +4,14 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.os.CountDownTimer
 import android.util.Log
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
+import com.illidant.easykanzicapstone.domain.model.ResultQuiz
 import com.illidant.easykanzicapstone.domain.request.TestRankingRequest
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.QuizRepository
@@ -18,6 +20,7 @@ import com.illidant.easykanzicapstone.platform.source.remote.QuizRemoteDataSourc
 import com.illidant.easykanzicapstone.platform.source.remote.TestRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
+import com.illidant.easykanzicapstone.util.PausableCountDownTimer
 import kotlinx.android.synthetic.main.activity_test.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -32,9 +35,10 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
     private var takenSecondsString: String = ""
     private var timeTaken = 0
     private var levelId = 0
-    private val sdf = SimpleDateFormat("dd/MM/yyyy")
+    private val sdf = SimpleDateFormat("dd/MM/yyyy", Locale.getDefault())
     private val currentDate = sdf.format(Date())
     private var listRandomQuiz: List<Quiz> = mutableListOf()
+    private val quizResultList = mutableListOf<ResultQuiz>()
     private var currentPosition = 0
     private var countCorrectAnswer = 0
     private lateinit var correctAnswer: String
@@ -43,21 +47,30 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
     private var timerValue = 601000
     private var timeLeft: Long = 0
 
-    private val timer = object : CountDownTimer(timerValue.toLong(), 100) {
+    private val presenter by lazy {
+        val retrofit = RetrofitService.getInstance(application).getService()
+        val remote = QuizRemoteDataSource(retrofit)
+        val repository = QuizRepository(remote)
+        QuizPresenter(this, repository)
+    }
+
+    private val testPresenter by lazy {
+        val retrofit = RetrofitService.getInstance(application).getService()
+        val remote = TestRemoteDataSource(retrofit)
+        val repository = TestRepository(remote)
+        TestPresenter(this, repository)
+    }
+
+    private val timer = object : PausableCountDownTimer(timerValue.toLong(), 100) {
         override fun onTick(millisUntilFinished: Long) {
             timeLeft = millisUntilFinished
             if (millisUntilFinished <= 100) {
-                edtTimeTest.setText("00:00")
+                edtTimeTest.text = getString(R.string.text_default_timer)
             } else {
                 seconds = (millisUntilFinished / 1000).toInt()
                 minutes = seconds / 60
-                seconds = seconds % 60
-                edtTimeTest.setText(
-                    String.format("%02d", minutes) + ":" + String.format(
-                        "%02d",
-                        seconds
-                    )
-                )
+                seconds %= 60
+                edtTimeTest.text = getString(R.string.text_timer, minutes, seconds)
 
                 timeTaken = (600 - TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished)).toInt()
             }
@@ -67,7 +80,6 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
         override fun onFinish() {
             //Use to send result when time is up
             submitResult()
-
         }
     }
 
@@ -75,28 +87,17 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test)
         initialize()
-//        configViews()
-
-    }
-
-    private val presenter by lazy {
-        val retrofit = RetrofitService.getInstance(application).getService()
-        val remote = QuizRemoteDataSource(retrofit)
-        val repository = QuizRepository(remote)
-        QuizPresenter(this, repository)
-    }
-
-    private val test_presenter by lazy {
-        val retrofit = RetrofitService.getInstance(application).getService()
-        val remote = TestRemoteDataSource(retrofit)
-        val repository = TestRepository(remote)
-        TestPresenter(this, repository)
+        configViews()
     }
 
     private fun initialize() {
         levelId = intent.getIntExtra("LEVEL_ID", 0)
         presenter.quizByLevelRequest(levelId)
         timer.start()
+    }
+
+    private fun configViews() {
+        btnExit.setOnClickListener { onBackPressed() }
     }
 
     override fun getQuizByLevelID(listQuiz: List<Quiz>) {
@@ -123,33 +124,22 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
         tvAnswerC.text = listRandomQuiz[currentPosition].answerC
         tvAnswerD.text = listRandomQuiz[currentPosition].answerD
         correctAnswer = listRandomQuiz[currentPosition].correctAnswer
+        quizResultList.add(ResultQuiz(listRandomQuiz[currentPosition], ""))
     }
 
     private fun checkCorrectAnswer() {
-        btnAnswerA?.setOnClickListener {
-            if (tvAnswerA.text.equals(correctAnswer)) {
+        val listener = View.OnClickListener {
+            val text = (it as TextView).text.toString()
+            quizResultList[currentPosition].selectedAnswer = text
+            if (text == correctAnswer) {
                 countCorrectAnswer++
             }
             nextQuestion()
         }
-        btnAnswerB?.setOnClickListener {
-            if (tvAnswerB.text.equals(correctAnswer)) {
-                countCorrectAnswer++
-            }
-            nextQuestion()
-        }
-        btnAnswerC?.setOnClickListener {
-            if (tvAnswerC.text.equals(correctAnswer)) {
-                countCorrectAnswer++
-            }
-            nextQuestion()
-        }
-        btnAnswerD?.setOnClickListener {
-            if (tvAnswerD.text.equals(correctAnswer)) {
-                countCorrectAnswer++
-            }
-            nextQuestion()
-        }
+        tvAnswerA.setOnClickListener(listener)
+        tvAnswerB.setOnClickListener(listener)
+        tvAnswerC.setOnClickListener(listener)
+        tvAnswerD.setOnClickListener(listener)
     }
 
     private fun nextQuestion() {
@@ -166,24 +156,29 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
         tvAnswerC.text = listRandomQuiz[currentPosition].answerC
         tvAnswerD.text = listRandomQuiz[currentPosition].answerD
         correctAnswer = listRandomQuiz[currentPosition].correctAnswer
+        quizResultList.add(ResultQuiz(listRandomQuiz[currentPosition], ""))
     }
 
     private fun submitResult() {
         timer.cancel()
         formatTimeTaken()
-            val prefs: SharedPreferences = getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
-            val userID = prefs.getInt("userID", 0)
-            var score = countCorrectAnswer * 10 / 3
-            val testResultRequest = TestRankingRequest(currentDate.toString(),levelId,score,timeTaken,userID)
-            test_presenter.sendTestResult(testResultRequest)
+        val prefs: SharedPreferences =
+            getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
+        val userID = prefs.getInt("userID", 0)
+        val score = countCorrectAnswer * 10 / 3
+        val testResultRequest =
+            TestRankingRequest(currentDate.toString(), levelId, score, timeTaken, userID)
+        testPresenter.sendTestResult(testResultRequest)
         val levelName = intent.getStringExtra("LEVEL_NAME")
-        val intent = Intent(this, ResultTestActivity::class.java)
-        intent.putExtra("TOTAL_QUES", listRandomQuiz.size)
-        intent.putExtra("TOTAL_CORRECT", countCorrectAnswer)
-        intent.putExtra("LEVEL_NAME", levelName)
-        intent.putParcelableArrayListExtra("LIST_QUIZ", ArrayList(listRandomQuiz))
-        intent.putExtra("TAKEN_MINUTES", takenMinutesString)
-        intent.putExtra("TAKEN_SECONDS", takenSecondsString)
+        val intent = Intent(this, ResultTestActivity::class.java).apply {
+            putExtra("TOTAL_QUES", listRandomQuiz.size)
+            putExtra("TOTAL_CORRECT", countCorrectAnswer)
+            putExtra("LEVEL_NAME", levelName)
+            putParcelableArrayListExtra("LIST_QUIZ", ArrayList(listRandomQuiz))
+            putExtra("TAKEN_MINUTES", takenMinutesString)
+            putExtra("TAKEN_SECONDS", takenSecondsString)
+            putParcelableArrayListExtra("QUIZ_RESULT", ArrayList(quizResultList))
+        }
         startActivity(intent)
         finish()
 
@@ -197,19 +192,20 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
     }
 
     override fun onBackPressed() {
-        timer.cancel()
+        timer.pause()
         val dialog = SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
         dialog.titleText = "Quit current test?"
         dialog.contentText = "All results will be lost!"
         dialog.setCancelable(false)
-        dialog.setCancelText("Cancel")
-        dialog.setConfirmText("Quit")
+        dialog.cancelText = "Cancel"
+        dialog.confirmText = "Quit"
         dialog.show()
         dialog.setConfirmClickListener {
             super.onBackPressed()
         }
         dialog.setCancelClickListener {
             dialog.dismiss()
+            timer.resume()
         }
     }
 
