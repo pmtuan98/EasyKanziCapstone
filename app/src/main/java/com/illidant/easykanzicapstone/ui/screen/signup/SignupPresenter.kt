@@ -22,10 +22,7 @@ class SignupPresenter(
 
             }
 
-            override fun onResponse(
-                call: Call<SignupResponse>,
-                response: Response<SignupResponse>
-            ) {
+            override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
                 response.body()?.let {
                     view.onSignupSucceeded(it.message)
                 }
