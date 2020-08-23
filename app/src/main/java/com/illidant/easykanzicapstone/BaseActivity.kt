@@ -24,7 +24,7 @@ open class BaseActivity : AppCompatActivity(), ConnectivityReceiver.Connectivity
     private fun showMessage(isConnected: Boolean) {
 
         if (!isConnected) {
-            val messageToUser = "No internet connection"
+            val messageToUser = "Please check your internet connection!"
             mSnackBar = Snackbar.make(
                 findViewById(R.id.rootLayout),
                 messageToUser,

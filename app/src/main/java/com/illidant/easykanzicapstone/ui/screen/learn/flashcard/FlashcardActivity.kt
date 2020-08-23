@@ -10,6 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -20,26 +21,23 @@ import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
 import com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice.MultipleChoiceActivity
 import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import kotlinx.android.synthetic.main.activity_flashcard.*
-import kotlinx.android.synthetic.main.activity_flashcard.btnExit
 import kotlinx.android.synthetic.main.activity_flashcard.flashCard
 import kotlinx.android.synthetic.main.activity_flashcard.layoutBack
 import kotlinx.android.synthetic.main.activity_flashcard.progressBarFlashcard
 import kotlinx.android.synthetic.main.activity_flashcard.tvQuestionNo
 import kotlinx.android.synthetic.main.activity_flashcard.tvTotalQuestion
+import kotlinx.android.synthetic.main.dialog_complete_flashcard.*
 import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
 import java.util.*
 
 
-class FlashcardActivity : AppCompatActivity(), LearnContract.View {
+class FlashcardActivity : BaseActivity(), LearnContract.View {
     private var x1 = 0f
     private var x2 = 0f
     private val MIN_DISTANCE = 150
     private var counter = 0
     private val vocabularyList: MutableList<Vocabulary> = mutableListOf()
-    private var remember = 0
-    private var notRemember = 0
-    private val notRememberList: MutableList<Vocabulary> = mutableListOf()
     private lateinit var mTTS: TextToSpeech
     private lateinit var textHiragana: String
 
@@ -67,12 +65,12 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
             speak()
         }
         btnFinish.setOnClickListener {
-            showCompleteDialog()
+            showFinishDialog()
         }
     }
 
     private fun speak() {
-        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null)
+        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null,null)
     }
 
     private fun setUpSpeaker() {
@@ -147,7 +145,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-
         //Display total question
         tvTotalQuestion.text = vocabularyList.size.toString()
         tvQuestionNo.text = (counter + 1).toString()
@@ -190,7 +187,6 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-
     }
 
     private fun next() {
@@ -212,9 +208,44 @@ class FlashcardActivity : AppCompatActivity(), LearnContract.View {
     private fun showCompleteDialog() {
         val dialog = Dialog(this)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)
-        dialog.setCancelable(true)
+        dialog.setCancelable(false)
         dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_complete_flashcard)
+        val buttonAgain = dialog.findViewById(R.id.btnLearnAgain) as Button
+        val buttonLearnWriting = dialog.findViewById(R.id.btnLearnWriting) as Button
+        val buttonLearnMultiple = dialog.findViewById(R.id.btnMultipleChoice) as Button
+        val buttonQuit = dialog.findViewById(R.id.btnQuit) as Button
+        dialog.show()
+        buttonAgain.setOnClickListener {
+            val intent = intent
+            finish()
+            startActivity(intent)
+            dialog.dismiss()
+        }
+        buttonLearnWriting.setOnClickListener {
+            val intent = Intent(it.context, WritingActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+            dialog.dismiss()
+        }
+        buttonLearnMultiple.setOnClickListener {
+            val intent = Intent(it.context, MultipleChoiceActivity::class.java)
+            intent.putExtra("LESSON_ID", lesson_id)
+            startActivity(intent)
+            finish()
+            dialog.dismiss()
+        }
+        buttonQuit.setOnClickListener {
+            finish()
+        }
+    }
+    private fun showFinishDialog() {
+        val dialog = Dialog(this)
+        val lesson_id = intent.getIntExtra("LESSON_ID", 0)
+        dialog.setCancelable(true)
+        dialog.getWindow()!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
+        dialog.setContentView(R.layout.dialog_finish_flashcard)
         val buttonAgain = dialog.findViewById(R.id.btnLearnAgain) as Button
         val buttonLearnWriting = dialog.findViewById(R.id.btnLearnWriting) as Button
         val buttonLearnMultiple = dialog.findViewById(R.id.btnMultipleChoice) as Button

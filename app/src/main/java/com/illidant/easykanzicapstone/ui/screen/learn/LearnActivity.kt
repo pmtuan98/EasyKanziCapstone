@@ -2,8 +2,10 @@ package com.illidant.easykanzicapstone.ui.screen.learn
 
 import android.content.Intent
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -14,12 +16,12 @@ import com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice.MultipleCh
 import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import kotlinx.android.synthetic.main.activity_learn.*
 import kotlinx.android.synthetic.main.activity_learn.tvLesson
+import java.util.*
 
-class LearnActivity : AppCompatActivity(), LearnContract.View {
+class LearnActivity : BaseActivity(), LearnContract.View {
 
     private var lessonId:Int = 0
     private var lessonName:String = ""
-
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val remote = VocabularyRemoteDataSource(retrofit)

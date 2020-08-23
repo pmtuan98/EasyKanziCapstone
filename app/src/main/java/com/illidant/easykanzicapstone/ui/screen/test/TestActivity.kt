@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.domain.model.ResultQuiz
@@ -28,7 +29,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
 
-class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
+class TestActivity : BaseActivity(), QuizContract.View, TestContract.View {
     private var takenMinutes = 0
     private var takenSeconds = 0
     private var takenMinutesString: String = ""
@@ -210,20 +211,11 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
     }
 
     override fun onSendTestResultSucceeded(message: String) {
-//        send test result to server
-        val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-        dialog.titleText = message
-        dialog.setCancelable(true)
-        dialog.show()
+        //Not use
     }
 
     override fun onSendTestResultFail(message: String) {
         //NOT USE
-        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-        errDialog.contentText = message
-        errDialog.setCancelable(true)
-        errDialog.show()
-
     }
 
     override fun getQuizByLessonID(listQuiz: List<Quiz>) {

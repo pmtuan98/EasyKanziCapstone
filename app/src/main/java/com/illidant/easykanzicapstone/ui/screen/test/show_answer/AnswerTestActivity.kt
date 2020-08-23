@@ -4,14 +4,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.domain.model.ResultQuiz
 import kotlinx.android.synthetic.main.activity_answer_test.*
 
-class AnswerTestActivity : AppCompatActivity() {
+class AnswerTestActivity : BaseActivity() {
     var listRandomQuiz = mutableListOf<ResultQuiz>()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_answer_test)

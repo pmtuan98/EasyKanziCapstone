@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.MotionEvent
 import android.view.View
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
 import java.util.*
 
-class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
+class KanjiFlashcardActivity : BaseActivity(), LearnContract.View {
     private var x1 = 0f
     private var x2 = 0f
     val MIN_DISTANCE = 150
@@ -43,11 +44,6 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
 
     private fun configViews() {
-        btnRestart.setOnClickListener {
-            val intent = intent
-            finish()
-            startActivity(intent)
-        }
         btnExit.setOnClickListener {
             finish()
         }
@@ -57,7 +53,7 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
     }
 
     private fun speak() {
-        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null)
+        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null,null)
     }
 
     private fun setUpSpeaker() {
@@ -132,7 +128,6 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         flashcardVietnamese.text = vocabularyList[counter].vocab_meaning
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-
         //Display total question
         tvTotalQuestion.text = vocabularyList.size.toString()
         tvQuestionNo.text = (counter + 1).toString()
@@ -191,7 +186,6 @@ class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
         progressBarFlashcard.progress = counter + 1
         //Setup for speaker
         textHiragana = vocabularyList[counter].hiragana
-
     }
 
     override fun getVocabByLessonID(listVocab: List<Vocabulary>) {

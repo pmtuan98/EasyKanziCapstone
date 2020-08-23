@@ -5,7 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_app04"
+    android:id="@+id/rootLayout"
     tools:context=".ui.screen.lesson.LessonActivity">
+
+
+    <Button
+        android:id="@+id/btnTest"
+        android:layout_width="@dimen/dp_90"
+        android:layout_height="@dimen/dp_40"
+        android:layout_gravity="center"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/btn_dots"
+        android:fontFamily="@font/roboto_bold"
+        android:text="TEST"
+        android:textColor="#C0392D"
+        android:textSize="@dimen/dp_20"
+        app:layout_constraintBottom_toBottomOf="@+id/linearlayout1"
+        app:layout_constraintEnd_toEndOf="@+id/linearlayout1"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearlayout1"
@@ -30,7 +47,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/roboto_bold"
-            android:text="Level 1"
             android:textColor="@android:color/white"
             android:textSize="26sp" />
 
@@ -39,11 +55,12 @@
     <TextView
         android:id="@+id/textView3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
         android:background="@color/white"
         android:gravity="center"
-        android:text="Choose lesson"
+        android:fontFamily="@font/roboto_bold"
+        android:text="Choose lesson to learn "
         android:textColor="@color/black"
         android:textSize="@dimen/sp_24"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,27 +69,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewLesson"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <Button
-        android:id="@+id/btnTest"
-        android:layout_width="200dp"
-        android:layout_height="@dimen/dp_40"
-        android:layout_marginTop="32dp"
-        android:layout_toRightOf="@+id/btnLearn"
-        android:background="@drawable/btn_custom"
-        android:fontFamily="@font/roboto_bold"
-        android:text="TEST"
-        android:textColor="@android:color/white"
-        android:textSize="@dimen/dp_20"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerViewLesson" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintVertical_bias="0.42000002" />
 </androidx.constraintlayout.widget.ConstraintLayout>

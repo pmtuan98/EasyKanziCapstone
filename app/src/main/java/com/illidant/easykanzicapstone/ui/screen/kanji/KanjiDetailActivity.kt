@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
@@ -15,7 +16,7 @@ import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.KanjiFlashcardAc
 import kotlinx.android.synthetic.main.activity_kanji_detail.*
 import java.util.*
 
-class KanjiDetailActivity : AppCompatActivity(), KanjiContract.View {
+class KanjiDetailActivity : BaseActivity(), KanjiContract.View {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

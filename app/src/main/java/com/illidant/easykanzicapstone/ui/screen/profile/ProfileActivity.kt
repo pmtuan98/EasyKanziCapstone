@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
 import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
@@ -31,7 +32,7 @@ import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.profile.test_history.TestHistoryActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 
-class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
+class ProfileActivity : BaseActivity(), ChangePassContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -45,8 +46,10 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
     private fun initialize() {
         val prefs: SharedPreferences =
             getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
-        val username = prefs.getString("userName", null)
-        tvUsername.text = username
+        val userName = prefs.getString("userName", null)
+        var userEmail = prefs.getString("userEmail", null)
+        tvUsername.text = userName
+        tvUserEmail.text = userEmail
     }
 
     private val changepassPresenter by lazy {
@@ -59,7 +62,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
 
     private fun signOut() {
         //Sign out button
-        tvSignout.setOnClickListener {
+        layoutSignOut.setOnClickListener {
             val prefs = SharedPrefs(this)
             prefs.clear()
             navigateToSignin()
@@ -67,7 +70,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
     }
 
     private fun navigateToTestHistory() {
-        tvTestHistory.setOnClickListener {
+        layoutTestHistory.setOnClickListener {
             val intent = Intent(it.context, TestHistoryActivity::class.java)
             startActivity(intent)
         }
@@ -84,7 +87,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
     }
 
     private fun changePassword() {
-        tvChangePassword.setOnClickListener {
+        layoutChangePass.setOnClickListener {
             val prefs: SharedPreferences =
                 getSharedPreferences("com.illidant.kanji.prefs", Context.MODE_PRIVATE)
             val email = prefs.getString("userEmail", null)
@@ -151,9 +154,11 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
     }
 
     private var doubleBackToExitPressedOnce = false
+
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
+            finishAffinity()
             return
         }
 

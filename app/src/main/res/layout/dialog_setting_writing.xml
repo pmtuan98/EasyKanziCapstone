@@ -13,7 +13,7 @@
         android:gravity="center"
         android:padding="@dimen/dp_15"
         android:text="Option"
-        android:textSize="28sp"
+        android:textSize="26sp"
         android:fontFamily="@font/roboto_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -51,15 +51,16 @@ class HomeActivity : BaseActivity(), HomeContract.View {
     override fun onDataComplete(levels: List<Level>) {
         recyclerViewHome!!.layoutManager = GridLayoutManager(this, 1)
         recyclerViewHome!!.adapter = HomeAdapter(this, levels)
-        recyclerViewHome.layoutManager = object : LinearLayoutManager(this) { //prevent scroll
-            override fun canScrollVertically(): Boolean = false
-        }
+//        recyclerViewHome.layoutManager = object : LinearLayoutManager(this) { //prevent scroll
+//            override fun canScrollVertically(): Boolean = false
+//        }
     }
 
     private var doubleBackToExitPressedOnce = false
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
+            finishAffinity()
             return
         }
 
