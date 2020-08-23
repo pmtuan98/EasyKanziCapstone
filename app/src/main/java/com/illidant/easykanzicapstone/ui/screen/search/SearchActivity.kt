@@ -9,6 +9,7 @@ import android.widget.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
 import com.illidant.easykanzicapstone.domain.model.KanjiES
@@ -20,7 +21,7 @@ import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.profile.ProfileActivity
 import kotlinx.android.synthetic.main.activity_search.*
 
-class SearchActivity : AppCompatActivity(), SearchContract.View {
+class SearchActivity : BaseActivity(), SearchContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -70,6 +71,7 @@ class SearchActivity : AppCompatActivity(), SearchContract.View {
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
+            finishAffinity()
             return
         }
 

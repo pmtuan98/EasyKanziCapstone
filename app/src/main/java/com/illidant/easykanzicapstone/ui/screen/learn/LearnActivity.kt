@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_learn.*
 import kotlinx.android.synthetic.main.activity_learn.tvLesson
 import java.util.*
 
-class LearnActivity : AppCompatActivity(), LearnContract.View {
+class LearnActivity : BaseActivity(), LearnContract.View {
 
     private var lessonId:Int = 0
     private var lessonName:String = ""

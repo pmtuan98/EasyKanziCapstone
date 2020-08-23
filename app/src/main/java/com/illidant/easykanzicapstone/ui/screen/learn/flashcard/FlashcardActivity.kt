@@ -10,6 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -31,7 +32,7 @@ import kotlinx.android.synthetic.main.flashcard_layout_front.*
 import java.util.*
 
 
-class FlashcardActivity : AppCompatActivity(), LearnContract.View {
+class FlashcardActivity : BaseActivity(), LearnContract.View {
     private var x1 = 0f
     private var x2 = 0f
     private val MIN_DISTANCE = 150

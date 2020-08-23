@@ -14,6 +14,7 @@ import android.widget.TextView
 import android.widget.Toast
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
 import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
@@ -31,7 +32,7 @@ import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.profile.test_history.TestHistoryActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 
-class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
+class ProfileActivity : BaseActivity(), ChangePassContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_profile)
@@ -157,6 +158,7 @@ class ProfileActivity : AppCompatActivity(), ChangePassContract.View {
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
+            finishAffinity()
             return
         }
 

@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -24,7 +25,7 @@ import kotlinx.android.synthetic.main.activity_multiple_choice.*
 import kotlinx.android.synthetic.main.activity_multiple_choice.tvTotalQuestion
 import kotlinx.android.synthetic.main.dialog_complete_multiplechoice.*
 
-class MultipleChoiceActivity : AppCompatActivity(), QuizContract.View {
+class MultipleChoiceActivity : BaseActivity(), QuizContract.View {
 
     private var countCorrect = 0
     private var countSelect = 0

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.MotionEvent
 import android.view.View
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
 import java.util.*
 
-class KanjiFlashcardActivity : AppCompatActivity(), LearnContract.View {
+class KanjiFlashcardActivity : BaseActivity(), LearnContract.View {
     private var x1 = 0f
     private var x2 = 0f
     val MIN_DISTANCE = 150

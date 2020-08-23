@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Lesson
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -14,7 +15,7 @@ import com.illidant.easykanzicapstone.ui.screen.test.EntryTestActivity
 import kotlinx.android.synthetic.main.activity_lesson.*
 
 
-class LessonActivity : AppCompatActivity(), LessonContract.View {
+class LessonActivity : BaseActivity(), LessonContract.View {
     private var levelId:Int = 0
     private var levelName:String = ""
 

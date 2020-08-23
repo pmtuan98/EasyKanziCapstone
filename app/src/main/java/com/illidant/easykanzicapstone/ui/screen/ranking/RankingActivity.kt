@@ -13,6 +13,7 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.domain.model.TestRanking
@@ -33,7 +34,7 @@ import kotlinx.android.synthetic.main.activity_ranking.btnJPD121
 import kotlinx.android.synthetic.main.activity_ranking.btnJPD131
 import kotlinx.android.synthetic.main.activity_test_history.*
 
-class RankingActivity : AppCompatActivity(), RankingContract.View {
+class RankingActivity : BaseActivity(), RankingContract.View {
 
     private var listRanking: MutableList<TestRanking> = mutableListOf()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -134,6 +135,7 @@ class RankingActivity : AppCompatActivity(), RankingContract.View {
     override fun onBackPressed() {
         if (doubleBackToExitPressedOnce) {
             super.onBackPressed()
+            finishAffinity()
             return
         }
 

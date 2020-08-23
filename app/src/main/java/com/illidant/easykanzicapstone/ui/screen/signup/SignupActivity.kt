@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Patterns
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.request.SignupRequest
 import com.illidant.easykanzicapstone.extension.isNotEmptyAndBlank
@@ -17,7 +18,7 @@ import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSourc
 import com.illidant.easykanzicapstone.ui.screen.signin.SigninActivity
 import kotlinx.android.synthetic.main.activity_signup.*
 
-class SignupActivity : AppCompatActivity(), SignupContract.View {
+class SignupActivity : BaseActivity(), SignupContract.View {
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val local = UserLocalDataSource.getInstance(SharedPrefs(this))

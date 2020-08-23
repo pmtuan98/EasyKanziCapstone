@@ -8,6 +8,7 @@ import android.os.CountDownTimer
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.domain.request.TestRankingRequest
@@ -25,7 +26,7 @@ import java.util.concurrent.TimeUnit
 import kotlin.collections.ArrayList
 
 
-class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
+class TestActivity : BaseActivity(), QuizContract.View, TestContract.View {
     private var takenMinutes = 0
     private var takenSeconds = 0
     private var takenMinutesString: String = ""
@@ -175,7 +176,7 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
             val userID = prefs.getInt("userID", 0)
             var score = countCorrectAnswer * 10 / 3
             val testResultRequest = TestRankingRequest(currentDate.toString(),levelId,score,timeTaken,userID)
-            test_presenter.sendTestResult(testResultRequest)
+//            test_presenter.sendTestResult(testResultRequest)
         val levelName = intent.getStringExtra("LEVEL_NAME")
         val intent = Intent(this, ResultTestActivity::class.java)
         intent.putExtra("TOTAL_QUES", listRandomQuiz.size)
@@ -214,20 +215,11 @@ class TestActivity : AppCompatActivity(), QuizContract.View, TestContract.View {
     }
 
     override fun onSendTestResultSucceeded(message: String) {
-//        send test result to server
-        val dialog = SweetAlertDialog(this, SweetAlertDialog.SUCCESS_TYPE)
-        dialog.titleText = message
-        dialog.setCancelable(true)
-        dialog.show()
+        //Not use
     }
 
     override fun onSendTestResultFail(message: String) {
         //NOT USE
-        val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-        errDialog.contentText = message
-        errDialog.setCancelable(true)
-        errDialog.show()
-
     }
 
     override fun getQuizByLessonID(listQuiz: List<Quiz>) {

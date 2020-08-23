@@ -12,6 +12,7 @@ import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import cn.pedant.SweetAlert.SweetAlertDialog
+import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.extension.toast
@@ -27,7 +28,7 @@ import kotlinx.android.synthetic.main.dialog_setting_writing.*
 
 private const val DELAY = 1500L
 
-class WritingActivity : AppCompatActivity(), WritingContract.View {
+class WritingActivity : BaseActivity(), WritingContract.View {
 
     private val presenter: WritingContract.Presenter by lazy {
         val retrofit = RetrofitService.getInstance(this).getService()
