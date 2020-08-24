@@ -167,7 +167,7 @@ class TestActivity : BaseActivity(), QuizContract.View, TestContract.View {
         val score = countCorrectAnswer * 10 / 3
         val testResultRequest =
             TestRankingRequest(currentDate.toString(), levelId, score, timeTaken, userID)
-//        testPresenter.sendTestResult(testResultRequest)
+        testPresenter.sendTestResult(testResultRequest)
         val levelName = intent.getStringExtra("LEVEL_NAME")
         val intent = Intent(this, ResultTestActivity::class.java).apply {
             putExtra("TOTAL_QUES", listRandomQuiz.size)

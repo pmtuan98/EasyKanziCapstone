@@ -28,7 +28,8 @@ class AnswerTestAdapter(
                     ContextCompat.getDrawable(context, R.drawable.bg_test_result_correct)
                 val wrongAnswerBackground =
                     ContextCompat.getDrawable(context, R.drawable.bg_test_result_wrong)
-
+                val defaultAnswerBackground =
+                    ContextCompat.getDrawable(context, R.drawable.bg_test_result_answer)
                 when (quiz.correctAnswer) {
                     quiz.answerA -> sttAnswerA?.background = correctAnswerBackground
                     quiz.answerB -> sttAnswerB?.background = correctAnswerBackground
@@ -43,6 +44,11 @@ class AnswerTestAdapter(
                         quiz.answerC -> sttAnswerC?.background = wrongAnswerBackground
                         quiz.answerD -> sttAnswerD?.background = wrongAnswerBackground
                     }
+                }else if(!selectedAnswer.isNotEmptyAndBlank()) {
+                     sttAnswerA?.background = defaultAnswerBackground
+                     sttAnswerB?.background = defaultAnswerBackground
+                     sttAnswerC?.background = defaultAnswerBackground
+                     sttAnswerD?.background = defaultAnswerBackground
                 }
             }
         }
