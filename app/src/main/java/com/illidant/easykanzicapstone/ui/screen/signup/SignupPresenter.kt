@@ -1,8 +1,7 @@
 package com.illidant.easykanzicapstone.ui.screen.signup
 
-import android.util.Log
-import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.domain.request.SignupRequest
+import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType
 import org.json.JSONObject
 import retrofit2.Call
@@ -22,7 +21,10 @@ class SignupPresenter(
 
             }
 
-            override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
+            override fun onResponse(
+                call: Call<SignupResponse>,
+                response: Response<SignupResponse>
+            ) {
                 response.body()?.let {
                     view.onSignupSucceeded(it.message)
                 }

@@ -1,6 +1,5 @@
 package com.illidant.easykanzicapstone.ui.screen.learn.flashcard
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.view.MotionEvent
@@ -53,7 +52,7 @@ class KanjiFlashcardActivity : BaseActivity(), LearnContract.View {
     }
 
     private fun speak() {
-        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null,null)
+        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null, null)
     }
 
     private fun setUpSpeaker() {

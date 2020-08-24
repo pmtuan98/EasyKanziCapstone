@@ -1,10 +1,9 @@
 package com.illidant.easykanzicapstone.ui.screen.lesson
 
-import android.util.Log
 import com.illidant.easykanzicapstone.domain.model.Lesson
 import com.illidant.easykanzicapstone.platform.repository.LessonRepository
-import retrofit2.Callback
 import retrofit2.Call
+import retrofit2.Callback
 import retrofit2.Response
 
 class LessonPresenter(

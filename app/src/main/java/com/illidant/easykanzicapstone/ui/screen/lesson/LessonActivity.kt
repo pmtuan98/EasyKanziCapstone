@@ -1,7 +1,6 @@
 package com.illidant.easykanzicapstone.ui.screen.lesson
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,8 +15,8 @@ import kotlinx.android.synthetic.main.activity_lesson.*
 
 
 class LessonActivity : BaseActivity(), LessonContract.View {
-    private var levelId:Int = 0
-    private var levelName:String = ""
+    private var levelId: Int = 0
+    private var levelName: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +37,7 @@ class LessonActivity : BaseActivity(), LessonContract.View {
         levelName = intent.getStringExtra("LEVEL_NAME")
         lessonPresenter.lessonRequest(levelId)
     }
+
     private fun configViews() {
         tvLevel.text = levelName
         btnBack.setOnClickListener {

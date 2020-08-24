@@ -1,6 +1,5 @@
 package com.illidant.easykanzicapstone.ui.screen.learn
 
-import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 
 interface LearnContract {

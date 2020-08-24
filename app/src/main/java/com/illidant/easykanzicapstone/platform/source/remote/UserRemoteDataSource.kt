@@ -1,11 +1,11 @@
 package com.illidant.easykanzicapstone.platform.source.remote
 
-import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.domain.model.User
 import com.illidant.easykanzicapstone.domain.request.*
 import com.illidant.easykanzicapstone.domain.response.ChangePasswordResponse
 import com.illidant.easykanzicapstone.domain.response.ForgotPasswordResponse
 import com.illidant.easykanzicapstone.domain.response.ResetPasswordResponse
+import com.illidant.easykanzicapstone.domain.response.SignupResponse
 import com.illidant.easykanzicapstone.platform.api.ApiService
 import com.illidant.easykanzicapstone.platform.source.UserDataSource
 import retrofit2.Call

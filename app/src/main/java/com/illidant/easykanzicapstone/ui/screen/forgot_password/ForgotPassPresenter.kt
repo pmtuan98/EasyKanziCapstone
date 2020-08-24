@@ -3,7 +3,6 @@ package com.illidant.easykanzicapstone.ui.screen.forgot_password
 import com.illidant.easykanzicapstone.domain.request.ForgotPasswordRequest
 import com.illidant.easykanzicapstone.domain.response.ForgotPasswordResponse
 import com.illidant.easykanzicapstone.platform.repository.UserRepositoryType
-import com.illidant.easykanzicapstone.ui.screen.reset_password.ResetPassContract
 import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback

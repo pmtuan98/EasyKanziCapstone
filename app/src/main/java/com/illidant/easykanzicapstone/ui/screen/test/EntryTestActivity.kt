@@ -1,7 +1,6 @@
 package com.illidant.easykanzicapstone.ui.screen.test
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R

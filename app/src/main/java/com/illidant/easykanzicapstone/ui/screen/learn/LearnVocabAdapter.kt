@@ -2,7 +2,6 @@ package com.illidant.easykanzicapstone.ui.screen.learn
 
 import android.content.Context
 import android.speech.tts.TextToSpeech
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,14 +17,16 @@ class LearnVocabAdapter : RecyclerView.Adapter<LearnVocabAdapter.VocabView> {
     private var listVocab: List<Vocabulary>? = null
     private lateinit var textHiragana: String
     private lateinit var mTTS: TextToSpeech
+
     constructor(context: Context, listVocab: List<Vocabulary>?) : super() {
         this.context = context
         this.listVocab = listVocab
     }
 
     private fun speak() {
-        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null,null)
+        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null, null)
     }
+
     private fun setUpSpeaker() {
         mTTS = TextToSpeech(context, TextToSpeech.OnInitListener { status ->
             if (status != TextToSpeech.ERROR) {
@@ -64,6 +65,7 @@ class LearnVocabAdapter : RecyclerView.Adapter<LearnVocabAdapter.VocabView> {
         var kanji: TextView
         var hira: TextView
         var meaning: TextView
+
         init {
             kanji = itemView.tvKanji
             hira = itemView.tvHira

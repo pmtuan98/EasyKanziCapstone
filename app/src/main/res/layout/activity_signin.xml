@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fancy="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
@@ -31,10 +30,10 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
         android:background="@drawable/btn_custom"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/btnSignin"
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp_18"
-        android:fontFamily="@font/roboto_bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword" />
@@ -65,18 +64,18 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
         app:helperText="Enter your email"
+        app:helperTextTextAppearance="@style/TextInputStyle"
         app:hintEnabled="false"
         app:layout_constraintBottom_toTopOf="@id/horizontalGuildLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:helperTextTextAppearance="@style/TextInputStyle"
         app:layout_constraintTop_toBottomOf="@id/imageLogo">
 
         <EditText
             android:id="@+id/edtEmail"
-            android:hint="email@example.com"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="email@example.com"
             android:inputType="textEmailAddress"
             android:textColor="#000000"
             android:textSize="16sp"
@@ -90,23 +89,23 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_40"
         android:layout_marginEnd="40dp"
-        app:passwordToggleEnabled="false"
         app:helperText="Enter your password"
+        app:helperTextTextAppearance="@style/TextInputStyle"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:helperTextTextAppearance="@style/TextInputStyle"
         app:layout_constraintTop_toBottomOf="@id/horizontalGuildLine"
-        app:layout_constraintVertical_chainStyle="packed">
+        app:layout_constraintVertical_chainStyle="packed"
+        app:passwordToggleEnabled="false">
 
         <EditText
             android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:textSize="16sp"
             android:hint="•••••••"
+            android:inputType="textPassword"
             android:textColor="#000000"
+            android:textSize="16sp"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
 

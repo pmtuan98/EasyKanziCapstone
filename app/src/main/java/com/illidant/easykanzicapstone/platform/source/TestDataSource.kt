@@ -2,7 +2,7 @@ package com.illidant.easykanzicapstone.platform.source
 
 import com.illidant.easykanzicapstone.domain.model.TestHistory
 import com.illidant.easykanzicapstone.domain.model.TestRanking
-import com.illidant.easykanzicapstone.domain.request.*
+import com.illidant.easykanzicapstone.domain.request.TestRankingRequest
 import com.illidant.easykanzicapstone.domain.response.TestRankingResponse
 import retrofit2.Call
 

@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_app04"
-    android:id="@+id/rootLayout"
     tools:context=".ui.screen.lesson.LessonActivity">
 
 
@@ -58,8 +58,8 @@
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:background="@color/white"
-        android:gravity="center"
         android:fontFamily="@font/roboto_bold"
+        android:gravity="center"
         android:text="Choose lesson to learn "
         android:textColor="@color/black"
         android:textSize="@dimen/sp_24"

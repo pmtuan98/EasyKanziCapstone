@@ -1,7 +1,6 @@
 package com.illidant.easykanzicapstone.ui.screen.search
 
 
-import android.util.Log
 import com.illidant.easykanzicapstone.domain.request.SearchRequest
 import com.illidant.easykanzicapstone.domain.response.SearchResponse
 import com.illidant.easykanzicapstone.platform.repository.SearchRepositoryType

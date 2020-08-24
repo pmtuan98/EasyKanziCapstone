@@ -23,7 +23,7 @@ class RankingAdapter : RecyclerView.Adapter<RankingAdapter.RankingView> {
 
 
     class RankingView(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var btnOrder : Button
+        var btnOrder: Button
         var textUserName: TextView
         var textPoint: TextView
         var textTime: TextView
@@ -45,17 +45,19 @@ class RankingAdapter : RecyclerView.Adapter<RankingAdapter.RankingView> {
     override fun getItemCount(): Int {
         return listRanking!!.size
     }
+
     private var testTime = 0
     private var takenMinutes = ""
     private var takenSeconds = ""
-    private fun formatTime(time:Int) {
+    private fun formatTime(time: Int) {
         takenMinutes = (time / 60).toString()
         takenSeconds = (time % 60).toString()
     }
+
     override fun onBindViewHolder(view: RankingView, position: Int) {
-        testTime= listRanking?.get(position)?.timeTaken!!.toInt()
+        testTime = listRanking?.get(position)?.timeTaken!!.toInt()
         formatTime(testTime)
-        view.btnOrder.text = (position+4).toString()
+        view.btnOrder.text = (position + 4).toString()
         view.textUserName.text = listRanking?.get(position)?.userName
         view.textPoint.text = "${listRanking?.get(position)?.resultPoint}pts"
         view.textTime.text = "${takenMinutes}m ${takenSeconds}s"
