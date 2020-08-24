@@ -1,7 +1,5 @@
 package com.illidant.easykanzicapstone.util
 
-import java.sql.Types
-
 enum class WritingMode(val value: Int) {
     Hiragana(0),
     Vietnamese(1);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <color name="colorPrimary">#6200EE</color>
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
@@ -23,7 +23,6 @@
     <color name="color_background_bottom">#FCFBF6</color>
     <color name="color_app">#C0392D</color>
     <color name="color_ranking_cardview">#B9CB65</color>
-
 
 
     <color name="color_blue_50">#d8dee4</color>

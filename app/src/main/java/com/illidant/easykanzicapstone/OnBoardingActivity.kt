@@ -1,11 +1,11 @@
 package com.illidant.easykanzicapstone
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.text.HtmlCompat
 import androidx.viewpager.widget.ViewPager
 import com.illidant.easykanzicapstone.platform.source.local.SharedPrefs

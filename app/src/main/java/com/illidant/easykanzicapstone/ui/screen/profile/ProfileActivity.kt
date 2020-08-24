@@ -6,7 +6,6 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.EditText
@@ -16,8 +15,6 @@ import cn.pedant.SweetAlert.SweetAlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
-import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
 import com.illidant.easykanzicapstone.domain.request.ChangePasswordRequest
 import com.illidant.easykanzicapstone.extension.isNotEmptyAndBlank
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -30,6 +27,8 @@ import com.illidant.easykanzicapstone.ui.screen.change_password.ChangePassPresen
 import com.illidant.easykanzicapstone.ui.screen.entry.EntryActivity
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.profile.test_history.TestHistoryActivity
+import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
+import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
 import kotlinx.android.synthetic.main.activity_profile.*
 
 class ProfileActivity : BaseActivity(), ChangePassContract.View {

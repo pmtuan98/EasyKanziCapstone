@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Lesson
-import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import kotlinx.android.synthetic.main.item_lesson.view.*
 
 

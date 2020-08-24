@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/rootLayout"
     android:layout_width="match_parent"
-    android:background="@drawable/bg_profile"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_profile"
     android:orientation="vertical"
     tools:context=".ui.screen.profile.ProfileActivity">
 
@@ -21,11 +21,11 @@
         android:id="@+id/layOutProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/guideline"
-        android:orientation="vertical"
-        android:gravity="center"
         android:layout_marginEnd="5dp"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guideline">
 
         <TextView
             android:id="@+id/tvUsername"
@@ -57,14 +57,12 @@
         android:id="@+id/lineProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="___________________________________________"
         android:textColor="#ece9e0"
-        android:layout_marginTop="5dp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layOutProfile" />
-
-
 
 
     <LinearLayout
@@ -183,9 +181,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         app:itemBackground="@android:color/white"
+        app:itemHorizontalTranslationEnabled="false"
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
-        app:itemHorizontalTranslationEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

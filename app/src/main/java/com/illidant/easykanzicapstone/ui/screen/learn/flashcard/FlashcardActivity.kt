@@ -9,7 +9,6 @@ import android.speech.tts.TextToSpeech
 import android.view.MotionEvent
 import android.view.View
 import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
@@ -21,12 +20,6 @@ import com.illidant.easykanzicapstone.ui.screen.learn.LearnPresenter
 import com.illidant.easykanzicapstone.ui.screen.learn.multiple_choice.MultipleChoiceActivity
 import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import kotlinx.android.synthetic.main.activity_flashcard.*
-import kotlinx.android.synthetic.main.activity_flashcard.flashCard
-import kotlinx.android.synthetic.main.activity_flashcard.layoutBack
-import kotlinx.android.synthetic.main.activity_flashcard.progressBarFlashcard
-import kotlinx.android.synthetic.main.activity_flashcard.tvQuestionNo
-import kotlinx.android.synthetic.main.activity_flashcard.tvTotalQuestion
-import kotlinx.android.synthetic.main.dialog_complete_flashcard.*
 import kotlinx.android.synthetic.main.flashcard_layout_back.*
 import kotlinx.android.synthetic.main.flashcard_layout_front.*
 import java.util.*
@@ -70,7 +63,7 @@ class FlashcardActivity : BaseActivity(), LearnContract.View {
     }
 
     private fun speak() {
-        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null,null)
+        mTTS.speak(textHiragana, TextToSpeech.QUEUE_FLUSH, null, null)
     }
 
     private fun setUpSpeaker() {
@@ -240,6 +233,7 @@ class FlashcardActivity : BaseActivity(), LearnContract.View {
             finish()
         }
     }
+
     private fun showFinishDialog() {
         val dialog = Dialog(this)
         val lesson_id = intent.getIntExtra("LESSON_ID", 0)

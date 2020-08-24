@@ -2,10 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_app04"
-    android:id="@+id/rootLayout"
     tools:context=".ui.screen.signup.SignupActivity">
 
     <ImageButton
@@ -32,10 +32,10 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="@dimen/dp_50"
         android:layout_marginEnd="100dp"
+        android:fontFamily="@font/circularstdbold"
         android:text="CREATE AN ACCOUNT"
         android:textColor="#686565"
         android:textSize="@dimen/sp_20"
-        android:fontFamily="@font/circularstdbold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnBack"
         app:layout_constraintTop_toTopOf="parent" />
@@ -46,8 +46,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
         app:helperText="Email"
-        app:hintEnabled="false"
         app:helperTextTextAppearance="@style/TextInputStyle"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCreateAccount">
@@ -57,8 +57,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="email@example.com"
-            android:textSize="16sp"
             android:inputType="textEmailAddress"
+            android:textSize="16sp"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -68,8 +68,8 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
         app:helperText="Username"
-        app:hintEnabled="false"
         app:helperTextTextAppearance="@style/TextInputStyle"
+        app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/layoutInputEmail">
@@ -79,8 +79,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="User1"
-            android:textSize="16sp"
             android:inputType="textEmailAddress"
+            android:textSize="16sp"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,20 +90,20 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/dp_40"
         app:helperText="Password"
-        app:passwordToggleEnabled="false"
+        app:helperTextTextAppearance="@style/TextInputStyle"
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:helperTextTextAppearance="@style/TextInputStyle"
         app:layout_constraintTop_toBottomOf="@+id/layoutInputUsername"
-        app:layout_constraintVertical_chainStyle="packed">
+        app:layout_constraintVertical_chainStyle="packed"
+        app:passwordToggleEnabled="false">
 
         <EditText
             android:id="@+id/edtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
             android:hint="•••••••"
+            android:inputType="textPassword"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -114,22 +114,22 @@
         android:layout_margin="@dimen/dp_40"
         android:layout_marginTop="60dp"
         app:helperText="Confirm Password"
-        app:passwordToggleEnabled="false"
+        app:helperTextTextAppearance="@style/TextInputStyle"
         app:hintEnabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutInputPassword"
         app:layout_constraintVertical_bias="0.0"
-        app:helperTextTextAppearance="@style/TextInputStyle"
-        app:layout_constraintVertical_chainStyle="packed">
+        app:layout_constraintVertical_chainStyle="packed"
+        app:passwordToggleEnabled="false">
 
         <EditText
             android:id="@+id/edtConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
             android:hint="•••••••"
+            android:inputType="textPassword"
             tools:ignore="Autofill" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -142,10 +142,10 @@
         android:layout_marginEnd="@dimen/dp_8"
         android:layout_marginBottom="500dp"
         android:background="@drawable/btn_custom"
+        android:fontFamily="@font/roboto_bold"
         android:text="@string/btnSignup"
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp_18"
-        android:fontFamily="@font/roboto_bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

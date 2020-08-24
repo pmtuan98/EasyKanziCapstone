@@ -5,7 +5,6 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -22,8 +21,6 @@ import com.illidant.easykanzicapstone.ui.screen.learn.writing.WritingActivity
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizContract
 import com.illidant.easykanzicapstone.ui.screen.quiz.QuizPresenter
 import kotlinx.android.synthetic.main.activity_multiple_choice.*
-import kotlinx.android.synthetic.main.activity_multiple_choice.tvTotalQuestion
-import kotlinx.android.synthetic.main.dialog_complete_multiplechoice.*
 
 class MultipleChoiceActivity : BaseActivity(), QuizContract.View {
 
@@ -49,6 +46,7 @@ class MultipleChoiceActivity : BaseActivity(), QuizContract.View {
         presenter.quizByLessonRequest(lesson_id)
 
     }
+
     private fun configViews() {
         btnExit.setOnClickListener {
             finish()
@@ -151,6 +149,7 @@ class MultipleChoiceActivity : BaseActivity(), QuizContract.View {
         nextQuestion()
 
     }
+
     private fun displayQuestion() {
         wrongAnswerBackground = ContextCompat.getDrawable(this, R.drawable.bg_wrong_answer)
         //set progress bar
@@ -171,6 +170,7 @@ class MultipleChoiceActivity : BaseActivity(), QuizContract.View {
         tvAnswerD.text = listQuizAll[currentPosition].answerD
         correctAnswer = listQuizAll[currentPosition].correctAnswer
     }
+
     private fun checkSelection() {
         tvAnswerA?.setOnClickListener {
             checkCorrectAnswer(correctAnswer)
@@ -213,6 +213,7 @@ class MultipleChoiceActivity : BaseActivity(), QuizContract.View {
             displayNextButton()
         }
     }
+
     private fun nextQuestion() {
         btnNextQuestion.setOnClickListener({
             currentPosition++

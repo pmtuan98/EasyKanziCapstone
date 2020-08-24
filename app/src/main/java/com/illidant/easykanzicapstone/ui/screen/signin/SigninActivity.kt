@@ -6,14 +6,12 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.net.ConnectivityManager
 import android.os.Bundle
 import android.util.Patterns
 import android.widget.EditText
 import android.widget.TextView
 import cn.pedant.SweetAlert.SweetAlertDialog
 import com.illidant.easykanzicapstone.BaseActivity
-import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.User
 import com.illidant.easykanzicapstone.domain.request.ForgotPasswordRequest
@@ -27,12 +25,10 @@ import com.illidant.easykanzicapstone.platform.source.local.UserLocalDataSource
 import com.illidant.easykanzicapstone.platform.source.remote.UserRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.forgot_password.ForgotPassContract
 import com.illidant.easykanzicapstone.ui.screen.forgot_password.ForgotPassPresenter
+import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.reset_password.ResetPassContract
 import com.illidant.easykanzicapstone.ui.screen.reset_password.ResetPassPresenter
 import kotlinx.android.synthetic.main.activity_signin.*
-import kotlinx.android.synthetic.main.activity_signin.btnBack
-import kotlinx.android.synthetic.main.activity_signin.edtEmail
-import kotlinx.android.synthetic.main.activity_signin.edtPassword
 
 class SigninActivity : BaseActivity(), SigninContract.View, ResetPassContract.View,
     ForgotPassContract.View {

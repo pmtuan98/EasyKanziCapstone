@@ -1,7 +1,6 @@
 package com.illidant.easykanzicapstone.ui.screen.search
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.View
@@ -11,7 +10,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
 import com.illidant.easykanzicapstone.domain.model.KanjiES
 import com.illidant.easykanzicapstone.domain.request.SearchRequest
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
@@ -19,6 +17,7 @@ import com.illidant.easykanzicapstone.platform.repository.SearchRepository
 import com.illidant.easykanzicapstone.platform.source.remote.SearchRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.profile.ProfileActivity
+import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
 import kotlinx.android.synthetic.main.activity_search.*
 
 class SearchActivity : BaseActivity(), SearchContract.View {

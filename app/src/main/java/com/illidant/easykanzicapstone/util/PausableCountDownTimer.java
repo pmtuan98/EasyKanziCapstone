@@ -16,8 +16,8 @@ package com.illidant.easykanzicapstone.util;
  */
 
 import android.os.Handler;
-import android.os.SystemClock;
 import android.os.Message;
+import android.os.SystemClock;
 
 import androidx.annotation.NonNull;
 
@@ -50,23 +50,21 @@ import java.lang.ref.WeakReference;
  */
 public abstract class PausableCountDownTimer {
 
+    private static final int MSG = 1;
     /**
      * Millis since epoch when alarm should stop.
      */
     private final long mMillisInFuture;
-
     /**
      * The interval in millis that the user receives callbacks
      */
     private final long mCountdownInterval;
-
     private long mStopTimeInFuture;
-
     private long mPauseTime;
-
     private boolean mCancelled = false;
-
     private boolean mPaused = false;
+    // handles counting down
+    private Handler mHandler = new TimerHandler(this);
 
     /**
      * @param millisInFuture    The number of millis in the future from the call
@@ -136,17 +134,13 @@ public abstract class PausableCountDownTimer {
      */
     public abstract void onFinish();
 
-    private static final int MSG = 1;
-
-    // handles counting down
-    private Handler mHandler = new TimerHandler(this);
-
     private static class TimerHandler extends Handler {
         private final WeakReference<PausableCountDownTimer> mTimer;
 
         TimerHandler(PausableCountDownTimer timer) {
             mTimer = new WeakReference<>(timer);
         }
+
         @Override
         public void handleMessage(@NonNull Message msg) {
             super.handleMessage(msg);

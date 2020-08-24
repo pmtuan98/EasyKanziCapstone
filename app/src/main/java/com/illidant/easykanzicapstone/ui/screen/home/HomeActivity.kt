@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.illidant.easykanzicapstone.*
+import com.illidant.easykanzicapstone.BaseActivity
+import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Level
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.LevelRepository
@@ -17,7 +17,6 @@ import com.illidant.easykanzicapstone.platform.source.remote.LevelRemoteDataSour
 import com.illidant.easykanzicapstone.ui.screen.profile.ProfileActivity
 import com.illidant.easykanzicapstone.ui.screen.ranking.RankingActivity
 import com.illidant.easykanzicapstone.ui.screen.search.SearchActivity
-
 import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity(), HomeContract.View {

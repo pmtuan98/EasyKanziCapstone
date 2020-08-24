@@ -1,6 +1,5 @@
 package com.illidant.easykanzicapstone.ui.screen.learn
 
-import android.util.Log
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import retrofit2.Call

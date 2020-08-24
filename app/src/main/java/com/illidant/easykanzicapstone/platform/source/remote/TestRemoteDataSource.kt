@@ -15,7 +15,7 @@ class TestRemoteDataSource(
         apiService.sendTestResult(request)
 
     override fun getTestHistoryByUserID(userId: Int, levelId: Int): Call<List<TestHistory>> =
-        apiService.getTestHitoryByUserID(userId,levelId)
+        apiService.getTestHitoryByUserID(userId, levelId)
 
     override fun getTestRankingByLevelID(id: Int): Call<List<TestRanking>> =
         apiService.getRankingByLevelID(id)

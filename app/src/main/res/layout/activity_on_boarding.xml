@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OnBoardingActivity"
-    android:background="@drawable/bg_app03">
+    android:background="@drawable/bg_app03"
+    tools:context=".OnBoardingActivity">
 
 
     <ImageView
@@ -21,8 +21,8 @@
         android:id="@+id/slider"
         android:layout_width="match_parent"
         android:layout_height="596dp"
-        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
         android:foregroundGravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -48,8 +48,8 @@
         <Button
             android:id="@+id/btnGetStarted"
             android:layout_width="260dp"
-            android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/btn_custom_on_board"
             android:text="@string/let_get_started"
             android:textColor="#C0392D"

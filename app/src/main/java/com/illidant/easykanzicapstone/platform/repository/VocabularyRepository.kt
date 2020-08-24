@@ -1,8 +1,6 @@
 package com.illidant.easykanzicapstone.platform.repository
 
-import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
-import com.illidant.easykanzicapstone.platform.source.KanjiDataSource
 import com.illidant.easykanzicapstone.platform.source.VocabularyDataSource
 import retrofit2.Call
 

@@ -1,6 +1,5 @@
 package com.illidant.easykanzicapstone.ui.screen.kanji
 
-import android.util.Log
 import com.illidant.easykanzicapstone.domain.model.Kanji
 import com.illidant.easykanzicapstone.domain.model.Vocabulary
 import com.illidant.easykanzicapstone.domain.response.KanjiResponse

@@ -5,13 +5,10 @@ import android.os.Bundle
 import androidx.core.content.ContextCompat
 import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
-import com.illidant.easykanzicapstone.domain.model.Quiz
+import com.illidant.easykanzicapstone.domain.model.ResultQuiz
 import com.illidant.easykanzicapstone.ui.screen.home.HomeActivity
 import com.illidant.easykanzicapstone.ui.screen.test.show_answer.AnswerTestActivity
-import kotlinx.android.synthetic.main.activity_lesson_detail.*
 import kotlinx.android.synthetic.main.activity_test_result.*
-import kotlinx.android.synthetic.main.activity_test_result.btnBack
-import kotlinx.android.synthetic.main.activity_test_result.btnFab
 
 class ResultTestActivity : BaseActivity() {
     private var totalQuestion = 0
@@ -34,10 +31,6 @@ class ResultTestActivity : BaseActivity() {
         takenSeconds = intent.getStringExtra("TAKEN_SECONDS")
         showTestResult()
         navigateToShowAnswer()
-    }
-
-    private fun configViews() {
-        btnBack.setOnClickListener { onBackPressed() }
     }
 
     private fun showTestResult() {
@@ -80,9 +73,10 @@ class ResultTestActivity : BaseActivity() {
             startActivity(intent)
         }
     }
+
     private fun configViews() {
         btnBack.setOnClickListener {
-            finish()
+            onBackPressed()
         }
         btnFab.setOnClickListener {
             val intent = Intent(it.context, HomeActivity::class.java)

@@ -10,7 +10,6 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.TestHistory
-import kotlinx.android.synthetic.main.activity_test_result.*
 import kotlinx.android.synthetic.main.item_test_history.view.*
 
 class TestHistoryAdapter : RecyclerView.Adapter<TestHistoryAdapter.TestHistoryView> {
@@ -29,6 +28,7 @@ class TestHistoryAdapter : RecyclerView.Adapter<TestHistoryAdapter.TestHistoryVi
         var textPoint: TextView
         var textDate: TextView
         var progressBar: ProgressBar
+
         init {
             textTime = itemView.tvTime as TextView
             textPoint = itemView.tvPoint as TextView
@@ -51,7 +51,7 @@ class TestHistoryAdapter : RecyclerView.Adapter<TestHistoryAdapter.TestHistoryVi
     private var takenMinutes = ""
     private var takenSeconds = ""
     private var point = 0
-    private fun formatTime(time:Int) {
+    private fun formatTime(time: Int) {
         takenMinutes = (time / 60).toString()
         takenSeconds = (time % 60).toString()
     }

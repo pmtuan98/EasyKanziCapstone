@@ -1,9 +1,7 @@
 package com.illidant.easykanzicapstone.ui.screen.quiz
 
-import android.util.Log
 import com.illidant.easykanzicapstone.domain.model.Quiz
 import com.illidant.easykanzicapstone.platform.repository.QuizRepository
-import com.illidant.easykanzicapstone.platform.repository.VocabularyRepository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

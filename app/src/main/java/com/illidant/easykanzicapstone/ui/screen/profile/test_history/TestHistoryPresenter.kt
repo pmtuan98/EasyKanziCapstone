@@ -11,19 +11,21 @@ class TestHistoryPresenter(
     private val repository: TestRepository
 ) : TestHistoryContract.Presenter {
     override fun getTestHistoryRequest(userId: Int, levelId: Int) {
-        repository.getTestHistoryByUserID(userId,levelId).enqueue(object : Callback<List<TestHistory>>{
-            override fun onFailure(call: Call<List<TestHistory>>, t: Throwable) {
+        repository.getTestHistoryByUserID(userId, levelId)
+            .enqueue(object : Callback<List<TestHistory>> {
+                override fun onFailure(call: Call<List<TestHistory>>, t: Throwable) {
 
-            }
-
-            override fun onResponse(call: Call<List<TestHistory>>, response: Response<List<TestHistory>>
-            ) {
-                response.body()?.let {
-                    view.onTestHistoryData(it)
                 }
-            }
 
-        })
+                override fun onResponse(
+                    call: Call<List<TestHistory>>, response: Response<List<TestHistory>>
+                ) {
+                    response.body()?.let {
+                        view.onTestHistoryData(it)
+                    }
+                }
+
+            })
     }
 
 

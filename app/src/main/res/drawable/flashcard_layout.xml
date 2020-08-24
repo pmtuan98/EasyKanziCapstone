@@ -11,18 +11,18 @@
 
 
     <item
-        android:right="1dp"
+        android:bottom="3dp"
         android:left="1dp"
-        android:bottom="3dp">
+        android:right="1dp">
         <shape android:shape="rectangle">
             <solid android:color="#FFFFFF"></solid>
 
 
             <padding
+                android:bottom="@dimen/dp_5"
                 android:left="@dimen/dp_5"
-                android:top="@dimen/dp_5"
                 android:right="@dimen/dp_5"
-                android:bottom="@dimen/dp_5"></padding>
+                android:top="@dimen/dp_5"></padding>
 
             <corners android:radius="10dp"></corners>
         </shape>

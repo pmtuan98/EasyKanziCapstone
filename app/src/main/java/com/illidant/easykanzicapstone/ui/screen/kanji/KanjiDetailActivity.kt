@@ -2,8 +2,6 @@ package com.illidant.easykanzicapstone.ui.screen.kanji
 
 import android.content.Intent
 import android.os.Bundle
-import android.speech.tts.TextToSpeech
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
@@ -14,7 +12,6 @@ import com.illidant.easykanzicapstone.platform.repository.KanjiRepository
 import com.illidant.easykanzicapstone.platform.source.remote.KanjiRemoteDataSource
 import com.illidant.easykanzicapstone.ui.screen.learn.flashcard.KanjiFlashcardActivity
 import kotlinx.android.synthetic.main.activity_kanji_detail.*
-import java.util.*
 
 class KanjiDetailActivity : BaseActivity(), KanjiContract.View {
 
@@ -37,7 +34,7 @@ class KanjiDetailActivity : BaseActivity(), KanjiContract.View {
             finish()
         }
         btnFlashcard.setOnClickListener {
-            var kanji_id = intent.getIntExtra("KANJI_ID",0)
+            var kanji_id = intent.getIntExtra("KANJI_ID", 0)
             val intent = Intent(it.context, KanjiFlashcardActivity::class.java)
             intent.putExtra("KANJI_ID", kanji_id)
             startActivity(intent)

@@ -8,6 +8,6 @@ interface TestHistoryContract {
     }
 
     interface Presenter {
-        fun getTestHistoryRequest(userId: Int, levelId:Int)
+        fun getTestHistoryRequest(userId: Int, levelId: Int)
     }
 }
