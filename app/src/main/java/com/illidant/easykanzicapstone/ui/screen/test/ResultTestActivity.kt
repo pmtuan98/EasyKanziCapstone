@@ -18,7 +18,6 @@ class ResultTestActivity : BaseActivity() {
     private var totalCorrect = 0
     private var takenMinutes: String = ""
     private var takenSeconds: String = ""
-    var listRandomQuiz: List<Quiz> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,39 +33,50 @@ class ResultTestActivity : BaseActivity() {
         takenMinutes = intent.getStringExtra("TAKEN_MINUTES")
         takenSeconds = intent.getStringExtra("TAKEN_SECONDS")
         showTestResult()
-        navigateToShowAnwer()
+        navigateToShowAnswer()
+    }
+
+    private fun configViews() {
+        btnBack.setOnClickListener { onBackPressed() }
     }
 
     private fun showTestResult() {
-        var rate = totalCorrect * 100 / totalQuestion
+        val rate = totalCorrect * 100 / totalQuestion
         titleCorrectAnswer.text = totalCorrect.toString()
         tvTotalQuestion.text = totalQuestion.toString()
-        tvCorrectRate.text = "${rate}%"
+        tvCorrectRate.text = "$rate %"
         resultProgressbar.max = totalQuestion
         resultProgressbar.progress = totalCorrect
         tvResultTime.text = "${takenMinutes}m : ${takenSeconds}s"
-        if (rate <= 50) {
-            resultProgressbar.progressDrawable =
-                ContextCompat.getDrawable(this, R.drawable.custom_progressbar_low)
-        } else if (rate > 50 && rate < 80) {
-            resultProgressbar.progressDrawable =
-                ContextCompat.getDrawable(this, R.drawable.custom_progressbar_mid)
-            tvResultBottom.text = "Quite good!!"
-        } else if (rate >= 80 && rate < 100) {
-            resultProgressbar.progressDrawable =
-                ContextCompat.getDrawable(this, R.drawable.custom_progressbar_high)
-            tvResultBottom.text = "Very good!!"
-        } else {
-            tvResultAbove.text = "Congratulations! You've reached the highest score"
-            tvResultBottom.text = "Excellent"
+        when {
+            rate <= 50 -> {
+                resultProgressbar.progressDrawable =
+                    ContextCompat.getDrawable(this, R.drawable.custom_progressbar_low)
+            }
+            rate in 51..79 -> {
+                resultProgressbar.progressDrawable =
+                    ContextCompat.getDrawable(this, R.drawable.custom_progressbar_mid)
+                tvResultBottom.text = "Quite good!!"
+            }
+            rate in 80..99 -> {
+                resultProgressbar.progressDrawable =
+                    ContextCompat.getDrawable(this, R.drawable.custom_progressbar_high)
+                tvResultBottom.text = "Very good!!"
+            }
+            else -> {
+                tvResultAbove.text = "Congratulations! You've reached the highest score"
+                tvResultBottom.text = "Excellent"
+            }
         }
     }
 
-    private fun navigateToShowAnwer() {
+    private fun navigateToShowAnswer() {
         btnShowAnswer.setOnClickListener {
-            listRandomQuiz = intent.getParcelableArrayListExtra("LIST_QUIZ")
+            val quizResultList = intent.getParcelableArrayListExtra<ResultQuiz>("QUIZ_RESULT")
             val intent = Intent(it.context, AnswerTestActivity::class.java)
-            intent.putParcelableArrayListExtra("LIST_QUIZ", ArrayList(listRandomQuiz))
+            quizResultList?.let { list ->
+                intent.putParcelableArrayListExtra("QUIZ_RESULT", ArrayList(list))
+            }
             startActivity(intent)
         }
     }

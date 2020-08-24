@@ -7,11 +7,11 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.Quiz
+import com.illidant.easykanzicapstone.domain.model.ResultQuiz
 import kotlinx.android.synthetic.main.activity_answer_test.*
 
 class AnswerTestActivity : BaseActivity() {
-    var listRandomQuiz: List<Quiz> = mutableListOf()
-
+    var listRandomQuiz = mutableListOf<ResultQuiz>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_answer_test)
@@ -21,10 +21,11 @@ class AnswerTestActivity : BaseActivity() {
 
     private fun answerTestData() {
         //Send question and answer to show answer screen
-        listRandomQuiz = intent.getParcelableArrayListExtra("LIST_QUIZ")
-        Log.d("RANDOM", listRandomQuiz.toString())
-        recyclerShowAnswer!!.layoutManager = GridLayoutManager(this, 1)
-        recyclerShowAnswer!!.adapter = AnswerTestAdapter(listRandomQuiz, this)
+        listRandomQuiz = intent.getParcelableArrayListExtra<ResultQuiz>("QUIZ_RESULT")
+        recyclerShowAnswer?.apply{
+            layoutManager = GridLayoutManager(this@AnswerTestActivity, 1)
+            adapter = AnswerTestAdapter(listRandomQuiz.toList())
+        }
     }
 
     private fun returnButton() {
