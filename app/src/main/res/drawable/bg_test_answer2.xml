@@ -3,24 +3,14 @@
     android:color="@color/color_border">
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@android:color/black" />
-            <corners android:radius="25dp" />
-            <size
-                android:width="45dp"
-                android:height="45dp" />
+            <solid android:color="#C0392D" />
+            <corners android:radius="14dp"/>
         </shape>
     </item>
-    <item
-        android:bottom="1dp"
-        android:left="1dp"
-        android:right="1dp"
-        android:top="1dp">
+    <item>
         <shape android:shape="rectangle">
-            <solid android:color="@android:color/white" />
-            <corners android:radius="25dp" />
-            <size
-                android:width="45dp"
-                android:height="45dp" />
+            <solid android:color="#F4AFB3" />
+            <corners android:radius="14dp"/>
         </shape>
     </item>
 </ripple>
