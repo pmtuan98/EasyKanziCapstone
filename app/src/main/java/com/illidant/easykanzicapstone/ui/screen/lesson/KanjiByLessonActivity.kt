@@ -2,6 +2,7 @@ package com.illidant.easykanzicapstone.ui.screen.lesson
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
@@ -63,6 +64,9 @@ class KanjiByLessonActivity : BaseActivity(),
 
     // Fill kanji into cardview
     override fun getKanjiByLesson(listKanjiLesson: List<Kanji>) {
+        if(listKanjiLesson.isEmpty()){
+            Toast.makeText(this,"Kanji is empty", Toast.LENGTH_LONG)
+        }
         recyclerViewLevel.adapter = KanjiByLessonAdapter(this, listKanjiLesson)
         recyclerViewLevel.layoutManager = GridLayoutManager(this, 3)
     }
