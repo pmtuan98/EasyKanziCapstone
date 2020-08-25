@@ -2,6 +2,7 @@ package com.illidant.easykanzicapstone.ui.screen.lesson
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.illidant.easykanzicapstone.BaseActivity
@@ -52,6 +53,9 @@ class LessonActivity : BaseActivity(), LessonContract.View {
     }
 
     override fun getLesson(listLesson: List<Lesson>) {
+        if(listLesson.isEmpty()){
+            Toast.makeText(this,"Lesson is empty", Toast.LENGTH_LONG)
+        }
         recyclerViewLesson!!.layoutManager = GridLayoutManager(this, 1)
         recyclerViewLesson!!.adapter = LessonAdapter(listLesson, this)
         recyclerViewLesson.layoutManager = object : LinearLayoutManager(this) { //prevent scroll

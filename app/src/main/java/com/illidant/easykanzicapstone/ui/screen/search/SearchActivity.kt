@@ -38,8 +38,6 @@ class SearchActivity : BaseActivity(), SearchContract.View {
     private fun searchKanji() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
-                val searchRequest = SearchRequest("$newText")
-                searchPresenter.searchKanji(searchRequest)
 
                 if (newText.trim().isEmpty()) {
                     recyclerViewSearch.visibility = View.INVISIBLE
@@ -51,8 +49,9 @@ class SearchActivity : BaseActivity(), SearchContract.View {
                     tvSearching.visibility = View.VISIBLE
 
                 } else {
+                    val searchRequest = SearchRequest("$newText")
+                    searchPresenter.searchKanji(searchRequest)
                     recyclerViewSearch.visibility = View.VISIBLE
-
                     searchImage.visibility = View.INVISIBLE
                     tvSearching.visibility = View.INVISIBLE
                 }
