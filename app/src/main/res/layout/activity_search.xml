@@ -39,7 +39,7 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:src="@drawable/searching"
-            android:visibility="visible" />
+            android:visibility="invisible" />
 
         <TextView
             android:id="@+id/tvSearching"
@@ -48,7 +48,7 @@
             android:layout_gravity="center_horizontal"
             android:text="Type something to search..."
             android:textSize="@dimen/sp_18"
-            android:visibility="visible" />
+            android:visibility="invisible" />
     </LinearLayout>
 
     <LinearLayout

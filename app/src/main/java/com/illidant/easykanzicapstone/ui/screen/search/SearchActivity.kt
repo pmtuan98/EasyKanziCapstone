@@ -3,6 +3,7 @@ package com.illidant.easykanzicapstone.ui.screen.search
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.view.KeyEvent
 import android.view.View
 import android.widget.SearchView
 import android.widget.Toast
@@ -12,6 +13,7 @@ import com.illidant.easykanzicapstone.BaseActivity
 import com.illidant.easykanzicapstone.R
 import com.illidant.easykanzicapstone.domain.model.KanjiES
 import com.illidant.easykanzicapstone.domain.request.SearchRequest
+import com.illidant.easykanzicapstone.extension.isNotEmptyAndBlank
 import com.illidant.easykanzicapstone.platform.api.RetrofitService
 import com.illidant.easykanzicapstone.platform.repository.SearchRepository
 import com.illidant.easykanzicapstone.platform.source.remote.SearchRemoteDataSource
@@ -38,24 +40,17 @@ class SearchActivity : BaseActivity(), SearchContract.View {
     private fun searchKanji() {
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextChange(newText: String): Boolean {
-
-                if (newText.trim().isEmpty()) {
+                searchImage.visibility = View.INVISIBLE
+                tvSearching.visibility = View.INVISIBLE
+                val searchRequest = SearchRequest("$newText")
+                searchPresenter.searchKanji(searchRequest)
+                if (newText.isNotEmptyAndBlank()) {
+                    recyclerViewSearch.visibility = View.VISIBLE
+                } else {
                     recyclerViewSearch.visibility = View.INVISIBLE
-                    //Not found
                     notFoundImage.visibility = View.INVISIBLE
                     tvNotFound.visibility = View.INVISIBLE
-                    //Found
-                    searchImage.visibility = View.VISIBLE
-                    tvSearching.visibility = View.VISIBLE
-
-                } else {
-                    val searchRequest = SearchRequest("$newText")
-                    searchPresenter.searchKanji(searchRequest)
-                    recyclerViewSearch.visibility = View.VISIBLE
-                    searchImage.visibility = View.INVISIBLE
-                    tvSearching.visibility = View.INVISIBLE
                 }
-
                 return false
             }
 
@@ -80,6 +75,9 @@ class SearchActivity : BaseActivity(), SearchContract.View {
     }
 
     private fun configViews() {
+        //Found
+        searchImage.visibility = View.VISIBLE
+        tvSearching.visibility = View.VISIBLE
         //set home selected
         bottomNavBar.selectedItemId = R.id.search
 
