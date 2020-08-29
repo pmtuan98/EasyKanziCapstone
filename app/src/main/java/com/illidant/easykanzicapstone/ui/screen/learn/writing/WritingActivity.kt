@@ -218,9 +218,9 @@ class WritingActivity : BaseActivity(), WritingContract.View {
 
     override fun onSuccess(vocabularyList: List<Vocabulary>) {
         //Slice list to test
-        this.vocabularyList.addAll(vocabularyList.take(8))
-        tvTotalQuestion.text = vocabularyList.take(8).size.toString()
-        progressBarWriting.max = vocabularyList.take(8).size
+        this.vocabularyList.addAll(vocabularyList)
+        tvTotalQuestion.text = vocabularyList.size.toString()
+        progressBarWriting.max = vocabularyList.size
         showQuestion(vocabularyList.first())
     }
 
