@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/ptsans_bold"
-            android:text="TEST HISTORY"
+            android:text="Test history"
             android:textColor="@android:color/white"
             android:textSize="24dp" />
 
