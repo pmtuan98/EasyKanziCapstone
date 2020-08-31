@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="Show Answer"
+        app:title="SHOW ANSWER"
         app:titleMarginStart="55dp">
 
     </androidx.appcompat.widget.Toolbar>
