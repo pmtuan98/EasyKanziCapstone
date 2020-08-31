@@ -57,8 +57,10 @@ class ResultTestActivity : BaseActivity() {
                 tvResultBottom.text = "Very good!!"
             }
             else -> {
+                resultProgressbar.progressDrawable =
+                    ContextCompat.getDrawable(this, R.drawable.custom_progressbar_high)
                 tvResultAbove.text = "Congratulations! You've reached the highest score"
-                tvResultBottom.text = "Excellent"
+                tvResultBottom.text = "Excellent!!"
             }
         }
     }

@@ -69,7 +69,7 @@ class KanjiByLessonActivity : BaseActivity(), KanjiContract.View, LearnContract.
         btnLearn.setOnClickListener {
             if(mutualListVocab.isEmpty()){
                 val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-                errDialog.contentText = "No data."
+                errDialog.contentText = "No vocabulary data"
                 errDialog.show()
             }else {
                 val intent = Intent(it.context, LearnActivity::class.java)

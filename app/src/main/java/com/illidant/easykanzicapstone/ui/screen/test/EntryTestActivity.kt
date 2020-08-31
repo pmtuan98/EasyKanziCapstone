@@ -45,7 +45,7 @@ class EntryTestActivity : BaseActivity(), QuizContract.View {
         btnStart.setOnClickListener {
             if(mutualListQuiz.isEmpty()){
                 val errDialog = SweetAlertDialog(this, SweetAlertDialog.ERROR_TYPE)
-                errDialog.contentText = "No data. Can't take the test"
+                errDialog.contentText = "No quiz data. Can't take the test"
                 errDialog.show()
             }else {
                 val intent = Intent(it.context, TestActivity::class.java)
