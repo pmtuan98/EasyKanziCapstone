@@ -18,6 +18,7 @@ class LearnActivity : BaseActivity(), LearnContract.View {
 
     private var lessonId: Int = 0
     private var lessonName: String = ""
+    
     private val presenter by lazy {
         val retrofit = RetrofitService.getInstance(application).getService()
         val remote = VocabularyRemoteDataSource(retrofit)

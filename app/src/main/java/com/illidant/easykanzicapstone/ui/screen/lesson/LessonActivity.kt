@@ -53,13 +53,12 @@ class LessonActivity : BaseActivity(), LessonContract.View {
     }
 
     override fun getLesson(listLesson: List<Lesson>) {
-        if(listLesson.isEmpty()){
-            Toast.makeText(this,"Lesson is empty", Toast.LENGTH_LONG)
+        if(listLesson.size == 0){
+            tvChooseLesson.text = "Lesson is emty"
+        }else {
+            tvChooseLesson.text = "Choose lesson to learn"
         }
         recyclerViewLesson!!.layoutManager = GridLayoutManager(this, 1)
         recyclerViewLesson!!.adapter = LessonAdapter(listLesson, this)
-        recyclerViewLesson.layoutManager = object : LinearLayoutManager(this) { //prevent scroll
-            override fun canScrollVertically(): Boolean = false
-        }
     }
 }

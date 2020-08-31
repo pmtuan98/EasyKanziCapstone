@@ -22,7 +22,7 @@
         android:id="@+id/toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="@font/roboto_bold"
         android:text="Top 10 Ranking"
         android:textColor="@android:color/black"

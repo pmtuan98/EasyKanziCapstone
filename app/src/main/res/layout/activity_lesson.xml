@@ -53,14 +53,13 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/tvChooseLesson"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:background="@color/white"
         android:fontFamily="@font/roboto_bold"
         android:gravity="center"
-        android:text="Choose lesson to learn "
         android:textColor="@color/black"
         android:textSize="@dimen/sp_24"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,6 +74,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/tvChooseLesson"
         app:layout_constraintVertical_bias="0.63" />
 </androidx.constraintlayout.widget.ConstraintLayout>
