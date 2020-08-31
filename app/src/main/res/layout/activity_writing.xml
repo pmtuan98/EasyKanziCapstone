@@ -74,7 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:max="100"
-        android:progressDrawable="@drawable/custom_progress_bar_flashcard"
+        android:progressDrawable="@drawable/custom_progress_bar_writing"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/linearlayout" />
