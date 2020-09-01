@@ -105,7 +105,7 @@
         android:elevation="10dp"
         android:iconifiedByDefault="false"
         android:queryBackground="@null"
-        android:queryHint="日本, nihon, Nhật Bản"
+        android:queryHint="日本, Nhật Bản, Hiragana, Katakana"
         app:layout_constraintBottom_toTopOf="@+id/recyclerViewSearch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

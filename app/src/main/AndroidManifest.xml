@@ -13,38 +13,60 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.screen.lesson.LessonActivity"></activity>
-        <activity android:name=".ui.screen.test.show_answer.AnswerTestActivity" />
-        <activity android:name=".ui.screen.test.ResultTestActivity" />
-        <activity android:name=".ui.screen.learn.flashcard.KanjiFlashcardActivity" />
-        <activity android:name=".ui.screen.profile.test_history.TestHistoryActivity" />
-        <activity android:name=".ui.screen.test.TestActivity" />
-        <activity android:name=".ui.screen.test.EntryTestActivity" />
-        <activity android:name=".ui.screen.learn.multiple_choice.MultipleChoiceActivity" />
+        <activity android:name=".ui.screen.lesson.LessonActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.test.show_answer.AnswerTestActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.test.ResultTestActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.learn.flashcard.KanjiFlashcardActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.profile.test_history.TestHistoryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.test.TestActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.test.EntryTestActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.learn.multiple_choice.MultipleChoiceActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.screen.learn.writing.WritingActivity"
-            android:windowSoftInputMode="adjustResize" />
-        <activity android:name=".ui.screen.learn.flashcard.FlashcardActivity" />
-        <activity android:name=".ui.screen.learn.LearnActivity" />
-        <activity android:name=".ui.screen.kanji.KanjiDetailActivity" />
-        <activity android:name=".ui.screen.lesson.KanjiByLessonActivity" />
+            android:windowSoftInputMode="adjustResize"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.learn.flashcard.FlashcardActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.learn.LearnActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.kanji.KanjiDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.lesson.KanjiByLessonActivity"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.screen.search.SearchActivity"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".ui.screen.ranking.RankingActivity" />
-        <activity android:name=".ui.screen.profile.ProfileActivity" />
-        <activity android:name=".OnBoardingActivity" />
-        <activity android:name=".ui.screen.home.HomeActivity" />
-        <activity android:name=".MainActivity">
+            android:windowSoftInputMode="adjustPan"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.ranking.RankingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.profile.ProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".OnBoardingActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.home.HomeActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.screen.entry.EntryActivity" />
-        <activity android:name=".ui.screen.signin.SigninActivity" />
-        <activity android:name=".ui.screen.signup.SignupActivity" /> <!-- The below code is for android OS version below N -->
+        <activity android:name=".ui.screen.entry.EntryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.signin.SigninActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.screen.signup.SignupActivity"
+            android:screenOrientation="portrait"/> <!-- The below code is for android OS version below N -->
         <receiver
             android:name=".ConnectivityReceiver"
             android:enabled="true">

@@ -30,7 +30,7 @@ class HomeAdapter : RecyclerView.Adapter<HomeAdapter.HomePageView> {
     }
 
     override fun onBindViewHolder(homePageView: HomePageView, position: Int) {
-        val level: String = levelList!!.get(position)?.name
+        val level: String = levelList!!.get(position)?.name.trim()
         homePageView.tvLevelName.text = levelList?.get(position)?.name
         homePageView.tvLevelDes.text = levelList?.get(position)?.description
         //Set image for each level
