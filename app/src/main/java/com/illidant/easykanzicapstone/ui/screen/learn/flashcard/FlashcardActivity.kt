@@ -130,7 +130,7 @@ class FlashcardActivity : BaseActivity(), LearnContract.View {
     }
 
     override fun getVocabByLessonID(listVocab: List<Vocabulary>) {
-        vocabularyList.addAll(listVocab.shuffled())
+        vocabularyList.addAll(listVocab)
 
         //First appearance
         flashcardKanji.text = vocabularyList[counter].kanji_vocab
