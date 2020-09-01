@@ -107,7 +107,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"
                     android:text="10m 0s"
-                    android:textColor="#FF9800"
+                    android:textColor="#000"
                     android:textSize="18sp"
                     android:layout_weight="1"
                     android:textStyle="bold" />
@@ -118,7 +118,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/roboto_regular"
                     android:text="30 questions"
-                    android:textColor="#FF9800"
+                    android:textColor="#000"
                     android:textSize="18sp"
                     android:layout_weight="0"
                     android:textStyle="bold" />

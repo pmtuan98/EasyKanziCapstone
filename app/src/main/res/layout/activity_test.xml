@@ -96,7 +96,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:max="100"
-        android:progressDrawable="@drawable/custom_progress_bar_flashcard"
+        android:progressDrawable="@drawable/custom_progressbar_test"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtTimeTest" />
@@ -122,7 +122,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:text="Answer"
-        android:textColor="#C3092D"
+        android:textColor="#C0392D"
         android:textSize="24dp"
         android:fontFamily="@font/circularstdbook"
         style="@style/Hyperlink"
@@ -135,31 +135,30 @@
         android:id="@+id/btnAnswerA"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/bg_test_answer2"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/bg_test_answer"
         android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/answer_text">
 
-        <TextView
-            android:id="@+id/stt_1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:fontFamily="@font/circularstdbold"
-            android:gravity="center"
-            android:text="1."
-            android:textColor="@color/color_text_primary"
-            android:textSize="22sp" />
+    <TextView
+        android:id="@+id/stt_1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="1."
+        android:textColor="@color/color_text_primary"
+        android:textSize="22sp"
+        android:fontFamily="@font/circularstdbold" />
 
-        <TextView
-            android:id="@+id/tvAnswerA"
-            android:layout_width="275dp"
-            android:layout_height="55dp"
-            android:gravity="center_vertical"
-            android:textColor="@color/color_text_primary"
-            android:textSize="22sp" />
+    <TextView
+        android:id="@+id/tvAnswerA"
+        android:layout_height="55dp"
+        android:layout_width="260dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/color_text_primary"
+        android:textSize="22sp" />
     </LinearLayout>
 
 
@@ -168,11 +167,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bg_test_answer2"
+        android:background="@drawable/bg_test_answer"
         android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintTop_toBottomOf="@+id/btnAnswerA">
 
     <TextView
@@ -183,11 +181,12 @@
         android:text="2."
         android:textColor="@color/color_text_primary"
         android:textSize="22sp"
+
         android:fontFamily="@font/circularstdbold" />
 
     <TextView
         android:id="@+id/tvAnswerB"
-        android:layout_width="275dp"
+        android:layout_width="260dp"
         android:layout_height="55dp"
         android:textColor="@color/color_text_primary"
         android:textSize="22sp"
@@ -200,11 +199,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bg_test_answer2"
+        android:background="@drawable/bg_test_answer"
         android:gravity="center_horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintTop_toBottomOf="@+id/btnAnswerB">
 
     <TextView
@@ -220,7 +218,7 @@
 
     <TextView
         android:id="@+id/tvAnswerC"
-        android:layout_width="275dp"
+        android:layout_width="260dp"
         android:layout_height="55dp"
         android:textColor="@color/color_text_primary"
         android:textSize="22sp"
@@ -234,10 +232,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center_horizontal"
-        android:background="@drawable/bg_test_answer2"
+        android:background="@drawable/bg_test_answer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_bias="0.35"
         app:layout_constraintTop_toBottomOf="@+id/btnAnswerC">
 
     <TextView
@@ -252,66 +249,13 @@
 
     <TextView
         android:id="@+id/tvAnswerD"
-        android:layout_width="275dp"
+        android:layout_width="260dp"
         android:layout_height="55dp"
         android:gravity="center_vertical"
         android:textColor="@color/color_text_primary"
         android:textSize="22sp" />
     </LinearLayout>
 
-<!--    <LinearLayout-->
-<!--        android:id="@+id/linearlayout3"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="70dp"-->
-<!--        android:gravity="center"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent">-->
 
-<!--        <Button-->
-<!--            android:id="@+id/btnAnswerA"-->
-<!--            android:layout_width="45dp"-->
-<!--            android:layout_height="45dp"-->
-<!--            android:background="@drawable/bg_test_answer2"-->
-<!--            android:elevation="10dp"-->
-<!--            android:text="1"-->
-<!--            android:fontFamily="@font/circularstdbook"-->
-<!--            android:textSize="20sp" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btnAnswerB"-->
-<!--            android:layout_width="45dp"-->
-<!--            android:layout_height="45dp"-->
-<!--            android:background="@drawable/bg_test_answer2"-->
-<!--            android:text="2"-->
-<!--            android:elevation="10dp"-->
-<!--            android:fontFamily="@font/circularstdbook"-->
-<!--            android:layout_marginLeft="40dp"-->
-<!--            android:textSize="20sp" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btnAnswerC"-->
-<!--            android:layout_width="45dp"-->
-<!--            android:layout_height="45dp"-->
-<!--            android:background="@drawable/bg_test_answer2"-->
-<!--            android:text="3"-->
-<!--            android:elevation="10dp"-->
-<!--            android:fontFamily="@font/circularstdbook"-->
-<!--            android:layout_marginLeft="40dp"-->
-<!--            android:textSize="20sp" />-->
-
-<!--        <Button-->
-<!--            android:id="@+id/btnAnswerD"-->
-<!--            android:layout_width="45dp"-->
-<!--            android:layout_height="45dp"-->
-<!--            android:background="@drawable/bg_test_answer2"-->
-<!--            android:text="4"-->
-<!--            android:elevation="10dp"-->
-<!--            android:fontFamily="@font/circularstdbook"-->
-<!--            android:layout_marginLeft="40dp"-->
-<!--            android:textSize="20sp" />-->
-
-
-<!--    </LinearLayout>-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

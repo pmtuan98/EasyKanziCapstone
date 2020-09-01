@@ -88,11 +88,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_margin="5dp"
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="@dimen/dp_80"
-                    android:layout_height="@dimen/dp_80"
+                    android:layout_width="60dp"
+                    android:layout_height="70dp"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_learn_writting" />
 
@@ -101,6 +102,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:fontFamily="@font/roboto_regular"
+                    android:layout_margin="5dp"
                     android:text="Writing"
                     android:textColor="#2d2d2d"
                     android:textSize="@dimen/sp_18" />
@@ -121,7 +123,7 @@
                 android:orientation="vertical">
 
                 <ImageView
-                    android:layout_width="60dp"
+                    android:layout_width="70dp"
                     android:layout_height="60dp"
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/dp_5"
