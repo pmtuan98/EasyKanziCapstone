@@ -108,7 +108,7 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:textColor="@color/color_text_primary"
-        android:textSize="@dimen/sp_30"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
