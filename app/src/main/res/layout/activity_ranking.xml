@@ -222,7 +222,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="#73854a"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvTimeTop2"
@@ -231,7 +231,7 @@
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="#f57840"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -273,7 +273,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="#73854a"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tvTimeTop3"
@@ -282,7 +282,7 @@
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="#f57840"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </LinearLayout>
 
     </LinearLayout>
@@ -292,6 +292,7 @@
         android:id="@+id/recyclerViewRanking"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
