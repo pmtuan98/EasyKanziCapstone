@@ -125,20 +125,28 @@ class TestActivity : BaseActivity(), QuizContract.View, TestContract.View {
         correctAnswer = listRandomQuiz[currentPosition].correctAnswer
         quizResultList.add(ResultQuiz(listRandomQuiz[currentPosition], ""))
     }
-
-    private fun checkCorrectAnswer() {
-        val listener = View.OnClickListener {
-            val text = (it as TextView).text.toString()
-            quizResultList[currentPosition].selectedAnswer = text
-            if (text == correctAnswer) {
-                countCorrectAnswer++
-            }
-            nextQuestion()
+    private fun checkAnswer(answerTextView : TextView) {
+        val text = answerTextView.text.toString()
+        quizResultList[currentPosition].selectedAnswer = text
+        if (text == correctAnswer) {
+            countCorrectAnswer++
         }
-        tvAnswerA.setOnClickListener(listener)
-        tvAnswerB.setOnClickListener(listener)
-        tvAnswerC.setOnClickListener(listener)
-        tvAnswerD.setOnClickListener(listener)
+        nextQuestion()
+    }
+    private fun checkCorrectAnswer() {
+
+        btnAnswerA.setOnClickListener {
+            checkAnswer(tvAnswerA)
+        }
+        btnAnswerB.setOnClickListener {
+            checkAnswer(tvAnswerB)
+        }
+        btnAnswerC.setOnClickListener {
+            checkAnswer(tvAnswerC)
+        }
+        btnAnswerD.setOnClickListener {
+            checkAnswer(tvAnswerD)
+        }
     }
 
     private fun nextQuestion() {
