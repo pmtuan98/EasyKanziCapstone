@@ -30,7 +30,6 @@ class ResetPassPresenter(
                 response.errorBody()?.let {
                     val jObjError = JSONObject(response.errorBody()!!.string())
                     view.onResetPassFail(jObjError.getString("message"))
-                    Log.d("RESETPASS", response.errorBody().toString())
                 }
             }
         })

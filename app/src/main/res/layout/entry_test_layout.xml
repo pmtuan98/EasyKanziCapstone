@@ -77,7 +77,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:fontFamily="@font/roboto_bold"
-                    android:text="JPD111"
                     android:textColor="#000000"
                     android:textSize="18sp"
                     android:textStyle="bold" />

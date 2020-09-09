@@ -30,7 +30,6 @@
             android:layout_toEndOf="@+id/image_homepage"
             android:layout_toRightOf="@+id/image_homepage"
             android:fontFamily="@font/roboto_bold"
-            android:text="JPD111"
             android:textColor="#000000"
             android:textSize="22dp" />
 
@@ -44,7 +43,6 @@
             android:layout_toEndOf="@+id/image_homepage"
             android:layout_toRightOf="@+id/image_homepage"
             android:fontFamily="@font/roboto_regular"
-            android:text="This is a description about JPD"
             android:textColor="#69696C"
             android:textSize="16dp" />
 

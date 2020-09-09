@@ -97,7 +97,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="388dp"
-        android:text="Kanji is Empty"
+        android:text="No Kanji data"
         android:textColor="@color/black"
         android:textSize="30dp"
         android:visibility="invisible"

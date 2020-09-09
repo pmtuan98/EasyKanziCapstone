@@ -15,7 +15,6 @@
         android:layout_width="105dp"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="本"
         android:textColor="#000000"
         android:textSize="@dimen/sp_20"
         android:textStyle="bold"
@@ -27,7 +26,6 @@
         android:layout_width="105dp"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="にほん"
         android:textColor="#03A9F4"
         android:textSize="@dimen/sp_20"
         app:layout_constraintStart_toEndOf="@+id/tvKanji"
@@ -40,7 +38,6 @@
         android:layout_height="match_parent"
         android:fontFamily="@font/circularstdbook"
         android:gravity="center"
-        android:text="Nhật Bản"
         android:textSize="@dimen/sp_18"
         app:layout_constraintStart_toEndOf="@+id/tvHira"
         app:layout_constraintTop_toTopOf="parent" />

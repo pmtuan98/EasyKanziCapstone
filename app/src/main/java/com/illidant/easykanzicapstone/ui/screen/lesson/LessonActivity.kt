@@ -54,7 +54,7 @@ class LessonActivity : BaseActivity(), LessonContract.View {
 
     override fun getLesson(listLesson: List<Lesson>) {
         if(listLesson.size == 0){
-            tvChooseLesson.text = "Lesson is emty"
+            tvChooseLesson.text = "No lesson to learn"
         }else {
             tvChooseLesson.text = "Choose lesson to learn"
         }

@@ -31,7 +31,6 @@
             android:layout_marginLeft="40dp"
             android:layout_toRightOf="@+id/image_homepage"
             android:fontFamily="@font/roboto_bold"
-            android:text="Lesson 1"
             android:textColor="#000000"
             android:textSize="22dp" />
 
